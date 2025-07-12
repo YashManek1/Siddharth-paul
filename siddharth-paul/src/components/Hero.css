@@ -1,109 +1,193 @@
 .hero-section {
-  position: relative; /* Needed for positioning decorative elements */
+  position: relative;
   text-align: center;
-  padding: 40px 20px;
-  background-color: #f8f8ff; /* A very light lavender background */
-  overflow: hidden; /* Prevents decorative elements from spilling out */
+  padding: 0px 20px 20px 20px; /* Remove top padding */
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f0e6ff 30%,
+    #e1ccff 60%,
+    #d4b3ff 100%
+  );
+  overflow: hidden;
+  height: calc(100vh - 79px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2; /* Ensures content is above background images */
+  z-index: 2;
   max-width: 900px;
   margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.main-title,
+.sub-title {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.2px;
+  margin: 0;
 }
 
 .main-title {
-  color: #8A2BE2; /* Purple color */
+  color: #9d00ff;
   font-size: 28px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
+}
+
+.main-title .text-black {
+  color: #000;
 }
 
 .sub-title {
   color: #000;
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 10px;
+  font-size: 26px;
+}
+
+.sub-title .text-purple {
+  color: #9d00ff;
 }
 
 .features-list {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 30px;
   font-weight: 500;
+  font-size: 12px;
 }
 
-.features-list span, .benefits-list span {
+.features-list span,
+.benefits-list span {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.features-list img, .benefits-list img {
-  height: 20px;
+.features-list img,
+.benefits-list img {
+  height: 16px;
 }
 
 .video-container {
-  margin: 30px auto;
+  margin: 20px auto;
   width: 100%;
-  max-width: 700px; /* Adjust width as needed */
-  aspect-ratio: 16 / 9; /* For a responsive 16:9 video player */
+  max-width: 500px;
+  aspect-ratio: 16 / 9;
   background-color: #000;
-  border: 4px solid #333;
+  border: 3px solid #333;
   border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .video-container iframe {
   width: 100%;
   height: 100%;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 .benefits-list {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 35px;
   margin: 20px 0;
-  font-weight: 600;
+  font-size: 11px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.benefit-item-expert {
+  font-size: 13px;
+}
+.benefit-item-expert img {
+  height: 18px !important;
+}
+
+.benefits-list span:nth-child(2) img {
+  height: 12px;
 }
 
 .access-now-btn {
   display: inline-block;
-  background: linear-gradient(to right, #8A2BE2, #4B0082); /* Purple gradient */
+  background: linear-gradient(to right, #8a2be2, #4b0082);
   color: #fff;
-  padding: 15px 50px;
-  border-radius: 50px;
+  padding: 12px 40px;
+  border-radius: 25px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 15px;
   transition: transform 0.2s ease;
-  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.5);
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  /* Remove width constraint */
+  align-self: center;
 }
 
 .access-now-btn:hover {
   transform: scale(1.05);
 }
 
-/* Decorative Elements */
-.background-wave {
+/* --- Decorative Elements --- */
+.background-wave-left {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120%; /* Make it wider than the container */
-  max-width: 1400px;
+  left: 10%;
+  width: 50%;
+  max-width: 600px;
   z-index: 1;
-  opacity: 0.9;
+  pointer-events: none;
+}
+
+.background-wave-right {
+  position: absolute;
+  bottom: 22%;
+  right: 0;
+  width: 50%;
+  max-width: 600px;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .rocket-icon {
   position: absolute;
-  bottom: 40%; /* Adjust vertical position */
-  right: 20%;  /* Adjust horizontal position */
-  width: 80px;  /* Adjust size */
+  top: 30%;
+  right: 25%; /* Move more to the left */
+  width: 120px; /* Increase significantly from 100px to 120px */
+  height: auto; /* Maintain aspect ratio */
   z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-height: 800px) {
+  .hero-section {
+    padding: 0px 15px 15px 15px; /* Remove top padding here too */
+  }
+
+  .main-title {
+    font-size: 24px;
+  }
+
+  .sub-title {
+    font-size: 22px;
+  }
+
+  .video-container {
+    max-width: 450px;
+  }
+
+  .rocket-icon {
+    width: 150px; /* Larger responsive size too */
+    height: auto;
+    top: 28%;
+    right: 29%;
+    z-index: 1%; /* Adjust responsive position */
+  }
 }
