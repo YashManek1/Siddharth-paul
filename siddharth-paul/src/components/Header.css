@@ -1,0 +1,29 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background-color: #fff; /* Or your specific background color */
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.logo-container .logo {
+  height: 50px; /* Adjust as needed */
+}
+
+.navbar {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.navbar a:hover {
+  color: #8A2BE2; /* A purple color for hover */
+}
