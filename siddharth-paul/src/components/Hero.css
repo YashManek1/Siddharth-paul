@@ -5,9 +5,10 @@
   background: linear-gradient(
     180deg,
     #ffffff 0%,
-    #f0e6ff 30%,
-    #e1ccff 60%,
-    #d4b3ff 100%
+    #f8f4ff 25%,
+    #f0e6ff 50%,
+    #e8d8ff 75%,
+    #e1ccff 100%
   );
   overflow: hidden;
   height: calc(100vh - 79px);
@@ -33,13 +34,15 @@
 .sub-title {
   font-family: "Anton", sans-serif;
   font-weight: 400;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.5px;
   margin: 0;
 }
 
 .main-title {
   color: #9d00ff;
   font-size: 28px;
+  padding-top: 20px;
+  word-spacing: 4px; /* Added word spacing */
 }
 
 .main-title .text-black {
@@ -49,6 +52,7 @@
 .sub-title {
   color: #000;
   font-size: 26px;
+  word-spacing: 4px; /* Added word spacing */
 }
 
 .sub-title .text-purple {
@@ -76,9 +80,9 @@
 }
 
 .video-container {
-  margin: 20px auto;
+  margin: 10px auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px; /* Increased from 500px to 600px */
   aspect-ratio: 16 / 9;
   background-color: #000;
   border: 3px solid #333;
@@ -96,7 +100,6 @@
   display: flex;
   justify-content: center;
   gap: 35px;
-  margin: 20px 0;
   font-size: 11px;
   font-family: "Inter", sans-serif;
   font-weight: 700;
@@ -139,36 +142,49 @@
 .background-wave-left {
   position: absolute;
   bottom: 0;
-  left: 10%;
-  width: 50%;
-  max-width: 600px;
+  left: 0;
+  width: 45%; /* Reduced back to smaller size */
+  max-width: 500px; /* Reduced max-width */
   z-index: 1;
   pointer-events: none;
 }
 
 .background-wave-right {
   position: absolute;
-  bottom: 22%;
+  bottom: 15%; /* Adjusted positioning */
   right: 0;
-  width: 50%;
-  max-width: 600px;
+  width: 45%; /* Adjusted size */
+  max-width: 550px; /* Slightly increased for balance */
   z-index: 1;
   pointer-events: none;
 }
 
 .rocket-icon {
   position: absolute;
-  top: 30%;
-  right: 25%; /* Move more to the left */
-  width: 120px; /* Increase significantly from 100px to 120px */
-  height: auto; /* Maintain aspect ratio */
+  top: 20%; /* Add top positioning - higher than current */
+  right: 22%; /* Keep existing right position */
+  width: 200px; /* Keep existing size */
+  height: auto;
   z-index: 1;
 }
 
 /* Responsive adjustments */
-@media (max-height: 800px) {
+@media (max-width: 1200px) {
+  .rocket-icon {
+    width: 90px;
+    top: 25%; /* Adjust for medium screens */
+    right: 20%;
+  }
+
+  .background-wave-right {
+    width: 50%;
+    bottom: 12%;
+  }
+}
+
+@media (max-width: 768px) {
   .hero-section {
-    padding: 0px 15px 15px 15px; /* Remove top padding here too */
+    padding: 0px 15px 15px 15px;
   }
 
   .main-title {
@@ -180,14 +196,58 @@
   }
 
   .video-container {
-    max-width: 450px;
+    max-width: 500px; /* Smaller on mobile but still bigger than original */
   }
 
   .rocket-icon {
-    width: 150px; /* Larger responsive size too */
-    height: auto;
-    top: 28%;
-    right: 29%;
-    z-index: 1%; /* Adjust responsive position */
+    width: 80px;
+    top: 23%; /* Adjust for mobile */
+    right: 18%;
+  }
+
+  .background-wave-left {
+    width: 50%;
+  }
+
+  .background-wave-right {
+    width: 55%;
+    bottom: 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-container {
+    max-width: 400px;
+  }
+
+  .rocket-icon {
+    width: 70px;
+    top: 21%; /* Adjust for small mobile */
+    right: 15%;
+  }
+
+  .background-wave-left {
+    width: 55%;
+  }
+
+  .background-wave-right {
+    width: 60%;
+    bottom: 8%;
+  }
+
+  .features-list {
+    gap: 20px;
+    font-size: 11px;
+  }
+
+  .benefits-list {
+    gap: 25px;
+    font-size: 10px;
+  }
+}
+
+@media (max-height: 800px) {
+  .rocket-icon {
+    top: 25%; /* Adjust for shorter screens */
   }
 }

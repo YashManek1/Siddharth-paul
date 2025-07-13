@@ -65,32 +65,58 @@
 .navbar a:hover {
   color: #8a2be2;
 }
-
 .bottom-bar-gradient {
-  height: 1px;
+  height: 2px;
   width: 100%;
-  background: #8a2be2;
+  background: linear-gradient(
+    90deg,
+    rgba(138, 43, 226, 0.4) 0%,
+    rgba(138, 43, 226, 0.8) 25%,
+    rgba(138, 43, 226, 1) 50%,
+    rgba(138, 43, 226, 0.8) 75%,
+    rgba(138, 43, 226, 0.4) 100%
+  );
   position: relative;
+  margin-top: -2px;
+  z-index: 1;
   border-radius: 50%;
-  margin-top: -2px; /* Reduced from -4px to bring it closer */
-  transform: scaleY(6) scaleX(1);
+  transform: scaleY(1.2);
 }
 
 .bottom-bar-gradient::before {
   content: "";
   position: absolute;
-  top: -2px;
+  top: -4px;
   left: 0;
-  right: 0;
-  height: 5px;
+  width: 100%;
+  height: 4px;
   background: linear-gradient(
     90deg,
-    rgba(138, 43, 226, 0.05) 0%,
-    rgba(138, 43, 226, 0.15) 25%,
-    rgba(138, 43, 226, 0.4) 50%,
-    rgba(138, 43, 226, 0.15) 75%,
-    rgba(138, 43, 226, 0.05) 100%
+    rgba(138, 43, 226, 0.01) 0%,
+    rgba(138, 43, 226, 0.1) 25%,
+    rgba(138, 43, 226, 0.3) 50%,
+    rgba(138, 43, 226, 0.1) 75%,
+    rgba(138, 43, 226, 0.01) 100%
   );
   filter: blur(2px);
-  z-index: -1;
+  z-index: 0;
+}
+
+.bottom-bar-gradient::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    rgba(138, 43, 226, 0.01) 0%,
+    rgba(138, 43, 226, 0.1) 25%,
+    rgba(138, 43, 226, 0.3) 50%,
+    rgba(138, 43, 226, 0.1) 75%,
+    rgba(138, 43, 226, 0.01) 100%
+  );
+  filter: blur(2px);
+  z-index: 0;
 }
