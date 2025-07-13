@@ -1,13 +1,23 @@
-import React from 'react';
-import './App.css';
-import Header from './components/Header';
-import Hero from './components/Hero';
+import React from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import LetterSection from "./components/LetterSection";
+import ProgramsGrid from "./components/ProgramsGrid";
+import "./components/Hero.css";
+import "./components/LetterSection.css";
+import "./components/accomplishments";
+import AccomplishmentSection from "./components/accomplishments";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ position: "relative" }}>
       <Header />
       <Hero />
+      {/* Place the gradient here, NOT inside <Hero /> */}
+      <div className="hero-gradient-extend"></div>
+      <ProgramsGrid />
+      <LetterSection />
+      <AccomplishmentSection/>
     </div>
   );
 }
