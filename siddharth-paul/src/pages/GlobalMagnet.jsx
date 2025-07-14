@@ -12,6 +12,10 @@ import backgroundWave from "../assets/background-wave.svg";
 import backgroundWave2 from "../assets/background-wave-2-new.svg";
 import Stats from '../components/globalMagnet/Stats';
 import Details from '../components/globalMagnet/Details';
+import ObjectiveSection from '../components/globalMagnet/ObjectiveSection';
+import AccessSection from '../components/globalMagnet/AccessSection';
+import WhoThisIsForSection from '../components/globalMagnet/WhoIsThisFor';
+import FAQSection from '../components/globalMagnet/FAQSection';
 
 
 const GlobalMagnet = () => {
@@ -78,6 +82,10 @@ const GlobalMagnet = () => {
              </main>
              <Stats/>
              <Details/>
+             <ObjectiveSection/>
+             <AccessSection/>
+             <WhoThisIsForSection/>
+             <FAQSection/>
              </div>
   )
 }
