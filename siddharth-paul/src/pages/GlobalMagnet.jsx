@@ -10,7 +10,9 @@ import refundIcon from "../assets/refund-icon.svg";
 import rocketIcon from "../assets/rocket-icon.svg";
 import backgroundWave from "../assets/background-wave.svg";
 import backgroundWave2 from "../assets/background-wave-2-new.svg";
-import Stats from '../components/Stats';
+import Stats from '../components/globalMagnet/Stats';
+import Details from '../components/globalMagnet/Details';
+
 
 const GlobalMagnet = () => {
     const videoId = "dQw4w9WgXcQ";
@@ -75,6 +77,7 @@ const GlobalMagnet = () => {
                <img src={rocketIcon} alt="rocket icon" className="rocket-icon" />
              </main>
              <Stats/>
+             <Details/>
              </div>
   )
 }
