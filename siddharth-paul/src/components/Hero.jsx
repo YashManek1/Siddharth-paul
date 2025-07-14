@@ -16,7 +16,7 @@ const Hero = () => {
   return (
     <main className="hero-section">
       <div className="hero-content">
-        <h1 className="main-title">
+        <h1 className="hero-main-title">
           STUDENTS, AGENCY OWNERS <span className="text-black">AND</span>{" "}
           FREELANCERS
         </h1>

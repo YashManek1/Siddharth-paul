@@ -65,7 +65,7 @@
   height: 100%;
 }
 
-.main-title {
+.hero-main-title {
   color: #9d00ff;
   font-size: 2rem;
   font-family: "Anton", sans-serif;
@@ -76,7 +76,7 @@
   word-spacing: 4px;
 }
 
-.main-title .text-black {
+.hero-main-title .text-black {
   color: #000;
 }
 
@@ -214,7 +214,7 @@
     width: 150px;
   }
 
-  .main-title {
+  .hero-main-title {
     font-size: 2.1rem;
   }
 
@@ -255,7 +255,7 @@
     width: 130px;
   }
 
-  .main-title {
+  .hero-main-title {
     font-size: 1.8rem;
   }
 
