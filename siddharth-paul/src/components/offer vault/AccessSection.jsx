@@ -1,5 +1,8 @@
 import React from 'react';
 import '../Component_Styles/AccessSection.css';
+import img1 from '../../assets/accessimg1.svg';
+import img2 from '../../assets/accessimg2.svg';
+import img3 from '../../assets/accessimg3.svg';
 
 const AccessSection = () => {
   return (
@@ -14,7 +17,7 @@ const AccessSection = () => {
               You'll unlock a personalized dashboard with step-by-step video lessons covering offer architecture, messaging psychology, value stacking, urgency creation, and more — everything you need to craft irresistible pitches from scratch.
             </p>
             <div className="access-card-image">
-              <img src="" alt="Video modules dashboard" />
+              <img src={img1} alt="Video modules dashboard" />
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
@@ -28,7 +31,7 @@ const AccessSection = () => {
               The ultimate step-by-step blueprint which includes psychological frameworks, real examples, and practical prompts to make your pitch a no-brainer.
             </p>
             <div className="access-card-image">
-              <img src="" alt="PDF playbook guide" />
+              <img src={img2} alt="PDF playbook guide" />
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
@@ -41,8 +44,13 @@ const AccessSection = () => {
             <p className="access-card-description">
               Use these powerful checklists to ensure every element — value, bonuses, guarantees, urgency
             </p>
-            <div className="access-card-image">
-              <img src="" alt="Checklists" />
+            <div className="access-card-image checklist-icon">
+              <div className="purple-tick-icon">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="40" fill="#9d00ff"/>
+                  <path d="M26 40l12 12 16-20" stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
@@ -56,7 +64,7 @@ const AccessSection = () => {
               Join a private community of elite closers and entrepreneurs. Get direct feedback, share wins, attend live breakdown workshops, and stay accountable while leveling up fast.
             </p>
             <div className="access-card-image">
-              <img src="" alt="Community members" />
+              <img src={img3} alt="Community members" />
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>

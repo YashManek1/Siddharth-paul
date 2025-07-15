@@ -7,6 +7,14 @@ import accomplishment4 from "../assets/accomplishment4.svg";
 import accomplishment6 from "../assets/accomplishment6.svg";
 
 const AccomplishmentSection = () => {
+  const scrollToPrograms = (e) => {
+    e.preventDefault();
+    const programsSection = document.querySelector('.programs-section');
+    if (programsSection) {
+      programsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       {/* Top visuals section: purple to white gradient */}
@@ -63,7 +71,7 @@ const AccomplishmentSection = () => {
                 className="accomplishment-proof-video"
                 poster=""
               />
-              <a href="#" className="accomplishment-access-btn">
+              <a href="#" className="accomplishment-access-btn" onClick={scrollToPrograms}>
                 ACCESS NOW!
               </a>
             </div>

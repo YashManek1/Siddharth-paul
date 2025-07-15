@@ -6,6 +6,13 @@ import img3 from "../../assets/accessimg3.svg";
 
 
 const AccessSection = () => {
+    const scrollToCheckout = (e) => {
+    e.preventDefault();
+    const checkoutSection = document.querySelector('.global-magnet-checkout');
+    if (checkoutSection) {
+      checkoutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section className="access-main-section">
       <div className="access-main-container">
@@ -45,8 +52,13 @@ const AccessSection = () => {
             <p className="access-card-description">
               Done-for-you funnel audit, A/B test, and launch checklists so you don't miss any steps when building or optimizing your funnels.
             </p>
-            <div className="access-card-image">
-              <img src="" alt="Checklists" />
+            <div className="access-card-image checklist-icon">
+              <div className="purple-tick-icon">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="40" fill="#9d00ff"/>
+                  <path d="M26 40l12 12 16-20" stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
@@ -80,7 +92,7 @@ const AccessSection = () => {
                   <span className="access-final-green">1999/-</span>
                 </div>
               </div>
-              <button className="access-final-button">ACCESS NOW!</button>
+              <button className="access-final-button" onClick={scrollToCheckout}>ACCESS NOW!</button>
             </div>
           </div>
         </div>
