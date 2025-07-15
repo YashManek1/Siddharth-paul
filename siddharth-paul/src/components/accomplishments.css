@@ -290,6 +290,59 @@
   }
 }
 
+@media (max-width: 768px) {
+  .accomplishment-section {
+    min-height: auto;
+    padding-bottom: 20px;
+  }
+
+  .accomplishment-title {
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+  }
+
+  .accomplishment-grid {
+    width: 95vw;
+  }
+
+  .accomplishment-row-top {
+    width: 100%;
+  }
+
+  .accomplishment-img-top {
+    aspect-ratio: 2 / 1;
+  }
+
+  .accomplishment-row-bottom {
+    margin-top: 15px;
+    gap: 15px;
+  }
+
+  .accomplishment-proof-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding-left: 15px;
+  }
+
+  .accomplishment-video-box {
+    height: 180px;
+    border-radius: 8px;
+  }
+
+  .accomplishment-access-btn {
+    font-size: 1rem;
+    padding: 8px 18px;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .accomplishment-img-proof {
+    max-width: 300px;
+  }
+}
+
 @media (max-width: 600px) {
   .accomplishment-title {
     font-size: 2.2rem;
@@ -309,5 +362,79 @@
     padding: 7px 10px;
     right: 4px;
     bottom: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .accomplishment-section {
+    padding-bottom: 15px;
+  }
+
+  .accomplishment-title {
+    font-size: 1.6rem;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .accomplishment-grid {
+    width: 98vw;
+  }
+
+  .accomplishment-img-top {
+    aspect-ratio: 1.5 / 1;
+  }
+
+  .accomplishment-row-bottom {
+    margin-top: 12px;
+    gap: 12px;
+  }
+
+  .accomplishment-proof-text {
+    font-size: 0.9rem;
+    padding-left: 10px;
+  }
+
+  .accomplishment-video-box {
+    height: 150px;
+    border-radius: 6px;
+  }
+
+  .accomplishment-access-btn {
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .accomplishment-img-proof {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 320px) {
+  .accomplishment-title {
+    font-size: 1.4rem;
+  }
+
+  .accomplishment-grid {
+    width: 99vw;
+  }
+
+  .accomplishment-proof-text {
+    font-size: 0.85rem;
+    padding-left: 5px;
+  }
+
+  .accomplishment-video-box {
+    height: 120px;
+  }
+
+  .accomplishment-access-btn {
+    font-size: 0.8rem;
+    padding: 5px 12px;
+  }
+
+  .accomplishment-img-proof {
+    max-width: 200px;
   }
 }

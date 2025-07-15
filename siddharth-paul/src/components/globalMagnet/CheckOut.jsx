@@ -73,52 +73,52 @@ const GlobalMagnetCheckout = () => {
 
             <div className="benefits-list">
               <div className="benefit-item">
-                <div className="benefit-icon">💰</div>
+                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
                 <p>How to attract high-ticket international clients ($1,000-$5,000+) without cheap platforms or endless cold DMs.</p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon">🎯</div>
+                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
                 <p>How to position yourself as a global authority so premium clients see you as the obvious choice.</p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon">🔧</div>
+                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
                 <p>How to build a systemized pipeline that brings in qualified leads daily — no more guessing or praying for referrals.</p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon">📊</div>
+                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
                 <p>The exact offer structure and path to close clients consistently on the first call.</p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon">💌</div>
+                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
                 <p>How to create content and messaging that literally builds trust and demand for your services worldwide.</p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon">📈</div>
+                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
                 <p>The mindset shifts needed to move from low-ticket local gigs to consistent $5,000+ retainers with global companies.</p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon">🎭</div>
+                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
                 <p>How to handle objections and turn "maybes" into sales in the process — in one conversation.</p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon">🚀</div>
+                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
                 <p>Proven methods that position you to maximize your revenue and minimize client headaches.</p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon">🎨</div>
+                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
                 <p>How to design a desirable offer so you don't reinvent the wheel for every new client.</p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon">⚡</div>
+                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
                 <p>Systems to deliver premium results without working 24/7 or showing uncertainty.</p>
               </div>
             </div>

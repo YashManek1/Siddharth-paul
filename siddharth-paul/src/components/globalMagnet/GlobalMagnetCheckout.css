@@ -165,10 +165,10 @@
 }
 
 .bonus-item {
-  border: 2px dashed #ffd700;
+  border: 2px dashed black;
   border-radius: 12px;
   padding: 20px;
-  background: #fff8dc;
+  background: #F6FAB0;
   transition: all 0.3s ease;
 }
 
@@ -199,13 +199,13 @@
 
 .bonus-title {
   font-weight: 700;
-  color: #b8860b;
+  color: #00C800;
   font-size: 1rem;
 }
 
 .bonus-description {
   font-size: 0.85rem;
-  color: #8b4513;
+  color:black;
   line-height: 1.4;
 }
 
@@ -364,5 +364,108 @@
   .submit-button {
     padding: 15px 30px;
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .global-magnet-checkout {
+    min-height: auto;
+  }
+
+  .checkout-container {
+    padding: 0 10px;
+  }
+  
+  .checkout-header {
+    padding: 15px 0;
+    margin-bottom: 20px;
+  }
+  
+  .brand-name {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  
+  .checkout-content {
+    gap: 20px;
+  }
+  
+  .left-section,
+  .right-section {
+    padding: 15px;
+    border-radius: 15px;
+  }
+  
+  .offer-header {
+    margin-bottom: 20px;
+  }
+  
+  .offer-title {
+    font-size: 1.1rem;
+  }
+  
+  .benefits-list {
+    gap: 15px;
+  }
+  
+  .benefit-item {
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .benefit-icon {
+    font-size: 1.3rem;
+  }
+  
+  .benefit-item p {
+    font-size: 0.75rem;
+  }
+  
+  .form-title {
+    font-size: 1rem;
+    padding: 12px;
+  }
+  
+  .checkout-form {
+    gap: 15px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .bonus-item {
+    padding: 12px;
+  }
+  
+  .bonus-title {
+    font-size: 0.9rem;
+  }
+  
+  .bonus-description {
+    font-size: 0.8rem;
+  }
+  
+  .price-breakdown {
+    padding: 15px;
+  }
+  
+  .total-section {
+    padding: 12px 15px;
+  }
+  
+  .total-label {
+    font-size: 1rem;
+  }
+  
+  .total-amount {
+    font-size: 1.3rem;
+  }
+  
+  .submit-button {
+    padding: 12px 25px;
+    font-size: 1rem;
   }
 }

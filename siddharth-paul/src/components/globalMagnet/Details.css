@@ -133,3 +133,35 @@
     margin-right: 6px;
   }
 }
+
+@media (max-width: 320px) {
+  .details-section {
+    padding: 30px 0;
+  }
+
+  .details-container {
+    padding: 0 10px;
+  }
+  
+  .details-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  
+  .problems-grid {
+    gap: 20px;
+  }
+  
+  .problem-title {
+    font-size: 1.1rem;
+  }
+  
+  .problem-description {
+    font-size: 0.8rem;
+    margin-left: 25px;
+  }
+  
+  .arrow {
+    margin-right: 5px;
+  }
+}

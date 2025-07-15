@@ -11,4 +11,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Responsive Design for base styles */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 320px) {
+  body {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+}
+
 /* You can remove the old font-family rule from App.css if it exists */

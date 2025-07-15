@@ -193,3 +193,55 @@
     font-size: 1rem;
   }
 }
+
+@media (max-width: 320px) {
+  .faq-main-section {
+    padding: 40px 0;
+  }
+
+  .faq-container {
+    padding: 0 10px;
+  }
+  
+  .faq-header {
+    margin-bottom: 30px;
+  }
+  
+  .faq-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .faq-title {
+    font-size: 1.4rem;
+  }
+  
+  .faq-list {
+    margin-bottom: 20px;
+  }
+  
+  .faq-question {
+    padding: 12px 15px;
+  }
+  
+  .faq-question-text {
+    font-size: 0.9rem;
+  }
+  
+  .faq-toggle {
+    font-size: 1.5rem;
+    margin-left: 15px;
+  }
+  
+  .faq-answer {
+    padding: 0 15px 12px 15px;
+  }
+  
+  .faq-answer-text {
+    font-size: 0.85rem;
+  }
+  
+  .faq-support-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

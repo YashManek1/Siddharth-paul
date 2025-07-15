@@ -1,7 +1,10 @@
 .app-header {
   width: 100%;
   background-color: #fff;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-content {
@@ -136,4 +139,98 @@
   );
   filter: blur(2px);
   z-index: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .header-content {
+    padding: 10px 15px;
+    flex-wrap: wrap;
+  }
+
+  .logo-icon {
+    height: 35px;
+  }
+
+  .logo-text {
+    font-size: 14px;
+  }
+
+  .navbar {
+    gap: 15px;
+    margin-right: 10px;
+  }
+
+  .navbar a {
+    font-size: 12px;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+    padding-top: 15px;
+    letter-spacing: 1px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-content {
+    padding: 8px 10px;
+  }
+
+  .logo-icon {
+    height: 30px;
+    margin-right: -5px;
+  }
+
+  .logo-text {
+    font-size: 12px;
+  }
+
+  .navbar {
+    gap: 10px;
+    margin-right: 5px;
+  }
+
+  .navbar a {
+    font-size: 11px;
+  }
+
+  .navbar a:not(:last-child)::after {
+    right: -6px;
+  }
+
+  .main-title {
+    font-size: 1.2rem;
+    padding-top: 10px;
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header-content {
+    padding: 5px 8px;
+  }
+
+  .logo-icon {
+    height: 25px;
+  }
+
+  .logo-text {
+    font-size: 10px;
+  }
+
+  .navbar {
+    gap: 8px;
+    margin-right: 0;
+  }
+
+  .navbar a {
+    font-size: 10px;
+  }
+
+  .main-title {
+    font-size: 1rem;
+    padding-top: 8px;
+  }
 }

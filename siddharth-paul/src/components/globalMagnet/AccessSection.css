@@ -246,3 +246,67 @@
     font-size: 2.5rem;
   }
 }
+
+@media (max-width: 320px) {
+  .access-main-section {
+    padding: 40px 0;
+  }
+
+  .access-main-container {
+    padding: 0 10px;
+  }
+  
+  .access-main-title {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .access-card {
+    padding: 15px;
+    min-height: 250px;
+  }
+  
+  .access-card-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .access-card-description {
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+  }
+  
+  .access-card-image {
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .access-price-label {
+    font-size: 1rem;
+  }
+  
+  .access-price-value {
+    font-size: 1.5rem;
+  }
+  
+  .access-final-label {
+    font-size: 1rem;
+  }
+  
+  .access-final-crossed {
+    font-size: 1.5rem;
+  }
+  
+  .access-final-label-big {
+    font-size: 1.5rem;
+  }
+  
+  .access-final-green {
+    font-size: 2rem;
+  }
+  
+  .access-final-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}

@@ -23,3 +23,22 @@ body {
 * {
   box-sizing: border-box;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 320px) {
+  .App {
+    font-size: 12px;
+  }
+}
