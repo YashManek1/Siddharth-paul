@@ -16,9 +16,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Action-Takers</h3>
+                  <h3 className="who-this-is-for-item-title">Real Action-Takers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Ready to invest in themselves and scale with premium, global clients.
+                    You're ready to actually pick up the phone (or Zoom) and talk — not just watch videos and feel good.
                   </p>
                 </div>
               </div>
@@ -26,9 +26,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Growth-Focused Entrepreneurs</h3>
+                  <h3 className="who-this-is-for-item-title">Reps Who Want to be Closers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Committed to building predictable high-ticket revenue streams.
+                    You don't just want more calls — you want to close calls that pay you well.
                   </p>
                 </div>
               </div>
@@ -36,9 +36,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Authority Builders</h3>
+                  <h3 className="who-this-is-for-item-title">Chat Ninjas</h3>
                   <p className="who-this-is-for-item-desc">
-                    Serious about positioning themselves as top experts in their niche.
+                    You want to master what to say in DMs & WhatsApp so you book calls on autopilot.
                   </p>
                 </div>
               </div>
@@ -46,9 +46,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Systems-Driven</h3>
+                  <h3 className="who-this-is-for-item-title">People Who Want to Hear "Yes"</h3>
                   <p className="who-this-is-for-item-desc">
-                    Want to leverage proven processes instead of chasing low-ticket gigs.
+                    You're done guessing how to handle objections — you want scripts that work.
                   </p>
                 </div>
               </div>
@@ -56,9 +56,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Global Players</h3>
+                  <h3 className="who-this-is-for-item-title">Roleplay Believers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Eager to attract $1,000-$5,000+ clients across the world.
+                    You know you can't just "wing it" — you want to practice so you never freeze up when money is on the table.
                   </p>
                 </div>
               </div>
@@ -77,9 +77,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Shortcut Seekers</h3>
+                  <h3 className="who-this-is-for-item-title">Script Hoarders</h3>
                   <p className="who-this-is-for-item-desc">
-                    Looking for quick hacks without putting in real effort.
+                    People who download 100 scripts but never use a single one on a real call.
                   </p>
                 </div>
               </div>
@@ -87,9 +87,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Comfort-Zone Lovers</h3>
+                  <h3 className="who-this-is-for-item-title">Excuse Makers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Happy sticking with low-paying, local clients forever.
+                    "I'm bad at sales" — but they never do anything about it. This isn't magic.
                   </p>
                 </div>
               </div>
@@ -97,9 +97,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Platform Dependents</h3>
+                  <h3 className="who-this-is-for-item-title">"I'll Think About It" People</h3>
                   <p className="who-this-is-for-item-desc">
-                    Content bidding endlessly on Upwork or Fiverr.
+                    If you say "I'll think about it" more than your leads do — this isn't for you.
                   </p>
                 </div>
               </div>
@@ -107,9 +107,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Low-Investment Thinkers</h3>
+                  <h3 className="who-this-is-for-item-title">The Price Shoppers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Unwilling to invest time, money, or energy into real growth.
+                    If you're just looking for a cheap trick instead of a real skill — keep scrolling.
                   </p>
                 </div>
               </div>
@@ -117,9 +117,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Hobbyists</h3>
+                  <h3 className="who-this-is-for-item-title">Ghosters</h3>
                   <p className="who-this-is-for-item-desc">
-                    Not serious about turning their skills into a scalable, premium business.
+                    People who get a DM reply... then do nothing. If you don't follow up — this won't save you.
                   </p>
                 </div>
               </div>

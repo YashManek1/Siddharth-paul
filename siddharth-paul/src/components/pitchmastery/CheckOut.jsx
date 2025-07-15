@@ -10,12 +10,12 @@ const GlobalMagnetCheckout = () => {
   });
 
   const [addons, setAddons] = useState({
-    globalAuthority: { selected: false, price: 977 },
-    innerCircle: { selected: false, price: 497 },
-    doneForYou: { selected: false, price: 1497 }
+    chatClosing: { selected: false, price: 997 },
+    objectionCards: { selected: false, price: 497 },
+    callRecording: { selected: false, price: 1497 }
   });
 
-  const basePrice = 3999;
+  const basePrice = 1499;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -60,66 +60,66 @@ const GlobalMagnetCheckout = () => {
       <div className="checkout-container">
         <header className="checkout-header">
           <div className="brand-logo">
-            <span className="logo-icon">🌟</span>
-            <span className="brand-name">GLOBAL MAGNET</span>
+            <span className="logo-icon">🎯</span>
+            <span className="brand-name">PITCH MASTERY</span>
           </div>
         </header>
 
         <div className="checkout-content">
           <div className="left-section">
             <div className="offer-header">
-              <h2 className="offer-title">GET YOUR FIRST INTERNATIONAL CLIENT - $3999</h2>
+              <h2 className="offer-title">GET SALES CALL CONFIDENCE - ₹1499/-</h2>
             </div>
 
             <div className="benefits-list">
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to attract high-ticket international clients ($1,000-$5,000+) without cheap platforms or endless cold DMs.</p>
+                <p>How to open any sales call so the prospect actually wants to talk.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to position yourself as a global authority so premium clients see you as the obvious choice.</p>
+                <p>How to build trust & keep control — without sounding desperate.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to build a systemized pipeline that brings in qualified leads daily — no more guessing or praying for referrals.</p>
+                <p>How to use simple words, tonality & body language to lead the sale.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>The exact offer structure and path to close clients consistently on the first call.</p>
+                <p>How to handle "I'll think about it" and turn it into a yes without pushiness.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to create content and messaging that literally builds trust and demand for your services worldwide.</p>
+                <p>How to follow up without sounding needy — get real scripts for cold calls, warm calls & DMs.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>The mindset shifts needed to move from low-ticket local gigs to consistent $5,000+ retainers with global companies.</p>
+                <p>Role-play recordings so you see exactly how to do it in B2B and B2C.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to handle objections and turn "maybes" into sales in the process — in one conversation.</p>
+                <p>Checklists and call audits so you never miss a step.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Proven methods that position you to maximize your revenue and minimize client headaches.</p>
+                <p>Plug & play PDF frameworks to prep before every call.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to design a desirable offer so you don't reinvent the wheel for every new client.</p>
+                <p>The hidden psychology behind closing high-ticket deals.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Systems to deliver premium results without working 24/7 or showing uncertainty.</p>
+                <p>And the mindset shift you need to never freeze up again.</p>
               </div>
             </div>
           </div>
@@ -183,19 +183,19 @@ const GlobalMagnetCheckout = () => {
                     <div className="bonus-checkbox">
                       <input 
                         type="checkbox" 
-                        id="globalAuthority"
-                        checked={addons.globalAuthority.selected}
-                        onChange={() => handleAddonChange('globalAuthority')}
+                        id="chatClosing"
+                        checked={addons.chatClosing.selected}
+                        onChange={() => handleAddonChange('chatClosing')}
                       />
-                      <label htmlFor="globalAuthority">
+                      <label htmlFor="chatClosing">
                         <span className="bonus-title">
-                          Yes! Add the Global Authority Content Bundle - $977
+                          Yes! 7-Day Chat Closing Challenge - 997/-
                         </span>
                         <span className="bonus-description">
-                          Steal my proven content templates and frameworks to instantly position yourself as a premium global expert.
-                          <br />✓ Build trust with international clients before they even hop on a call
-                          <br />✓ Ready-to-use content scripts, viral post formulas, and DM frameworks
-                          <br />✓ Perfect for LinkedIn, LinkedIn, and YouTube.
+                          Master how to turn cold chats into paying calls:
+                          <br />✓ Daily chat prompts and templates to spark sales convos.
+                          <br />✓ Mini assignments to practice closing in the DMs.
+                          <br />✓ Real feedback so you don't just know it — you DO it.
                         </span>
                       </label>
                     </div>
@@ -205,19 +205,20 @@ const GlobalMagnetCheckout = () => {
                     <div className="bonus-checkbox">
                       <input 
                         type="checkbox" 
-                        id="innerCircle"
-                        checked={addons.innerCircle.selected}
-                        onChange={() => handleAddonChange('innerCircle')}
+                        id="objectionCards"
+                        checked={addons.objectionCards.selected}
+                        onChange={() => handleAddonChange('objectionCards')}
                       />
-                      <label htmlFor="innerCircle">
+                      <label htmlFor="objectionCards">
                         <span className="bonus-title">
-                          Yes! Add the Inner Circle Global Client Mindset Guide - $497
+                          Yes! Add the "No-Fear Objection Cards" Swipe Pack - 497/-
                         </span>
                         <span className="bonus-description">
-                          Success starts with mindset.
-                          <br />✓ Discover how top entrepreneurs think when attracting premium international clients
-                          <br />✓ Learn the mental frameworks to change what you're worth and get it
-                          <br />✓ Simple, powerful mental shifts to operate like a true global authority.
+                          Plug-and-play responses for the top 20+ objections:
+                          <br />✓ "It's too expensive..."
+                          <br />✓ "I need to talk to my partner..."
+                          <br />✓ "Send me more info..."
+                          <br />Pull them up before any call. Stop freezing up — handle anything with calm confidence.
                         </span>
                       </label>
                     </div>
@@ -227,19 +228,19 @@ const GlobalMagnetCheckout = () => {
                     <div className="bonus-checkbox">
                       <input 
                         type="checkbox" 
-                        id="doneForYou"
-                        checked={addons.doneForYou.selected}
-                        onChange={() => handleAddonChange('doneForYou')}
+                        id="callRecording"
+                        checked={addons.callRecording.selected}
+                        onChange={() => handleAddonChange('callRecording')}
                       />
-                      <label htmlFor="doneForYou">
+                      <label htmlFor="callRecording">
                         <span className="bonus-title">
-                          Yes! Add the Done-For-You Offer Positioning Toolkit - $1497
+                          Yes! Add the Call Recording Breakdown Vault - 1497/-
                         </span>
                         <span className="bonus-description">
-                          Turn your service into an irresistible offer that clients can't ignore.
-                          <br />✓ Step-by-step guide to craft your premium, "must-have" global offer.
-                          <br />✓ Includes high-ticket proposal templates, value stack formulas, and pricing breakdown sheets.
-                          <br />✓ Position yourself so you never have to "compete on price" again.
+                          Watch real sales calls line-by-line, with my commentary showing you what works and what doesn't.
+                          <br />✓ Understand exactly why prospects say yes or no.
+                          <br />✓ See real objections handled in the wild.
+                          <br />✓ Pick up subtle tonality shifts and lines you can steal tomorrow.
                         </span>
                       </label>
                     </div>
@@ -249,27 +250,27 @@ const GlobalMagnetCheckout = () => {
                 <div className="price-breakdown">
                   <div className="price-row">
                     <span className="price-label">Base Course:</span>
-                    <span className="price-amount">${basePrice}</span>
+                    <span className="price-amount">₹{basePrice}</span>
                   </div>
                   
-                  {addons.globalAuthority.selected && (
+                  {addons.chatClosing.selected && (
                     <div className="price-row addon-row">
-                      <span className="price-label">Global Authority Content Bundle:</span>
-                      <span className="price-amount">+${addons.globalAuthority.price}</span>
+                      <span className="price-label">7-Day Chat Closing Challenge:</span>
+                      <span className="price-amount">+₹{addons.chatClosing.price}</span>
                     </div>
                   )}
                   
-                  {addons.innerCircle.selected && (
+                  {addons.objectionCards.selected && (
                     <div className="price-row addon-row">
-                      <span className="price-label">Inner Circle Mindset Guide:</span>
-                      <span className="price-amount">+${addons.innerCircle.price}</span>
+                      <span className="price-label">No-Fear Objection Cards:</span>
+                      <span className="price-amount">+₹{addons.objectionCards.price}</span>
                     </div>
                   )}
                   
-                  {addons.doneForYou.selected && (
+                  {addons.callRecording.selected && (
                     <div className="price-row addon-row">
-                      <span className="price-label">Done-For-You Positioning Toolkit:</span>
-                      <span className="price-amount">+${addons.doneForYou.price}</span>
+                      <span className="price-label">Call Recording Breakdown Vault:</span>
+                      <span className="price-amount">+₹{addons.callRecording.price}</span>
                     </div>
                   )}
                 </div>
@@ -277,7 +278,7 @@ const GlobalMagnetCheckout = () => {
                 <div className="total-section">
                   <div className="total-row">
                     <span className="total-label">TOTAL:</span>
-                    <span className="total-amount">${calculateTotal()}</span>
+                    <span className="total-amount">₹{calculateTotal()}/-</span>
                   </div>
                 </div>
 

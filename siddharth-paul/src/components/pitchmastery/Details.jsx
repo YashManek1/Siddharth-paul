@@ -4,44 +4,44 @@ import './Details.css';
 const Details = () => {
   const problemsData = [
     {
-      title: "Lack of positioning",
-      description: "YOU sound like just another freelancer instead of a premium expert."
+      title: "No Call Structure",
+      description: "YOU jump on call with no clear plan on proven flow"
     },
     {
-      title: "No clear niche",
-      description: "YOU try to serve everyone, making it look generic and replaceable."
+      title: "Zero Follow-Up",
+      description: "YOU never follow up the right way, so leads disappear "
     },
     {
-      title: "Weak personal brand",
-      description: "Clients don't see YOU as an authority they can trust at higher price points."
+      title: "Weak Opening",
+      description: "YOU don't know how to break the ice and make people trust you fast"
     },
     {
-      title: "Poor messaging",
-      description: "YOUR offers don't communicate real value or outcomes that justify big investments."
+      title: "No Chat Framework",
+      description: "YOU don't know what to say in DMs or Whatsapp to book the call."
     },
     {
-      title: "No compelling proof",
-      description: "YOU lack case studies, testimonials, or tangible results to build trust fast."
+      title: "Talking Too Much",
+      description: "YOU talk too much about features, not about what they really want ."
     },
     {
-      title: "Low-confidence sales approach",
-      description: "YOU sound desperate or unsure on calls, pushing clients away."
+      title: "Flat Tonality",
+      description: "YOUR tone is boring- people don't feel exicted to work with you."
     },
     {
-      title: "Relying on cheap platforms",
-      description: "YOU depend on Upwork, Fiverr, or random job boards where price wars kill them."
+      title: "No Good Questions",
+      description: "YOU don't ask the right questions to find real buying signals."
     },
     {
-      title: "Inconsistent outreach",
-      description: "YOU have no predictable, systemized way to connect with ideal clients globally."
+      title: "No proof or Stories",
+      description: "YOU don;t share real exmaple or wins that make people say yes"
     },
     {
-      title: "Underpricing mindset",
-      description: "YOU believe you need to charge less to compete internationally, which devalues YOU."
+      title: "Poor objection Handling",
+      description: "YOU freeze up when they say {I need to think about it}."
     },
     {
-      title: "No authority-building content",
-      description: "YOU don't create content that positions YOU as a thought leader or global expert."
+      title: "No Practice or Roleplay",
+      description: "YOU never practice with anyone, so you don't know how to handle real calls."
     }
   ];
 
