@@ -4,44 +4,44 @@ import '../Component_Styles/Details.css';
 const Details = () => {
   const problemsData = [
     {
-      title: "Lack of positioning",
-      description: "YOU sound like just another freelancer instead of a premium expert."
+      title: "Weak Ad Triggers",
+      description: "YOU rely on generic hooks that don't stop the scroll or spark emotion."
     },
     {
-      title: "No clear niche",
-      description: "YOU try to serve everyone, making it look generic and replaceable."
+      title: "No Scaling Blueprint",
+      description: "YOU get stuck when an ad works — no plan to scale profitably without burning money."
     },
     {
-      title: "Weak personal brand",
-      description: "Clients don't see YOU as an authority they can trust at higher price points."
+      title: "Boring Visual Style",
+      description: "YOUR ads look plain — no scroll-stopping editing, no pattern breaks."
     },
     {
-      title: "Poor messaging",
-      description: "YOUR offers don't communicate real value or outcomes that justify big investments."
+      title: "Guessing Metrics",
+      description: "YOU don't know what numbers actually matter, so you can't optimize ROI."
     },
     {
-      title: "No compelling proof",
-      description: "YOU lack case studies, testimonials, or tangible results to build trust fast."
+      title: "No Compelling Script",
+      description: "YOU wing it without using proven copy frameworks that actually sell."
     },
     {
-      title: "Low-confidence sales approach",
-      description: "YOU sound desperate or unsure on calls, pushing clients away."
+      title: "Ignoring Buyer Psychology",
+      description: "YOU focus only on features, not the emotional triggers that make people buy."
     },
     {
-      title: "Relying on cheap platforms",
-      description: "YOU depend on Upwork, Fiverr, or random job boards where price wars kill them."
+      title: "Confused Offer Angle",
+      description: "YOUR ads don't connect clearly to a strong, irresistible offer."
     },
     {
-      title: "Inconsistent outreach",
-      description: "YOU have no predictable, systemized way to connect with ideal clients globally."
+      title: "No Proven Frameworks",
+      description: "YOU don't have ready-made checklists, templates, or examples to follow."
     },
     {
-      title: "Underpricing mindset",
-      description: "YOU believe you need to charge less to compete internationally, which devalues YOU."
+      title: "Lack of Testing Process",
+      description: "YOU run random ads with no system to test and find true winners."
     },
     {
-      title: "No authority-building content",
-      description: "YOU don't create content that positions YOU as a thought leader or global expert."
+      title: "One-Off Campaign Mindset",
+      description: "YOU treat every ad like a shot in the dark instead of building a system that prints cash on repeat."
     }
   ];
 
@@ -49,8 +49,8 @@ const Details = () => {
     <section className="details-section">
       <div className="details-container">
         <h2 className="details-title">
-          THE <span className="highlight">REAL REASON</span> YOU'RE STRUGGLING TO CLOSE<br />
-          <span className="highlight">HIGH-PAYING INTERNATIONAL CLIENTS:</span>
+          THE <span className="highlight">REAL REASON</span> YOU'RE STRUGGLING TO<br />
+          <span className="highlight">HIT CONSISTENT 10X ROAS:</span>
         </h2>
         
         <div className="problems-grid">

@@ -10,12 +10,12 @@ const GlobalMagnetCheckout = () => {
   });
 
   const [addons, setAddons] = useState({
-    globalAuthority: { selected: false, price: 977 },
-    innerCircle: { selected: false, price: 497 },
-    doneForYou: { selected: false, price: 1497 }
+    hookHeadlineSwipe: { selected: false, price: 997 },
+    winningCreativeVault: { selected: false, price: 497 },
+    scalingChecklist: { selected: false, price: 497 }
   });
 
-  const basePrice = 3999;
+  const basePrice = 2499;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -60,66 +60,66 @@ const GlobalMagnetCheckout = () => {
       <div className="checkout-container">
         <header className="checkout-header">
           <div className="brand-logo">
-            <span className="logo-icon">🌟</span>
-            <span className="brand-name">GLOBAL MAGNET</span>
+            <span className="logo-icon">🚀</span>
+            <span className="brand-name">ROAS ROCKET</span>
           </div>
         </header>
 
         <div className="checkout-content">
           <div className="left-section">
             <div className="offer-header">
-              <h2 className="offer-title">GET YOUR FIRST INTERNATIONAL CLIENT - $3999</h2>
+              <h2 className="offer-title">GET YOUR 10X ROAS ROCKET SYSTEM: 2499/-</h2>
             </div>
 
             <div className="benefits-list">
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to attract high-ticket international clients ($1,000-$5,000+) without cheap platforms or endless cold DMs.</p>
+                <p>How to make ads that give you back 10X what you spend.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to position yourself as a global authority so premium clients see you as the obvious choice.</p>
+                <p>How to write hooks that grab attention fast.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to build a systemized pipeline that brings in qualified leads daily — no more guessing or praying for referrals.</p>
+                <p>How to plan scripts people actually watch.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>The exact offer structure and path to close clients consistently on the first call.</p>
+                <p>How to film & edit simple but pro ads.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to create content and messaging that literally builds trust and demand for your services worldwide.</p>
+                <p>How to test lots of ads without losing money.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>The mindset shifts needed to move from low-ticket local gigs to consistent $5,000+ retainers with global companies.</p>
+                <p>How to scale winning ads the right way.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to handle objections and turn "maybes" into sales in the process — in one conversation.</p>
+                <p>How to track your ads and fix bad ones fast.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Proven methods that position you to maximize your revenue and minimize client headaches.</p>
+                <p>How to use ad psychology to make people buy.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to design a desirable offer so you don't reinvent the wheel for every new client.</p>
+                <p>How to copy real winning case studies that work today.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Systems to deliver premium results without working 24/7 or showing uncertainty.</p>
+                <p>How to follow easy checklists so you never miss a step.</p>
               </div>
             </div>
           </div>
@@ -183,19 +183,18 @@ const GlobalMagnetCheckout = () => {
                     <div className="bonus-checkbox">
                       <input 
                         type="checkbox" 
-                        id="globalAuthority"
-                        checked={addons.globalAuthority.selected}
-                        onChange={() => handleAddonChange('globalAuthority')}
+                        id="hookHeadlineSwipe"
+                        checked={addons.hookHeadlineSwipe.selected}
+                        onChange={() => handleAddonChange('hookHeadlineSwipe')}
                       />
-                      <label htmlFor="globalAuthority">
+                      <label htmlFor="hookHeadlineSwipe">
                         <span className="bonus-title">
-                          Yes! Add the Global Authority Content Bundle - $977
+                          Yes! Add the Hook & Headline Swipe File - 997/-
                         </span>
                         <span className="bonus-description">
-                          Steal my proven content templates and frameworks to instantly position yourself as a premium global expert.
-                          <br />✓ Build trust with international clients before they even hop on a call
-                          <br />✓ Ready-to-use content scripts, viral post formulas, and DM frameworks
-                          <br />✓ Perfect for LinkedIn, LinkedIn, and YouTube.
+                          ✓ 50+ winning hooks & headlines you can use now.
+                          <br />✓ No more guessing what to write.
+                          <br />✓ Works for any niche.
                         </span>
                       </label>
                     </div>
@@ -205,19 +204,18 @@ const GlobalMagnetCheckout = () => {
                     <div className="bonus-checkbox">
                       <input 
                         type="checkbox" 
-                        id="innerCircle"
-                        checked={addons.innerCircle.selected}
-                        onChange={() => handleAddonChange('innerCircle')}
+                        id="winningCreativeVault"
+                        checked={addons.winningCreativeVault.selected}
+                        onChange={() => handleAddonChange('winningCreativeVault')}
                       />
-                      <label htmlFor="innerCircle">
+                      <label htmlFor="winningCreativeVault">
                         <span className="bonus-title">
-                          Yes! Add the Inner Circle Global Client Mindset Guide - $497
+                          Yes! Add the Winning Creative Vault - 497/-
                         </span>
                         <span className="bonus-description">
-                          Success starts with mindset.
-                          <br />✓ Discover how top entrepreneurs think when attracting premium international clients
-                          <br />✓ Learn the mental frameworks to change what you're worth and get it
-                          <br />✓ Simple, powerful mental shifts to operate like a true global authority.
+                          ✓ See my top ads with breakdowns on why they work.
+                          <br />✓ Steal ideas & angles for your own ads.
+                          <br />✓ Stay ahead of boring copycats.
                         </span>
                       </label>
                     </div>
@@ -227,19 +225,18 @@ const GlobalMagnetCheckout = () => {
                     <div className="bonus-checkbox">
                       <input 
                         type="checkbox" 
-                        id="doneForYou"
-                        checked={addons.doneForYou.selected}
-                        onChange={() => handleAddonChange('doneForYou')}
+                        id="scalingChecklist"
+                        checked={addons.scalingChecklist.selected}
+                        onChange={() => handleAddonChange('scalingChecklist')}
                       />
-                      <label htmlFor="doneForYou">
+                      <label htmlFor="scalingChecklist">
                         <span className="bonus-title">
-                          Yes! Add the Done-For-You Offer Positioning Toolkit - $1497
+                          Yes! Add the Scaling Checklist & Budget Tracker - 497/-
                         </span>
                         <span className="bonus-description">
-                          Turn your service into an irresistible offer that clients can't ignore.
-                          <br />✓ Step-by-step guide to craft your premium, "must-have" global offer.
-                          <br />✓ Includes high-ticket proposal templates, value stack formulas, and pricing breakdown sheets.
-                          <br />✓ Position yourself so you never have to "compete on price" again.
+                          ✓ Simple checklist to follow when scaling your ads.
+                          <br />✓ Know when to spend more and when to pause.
+                          <br />✓ Use my budget tracker sheet to stay profitable every month.
                         </span>
                       </label>
                     </div>
@@ -249,27 +246,27 @@ const GlobalMagnetCheckout = () => {
                 <div className="price-breakdown">
                   <div className="price-row">
                     <span className="price-label">Base Course:</span>
-                    <span className="price-amount">${basePrice}</span>
+                    <span className="price-amount">₹{basePrice}</span>
                   </div>
                   
-                  {addons.globalAuthority.selected && (
+                  {addons.hookHeadlineSwipe.selected && (
                     <div className="price-row addon-row">
-                      <span className="price-label">Global Authority Content Bundle:</span>
-                      <span className="price-amount">+${addons.globalAuthority.price}</span>
+                      <span className="price-label">Hook & Headline Swipe File:</span>
+                      <span className="price-amount">+₹{addons.hookHeadlineSwipe.price}</span>
                     </div>
                   )}
                   
-                  {addons.innerCircle.selected && (
+                  {addons.winningCreativeVault.selected && (
                     <div className="price-row addon-row">
-                      <span className="price-label">Inner Circle Mindset Guide:</span>
-                      <span className="price-amount">+${addons.innerCircle.price}</span>
+                      <span className="price-label">Winning Creative Vault:</span>
+                      <span className="price-amount">+₹{addons.winningCreativeVault.price}</span>
                     </div>
                   )}
                   
-                  {addons.doneForYou.selected && (
+                  {addons.scalingChecklist.selected && (
                     <div className="price-row addon-row">
-                      <span className="price-label">Done-For-You Positioning Toolkit:</span>
-                      <span className="price-amount">+${addons.doneForYou.price}</span>
+                      <span className="price-label">Scaling Checklist & Budget Tracker:</span>
+                      <span className="price-amount">+₹{addons.scalingChecklist.price}</span>
                     </div>
                   )}
                 </div>
@@ -277,7 +274,7 @@ const GlobalMagnetCheckout = () => {
                 <div className="total-section">
                   <div className="total-row">
                     <span className="total-label">TOTAL:</span>
-                    <span className="total-amount">${calculateTotal()}</span>
+                    <span className="total-amount">₹{calculateTotal()}</span>
                   </div>
                 </div>
 

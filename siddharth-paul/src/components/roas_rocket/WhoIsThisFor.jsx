@@ -16,9 +16,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Action-Takers</h3>
+                  <h3 className="who-this-is-for-item-title">Performance Marketers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Ready to invest in themselves and scale with premium, global clients.
+                    Ready to run ads that deliver real profit — not just clicks and views.
                   </p>
                 </div>
               </div>
@@ -26,9 +26,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Growth-Focused Entrepreneurs</h3>
+                  <h3 className="who-this-is-for-item-title">Growth-Driven Founders</h3>
                   <p className="who-this-is-for-item-desc">
-                    Committed to building predictable high-ticket revenue streams.
+                    Serious about scaling their offers with tested ad frameworks.
                   </p>
                 </div>
               </div>
@@ -36,9 +36,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Authority Builders</h3>
+                  <h3 className="who-this-is-for-item-title">Number Checkers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Serious about positioning themselves as top experts in their niche.
+                    People who want to track numbers and make ads better all the time.
                   </p>
                 </div>
               </div>
@@ -46,9 +46,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Systems-Driven</h3>
+                  <h3 className="who-this-is-for-item-title">Action Takers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Want to leverage proven processes instead of chasing low-ticket gigs.
+                    People who want to do the work, not just think about it.
                   </p>
                 </div>
               </div>
@@ -56,9 +56,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Global Players</h3>
+                  <h3 className="who-this-is-for-item-title">Creative Doers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Eager to attract $1,000-$5,000+ clients across the world.
+                    People who like to test new ideas and make ads that stand out.
                   </p>
                 </div>
               </div>
@@ -77,9 +77,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Shortcut Seekers</h3>
+                  <h3 className="who-this-is-for-item-title">Shortcut Hunters</h3>
                   <p className="who-this-is-for-item-desc">
-                    Looking for quick hacks without putting in real effort.
+                    People who want quick results with no work.
                   </p>
                 </div>
               </div>
@@ -87,9 +87,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Comfort-Zone Lovers</h3>
+                  <h3 className="who-this-is-for-item-title">Dreamers Only</h3>
                   <p className="who-this-is-for-item-desc">
-                    Happy sticking with low-paying, local clients forever.
+                    People who just watch videos but never try.
                   </p>
                 </div>
               </div>
@@ -97,9 +97,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Platform Dependents</h3>
+                  <h3 className="who-this-is-for-item-title">Guessers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Content bidding endlessly on Upwork or Fiverr.
+                    People who run random ads without a plan.
                   </p>
                 </div>
               </div>
@@ -107,9 +107,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Low-Investment Thinkers</h3>
+                  <h3 className="who-this-is-for-item-title">Tiny Spenders</h3>
                   <p className="who-this-is-for-item-desc">
-                    Unwilling to invest time, money, or energy into real growth.
+                    People who never want to spend money on ads.
                   </p>
                 </div>
               </div>
@@ -117,9 +117,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Hobbyists</h3>
+                  <h3 className="who-this-is-for-item-title">Lazy Watchers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Not serious about turning their skills into a scalable, premium business.
+                    People who don't want to test and fix their ads.
                   </p>
                 </div>
               </div>
