@@ -10,12 +10,12 @@ const GlobalMagnetCheckout = () => {
   });
 
   const [addons, setAddons] = useState({
-    globalAuthority: { selected: false, price: 977 },
-    innerCircle: { selected: false, price: 497 },
-    doneForYou: { selected: false, price: 1497 }
+    premiumCaseStudy: { selected: false, price: 999 },
+    recessionProofPricing: { selected: false, price: 497 },
+    profitPitchHooks: { selected: false, price: 297 }
   });
 
-  const basePrice = 3999;
+  const basePrice = 1499;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -68,58 +68,58 @@ const GlobalMagnetCheckout = () => {
         <div className="checkout-content">
           <div className="left-section">
             <div className="offer-header">
-              <h2 className="offer-title">GET YOUR FIRST INTERNATIONAL CLIENT - $3999</h2>
+              <h2 className="offer-title">GET YOUR IRRESISTIBLE OFFER MASTERED -1499/-</h2>
             </div>
 
             <div className="benefits-list">
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to attract high-ticket international clients ($1,000-$5,000+) without cheap platforms or endless cold DMs.</p>
+                <p>Craft offers that make clients say "YES" instantly — learn to design high-ticket, irresistible pitches that stand out in any market.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to position yourself as a global authority so premium clients see you as the obvious choice.</p>
+                <p>Master value stacking, urgency, and risk reversal — get the psychology-backed frameworks to make your offer a no-brainer.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to build a systemized pipeline that brings in qualified leads daily — no more guessing or praying for referrals.</p>
+                <p>Become the obvious, only choice — build messaging so strong that premium clients choose you even before seeing alternatives.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>The exact offer structure and path to close clients consistently on the first call.</p>
+                <p>Fill-in-the-blank templates & checklists — never stare at a blank page again; just follow the proven steps.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to create content and messaging that literally builds trust and demand for your services worldwide.</p>
+                <p>AI-enhanced offer prompts & examples — shortcut creation time and make your offers sharper and more persuasive.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>The mindset shifts needed to move from low-ticket local gigs to consistent $5,000+ retainers with global companies.</p>
+                <p>Headlines & messaging formulas — grab attention fast and move clients from "interested" to "sold."</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to handle objections and turn "maybes" into sales in the process — in one conversation.</p>
+                <p>Build trust at every stage — learn how to present proof, bonuses, and guarantees that kill objections before they even exist.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Proven methods that position you to maximize your revenue and minimize client headaches.</p>
+                <p>Step-by-step offer testing process — refine and improve your pitch consistently before going live.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to design a desirable offer so you don't reinvent the wheel for every new client.</p>
+                <p>Complete video breakdowns — see real-world techniques and learn exactly what works in the best offers.</p>
               </div>
 
               <div className="benefit-item">
                 <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Systems to deliver premium results without working 24/7 or showing uncertainty.</p>
+                <p>Psychological triggers for premium sales — move beyond features and benefits into deep emotional connection that commands higher prices.</p>
               </div>
             </div>
           </div>
@@ -183,19 +183,18 @@ const GlobalMagnetCheckout = () => {
                     <div className="bonus-checkbox">
                       <input 
                         type="checkbox" 
-                        id="globalAuthority"
-                        checked={addons.globalAuthority.selected}
-                        onChange={() => handleAddonChange('globalAuthority')}
+                        id="premiumCaseStudy"
+                        checked={addons.premiumCaseStudy.selected}
+                        onChange={() => handleAddonChange('premiumCaseStudy')}
                       />
-                      <label htmlFor="globalAuthority">
+                      <label htmlFor="premiumCaseStudy">
                         <span className="bonus-title">
-                          Yes! Add the Global Authority Content Bundle - $977
+                          The Premium Case Study Vault - 999/-
                         </span>
                         <span className="bonus-description">
-                          Steal my proven content templates and frameworks to instantly position yourself as a premium global expert.
-                          <br />✓ Build trust with international clients before they even hop on a call
-                          <br />✓ Ready-to-use content scripts, viral post formulas, and DM frameworks
-                          <br />✓ Perfect for LinkedIn, LinkedIn, and YouTube.
+                          ✓ Get exclusive access to a vault of real-life, high-converting offers and proposals that closed ₹1L–₹5L+ deals.
+                          <br />✓ Breakdown videos explaining exactly why they worked.
+                          <br />✓ Reverse-engineer proven strategies and instantly model them in your own pitches.
                         </span>
                       </label>
                     </div>
@@ -205,19 +204,18 @@ const GlobalMagnetCheckout = () => {
                     <div className="bonus-checkbox">
                       <input 
                         type="checkbox" 
-                        id="innerCircle"
-                        checked={addons.innerCircle.selected}
-                        onChange={() => handleAddonChange('innerCircle')}
+                        id="recessionProofPricing"
+                        checked={addons.recessionProofPricing.selected}
+                        onChange={() => handleAddonChange('recessionProofPricing')}
                       />
-                      <label htmlFor="innerCircle">
+                      <label htmlFor="recessionProofPricing">
                         <span className="bonus-title">
-                          Yes! Add the Inner Circle Global Client Mindset Guide - $497
+                          Yes! Add the "Recession-Proof" Pricing Strategy Mini-Course. - 497/-
                         </span>
                         <span className="bonus-description">
-                          Success starts with mindset.
-                          <br />✓ Discover how top entrepreneurs think when attracting premium international clients
-                          <br />✓ Learn the mental frameworks to change what you're worth and get it
-                          <br />✓ Simple, powerful mental shifts to operate like a true global authority.
+                          ✓ Learn how to confidently set and hold premium prices even during slow markets.
+                          <br />✓ Discover psychology-backed pricing levers that make your offers irresistible.
+                          <br />✓ Never undercharge or feel uncertain about your pricing again.
                         </span>
                       </label>
                     </div>
@@ -227,19 +225,18 @@ const GlobalMagnetCheckout = () => {
                     <div className="bonus-checkbox">
                       <input 
                         type="checkbox" 
-                        id="doneForYou"
-                        checked={addons.doneForYou.selected}
-                        onChange={() => handleAddonChange('doneForYou')}
+                        id="profitPitchHooks"
+                        checked={addons.profitPitchHooks.selected}
+                        onChange={() => handleAddonChange('profitPitchHooks')}
                       />
-                      <label htmlFor="doneForYou">
+                      <label htmlFor="profitPitchHooks">
                         <span className="bonus-title">
-                          Yes! Add the Done-For-You Offer Positioning Toolkit - $1497
+                          Yes! Add 10 Plug & Play "Profit Pitch" Hooks & Templates - 297/-
                         </span>
                         <span className="bonus-description">
-                          Turn your service into an irresistible offer that clients can't ignore.
-                          <br />✓ Step-by-step guide to craft your premium, "must-have" global offer.
-                          <br />✓ Includes high-ticket proposal templates, value stack formulas, and pricing breakdown sheets.
-                          <br />✓ Position yourself so you never have to "compete on price" again.
+                          ✓ Copy-paste pitch openers and angles for different types of services.
+                          <br />✓ Designed to instantly capture attention and trigger curiosity.
+                          <br />✓ Tested with both service-based and consulting offers.
                         </span>
                       </label>
                     </div>
@@ -249,27 +246,27 @@ const GlobalMagnetCheckout = () => {
                 <div className="price-breakdown">
                   <div className="price-row">
                     <span className="price-label">Base Course:</span>
-                    <span className="price-amount">${basePrice}</span>
+                    <span className="price-amount">₹{basePrice}</span>
                   </div>
                   
-                  {addons.globalAuthority.selected && (
+                  {addons.premiumCaseStudy.selected && (
                     <div className="price-row addon-row">
-                      <span className="price-label">Global Authority Content Bundle:</span>
-                      <span className="price-amount">+${addons.globalAuthority.price}</span>
+                      <span className="price-label">Premium Case Study Vault:</span>
+                      <span className="price-amount">+₹{addons.premiumCaseStudy.price}</span>
                     </div>
                   )}
                   
-                  {addons.innerCircle.selected && (
+                  {addons.recessionProofPricing.selected && (
                     <div className="price-row addon-row">
-                      <span className="price-label">Inner Circle Mindset Guide:</span>
-                      <span className="price-amount">+${addons.innerCircle.price}</span>
+                      <span className="price-label">Recession-Proof Pricing Strategy:</span>
+                      <span className="price-amount">+₹{addons.recessionProofPricing.price}</span>
                     </div>
                   )}
                   
-                  {addons.doneForYou.selected && (
+                  {addons.profitPitchHooks.selected && (
                     <div className="price-row addon-row">
-                      <span className="price-label">Done-For-You Positioning Toolkit:</span>
-                      <span className="price-amount">+${addons.doneForYou.price}</span>
+                      <span className="price-label">Profit Pitch Hooks & Templates:</span>
+                      <span className="price-amount">+₹{addons.profitPitchHooks.price}</span>
                     </div>
                   )}
                 </div>
@@ -277,7 +274,7 @@ const GlobalMagnetCheckout = () => {
                 <div className="total-section">
                   <div className="total-row">
                     <span className="total-label">TOTAL:</span>
-                    <span className="total-amount">${calculateTotal()}</span>
+                    <span className="total-amount">₹{calculateTotal()}</span>
                   </div>
                 </div>
 

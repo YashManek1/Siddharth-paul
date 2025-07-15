@@ -16,9 +16,39 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
+                  <h3 className="who-this-is-for-item-title">Ambitious Closers</h3>
+                  <p className="who-this-is-for-item-desc">
+                    Ready to create premium offers and confidently pitch them at ₹1,000–₹5,000+ levels.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="who-this-is-for-item">
+                <div className="who-this-is-for-icon">✓</div>
+                <div className="who-this-is-for-text">
+                  <h3 className="who-this-is-for-item-title">Strategic Entrepreneurs</h3>
+                  <p className="who-this-is-for-item-desc">
+                    Serious about scaling through irresistible offers, not just random services.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="who-this-is-for-item">
+                <div className="who-this-is-for-icon">✓</div>
+                <div className="who-this-is-for-text">
+                  <h3 className="who-this-is-for-item-title">Conversion-Focused Marketers</h3>
+                  <p className="who-this-is-for-item-desc">
+                    Want to master emotional triggers, persuasive messaging, and value stacking.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="who-this-is-for-item">
+                <div className="who-this-is-for-icon">✓</div>
+                <div className="who-this-is-for-text">
                   <h3 className="who-this-is-for-item-title">Action-Takers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Ready to invest in themselves and scale with premium, global clients.
+                    Willing to test, iterate, and improve their offers for maximum impact.
                   </p>
                 </div>
               </div>
@@ -26,39 +56,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon">✓</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Growth-Focused Entrepreneurs</h3>
+                  <h3 className="who-this-is-for-item-title">Long-Term Builders</h3>
                   <p className="who-this-is-for-item-desc">
-                    Committed to building predictable high-ticket revenue streams.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="who-this-is-for-item">
-                <div className="who-this-is-for-icon">✓</div>
-                <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Authority Builders</h3>
-                  <p className="who-this-is-for-item-desc">
-                    Serious about positioning themselves as top experts in their niche.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="who-this-is-for-item">
-                <div className="who-this-is-for-icon">✓</div>
-                <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Systems-Driven</h3>
-                  <p className="who-this-is-for-item-desc">
-                    Want to leverage proven processes instead of chasing low-ticket gigs.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="who-this-is-for-item">
-                <div className="who-this-is-for-icon">✓</div>
-                <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Global Players</h3>
-                  <p className="who-this-is-for-item-desc">
-                    Eager to attract $1,000-$5,000+ clients across the world.
+                    Committed to building a brand and authority, not just chasing quick, one-time gigs.
                   </p>
                 </div>
               </div>
@@ -77,9 +77,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Shortcut Seekers</h3>
+                  <h3 className="who-this-is-for-item-title">Hack Hunters</h3>
                   <p className="who-this-is-for-item-desc">
-                    Looking for quick hacks without putting in real effort.
+                    Looking for magic scripts or instant "copy-paste" hacks without real strategy.
                   </p>
                 </div>
               </div>
@@ -87,9 +87,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Comfort-Zone Lovers</h3>
+                  <h3 className="who-this-is-for-item-title">Low-Price Service Sellers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Happy sticking with low-paying, local clients forever.
+                    Content charging peanuts and competing in a race to the bottom.
                   </p>
                 </div>
               </div>
@@ -97,9 +97,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Platform Dependents</h3>
+                  <h3 className="who-this-is-for-item-title">Comfort-Addicted Freelancers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Content bidding endlessly on Upwork or Fiverr.
+                    Happy staying in a safe zone with low-ticket, unpredictable work.
                   </p>
                 </div>
               </div>
@@ -107,9 +107,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Low-Investment Thinkers</h3>
+                  <h3 className="who-this-is-for-item-title">Passive Spectators</h3>
                   <p className="who-this-is-for-item-desc">
-                    Unwilling to invest time, money, or energy into real growth.
+                    Not willing to put in effort to craft, test, and refine powerful offers.
                   </p>
                 </div>
               </div>
@@ -117,9 +117,9 @@ const WhoThisIsForSection = () => {
               <div className="who-this-is-for-item">
                 <div className="who-this-is-for-icon-cross">✗</div>
                 <div className="who-this-is-for-text">
-                  <h3 className="who-this-is-for-item-title">Hobbyists</h3>
+                  <h3 className="who-this-is-for-item-title">Non-Committers</h3>
                   <p className="who-this-is-for-item-desc">
-                    Not serious about turning their skills into a scalable, premium business.
+                    Not serious about building a high-value, premium business foundation.
                   </p>
                 </div>
               </div>

@@ -4,44 +4,44 @@ import './Details.css';
 const Details = () => {
   const problemsData = [
     {
-      title: "Lack of positioning",
-      description: "YOU sound like just another freelancer instead of a premium expert."
+      title: "Weak Offer Structure",
+      description: "YOU build offers that feel basic or generic instead of irresistible, premium packages."
     },
     {
-      title: "No clear niche",
-      description: "YOU try to serve everyone, making it look generic and replaceable."
+      title: "Generic Headlines",
+      description: "YOU use weak, templated headlines that don't grab attention or differentiate you from competitors."
     },
     {
-      title: "Weak personal brand",
-      description: "Clients don't see YOU as an authority they can trust at higher price points."
+      title: "No Clear Value Stack",
+      description: "YOU don't show exactly why your offer is worth $1,000–$5,000+, so clients see it as a cost — not an investment."
     },
     {
-      title: "Poor messaging",
-      description: "YOUR offers don't communicate real value or outcomes that justify big investments."
+      title: "Poor Bonus Strategy",
+      description: "YOU don't use attractive bonuses to increase perceived value and tip prospects over the edge."
     },
     {
-      title: "No compelling proof",
-      description: "YOU lack case studies, testimonials, or tangible results to build trust fast."
+      title: "Low Urgency & Scarcity",
+      description: "YOU don't create the fear of missing out or time pressure, so prospects delay or ghost you."
     },
     {
-      title: "Low-confidence sales approach",
-      description: "YOU sound desperate or unsure on calls, pushing clients away."
+      title: "Underestimating Psychology",
+      description: "YOU focus on logic, ignoring the emotional triggers that actually make people buy."
     },
     {
-      title: "Relying on cheap platforms",
-      description: "YOU depend on Upwork, Fiverr, or random job boards where price wars kill them."
+      title: "Confusing Messaging",
+      description: "YOUR pitch isn't clear, emotionally resonant, or benefit-focused, so prospects disconnect."
     },
     {
-      title: "Inconsistent outreach",
-      description: "YOU have no predictable, systemized way to connect with ideal clients globally."
+      title: "No Testing or Iteration",
+      description: "YOU set an offer once and hope it works, instead of refining through real-world feedback and data."
     },
     {
-      title: "Underpricing mindset",
-      description: "YOU believe you need to charge less to compete internationally, which devalues YOU."
+      title: "No Proof Elements",
+      description: "YOU lack guarantees, bonuses, or clear risk reversals that make the client feel safe saying \"yes\" immediately."
     },
     {
-      title: "No authority-building content",
-      description: "YOU don't create content that positions YOU as a thought leader or global expert."
+      title: "Not Leveraging AI Tools",
+      description: "YOU miss out on using AI to quickly craft, analyze, and optimize your offer copy and pitch."
     }
   ];
 
@@ -50,7 +50,7 @@ const Details = () => {
       <div className="details-container">
         <h2 className="details-title">
           THE <span className="highlight">REAL REASON</span> YOU'RE STRUGGLING TO CLOSE<br />
-          <span className="highlight">HIGH-PAYING INTERNATIONAL CLIENTS:</span>
+          <span className="highlight">HIGH-TICKET DEALS:</span>
         </h2>
         
         <div className="problems-grid">

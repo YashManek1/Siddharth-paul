@@ -8,35 +8,34 @@ const ObjectiveSection = () => {
         <p className="objective-purple-subtitle">MY OBJECTIVE HERE IS SIMPLE...</p>
         
         <h2 className="objective-main-heading">
-          HELPING YOU LAND <span className="objective-underlined-text">HIGH-PAYING INTERNATIONAL CLIENTS</span><br />
-          BY DOING THE HEAVY LIFTING FOR YOU...<br />
-          PLUS GIVING YOU THE <span className="objective-underlined-text">EXACT ROADMAP AND GUIDANCE</span> TO<br />
-          SECURE YOUR <span className="objective-underlined-text">FIRST $1,000+ CLIENT</span> IN <span className="objective-underlined-text">RECORD TIME</span>.
+          HELPING YOU CRAFT <span className="objective-underlined-text">IRRESISTIBLE,</span><br />
+          <span className="objective-underlined-text">HIGH-VALUE OFFERS</span> THAT MAKE CLIENTS SAY<br />
+          <span className="objective-underlined-text">"YES"</span> INSTANTLY...
         </h2>
 
         <div className="objective-intro-section">
           <p className="objective-intro-text">
             Here's just a mere fraction of the <span className="objective-bold-text">golden nuggets you'll<br />
-            discover with</span> THIS COURSE...
+            discover</span> with THIS COURSE...
           </p>
         </div>
 
         <div className="objective-benefits-container">
           <div className="objective-benefit-row">
             <div className="objective-benefit-text">
-              <span className="objective-benefit-heading">Generate unlimited chances to win-</span> Most people give up halfway because they don't have a steady pipeline feeding them daily leads — and they're too afraid to truly put themselves out there.
+              <span className="objective-benefit-heading">Build offers that convert on demand-</span> Learn how to structure and stack value so clients see your offer as a no-brainer investment (not just another service).
             </div>
           </div>
           
           <div className="objective-benefit-row">
             <div className="objective-benefit-text">
-              <span className="objective-benefit-heading">Productize your deliverables-</span> Learn to build systems so you never have to start from scratch with every new client.
+              <span className="objective-benefit-heading">Turn objections into "take my money" moments -</span> Master the psychological triggers and messaging that flip hesitations into instant "yeses," even on premium deals.
             </div>
           </div>
           
           <div className="objective-benefit-row">
             <div className="objective-benefit-text">
-              <span className="objective-benefit-heading">Sell high ticket confidently-</span> Master the art of handling objections and get clients to pay you $1,000–$5,000 right on the first call.
+              <span className="objective-benefit-heading">Plug-and-play pitch templates-</span> Use proven, fill-in-the-blank frameworks and AI-enhanced prompts to craft powerful, persuasive offers without second-guessing.
             </div>
           </div>
         </div>

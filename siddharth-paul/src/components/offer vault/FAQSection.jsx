@@ -61,7 +61,7 @@ const FAQSection = () => {
         </div>
 
         <button className="faq-support-button">
-          Need Support? WhatsApp Us
+          Need Support? Whatsapp Us
         </button>
       </div>
     </section>

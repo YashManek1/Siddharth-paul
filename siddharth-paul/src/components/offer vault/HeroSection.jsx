@@ -16,25 +16,27 @@ const HeroSection = () => {
   return (
     <main className="gm-hero-section">
       <div className="gm-hero-content">
+
         <h1 className="gm-hero-main-title">
-          <span className="gm-text-black">GET</span>{" "}CLIENTS WORLDWIDE{" "}
-          <span className="gm-text-black">WHO BEG TO PAY</span>
+          <span className="gm-text-black">MAKE CLIENTS SAY</span>{" "}
+          <span className="gm-text-purple">"YES"</span>{" "}
+          <span className="gm-text-black">TO</span>
         </h1>
         <h2 className="gm-sub-title">
-          YOU{" "}
-          <span className="gm-text-purple">$1000-$1500+</span>{" "}EVERY MONTH
+          <span className="gm-text-purple">$1000-$5000+</span>{" "}
+          <span className="gm-text-black">OFFERS -</span>{" "}
+          <span className="gm-text-purple">EVERYTIME</span>
         </h2>
 
         <div className="gm-features-list">
           <span>
-            <img src={checkmarkIcon} alt="checkmark" /> GET CLIENTS WORLDWIDE
+            <img src={checkmarkIcon} alt="checkmark" /> MASTER PITCH PSYCHOLOGY
           </span>
           <span>
-            <img src={checkmarkIcon} alt="checkmark" /> SELL LIKE A PRO
+            <img src={checkmarkIcon} alt="checkmark" /> BUILD HIGH-VALUE, HIGH-CONVERSION OFFERS
           </span>
           <span>
-            <img src={checkmarkIcon} alt="checkmark" /> BUILD SYSTEMS THAT
-            PRINTS MONEY
+            <img src={checkmarkIcon} alt="checkmark" /> CLOSE DEALS FASTER
           </span>
         </div>
 
@@ -53,12 +55,10 @@ const HeroSection = () => {
             <img src={expertIcon} alt="expert icon" /> LEARN BY EXPERT
           </span>
           <span>
-            <img src={lifetimeIcon} alt="lifetime access icon" /> LIFETIME
-            ACCESS
+            <img src={lifetimeIcon} alt="lifetime access icon" /> LIFETIME ACCESS
           </span>
           <span>
-            <img src={refundIcon} alt="refund policy icon" /> 7- DAY REFUND
-            POLICY
+            <img src={refundIcon} alt="refund policy icon" /> 7- DAY REFUND POLICY
           </span>
         </div>
 

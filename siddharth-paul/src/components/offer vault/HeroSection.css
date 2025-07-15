@@ -19,6 +19,32 @@
   overflow: visible;
 }
 
+.gm-header-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.gm-brand-name {
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #000;
+  letter-spacing: 1px;
+}
+
+.gm-offer-vault {
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #9d00ff;
+  letter-spacing: 2px;
+}
+
 .gm-background-wave-left {
   position: absolute;
   bottom: 20px;
@@ -80,6 +106,10 @@
   color: #000;
 }
 
+.gm-hero-main-title .gm-text-purple {
+  color: #9d00ff;
+}
+
 .gm-sub-title {
   color: #000;
   font-size: 2rem;
@@ -91,6 +121,10 @@
 
 .gm-sub-title .gm-text-purple {
   color: #9d00ff;
+}
+
+.gm-sub-title .gm-text-black {
+  color: #000;
 }
 
 .gm-features-list {
@@ -178,6 +212,31 @@
   transform: scale(1.05);
 }
 
+.gm-stats-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(to right, #8a2be2, #4b0082);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.gm-stat-item {
+  text-align: center;
+  color: #fff;
+}
+
+.gm-stat-number {
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  display: block;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .gm-background-wave-left {
@@ -231,12 +290,31 @@
     height: 12px;
     width: 12px;
   }
+
+  .gm-stats-section {
+    gap: 25px;
+    padding: 15px;
+  }
+
+  .gm-stat-number {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 768px) {
   .gm-hero-section {
     padding: 0 15px;
     min-height: calc(100vh - 70px);
+  }
+
+  .gm-header-brand {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .gm-offer-vault {
+    font-size: 1.5rem;
   }
 
   .gm-hero-main-title {
@@ -273,6 +351,16 @@
     padding: 10px 28px;
     font-size: 1rem;
     margin-top: 16px;
+  }
+
+  .gm-stats-section {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .gm-stat-number {
+    font-size: 0.8rem;
   }
 
   .gm-background-wave-left,
@@ -363,6 +451,14 @@
     font-size: 0.9rem;
     letter-spacing: 0.5px;
   }
+
+  .gm-stats-section {
+    padding: 10px;
+  }
+
+  .gm-stat-number {
+    font-size: 0.7rem;
+  }
 }
 
 @media (max-width: 320px) {
@@ -389,5 +485,9 @@
   .gm-access-now-btn {
     padding: 6px 20px;
     font-size: 0.8rem;
+  }
+
+  .gm-stat-number {
+    font-size: 0.65rem;
   }
 }

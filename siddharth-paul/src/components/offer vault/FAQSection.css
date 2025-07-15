@@ -1,6 +1,14 @@
 .faq-main-section {
   width: 100%;
-  background-color: #f5f5f5;
+  background: linear-gradient(
+    180deg,
+    rgba(157, 0, 255, 0) 0%,
+    rgba(157, 0, 255, 0.03) 30%,
+    rgba(157, 0, 255, 0.08) 45%,
+    rgba(157, 0, 255, 0.15) 60%,
+    rgba(157, 0, 255, 0.22) 80%,
+    rgba(157, 0, 255, 0.25) 100%
+  );
   padding: 60px 0;
   display: flex;
   justify-content: center;
