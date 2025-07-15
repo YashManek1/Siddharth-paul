@@ -12,8 +12,16 @@ import GlobalMagnetCheckout from '../components/offer vault/CheckOut'
 const OfferVault = () => {
   return (
     <div>
-      OfferVault
-OfferVault
+      <Header />
+      <HeroSection/>
+      <Stats/>
+      <Details/>
+      <ObjectiveSection/>
+      <AccessSection/>
+      <WhoThisIsForSection/>
+      <FAQSection/>
+      <GlobalMagnetCheckout/>
+
     </div>
   )
 }
