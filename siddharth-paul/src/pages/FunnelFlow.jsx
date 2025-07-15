@@ -9,7 +9,7 @@ import WhoThisIsForSection from '../components/Funnel Flow/WhoIsThisFor';
 import FAQSection from '../components/Funnel Flow/FAQSection';
 import GlobalMagnetCheckout from '../components/Funnel Flow/CheckOut';
 
-const GlobalMagnet = () => {
+const FunnelFlow = () => {
   return (
     <div>
       <Header />
@@ -25,4 +25,4 @@ const GlobalMagnet = () => {
   )
 }
 
-export default GlobalMagnet
+export default FunnelFlow
