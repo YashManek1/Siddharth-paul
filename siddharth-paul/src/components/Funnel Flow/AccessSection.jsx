@@ -1,5 +1,8 @@
 import React from 'react';
 import '../Component_Styles/AccessSection.css';
+import img from "../../assets/accessimg1.svg";
+import img2 from "../../assets/accessimg2.svg";
+import img3 from "../../assets/accessimg3.svg"; 
 
 
 const AccessSection = () => {
@@ -15,7 +18,7 @@ const AccessSection = () => {
               Step-by-step training videos covering every funnel stage — from funnel theory to funnel hacking, TOFU/MOFU/BOFU building, launch, tracking, and optimization.
             </p>
             <div className="access-card-image">
-              <img src="" alt="Video modules dashboard" />
+              <img src={img} alt="Video modules dashboard" />
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
@@ -29,7 +32,7 @@ const AccessSection = () => {
               Downloadable PDF showing you funnel fundamentals, psychology, types, and practical frameworks for every funnel piece
             </p>
             <div className="access-card-image">
-              <img src="" alt="PDF blueprint guide" />
+              <img src={img2} alt="PDF blueprint guide" />
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
@@ -57,7 +60,7 @@ const AccessSection = () => {
               Get inside a private mastermind of funnel builders. Share funnel hacks, see what's working for others, get feedback, and level up your offers — stay ahead of trends with real-time ideas.
             </p>
             <div className="access-card-image">
-              <img src="" alt="Community members" />
+              <img src={img3} alt="Community members" />
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
