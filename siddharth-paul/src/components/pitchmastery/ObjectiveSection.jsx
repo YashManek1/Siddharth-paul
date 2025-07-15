@@ -1,5 +1,5 @@
 import React from 'react';
-import './ObjectiveSection.css';
+import '../Component_Styles/ObjectiveSection.css';
 
 const ObjectiveSection = () => {
   return (

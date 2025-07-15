@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../globalMagnet/GlobalMagnetCheckout.css';
+import '../Component_Styles/GlobalMagnetCheckout.css';
 
 const GlobalMagnetCheckout = () => {
   const [formData, setFormData] = useState({

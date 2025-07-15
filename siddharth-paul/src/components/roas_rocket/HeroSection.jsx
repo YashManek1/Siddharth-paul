@@ -1,6 +1,6 @@
 
 import React from 'react';
-import '../globalMagnet/HeroSection.css';
+import '../Component_Styles/HeroSection.css';
 
 
 import checkmarkIcon from "../../assets/checkmark-icon.svg";

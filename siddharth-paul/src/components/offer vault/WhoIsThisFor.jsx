@@ -1,5 +1,5 @@
 import React from 'react';
-import './WhoThisIsForSection.css';
+import '../Component_Styles/WhoThisIsForSection.css';
 
 const WhoThisIsForSection = () => {
   return (

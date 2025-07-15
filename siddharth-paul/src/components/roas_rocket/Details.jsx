@@ -1,5 +1,5 @@
 import React from 'react';
-import '../globalMagnet/Details.css';
+import '../Component_Styles/Details.css';
 
 const Details = () => {
   const problemsData = [

@@ -1,5 +1,5 @@
- import '../globalMagnet/AccessSection.css';
 import React from 'react';
+import '../Component_Styles/AccessSection.css';
 
 const AccessSection = () => {
   return (

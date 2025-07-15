@@ -1,5 +1,5 @@
 import React from 'react';
-import './AccessSection.css';
+import '../Component_Styles/AccessSection.css';
 
 const AccessSection = () => {
   return (
