@@ -5,6 +5,13 @@ import img2 from '../../assets/accessimg2.svg';
 import img3 from '../../assets/accessimg3.svg';
 
 const AccessSection = () => {
+    const scrollToCheckout = (e) => {
+    e.preventDefault();
+    const checkoutSection = document.querySelector('.global-magnet-checkout');
+    if (checkoutSection) {
+      checkoutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section className="access-main-section">
       <div className="access-main-container">
@@ -88,7 +95,7 @@ const AccessSection = () => {
                   <span className="access-final-green">1499/-</span>
                 </div>
               </div>
-              <button className="access-final-button">ACCESS NOW!</button>
+              <button className="access-final-button" onClick={scrollToCheckout}>ACCESS NOW!</button>
             </div>
           </div>
         </div>
