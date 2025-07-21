@@ -11,8 +11,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/courses", courseRoutes);
-app.use("/api/payment", paymentRoutes);
+app.use("/courses", courseRoutes);
+app.use("/payment", paymentRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

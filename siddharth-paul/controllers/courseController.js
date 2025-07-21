@@ -1,33 +1,15 @@
-import { getCourseSheet, getCourseByName, updateCourseByName } from '../googleSheets/courseSheetUtils.js';
+import { getCourseSheet } from "../googleSheets/courseSheetUtils.js";
+import { sheets, SPREADSHEET_ID } from "../googleSheets/sheetsClient.js";
 
-// GET /api/courses/:tabName
-export const getCourses = async (req, res) => {
-  try {
-    const courses = await getCourseSheet(req.params.tabName);
-    res.json(courses);
-  } catch {
-    res.status(500).json({ error: 'Failed to fetch courses' });
-  }
-};
-
-// GET /api/courses/:tabName/:name
+// GET /courses/:tabName
 export const getCourse = async (req, res) => {
   try {
-    const course = await getCourseByName(req.params.tabName, req.params.name);
-    if (!course) return res.status(404).json({ error: 'Course not found' });
-    res.json(course);
-  } catch {
-    res.status(500).json({ error: 'Failed to fetch course' });
-  }
-};
-
-// PUT /api/courses/:tabName/:name
-export const updateCourse = async (req, res) => {
-  try {
-    const success = await updateCourseByName(req.params.tabName, req.params.name, req.body);
-    if (!success) return res.status(404).json({ error: 'Course not found' });
-    res.json({ updated: true });
-  } catch {
-    res.status(500).json({ error: 'Failed to update course' });
+    const courses = await getCourseSheet(req.params.tabName);
+    if (!courses.length)
+      return res.status(404).json({ error: "Course not found" });
+    res.json(courses[0]); // Return the only row (course details)
+  } catch (error) {
+    console.error("Error fetching course:", error);
+    return res.status(500).json({ error: "Failed to fetch course" });
   }
 };
