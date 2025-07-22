@@ -1,38 +1,34 @@
 import React, { useState, useMemo } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
 
-// Improved parseAddons to handle missing numbers, extra dashes, and proper line breaks
 function parseAddons(addons) {
   if (!addons) return [];
-  // Normalize line endings and remove stray slashes
-  const clean = addons.replace(/\?\/-/g, "").replace(/\r\n|\r/g, "\n");
-  // Split by numbered pattern (handles both "1." and "2.")
+  const clean = addons
+    .replace(/\\n/g, "\n")
+    .replace(/\\?\/-\s*/g, "")
+    .replace(/\r\n|\r/g, "\n");
   const items = clean.split(/(?=\d+\.\s)/g).filter(Boolean);
   return items.map((item, idx) => {
-    // Try to match: 1. Title — 999/-\nDescription...
     const match = item.match(
-      /^(\d+)\.\s*([^-–—\n]+)[-–—]?\s*([₹$]?\d+[/-]*)?\s*\n?([\s\S]*)/m
+      /^(\d+)\.\s*([\s\S]+?)-\s*([₹$]?\d+)\s*\n([\s\S]*)/m
     );
     if (match) {
       return {
         number: match[1],
-        title: match[2].trim(),
-        price: match[3] ? match[3].replace(/[^\d]/g, "") : "",
-        description: match[4] ? match[4].replace(/\\n/g, "\n").trim() : "",
+        title: match[2].replace(/\n/g, " ").replace(/\s+/g, " ").trim(),
+        price: match[3].replace(/[^\d]/g, ""),
+        description: match[4].trim(),
       };
     }
-    // If no number, try to match: Title — 999/-\nDescription...
     const altMatch = item.match(
-      /^([^-–—\n]+)[-–—]?\s*([₹$]?\d+[/-]*)?\s*\n?([\s\S]*)/m
+      /^(\d+)\.\s*([\s\S]+?)-\s*([₹$]?\d+)\s*([\s\S]*)/m
     );
     if (altMatch) {
       return {
-        number: String(idx + 1),
-        title: altMatch[1].trim(),
-        price: altMatch[2] ? altMatch[2].replace(/[^\d]/g, "") : "",
-        description: altMatch[3]
-          ? altMatch[3].replace(/\\n/g, "\n").trim()
-          : "",
+        number: altMatch[1],
+        title: altMatch[2].replace(/\n/g, " ").replace(/\s+/g, " ").trim(),
+        price: altMatch[3].replace(/[^\d]/g, ""),
+        description: altMatch[4] ? altMatch[4].trim() : "",
       };
     }
     return {
@@ -70,10 +66,10 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
   };
 
   const calculateTotal = () => {
-    let total = Number(finalPrice || price || 0);
+    let total = Number(finalPrice || 0);
     addonList.forEach((addon, idx) => {
       if (selectedAddons.includes(idx)) {
-        total += addon.price || 0;
+        total += Number(addon.price || 0);
       }
     });
     return total;
@@ -94,7 +90,7 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
       <div className="checkout-container">
         <header className="checkout-header">
           <div className="brand-logo">
-            <span className="logo-icon">🎯</span>
+            <span className="logo-icon">🎤</span>
             <span className="brand-name">PITCH MASTERY</span>
           </div>
         </header>
@@ -190,6 +186,52 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
             <div className="form-container">
               <h3 className="form-title">YOUR DETAILS</h3>
               <form onSubmit={handleSubmit} className="checkout-form">
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="fullName">Full name</label>
+                    <input
+                      type="text"
+                      id="fullName"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email">Email address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="contactInfo">Contact info</label>
+                  <input
+                    type="text"
+                    id="contactInfo"
+                    name="contactInfo"
+                    value={formData.contactInfo}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="address">Address</label>
+                  <textarea
+                    id="address"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleInputChange}
+                    rows="3"
+                    required
+                  />
+                </div>
                 <div className="bonus-offers">
                   {addonList.length > 0 && (
                     <>
@@ -206,8 +248,8 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
                             <label htmlFor={`addon-${idx}`}>
                               <span className="bonus-title">
                                 {addon.number && `${addon.number}. `}
-                                {addon.title}
-                                {addon.price ? ` - ${addon.price}/-` : ""}
+                                <b>{addon.title}</b>
+                                {addon.price && ` — ${addon.price}/-`}
                               </span>
                               {addon.description && (
                                 <span className="bonus-description">
@@ -229,10 +271,6 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
                   )}
                 </div>
                 <div className="price-breakdown">
-                  <div className="price-row">
-                    <span className="price-label">Base Course:</span>
-                    <span className="price-amount">{price}/-</span>
-                  </div>
                   {addonList.map(
                     (addon, idx) =>
                       selectedAddons.includes(idx) && (

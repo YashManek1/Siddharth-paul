@@ -1,38 +1,41 @@
 import React, { useState, useMemo } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
 
-// Improved parseAddons to handle missing numbers, extra dashes, and proper line breaks
+// Improved parseAddons to split each numbered addon into its own box, and parse price correctly
 function parseAddons(addons) {
   if (!addons) return [];
-  // Normalize line endings and remove stray slashes
-  const clean = addons.replace(/\\?\/-/g, "").replace(/\r\n|\r/g, "\n");
-  // Split by numbered pattern (handles both "1." and "2.")
-  const items = clean.split(/(?=\d+\.\s)/g).filter(Boolean);
+  const clean = addons
+    .replace(/\\n/g, "\n")
+    .replace(/\\?\/-\s*/g, "/-")
+    .replace(/\r\n|\r/g, "\n");
+  // Split by numbered pattern (handles "1.", "2.", "3." etc. even with quotes or numbers after the dot)
+  // This regex splits at: number, dot, then any non-dash (so it won't split inside a price or description)
+  const items = clean
+    .split(/(?=\d+\.(?:(?=[^–—-])|(?=["\d])))/g)
+    .filter(Boolean);
   return items.map((item, idx) => {
-    // Try to match: 1. Title — 999/-\nDescription...
+    // Match: 1. Title (possibly multiline) — 999/-\n✔️desc\n✔️desc
     const match = item.match(
-      /^(\d+)\.\s*([^-–—\n]+)[-–—]?\s*([₹$]?\d+[/-]*)?\s*\n?([\s\S]*)/m
+      /^(\d+)\.\s*([\s\S]+?)[-–—]\s*([₹$]?\d+)\s*\/?-?\s*\n?([\s\S]*)/m
     );
     if (match) {
       return {
         number: match[1],
-        title: match[2].trim(),
-        price: match[3] ? match[3].replace(/[^\d]/g, "") : "",
-        description: match[4] ? match[4].replace(/\\n/g, "\n").trim() : "",
+        title: match[2].replace(/\n/g, " ").replace(/\s+/g, " ").trim(),
+        price: match[3].replace(/[^\d]/g, ""),
+        description: match[4].trim(),
       };
     }
-    // If no number, try to match: Title — 999/-\nDescription...
+    // Fallback: try to match title and price, then description
     const altMatch = item.match(
-      /^([^-–—\n]+)[-–—]?\s*([₹$]?\d+[/-]*)?\s*\n?([\s\S]*)/m
+      /^(\d+)\.\s*([\s\S]+?)[-–—]\s*([₹$]?\d+)\s*([\s\S]*)/m
     );
     if (altMatch) {
       return {
-        number: String(idx + 1),
-        title: altMatch[1].trim(),
-        price: altMatch[2] ? altMatch[2].replace(/[^\d]/g, "") : "",
-        description: altMatch[3]
-          ? altMatch[3].replace(/\\n/g, "\n").trim()
-          : "",
+        number: altMatch[1],
+        title: altMatch[2].replace(/\n/g, " ").replace(/\s+/g, " ").trim(),
+        price: altMatch[3].replace(/[^\d]/g, ""),
+        description: altMatch[4] ? altMatch[4].trim() : "",
       };
     }
     return {
@@ -70,7 +73,7 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
   };
 
   const calculateTotal = () => {
-    let total = Number(finalPrice || price || 0);
+    let total = Number(finalPrice || 0);
     addonList.forEach((addon, idx) => {
       if (selectedAddons.includes(idx)) {
         total += Number(addon.price || 0);
@@ -99,7 +102,113 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
           </div>
         </header>
         <div className="checkout-content">
-          <div className="left-section">{/* ...benefits... */}</div>
+          <div className="left-section">
+            <div className="offer-header">
+              <h2
+                className="offer-title"
+                style={{ color: "#fff", background: "transparent" }}
+              >
+                GET YOUR IRRESISTIBLE OFFER MASTERED
+                <span style={{ color: "#00FF00" }}>- {finalPrice}/-</span>
+              </h2>
+            </div>
+            <div className="benefits-list">
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Craft offers that make clients say “YES” instantly — learn to
+                  design high-ticket, irresistible pitches that stand out in any
+                  market.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Master value stacking, urgency, and risk reversal — get the
+                  psychology-backed frameworks to make your offer a no-brainer.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Position yourself as the only choice — build messaging so
+                  strong that premium clients choose you over everyone else.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Fill-in-the-blank templates & checklists — never stare at a
+                  blank page again; just follow the proven steps.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  AI-enhanced offer prompts & examples — shortcut creation time
+                  and make your offers sharper and more persuasive.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Headline & messaging formulas — grab attention fast and move
+                  clients from “interested” to “sold.”
+                </p>
+              </div>
+              {/* --- NEW BENEFITS --- */}
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Build trust at every stage — learn how to present proof,
+                  bonuses, and guarantees that kill objections before they even
+                  arise.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Step-by-step offer testing process — refine and improve your
+                  pitch confidently before going live.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Complete video breakdowns — see real-world examples and learn
+                  exactly what works today.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Psychological triggers for premium sales — move beyond
+                  features and benefits into deep emotional connection that
+                  commands higher prices.
+                </p>
+              </div>
+            </div>
+          </div>
           <div className="right-section">
             <div className="form-container">
               <h3 className="form-title">YOUR DETAILS</h3>
@@ -128,7 +237,6 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                     />
                   </div>
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="contactInfo">Contact info</label>
                   <input
@@ -140,7 +248,6 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                     required
                   />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="address">Address</label>
                   <textarea
@@ -152,7 +259,6 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                     required
                   />
                 </div>
-
                 <div className="bonus-offers">
                   {addonList.length > 0 && (
                     <>
@@ -192,16 +298,12 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                   )}
                 </div>
                 <div className="price-breakdown">
-                  <div className="price-row">
-                    <span className="price-label">Base Course:</span>
-                    <span className="price-amount">₹{price}</span>
-                  </div>
                   {addonList.map(
                     (addon, idx) =>
                       selectedAddons.includes(idx) && (
                         <div className="price-row addon-row" key={idx}>
                           <span className="price-label">{addon.title}:</span>
-                          <span className="price-amount">+₹{addon.price}</span>
+                          <span className="price-amount">+{addon.price}/-</span>
                         </div>
                       )
                   )}
@@ -209,7 +311,7 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                 <div className="total-section">
                   <div className="total-row">
                     <span className="total-label">TOTAL:</span>
-                    <span className="total-amount">₹{calculateTotal()}</span>
+                    <span className="total-amount">{calculateTotal()}/-</span>
                   </div>
                 </div>
                 <button type="submit" className="submit-button">

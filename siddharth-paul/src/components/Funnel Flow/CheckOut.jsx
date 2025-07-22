@@ -1,35 +1,41 @@
 import React, { useState, useMemo } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
 
-// Parse addOns string into array of objects: { number, title, price, description }
+// Robust parseAddons for all edge cases
 function parseAddons(addons) {
   if (!addons) return [];
-  const items = addons.split(/(?=\d+\.\s)/g).filter(Boolean);
+  // Normalize line endings and slashes
+  const clean = addons
+    .replace(/\\n/g, "\n")
+    .replace(/\\?\/-\s*/g, "/-")
+    .replace(/\r\n|\r/g, "\n");
+
+  // Split at each numbered addon (handles missing spaces, etc.)
+  const items = clean.split(/(?=\d+\.\s?)/g).filter(Boolean);
+
   return items.map((item, idx) => {
-    // Try to match: 1. Title — 999/-\nDescription...
+    // Match: 1. Title - 999/-\nDescription...
     const match = item.match(
-      /^(\d+)\.\s*([^-–—\n]+)[-–—]?\s*([₹$]?\d+[/-]*)?\s*\n?([\s\S]*)/m
+      /^(\d+)\.\s*([\s\S]+?)[-–—]\s*([₹$]?\d+)\s*\/?-?\s*\n?([\s\S]*)/m
     );
     if (match) {
       return {
         number: match[1],
-        title: match[2].trim(),
-        price: match[3] ? match[3].replace(/[^\d]/g, "") : "",
-        description: match[4] ? match[4].replace(/\\n/g, "\n").trim() : "",
+        title: match[2].replace(/\n/g, " ").replace(/\s+/g, " ").trim(),
+        price: match[3].replace(/[^\d]/g, ""),
+        description: match[4] ? match[4].trim() : "",
       };
     }
-    // If no number, try to match: Title — 999/-\nDescription...
+    // Fallback: try to match title and price, then description
     const altMatch = item.match(
-      /^([^-–—\n]+)[-–—]?\s*([₹$]?\d+[/-]*)?\s*\n?([\s\S]*)/m
+      /^(\d+)\.\s*([\s\S]+?)[-–—]\s*([₹$]?\d+)\s*([\s\S]*)/m
     );
     if (altMatch) {
       return {
-        number: String(idx + 1),
-        title: altMatch[1].trim(),
-        price: altMatch[2] ? altMatch[2].replace(/[^\d]/g, "") : "",
-        description: altMatch[3]
-          ? altMatch[3].replace(/\\n/g, "\n").trim()
-          : "",
+        number: altMatch[1],
+        title: altMatch[2].replace(/\n/g, " ").replace(/\s+/g, " ").trim(),
+        price: altMatch[3].replace(/[^\d]/g, ""),
+        description: altMatch[4] ? altMatch[4].trim() : "",
       };
     }
     return {
@@ -67,10 +73,10 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
   };
 
   const calculateTotal = () => {
-    let total = Number(finalPrice || price || 0);
+    let total = Number(finalPrice || 0);
     addonList.forEach((addon, idx) => {
       if (selectedAddons.includes(idx)) {
-        total += addon.price || 0;
+        total += Number(addon.price || 0);
       }
     });
     return total;
@@ -91,7 +97,7 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
       <div className="checkout-container">
         <header className="checkout-header">
           <div className="brand-logo">
-            <span className="logo-icon">🌟</span>
+            <span className="logo-icon">🌀</span>
             <span className="brand-name">FUNNEL FLOW</span>
           </div>
         </header>
@@ -276,8 +282,8 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
                             <label htmlFor={`addon-${idx}`}>
                               <span className="bonus-title">
                                 {addon.number && `${addon.number}. `}
-                                {addon.title}
-                                {addon.price ? ` - ${addon.price}/-` : ""}
+                                <b>{addon.title}</b>
+                                {addon.price && ` — ${addon.price}/-`}
                               </span>
                               {addon.description && (
                                 <span className="bonus-description">
@@ -300,11 +306,6 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
                 </div>
 
                 <div className="price-breakdown">
-                  <div className="price-row">
-                    <span className="price-label">Base Course:</span>
-                    <span className="price-amount">${price}</span>
-                  </div>
-
                   {addonList.map(
                     (addon, idx) =>
                       selectedAddons.includes(idx) && (
@@ -319,7 +320,7 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
                 <div className="total-section">
                   <div className="total-row">
                     <span className="total-label">TOTAL:</span>
-                    <span className="total-amount">${calculateTotal()}</span>
+                    <span className="total-amount">{calculateTotal()}/-</span>
                   </div>
                 </div>
 

@@ -12,27 +12,27 @@ function parseAddons(addons) {
   // Split by numbered pattern (handles "1." and "2.")
   const items = clean.split(/(?=\d+\.\s)/g).filter(Boolean);
   return items.map((item, idx) => {
-    // Match: 1. Title - 999/-\nDescription...
+    // Match: 1. Title (possibly multiline) - 999 ...\nDescription...
     const match = item.match(
-      /^(\d+)\.\s*([^-–—\n]+?)(?:\s*[-–—]\s*|\s+)([₹$]?\d+)\s*(?:\/-)?\s*\n([\s\S]*)/m
+      /^(\d+)\.\s*([\s\S]+?)-\s*([₹$]?\d+)\s*\n([\s\S]*)/m
     );
     if (match) {
       return {
         number: match[1],
-        title: match[2].replace(/[\n\r]+/g, " ").trim(),
+        title: match[2].replace(/\n/g, " ").replace(/\s+/g, " ").trim(),
         price: match[3].replace(/[^\d]/g, ""),
         description: match[4].trim(),
       };
     }
     // Fallback: try to match title and price, then description
     const altMatch = item.match(
-      /^(\d+)\.\s*([^-–—\n]+?)(?:\s*[-–—]\s*|\s+)?([₹$]?\d+)?\s*(?:\/-)?\s*\n?([\s\S]*)/m
+      /^(\d+)\.\s*([\s\S]+?)-\s*([₹$]?\d+)\s*([\s\S]*)/m
     );
     if (altMatch) {
       return {
         number: altMatch[1],
-        title: altMatch[2].replace(/[\n\r]+/g, " ").trim(),
-        price: altMatch[3] ? altMatch[3].replace(/[^\d]/g, "") : "",
+        title: altMatch[2].replace(/\n/g, " ").replace(/\s+/g, " ").trim(),
+        price: altMatch[3].replace(/[^\d]/g, ""),
         description: altMatch[4] ? altMatch[4].trim() : "",
       };
     }
