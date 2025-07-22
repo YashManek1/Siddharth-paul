@@ -4,25 +4,7 @@ import img1 from "../../assets/accessimg1.svg";
 import img2 from "../../assets/accessimg2.svg";
 import img3 from "../../assets/accessimg3.svg";
 
-// Parse addOns string into array of objects: { number, title, price, description }
-const parseAddons = (addons) => {
-  if (!addons) return [];
-  const items = addons.split(/(?=\d+\.\s)/g).filter(Boolean);
-  return items.map((item) => {
-    const match = item.match(/(\d+)\.\s*([^\d$\n]+)(?:\s*\$?(\d+))?(.*)/s);
-    if (match) {
-      return {
-        number: match[1],
-        title: match[2].trim(),
-        price: match[3] ? Number(match[3]) : null,
-        description: match[4] ? match[4].replace(/\n/g, " ").trim() : "",
-      };
-    }
-    return { number: "", title: item.trim(), price: null, description: "" };
-  });
-};
-
-const AccessSection = ({ price, finalPrice, addons }) => {
+const AccessSection = ({ price, finalPrice }) => {
   const scrollToCheckout = (e) => {
     e.preventDefault();
     const checkoutSection = document.querySelector(".global-magnet-checkout");
@@ -30,7 +12,7 @@ const AccessSection = ({ price, finalPrice, addons }) => {
       checkoutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-  const addonList = parseAddons(addons);
+
   return (
     <section className="access-main-section">
       <div className="access-main-container">
@@ -53,13 +35,13 @@ const AccessSection = ({ price, finalPrice, addons }) => {
           </div>
 
           <div className="access-card access-card-pdf">
-            <h3 className="access-card-title">PDF PLAYBOOK</h3>
+            <h3 className="access-card-title">PDF GUIDE</h3>
             <p className="access-card-description">
-              PDF Guide: Step-by-Step Blueprint to Acquire and Retain
-              High-Paying Clients
+              Downloadable PDF with frameworks, templates, and checklists for
+              every step of your client-getting journey.
             </p>
             <div className="access-card-image">
-              <img src={img2} alt="PDF playbook guide" />
+              <img src={img2} alt="PDF guide" />
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
@@ -70,8 +52,8 @@ const AccessSection = ({ price, finalPrice, addons }) => {
           <div className="access-card access-card-checklist">
             <h3 className="access-card-title">CHECKLISTS</h3>
             <p className="access-card-description">
-              Ensure every box is checked before launching a campaign or
-              onboarding a client.
+              Done-for-you audit, A/B test, and launch checklists so you don't
+              miss any steps when building or optimizing your client systems.
             </p>
             <div className="access-card-image checklist-icon">
               <div className="purple-tick-icon">
@@ -95,23 +77,22 @@ const AccessSection = ({ price, finalPrice, addons }) => {
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
-              <span className="access-price-value">499/-</span>
+              <span className="access-price-value">497/-</span>
             </div>
           </div>
 
           <div className="access-card access-card-community">
             <h3 className="access-card-title">EXCLUSIVE COMMUNITY</h3>
             <p className="access-card-description">
-              Join an exclusive community of driven entrepreneurs through live
-              mastermind calls. Get real-time insights, powerful connections,
-              and the accountability you need to scale fast
+              Join a private mastermind of client-getters. Share wins, get
+              feedback, and stay accountable as you grow.
             </p>
             <div className="access-card-image">
               <img src={img3} alt="Community members" />
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
-              <span className="access-price-value">2999/-</span>
+              <span className="access-price-value">1999/-</span>
             </div>
           </div>
 
@@ -120,15 +101,15 @@ const AccessSection = ({ price, finalPrice, addons }) => {
               <div className="access-final-pricing">
                 <div className="access-final-regular">
                   <span className="access-final-label">PRICE:</span>
-                  <span className="access-final-crossed">9499/-</span>
+                  <span className="access-final-crossed">6499/-</span>
                 </div>
                 <div className="access-final-offer">
                   <span className="access-final-label-big">FINAL PRICE:</span>
-                  <span className="access-final-green">3999/-</span>
+                  <span className="access-final-green">{finalPrice}/-</span>
                 </div>
               </div>
               <button
-                className="access-final-button "
+                className="access-final-button"
                 onClick={scrollToCheckout}
               >
                 ACCESS NOW!
@@ -136,37 +117,9 @@ const AccessSection = ({ price, finalPrice, addons }) => {
             </div>
           </div>
         </div>
-        {addonList.length > 0 && (
-          <div className="access-addons-section">
-            <h3 className="access-addons-title">BONUS ADD-ONS</h3>
-            <div className="access-addons-list">
-              {addonList.map((addon, idx) => (
-                <div className="access-addon-box" key={idx}>
-                  <div className="access-addon-header">
-                    <span className="access-addon-number">
-                      {addon.number && `${addon.number}.`}
-                    </span>
-                    <span className="access-addon-title">{addon.title}</span>
-                    {addon.price && (
-                      <span className="access-addon-price">
-                        +{addon.price}/-
-                      </span>
-                    )}
-                  </div>
-                  {addon.description && (
-                    <div className="access-addon-description">
-                      {addon.description}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );
-}
+};
 
 export default AccessSection;
-

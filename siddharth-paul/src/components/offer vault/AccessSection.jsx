@@ -4,29 +4,7 @@ import img1 from "../../assets/accessimg1.svg";
 import img2 from "../../assets/accessimg2.svg";
 import img3 from "../../assets/accessimg3.svg";
 
-// Parse addOns string into array of objects: { number, title, price, description }
-const parseAddons = (addons) => {
-  if (!addons) return [];
-  // Split by numbered pattern (handles both "1." and "1. ")
-  const items = addons.split(/(?=\d+\.\s)/g).filter(Boolean);
-  return items.map((item) => {
-    // Extract number, title, price, description
-    const match = item.match(/(\d+)\.\s*([^\d$\n]+)(?:\s*\$?(\d+))?(.*)/s);
-    if (match) {
-      return {
-        number: match[1],
-        title: match[2].trim(),
-        price: match[3] ? Number(match[3]) : null,
-        description: match[4] ? match[4].replace(/\n/g, " ").trim() : "",
-      };
-    }
-    return { number: "", title: item.trim(), price: null, description: "" };
-  });
-};
-
-const AccessSection = ({ price, finalPrice, addons }) => {
-  const addonList = parseAddons(addons);
-
+const AccessSection = ({ price, finalPrice }) => {
   return (
     <section className="access-main-section">
       <div className="access-main-container">
@@ -69,8 +47,8 @@ const AccessSection = ({ price, finalPrice, addons }) => {
           <div className="access-card access-card-checklist">
             <h3 className="access-card-title">CHECKLISTS</h3>
             <p className="access-card-description">
-              Use these powerful checklists to ensure every element — value,
-              bonuses, guarantees, urgency
+              Done-for-you offer audit, A/B test, and launch checklists so you
+              don't miss any steps when building or optimizing your offers.
             </p>
             <div className="access-card-image checklist-icon">
               <div className="purple-tick-icon">
@@ -130,34 +108,6 @@ const AccessSection = ({ price, finalPrice, addons }) => {
             </div>
           </div>
         </div>
-
-        {addonList.length > 0 && (
-          <div className="access-addons-section">
-            <h3 className="access-addons-title">BONUS ADD-ONS</h3>
-            <div className="access-addons-list">
-              {addonList.map((addon, idx) => (
-                <div className="access-addon-box" key={idx}>
-                  <div className="access-addon-header">
-                    <span className="access-addon-number">
-                      {addon.number && `${addon.number}.`}
-                    </span>
-                    <span className="access-addon-title">{addon.title}</span>
-                    {addon.price && (
-                      <span className="access-addon-price">
-                        +{addon.price}/-
-                      </span>
-                    )}
-                  </div>
-                  {addon.description && (
-                    <div className="access-addon-description">
-                      {addon.description}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

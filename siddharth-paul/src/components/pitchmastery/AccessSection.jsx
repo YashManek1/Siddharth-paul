@@ -4,16 +4,7 @@ import img1 from "../../assets/accessimg1.svg";
 import img2 from "../../assets/accessimg2.svg";
 import img3 from "../../assets/accessimg3.svg";
 
-const parseAddons = (addons) => {
-  if (!addons) return [];
-  // Split by numbered list or newlines, clean up
-  return addons
-    .split(/\d+\.\s|\\n|\n/)
-    .map((item) => item.trim())
-    .filter((item) => item.length > 0);
-};
-
-const AccessSection = ({ price, finalPrice, addons }) => {
+const AccessSection = ({ price, finalPrice }) => {
   const scrollToCheckout = (e) => {
     e.preventDefault();
     const checkoutSection = document.querySelector(".global-magnet-checkout");
@@ -21,8 +12,6 @@ const AccessSection = ({ price, finalPrice, addons }) => {
       checkoutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const addonList = parseAddons(addons);
 
   return (
     <section className="access-main-section">
@@ -53,8 +42,9 @@ const AccessSection = ({ price, finalPrice, addons }) => {
           <div className="access-card access-card-pdf">
             <h3 className="access-card-title">PDF PLAYBOOK</h3>
             <p className="access-card-description">
-              Get my plug-and-play sales frameworks. Scripts for cold calls,
-              warm follow-ups, and DMs.
+              The ultimate step-by-step blueprint which includes psychological
+              frameworks, real examples, and practical prompts to make your
+              pitch a no-brainer.
             </p>
             <div className="access-card-image">
               <img src={img2} alt="PDF playbook guide" />
@@ -68,7 +58,8 @@ const AccessSection = ({ price, finalPrice, addons }) => {
           <div className="access-card access-card-checklist">
             <h3 className="access-card-title">CHECKLISTS</h3>
             <p className="access-card-description">
-              Quick cheat sheets you can print and use before every call.
+              Done-for-you pitch audit, A/B test, and launch checklists so you
+              don't miss any steps when building or optimizing your pitch.
             </p>
             <div className="access-card-image checklist-icon">
               <div className="purple-tick-icon">
@@ -108,7 +99,7 @@ const AccessSection = ({ price, finalPrice, addons }) => {
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
-              <span className="access-price-value">1499/-</span>
+              <span className="access-price-value">999/-</span>
             </div>
           </div>
 
@@ -130,18 +121,6 @@ const AccessSection = ({ price, finalPrice, addons }) => {
               >
                 ACCESS NOW!
               </button>
-              {addonList.length > 0 && (
-                <div className="access-addons-list">
-                  <h4 style={{ marginTop: 24, marginBottom: 8 }}>
-                    Add-ons Included:
-                  </h4>
-                  <ul>
-                    {addonList.map((addon, idx) => (
-                      <li key={idx}>{addon}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
             </div>
           </div>
         </div>

@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+// (Removed stray code: handleAddonChange, calculateTotal)
+import React, { useState, useMemo } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
-import { useMemo } from "react";
 
-const parseAddons = (addons) => {
+// Parse addOns string into array of objects: { number, title, price, description }
+function parseAddons(addons) {
   if (!addons) return [];
-  return addons
-    .split(/\d+\.\s|\\n|\n/)
-    .map((item) => item.trim())
-    .filter((item) => item.length > 0);
-};
+  // Split by numbered pattern (handles both "1." and "1. ")
+  const items = addons.split(/(?=\d+\.\s)/g).filter(Boolean);
+  return items.map((item) => {
+    // Extract number, title, price, description
+    const match = item.match(/(\d+)\.\s*([^\d$\n]+)(?:\s*\$?(\d+))?(.*)/s);
+    if (match) {
+      return {
+        number: match[1],
+        title: match[2].trim(),
+        price: match[3] ? Number(match[3]) : 0,
+        description: match[4] ? match[4].replace(/\n/g, " ").trim() : "",
+      };
+    }
+    return { number: "", title: item.trim(), price: 0, description: "" };
+  });
+}
 
 const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
   const [formData, setFormData] = useState({
@@ -35,8 +47,7 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
     let total = Number(finalPrice || price || 0);
     addonList.forEach((addon, idx) => {
       if (selectedAddons.includes(idx)) {
-        const match = addon.match(/([0-9]+)[^0-9]*$/);
-        if (match) total += Number(match[1]);
+        total += addon.price || 0;
       }
     });
     return total;
@@ -97,21 +108,54 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
 
         {addonList.length > 0 && (
           <div className="checkout-addons">
-            <h4>Add-ons</h4>
-            {addonList.map((addon, idx) => (
-              <label key={idx} style={{ display: "block", marginBottom: 4 }}>
-                <input
-                  type="checkbox"
-                  checked={selectedAddons.includes(idx)}
-                  onChange={() => handleAddonChange(idx)}
-                />
-                {addon}
-              </label>
-            ))}
+            {addonList.length > 0 && (
+              <>
+                <h4>Bonus Add-ons</h4>
+                {addonList.map((addon, idx) => (
+                  <div className="bonus-item" key={idx}>
+                    <div className="bonus-checkbox">
+                      <input
+                        type="checkbox"
+                        id={`addon-${idx}`}
+                        checked={selectedAddons.includes(idx)}
+                        onChange={() => handleAddonChange(idx)}
+                      />
+                      <label htmlFor={`addon-${idx}`}>
+                        <span className="bonus-title">
+                          {addon.number && `${addon.number}. `}
+                          {addon.title}
+                          {addon.price ? ` - ${addon.price}/-` : ""}
+                        </span>
+                        {addon.description && (
+                          <span className="bonus-description">
+                            {addon.description}
+                          </span>
+                        )}
+                      </label>
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
           </div>
         )}
 
         <div className="checkout-total">
+          <div className="price-breakdown">
+            <div>
+              <span>Base Price: </span>
+              <span>{price}/-</span>
+            </div>
+            {addonList.map(
+              (addon, idx) =>
+                selectedAddons.includes(idx) && (
+                  <div className="price-row addon-row" key={idx}>
+                    <span className="price-label">{addon.title}:</span>
+                    <span className="price-amount">+{addon.price}/-</span>
+                  </div>
+                )
+            )}
+          </div>
           <strong>Total: {calculateTotal()}/-</strong>
         </div>
 

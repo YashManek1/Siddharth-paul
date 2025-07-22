@@ -1,30 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "../Component_Styles/AccessSection.css";
 import img from "../../assets/accessimg1.svg";
 import img2 from "../../assets/accessimg2.svg";
 import img3 from "../../assets/accessimg3.svg";
 
-const parseAddons = (addons) => {
-  if (!addons) return [];
-  // Split by numbered pattern (handles both "1." and "1. ")
-  const items = addons.split(/\s*\d+\.\s/).filter(Boolean);
-  return items.map((item) => {
-    // Extract title and price (e.g., "Global Authority Content Bundle - 997 /-")
-    const [titleLine, ...descLines] = item.split("\\n");
-    const titleMatch = titleLine.match(/^(.*?)-\s*([\d,]+)\s*\/-/);
-    const title = titleMatch ? titleMatch[1].trim() : titleLine.trim();
-    const price = titleMatch ? titleMatch[2].replace(/,/g, "") : "";
-    const description = descLines
-      .map((line) => line.replace(/\\n/g, "").replace(/✔️/g, ""))
-      .join(" ")
-      .replace(/\s+/g, " ")
-      .trim();
-    return { title, price, description };
-  });
-};
-
-const AccessSection = ({ price, finalPrice, addons }) => {
-  const [selectedAddons, setSelectedAddons] = useState([]);
+const AccessSection = ({ price, finalPrice }) => {
   const scrollToCheckout = (e) => {
     e.preventDefault();
     const checkoutSection = document.querySelector(".global-magnet-checkout");
@@ -32,15 +12,6 @@ const AccessSection = ({ price, finalPrice, addons }) => {
       checkoutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-  const addonList = parseAddons(addons);
-
-  const handleAddonChange = (idx) => {
-    setSelectedAddons((prev) =>
-      prev.includes(idx) ? prev.filter((id) => id !== idx) : [...prev, idx]
-    );
-  };
-
-  // calculateTotal removed (was unused)
 
   return (
     <section className="access-main-section">
@@ -146,32 +117,6 @@ const AccessSection = ({ price, finalPrice, addons }) => {
                 ACCESS NOW!
               </button>
             </div>
-          </div>
-        </div>
-
-        <div className="bonus-section">
-          <h3 className="bonus-title">Available Add-ons:</h3>
-          <div className="bonus-list">
-            {addonList.map((addon, idx) => (
-              <div className="bonus-item" key={idx}>
-                <div className="bonus-checkbox">
-                  <input
-                    type="checkbox"
-                    id={`addon-${idx}`}
-                    checked={selectedAddons.includes(idx)}
-                    onChange={() => handleAddonChange(idx)}
-                  />
-                  <label htmlFor={`addon-${idx}`}>
-                    <span className="bonus-title">
-                      {addon.title} - ₹{addon.price}
-                    </span>
-                    <span className="bonus-description">
-                      {addon.description}
-                    </span>
-                  </label>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

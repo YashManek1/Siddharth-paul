@@ -1,13 +1,25 @@
 import React, { useState, useMemo } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
 
-const parseAddons = (addons) => {
+// Parse addOns string into array of objects: { number, title, price, description }
+function parseAddons(addons) {
   if (!addons) return [];
-  return addons
-    .split(/\d+\.\s|\\n|\n/)
-    .map((item) => item.trim())
-    .filter((item) => item.length > 0);
-};
+  // Split by numbered pattern (handles both "1." and "1. ")
+  const items = addons.split(/(?=\d+\.\s)/g).filter(Boolean);
+  return items.map((item) => {
+    // Extract number, title, price, description
+    const match = item.match(/(\d+)\.\s*([^\d$\n]+)(?:\s*\$?(\d+))?(.*)/s);
+    if (match) {
+      return {
+        number: match[1],
+        title: match[2].trim(),
+        price: match[3] ? Number(match[3]) : 0,
+        description: match[4] ? match[4].replace(/\n/g, " ").trim() : "",
+      };
+    }
+    return { number: "", title: item.trim(), price: 0, description: "" };
+  });
+}
 
 const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
   const [formData, setFormData] = useState({

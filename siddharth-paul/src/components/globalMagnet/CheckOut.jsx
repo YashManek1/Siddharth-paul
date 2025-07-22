@@ -1,13 +1,25 @@
 import React, { useState, useMemo } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
 
-const parseAddons = (addons) => {
+// Parse addOns string into array of objects: { number, title, price, description }
+function parseAddons(addons) {
   if (!addons) return [];
-  return addons
-    .split(/\d+\.\s|\\n|\n/)
-    .map((item) => item.trim())
-    .filter((item) => item.length > 0);
-};
+  // Split by numbered pattern (handles both "1." and "1. ")
+  const items = addons.split(/(?=\d+\.\s)/g).filter(Boolean);
+  return items.map((item) => {
+    // Extract number, title, price, description
+    const match = item.match(/(\d+)\.\s*([^\d$\n]+)(?:\s*\$?(\d+))?(.*)/s);
+    if (match) {
+      return {
+        number: match[1],
+        title: match[2].trim(),
+        price: match[3] ? Number(match[3]) : 0,
+        description: match[4] ? match[4].replace(/\n/g, " ").trim() : "",
+      };
+    }
+    return { number: "", title: item.trim(), price: 0, description: "" };
+  });
+}
 
 const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
   const [formData, setFormData] = useState({
@@ -38,8 +50,7 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
     let total = Number(finalPrice || price || 0);
     addonList.forEach((addon, idx) => {
       if (selectedAddons.includes(idx)) {
-        const match = addon.match(/([0-9]+)[^0-9]*$/);
-        if (match) total += Number(match[1]);
+        total += addon.price || 0;
       }
     });
     return total;
@@ -231,32 +242,35 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
                 </div>
 
                 <div className="bonus-offers">
-                  {addonList.map((addon, idx) => {
-                    const isSelected = selectedAddons.includes(idx);
-                    const priceMatch = addon.match(/([0-9]+)[^0-9]*$/);
-                    const addonPrice = priceMatch ? Number(priceMatch[1]) : 0;
-
-                    return (
-                      <div className="bonus-item" key={idx}>
-                        <div className="bonus-checkbox">
-                          <input
-                            type="checkbox"
-                            id={`addon-${idx}`}
-                            checked={isSelected}
-                            onChange={() => handleAddonChange(idx)}
-                          />
-                          <label htmlFor={`addon-${idx}`}>
-                            <span className="bonus-title">
-                              {isSelected ? "✓ " : ""}Add {addon}
-                            </span>
-                            <span className="bonus-description">
-                              {/* Description can be added here if needed */}
-                            </span>
-                          </label>
+                  {addonList.length > 0 && (
+                    <>
+                      <h4>Bonus Add-ons</h4>
+                      {addonList.map((addon, idx) => (
+                        <div className="bonus-item" key={idx}>
+                          <div className="bonus-checkbox">
+                            <input
+                              type="checkbox"
+                              id={`addon-${idx}`}
+                              checked={selectedAddons.includes(idx)}
+                              onChange={() => handleAddonChange(idx)}
+                            />
+                            <label htmlFor={`addon-${idx}`}>
+                              <span className="bonus-title">
+                                {addon.number && `${addon.number}. `}
+                                {addon.title}
+                                {addon.price ? ` - ${addon.price}/-` : ""}
+                              </span>
+                              {addon.description && (
+                                <span className="bonus-description">
+                                  {addon.description}
+                                </span>
+                              )}
+                            </label>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      ))}
+                    </>
+                  )}
                 </div>
 
                 <div className="price-breakdown">
@@ -265,20 +279,15 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
                     <span className="price-amount">${price}</span>
                   </div>
 
-                  {addonList.map((addon, idx) => {
-                    const isSelected = selectedAddons.includes(idx);
-                    const priceMatch = addon.match(/([0-9]+)[^0-9]*$/);
-                    const addonPrice = priceMatch ? Number(priceMatch[1]) : 0;
-
-                    return (
-                      isSelected && (
+                  {addonList.map(
+                    (addon, idx) =>
+                      selectedAddons.includes(idx) && (
                         <div className="price-row addon-row" key={idx}>
-                          <span className="price-label">{addon}:</span>
-                          <span className="price-amount">+${addonPrice}</span>
+                          <span className="price-label">{addon.title}:</span>
+                          <span className="price-amount">+{addon.price}/-</span>
                         </div>
                       )
-                    );
-                  })}
+                  )}
                 </div>
 
                 <div className="total-section">
