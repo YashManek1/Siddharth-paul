@@ -1,27 +1,50 @@
 import React, { useState, useMemo } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
 
-// Parse addOns string into array of objects: { number, title, price, description }
+// Improved parseAddons to handle missing numbers, extra dashes, and proper line breaks
 function parseAddons(addons) {
   if (!addons) return [];
-  // Split by numbered pattern (handles both "1." and "1. ")
-  const items = addons.split(/(?=\d+\.\s)/g).filter(Boolean);
-  return items.map((item) => {
-    // Extract number, title, price, description
-    const match = item.match(/(\d+)\.\s*([^\d$\n]+)(?:\s*\$?(\d+))?(.*)/s);
+  // Normalize line endings and remove stray slashes
+  const clean = addons.replace(/\?\/-/g, "").replace(/\r\n|\r/g, "\n");
+  // Split by numbered pattern (handles both "1." and "2.")
+  const items = clean.split(/(?=\d+\.\s)/g).filter(Boolean);
+  return items.map((item, idx) => {
+    // Try to match: 1. Title — 999/-\nDescription...
+    const match = item.match(
+      /^(\d+)\.\s*([^-–—\n]+)[-–—]?\s*([₹$]?\d+[/-]*)?\s*\n?([\s\S]*)/m
+    );
     if (match) {
       return {
         number: match[1],
         title: match[2].trim(),
-        price: match[3] ? Number(match[3]) : 0,
-        description: match[4] ? match[4].replace(/\n/g, " ").trim() : "",
+        price: match[3] ? match[3].replace(/[^\d]/g, "") : "",
+        description: match[4] ? match[4].replace(/\\n/g, "\n").trim() : "",
       };
     }
-    return { number: "", title: item.trim(), price: 0, description: "" };
+    // If no number, try to match: Title — 999/-\nDescription...
+    const altMatch = item.match(
+      /^([^-–—\n]+)[-–—]?\s*([₹$]?\d+[/-]*)?\s*\n?([\s\S]*)/m
+    );
+    if (altMatch) {
+      return {
+        number: String(idx + 1),
+        title: altMatch[1].trim(),
+        price: altMatch[2] ? altMatch[2].replace(/[^\d]/g, "") : "",
+        description: altMatch[3]
+          ? altMatch[3].replace(/\\n/g, "\n").trim()
+          : "",
+      };
+    }
+    return {
+      number: String(idx + 1),
+      title: item.trim(),
+      price: "",
+      description: "",
+    };
   });
 }
 
-const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
+const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -67,110 +90,109 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
   };
 
   return (
-    <div>
-      <div className="global-magnet-checkout">
-        <div className="checkout-container">
-          <header className="checkout-header">
-            <div className="brand-logo">
-              <span className="logo-icon">🎯</span>
-              <span className="brand-name">PITCH MASTERY</span>
+    <div className="global-magnet-checkout">
+      <div className="checkout-container">
+        <header className="checkout-header">
+          <div className="brand-logo">
+            <span className="logo-icon">🎯</span>
+            <span className="brand-name">PITCH MASTERY</span>
+          </div>
+        </header>
+        <div className="checkout-content">
+          <div className="left-section">
+            <div className="offer-header">
+              <h2 className="offer-title">
+                GET SALES CALL CONFIDENCE - ₹1499/-
+              </h2>
             </div>
-          </header>
-          <div className="checkout-content">
-            <div className="left-section">
-              <div className="offer-header">
-                <h2 className="offer-title">
-                  GET SALES CALL CONFIDENCE - ₹1499/-
-                </h2>
+            <div className="benefits-list">
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  How to open any sales call so the prospect actually wants to
+                  talk.
+                </p>
               </div>
-              <div className="benefits-list">
-                <div className="benefit-item">
-                  <div className="benefit-icon" style={{ color: "#00C800" }}>
-                    ✓
-                  </div>
-                  <p>
-                    How to open any sales call so the prospect actually wants to
-                    talk.
-                  </p>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
                 </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon" style={{ color: "#00C800" }}>
-                    ✓
-                  </div>
-                  <p>
-                    How to build trust & keep control — without sounding
-                    desperate.
-                  </p>
+                <p>
+                  How to build trust & keep control — without sounding
+                  desperate.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
                 </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon" style={{ color: "#00C800" }}>
-                    ✓
-                  </div>
-                  <p>
-                    How to use simple words, tonality & body language to lead
-                    the sale.
-                  </p>
+                <p>
+                  How to use simple words, tonality & body language to lead the
+                  sale.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
                 </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon" style={{ color: "#00C800" }}>
-                    ✓
-                  </div>
-                  <p>
-                    How to handle "I'll think about it" and turn it into a yes
-                    without pushiness.
-                  </p>
+                <p>
+                  How to handle "I'll think about it" and turn it into a yes
+                  without pushiness.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
                 </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon" style={{ color: "#00C800" }}>
-                    ✓
-                  </div>
-                  <p>
-                    How to follow up without sounding needy — get real scripts
-                    for cold calls, warm calls & DMs.
-                  </p>
+                <p>
+                  How to follow up without sounding needy — get real scripts for
+                  cold calls, warm calls & DMs.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
                 </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon" style={{ color: "#00C800" }}>
-                    ✓
-                  </div>
-                  <p>
-                    Role-play recordings so you see exactly how to do it in B2B
-                    and B2C.
-                  </p>
+                <p>
+                  Role-play recordings so you see exactly how to do it in B2B
+                  and B2C.
+                </p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
                 </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon" style={{ color: "#00C800" }}>
-                    ✓
-                  </div>
-                  <p>Checklists and call audits so you never miss a step.</p>
+                <p>Checklists and call audits so you never miss a step.</p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
                 </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon" style={{ color: "#00C800" }}>
-                    ✓
-                  </div>
-                  <p>Plug & play PDF frameworks to prep before every call.</p>
+                <p>Plug & play PDF frameworks to prep before every call.</p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
                 </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon" style={{ color: "#00C800" }}>
-                    ✓
-                  </div>
-                  <p>The hidden psychology behind closing high-ticket deals.</p>
+                <p>The hidden psychology behind closing high-ticket deals.</p>
+              </div>
+              <div className="benefit-item">
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
                 </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon" style={{ color: "#00C800" }}>
-                    ✓
-                  </div>
-                  <p>
-                    And the mindset shift you need to never freeze up again.
-                  </p>
-                </div>
+                <p>And the mindset shift you need to never freeze up again.</p>
               </div>
             </div>
-            <div className="right-section">
+          </div>
+          <div className="right-section">
+            <div className="form-container">
+              <h3 className="form-title">YOUR DETAILS</h3>
               <form onSubmit={handleSubmit} className="checkout-form">
                 <div className="bonus-offers">
                   {addonList.length > 0 && (
-                    <React.Fragment>
+                    <>
                       <h4>Bonus Add-ons</h4>
                       {addonList.map((addon, idx) => (
                         <div className="bonus-item" key={idx}>
@@ -189,14 +211,21 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
                               </span>
                               {addon.description && (
                                 <span className="bonus-description">
-                                  {addon.description}
+                                  {addon.description
+                                    .split("\n")
+                                    .map((line, i) => (
+                                      <React.Fragment key={i}>
+                                        {line}
+                                        <br />
+                                      </React.Fragment>
+                                    ))}
                                 </span>
                               )}
                             </label>
                           </div>
                         </div>
                       ))}
-                    </React.Fragment>
+                    </>
                   )}
                 </div>
                 <div className="price-breakdown">
@@ -217,7 +246,7 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
                 <div className="total-section">
                   <div className="total-row">
                     <span className="total-label">TOTAL:</span>
-                    <span className="total-amount">₹{calculateTotal()}/-</span>
+                    <span className="total-amount">{calculateTotal()}/-</span>
                   </div>
                 </div>
                 <button type="submit" className="submit-button">
@@ -232,4 +261,4 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
   );
 };
 
-export default GlobalMagnetCheckout;
+export default PitchMasteryCheckout;

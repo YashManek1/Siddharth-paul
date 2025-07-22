@@ -123,18 +123,6 @@ const AccessSection = ({ price, finalPrice, addons }) => {
               >
                 ACCESS NOW!
               </button>
-              {addonList.length > 0 && (
-                <div className="access-addons-list">
-                  <h4 style={{ marginTop: 24, marginBottom: 8 }}>
-                    Add-ons Included:
-                  </h4>
-                  <ul>
-                    {addonList.map((addon, idx) => (
-                      <li key={idx}>{addon}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
             </div>
           </div>
         </div>

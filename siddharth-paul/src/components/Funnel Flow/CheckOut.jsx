@@ -4,24 +4,44 @@ import "../Component_Styles/GlobalMagnetCheckout.css";
 // Parse addOns string into array of objects: { number, title, price, description }
 function parseAddons(addons) {
   if (!addons) return [];
-  // Split by numbered pattern (handles both "1." and "1. ")
   const items = addons.split(/(?=\d+\.\s)/g).filter(Boolean);
-  return items.map((item) => {
-    // Extract number, title, price, description
-    const match = item.match(/(\d+)\.\s*([^\d$\n]+)(?:\s*\$?(\d+))?(.*)/s);
+  return items.map((item, idx) => {
+    // Try to match: 1. Title — 999/-\nDescription...
+    const match = item.match(
+      /^(\d+)\.\s*([^-–—\n]+)[-–—]?\s*([₹$]?\d+[/-]*)?\s*\n?([\s\S]*)/m
+    );
     if (match) {
       return {
         number: match[1],
         title: match[2].trim(),
-        price: match[3] ? Number(match[3]) : 0,
-        description: match[4] ? match[4].replace(/\n/g, " ").trim() : "",
+        price: match[3] ? match[3].replace(/[^\d]/g, "") : "",
+        description: match[4] ? match[4].replace(/\\n/g, "\n").trim() : "",
       };
     }
-    return { number: "", title: item.trim(), price: 0, description: "" };
+    // If no number, try to match: Title — 999/-\nDescription...
+    const altMatch = item.match(
+      /^([^-–—\n]+)[-–—]?\s*([₹$]?\d+[/-]*)?\s*\n?([\s\S]*)/m
+    );
+    if (altMatch) {
+      return {
+        number: String(idx + 1),
+        title: altMatch[1].trim(),
+        price: altMatch[2] ? altMatch[2].replace(/[^\d]/g, "") : "",
+        description: altMatch[3]
+          ? altMatch[3].replace(/\\n/g, "\n").trim()
+          : "",
+      };
+    }
+    return {
+      number: String(idx + 1),
+      title: item.trim(),
+      price: "",
+      description: "",
+    };
   });
 }
 
-const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
+const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -75,7 +95,6 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
             <span className="brand-name">FUNNEL FLOW</span>
           </div>
         </header>
-
         <div className="checkout-content">
           <div className="left-section">
             <div className="offer-header">
@@ -262,7 +281,14 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
                               </span>
                               {addon.description && (
                                 <span className="bonus-description">
-                                  {addon.description}
+                                  {addon.description
+                                    .split("\n")
+                                    .map((line, i) => (
+                                      <React.Fragment key={i}>
+                                        {line}
+                                        <br />
+                                      </React.Fragment>
+                                    ))}
                                 </span>
                               )}
                             </label>
@@ -309,4 +335,4 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
   );
 };
 
-export default GlobalMagnetCheckout;
+export default FunnelFlowCheckout;

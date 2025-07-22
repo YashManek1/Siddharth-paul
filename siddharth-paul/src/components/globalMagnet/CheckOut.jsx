@@ -1,23 +1,47 @@
 import React, { useState, useMemo } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
 
-// Parse addOns string into array of objects: { number, title, price, description }
+// Robust parseAddons for all edge cases
 function parseAddons(addons) {
   if (!addons) return [];
-  // Split by numbered pattern (handles both "1." and "1. ")
-  const items = addons.split(/(?=\d+\.\s)/g).filter(Boolean);
-  return items.map((item) => {
-    // Extract number, title, price, description
-    const match = item.match(/(\d+)\.\s*([^\d$\n]+)(?:\s*\$?(\d+))?(.*)/s);
+  // Normalize line endings and slashes
+  const clean = addons
+    .replace(/\\n/g, "\n")
+    .replace(/\\?\/-\s*/g, "")
+    .replace(/\r\n|\r/g, "\n");
+  // Split by numbered pattern (handles "1." and "2.")
+  const items = clean.split(/(?=\d+\.\s)/g).filter(Boolean);
+  return items.map((item, idx) => {
+    // Match: 1. Title - 999/-\nDescription...
+    const match = item.match(
+      /^(\d+)\.\s*([^-–—\n]+?)(?:\s*[-–—]\s*|\s+)([₹$]?\d+)\s*(?:\/-)?\s*\n([\s\S]*)/m
+    );
     if (match) {
       return {
         number: match[1],
-        title: match[2].trim(),
-        price: match[3] ? Number(match[3]) : 0,
-        description: match[4] ? match[4].replace(/\n/g, " ").trim() : "",
+        title: match[2].replace(/[\n\r]+/g, " ").trim(),
+        price: match[3].replace(/[^\d]/g, ""),
+        description: match[4].trim(),
       };
     }
-    return { number: "", title: item.trim(), price: 0, description: "" };
+    // Fallback: try to match title and price, then description
+    const altMatch = item.match(
+      /^(\d+)\.\s*([^-–—\n]+?)(?:\s*[-–—]\s*|\s+)?([₹$]?\d+)?\s*(?:\/-)?\s*\n?([\s\S]*)/m
+    );
+    if (altMatch) {
+      return {
+        number: altMatch[1],
+        title: altMatch[2].replace(/[\n\r]+/g, " ").trim(),
+        price: altMatch[3] ? altMatch[3].replace(/[^\d]/g, "") : "",
+        description: altMatch[4] ? altMatch[4].trim() : "",
+      };
+    }
+    return {
+      number: String(idx + 1),
+      title: item.trim(),
+      price: "",
+      description: "",
+    };
   });
 }
 
@@ -46,11 +70,12 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
     );
   };
 
+  // Only show final price + selected add-ons
   const calculateTotal = () => {
-    let total = Number(finalPrice || price || 0);
+    let total = Number(finalPrice || 0);
     addonList.forEach((addon, idx) => {
       if (selectedAddons.includes(idx)) {
-        total += addon.price || 0;
+        total += Number(addon.price || 0);
       }
     });
     return total;
@@ -75,7 +100,6 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
             <span className="brand-name">GLOBAL MAGNET</span>
           </div>
         </header>
-
         <div className="checkout-content">
           <div className="left-section">
             <div className="offer-header">
@@ -257,12 +281,19 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
                             <label htmlFor={`addon-${idx}`}>
                               <span className="bonus-title">
                                 {addon.number && `${addon.number}. `}
-                                {addon.title}
-                                {addon.price ? ` - ${addon.price}/-` : ""}
+                                <b>{addon.title}</b>
+                                {addon.price && ` — ${addon.price}/-`}
                               </span>
                               {addon.description && (
                                 <span className="bonus-description">
-                                  {addon.description}
+                                  {addon.description
+                                    .split("\n")
+                                    .map((line, i) => (
+                                      <React.Fragment key={i}>
+                                        {line}
+                                        <br />
+                                      </React.Fragment>
+                                    ))}
                                 </span>
                               )}
                             </label>
@@ -272,13 +303,8 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
                     </>
                   )}
                 </div>
-
+                {/* Only show final price and selected add-ons */}
                 <div className="price-breakdown">
-                  <div className="price-row">
-                    <span className="price-label">Base Course:</span>
-                    <span className="price-amount">${price}</span>
-                  </div>
-
                   {addonList.map(
                     (addon, idx) =>
                       selectedAddons.includes(idx) && (
@@ -289,14 +315,12 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
                       )
                   )}
                 </div>
-
                 <div className="total-section">
                   <div className="total-row">
                     <span className="total-label">TOTAL:</span>
-                    <span className="total-amount">${calculateTotal()}</span>
+                    <span className="total-amount">{calculateTotal()}/-</span>
                   </div>
                 </div>
-
                 <button type="submit" className="submit-button">
                   SUBMIT!
                 </button>
