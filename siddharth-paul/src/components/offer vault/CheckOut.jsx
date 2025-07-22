@@ -82,14 +82,57 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
     return total;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const orderData = {
-      ...formData,
-      addons: selectedAddons.map((idx) => addonList[idx]),
-      total: calculateTotal(),
+    const total = calculateTotal();
+
+    const res = await fetch(
+      "https://siddharth-paul.onrender.com/payment/create",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ totalAmount: total }),
+      }
+    );
+    const order = await res.json();
+
+    if (!window.Razorpay) {
+      alert("Razorpay SDK failed to load. Please refresh and try again.");
+      return;
+    }
+
+    const options = {
+      key: "rzp_live_3FWTV5BEFo9CuJ",
+      amount: order.amount,
+      currency: order.currency,
+      name: "Offer Vault",
+      description: "Course Purchase",
+      order_id: order.id,
+      handler: async function (response) {
+        await fetch("https://siddharth-paul.onrender.com/payment/verify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...formData,
+            addons: selectedAddons.map((idx) => addonList[idx]),
+            total,
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_signature: response.razorpay_signature,
+          }),
+        });
+        alert("Payment successful!");
+      },
+      prefill: {
+        name: formData.fullName,
+        email: formData.email,
+        contact: formData.contactInfo,
+      },
+      theme: { color: "#00c896" }, // Green for Offer Vault
     };
-    console.log("Order submitted:", orderData);
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
 
 // Robust parseAddons for all edge cases
@@ -58,6 +58,15 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
   const addonList = useMemo(() => parseAddons(addons), [addons]);
   const [selectedAddons, setSelectedAddons] = useState([]);
 
+  useEffect(() => {
+    if (!window.Razorpay) {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -82,14 +91,60 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
     return total;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const orderData = {
-      ...formData,
-      addons: selectedAddons.map((idx) => addonList[idx]),
-      total: calculateTotal(),
+    const total = calculateTotal();
+
+    // 1. Create Razorpay order via backend
+    const res = await fetch(
+      "https://siddharth-paul.onrender.com/payment/create",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ totalAmount: total }),
+      }
+    );
+    const order = await res.json();
+
+    // 2. Check if Razorpay script is loaded
+    if (!window.Razorpay) {
+      alert("Razorpay SDK failed to load. Please refresh and try again.");
+      return;
+    }
+
+    // 3. Open Razorpay modal
+    const options = {
+      key: "rzp_live_3FWTV5BEFo9CuJ", // Replace with your Razorpay key
+      amount: order.amount,
+      currency: order.currency,
+      name: "Funnel Flow",
+      description: "Course Purchase",
+      order_id: order.id,
+      handler: async function (response) {
+        await fetch("https://siddharth-paul.onrender.com/payment/verify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...formData,
+            addons: selectedAddons.map((idx) => addonList[idx]),
+            total,
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_signature: response.razorpay_signature,
+          }),
+        });
+        alert("Payment successful!");
+      },
+      prefill: {
+        name: formData.fullName,
+        email: formData.email,
+        contact: formData.contactInfo,
+      },
+      theme: { color: "#00C800" },
     };
-    console.log("Order submitted:", orderData);
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
   };
 
   return (
