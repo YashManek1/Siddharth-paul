@@ -1,28 +1,45 @@
-import React from 'react'
-import Header from '../components/Header'
-import HeroSection from '../components/globalMagnet/HeroSection'
-import Stats from '../components/globalMagnet/Stats';
-import Details from '../components/globalMagnet/Details';
-import ObjectiveSection from '../components/globalMagnet/ObjectiveSection';
-import AccessSection from '../components/globalMagnet/AccessSection';
-import WhoThisIsForSection from '../components/globalMagnet/WhoIsThisFor';
-import FAQSection from '../components/globalMagnet/FAQSection';
-import GlobalMagnetCheckout from '../components/globalMagnet/CheckOut';
+import React, { useEffect, useState } from "react";
+import { fetchCourseData } from "../api/courses";
+import Header from "../components/Header";
+import HeroSection from "../components/globalMagnet/HeroSection";
+import Stats from "../components/globalMagnet/Stats";
+import Details from "../components/globalMagnet/Details";
+import ObjectiveSection from "../components/globalMagnet/ObjectiveSection";
+import AccessSection from "../components/globalMagnet/AccessSection";
+import WhoThisIsForSection from "../components/globalMagnet/WhoIsThisFor";
+import FAQSection from "../components/globalMagnet/FAQSection";
+import GlobalMagnetCheckout from "../components/globalMagnet/CheckOut";
 
 const GlobalMagnet = () => {
+  const [course, setCourse] = useState(null);
+
+  useEffect(() => {
+    fetchCourseData("Global-Magnet").then(setCourse);
+  }, []);
+
+  if (!course) return <div>Loading...</div>;
+
   return (
     <div>
       <Header />
       <HeroSection />
-      <Stats/>
-      <Details/>
-      <ObjectiveSection/>
-      <AccessSection/>
-      <WhoThisIsForSection/>
-      <FAQSection/>
-      <GlobalMagnetCheckout/>
+      <Stats />
+      <Details />
+      <ObjectiveSection />
+      <AccessSection
+        price={course.price}
+        finalPrice={course.finalPrice}
+        addons={course.addons}
+      />
+      <WhoThisIsForSection />
+      <FAQSection />
+      <GlobalMagnetCheckout
+        price={course.price}
+        finalPrice={course.finalPrice}
+        addons={course.addons}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default GlobalMagnet
+export default GlobalMagnet;

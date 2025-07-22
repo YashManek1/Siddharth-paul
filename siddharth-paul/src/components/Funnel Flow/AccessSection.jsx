@@ -1,42 +1,82 @@
-import React from 'react';
-import '../Component_Styles/AccessSection.css';
+import React, { useState } from "react";
+import "../Component_Styles/AccessSection.css";
 import img from "../../assets/accessimg1.svg";
 import img2 from "../../assets/accessimg2.svg";
-import img3 from "../../assets/accessimg3.svg"; 
+import img3 from "../../assets/accessimg3.svg";
 
+const parseAddons = (addons) => {
+  if (!addons) return [];
+  // Split by numbered pattern (handles both "1." and "1. ")
+  const items = addons.split(/\s*\d+\.\s/).filter(Boolean);
+  return items.map((item) => {
+    // Extract title and price (e.g., "Global Authority Content Bundle - 997 /-")
+    const [titleLine, ...descLines] = item.split("\\n");
+    const titleMatch = titleLine.match(/^(.*?)-\s*([\d,]+)\s*\/-/);
+    const title = titleMatch ? titleMatch[1].trim() : titleLine.trim();
+    const price = titleMatch ? titleMatch[2].replace(/,/g, "") : "";
+    const description = descLines
+      .map((line) => line.replace(/\\n/g, "").replace(/✔️/g, ""))
+      .join(" ")
+      .replace(/\s+/g, " ")
+      .trim();
+    return { title, price, description };
+  });
+};
 
-const AccessSection = () => {
-    const scrollToCheckout = (e) => {
+const AccessSection = ({ price, finalPrice, addons }) => {
+  const [selectedAddons, setSelectedAddons] = useState([]);
+  const scrollToCheckout = (e) => {
     e.preventDefault();
-    const checkoutSection = document.querySelector('.global-magnet-checkout');
+    const checkoutSection = document.querySelector(".global-magnet-checkout");
     if (checkoutSection) {
-      checkoutSection.scrollIntoView({ behavior: 'smooth' });
+      checkoutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const addonList = parseAddons(addons);
+
+  const handleAddonChange = (idx) => {
+    setSelectedAddons((prev) =>
+      prev.includes(idx) ? prev.filter((id) => id !== idx) : [...prev, idx]
+    );
+  };
+
+  const calculateTotal = () => {
+    let total = Number(finalPrice || price || 0);
+    addonList.forEach((addon, idx) => {
+      if (selectedAddons.includes(idx)) {
+        total += Number(addon.price || 0);
+      }
+    });
+    return total;
+  };
+
   return (
     <section className="access-main-section">
       <div className="access-main-container">
         <h2 className="access-main-title">WHAT YOU WILL GET ACCESS TO:</h2>
-        
+
         <div className="access-grid-container">
           <div className="access-card access-card-video">
             <h3 className="access-card-title">PROVEN FUNNEL VIDEO MODULES</h3>
             <p className="access-card-description">
-              Step-by-step training videos covering every funnel stage — from funnel theory to funnel hacking, TOFU/MOFU/BOFU building, launch, tracking, and optimization.
+              Step-by-step training videos covering every funnel stage — from
+              funnel theory to funnel hacking, TOFU/MOFU/BOFU building, launch,
+              tracking, and optimization.
             </p>
             <div className="access-card-image">
               <img src={img} alt="Video modules dashboard" />
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
-              <span className="access-price-value">2999/-</span>
+              <span className="access-price-value">{price}/-</span>
             </div>
           </div>
 
           <div className="access-card access-card-pdf">
             <h3 className="access-card-title">BLUEPRINT GUIDE</h3>
             <p className="access-card-description">
-              Downloadable PDF showing you funnel fundamentals, psychology, types, and practical frameworks for every funnel piece
+              Downloadable PDF showing you funnel fundamentals, psychology,
+              types, and practical frameworks for every funnel piece
             </p>
             <div className="access-card-image">
               <img src={img2} alt="PDF blueprint guide" />
@@ -50,13 +90,26 @@ const AccessSection = () => {
           <div className="access-card access-card-checklist">
             <h3 className="access-card-title">CHECKLISTS</h3>
             <p className="access-card-description">
-              Done-for-you funnel audit, A/B test, and launch checklists so you don't miss any steps when building or optimizing your funnels.
+              Done-for-you funnel audit, A/B test, and launch checklists so you
+              don't miss any steps when building or optimizing your funnels.
             </p>
             <div className="access-card-image checklist-icon">
               <div className="purple-tick-icon">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="40" cy="40" r="40" fill="#9d00ff"/>
-                  <path d="M26 40l12 12 16-20" stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg
+                  width="80"
+                  height="80"
+                  viewBox="0 0 80 80"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="40" cy="40" r="40" fill="#9d00ff" />
+                  <path
+                    d="M26 40l12 12 16-20"
+                    stroke="white"
+                    strokeWidth="5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
             </div>
@@ -69,7 +122,9 @@ const AccessSection = () => {
           <div className="access-card access-card-community">
             <h3 className="access-card-title">EXCLUSIVE COMMUNITY</h3>
             <p className="access-card-description">
-              Get inside a private mastermind of funnel builders. Share funnel hacks, see what's working for others, get feedback, and level up your offers — stay ahead of trends with real-time ideas.
+              Get inside a private mastermind of funnel builders. Share funnel
+              hacks, see what's working for others, get feedback, and level up
+              your offers — stay ahead of trends with real-time ideas.
             </p>
             <div className="access-card-image">
               <img src={img3} alt="Community members" />
@@ -89,11 +144,42 @@ const AccessSection = () => {
                 </div>
                 <div className="access-final-offer">
                   <span className="access-final-label-big">FINAL PRICE:</span>
-                  <span className="access-final-green">1999/-</span>
+                  <span className="access-final-green">{finalPrice}/-</span>
                 </div>
               </div>
-              <button className="access-final-button" onClick={scrollToCheckout}>ACCESS NOW!</button>
+              <button
+                className="access-final-button"
+                onClick={scrollToCheckout}
+              >
+                ACCESS NOW!
+              </button>
             </div>
+          </div>
+        </div>
+
+        <div className="bonus-section">
+          <h3 className="bonus-title">Available Add-ons:</h3>
+          <div className="bonus-list">
+            {addonList.map((addon, idx) => (
+              <div className="bonus-item" key={idx}>
+                <div className="bonus-checkbox">
+                  <input
+                    type="checkbox"
+                    id={`addon-${idx}`}
+                    checked={selectedAddons.includes(idx)}
+                    onChange={() => handleAddonChange(idx)}
+                  />
+                  <label htmlFor={`addon-${idx}`}>
+                    <span className="bonus-title">
+                      {addon.title} - ₹{addon.price}
+                    </span>
+                    <span className="bonus-description">
+                      {addon.description}
+                    </span>
+                  </label>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

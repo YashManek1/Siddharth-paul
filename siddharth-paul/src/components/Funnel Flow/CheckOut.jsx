@@ -1,45 +1,45 @@
-import React, { useState } from 'react';
-import '../Component_Styles/GlobalMagnetCheckout.css';
+import React, { useState, useMemo } from "react";
+import "../Component_Styles/GlobalMagnetCheckout.css";
 
-const GlobalMagnetCheckout = () => {
+const parseAddons = (addons) => {
+  if (!addons) return [];
+  return addons
+    .split(/\d+\.\s|\\n|\n/)
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0);
+};
+
+const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    contactInfo: '',
-    address: ''
+    fullName: "",
+    email: "",
+    contactInfo: "",
+    address: "",
   });
 
-  const [addons, setAddons] = useState({
-    winningFunnelSwipe: { selected: false, price: 997 },
-    preLaunchAudit: { selected: false, price: 497 },
-    funnelLaunchCalendar: { selected: false, price: 1497 }
-  });
-
-  const basePrice = 1999;
+  const addonList = useMemo(() => parseAddons(addons), [addons]);
+  const [selectedAddons, setSelectedAddons] = useState([]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleAddonChange = (addonKey) => {
-    setAddons(prev => ({
-      ...prev,
-      [addonKey]: {
-        ...prev[addonKey],
-        selected: !prev[addonKey].selected
-      }
-    }));
+  const handleAddonChange = (idx) => {
+    setSelectedAddons((prev) =>
+      prev.includes(idx) ? prev.filter((i) => i !== idx) : [...prev, idx]
+    );
   };
 
   const calculateTotal = () => {
-    let total = basePrice;
-    Object.values(addons).forEach(addon => {
-      if (addon.selected) {
-        total += addon.price;
+    let total = Number(finalPrice || price || 0);
+    addonList.forEach((addon, idx) => {
+      if (selectedAddons.includes(idx)) {
+        const match = addon.match(/([0-9]+)[^0-9]*$/);
+        if (match) total += Number(match[1]);
       }
     });
     return total;
@@ -49,10 +49,10 @@ const GlobalMagnetCheckout = () => {
     e.preventDefault();
     const orderData = {
       ...formData,
-      addons: addons,
-      total: calculateTotal()
+      addons: selectedAddons.map((idx) => addonList[idx]),
+      total: calculateTotal(),
     };
-    console.log('Order submitted:', orderData);
+    console.log("Order submitted:", orderData);
   };
 
   return (
@@ -68,58 +68,110 @@ const GlobalMagnetCheckout = () => {
         <div className="checkout-content">
           <div className="left-section">
             <div className="offer-header">
-              <h2 className="offer-title">MASTER FUNNELS THAT PRINT CASH ON DEMAND - 1999/-</h2>
+              <h2 className="offer-title">
+                MASTER FUNNELS THAT PRINT CASH ON DEMAND - 1999/-
+              </h2>
             </div>
 
             <div className="benefits-list">
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Understand how winning funnels really work so you build them right from day one.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Understand how winning funnels really work so you build them
+                  right from day one.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Learn how to map your buyer's mindset and behaviour at every stage — so you guide them naturally to buy.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Learn how to map your buyer's mindset and behaviour at every
+                  stage — so you guide them naturally to buy.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Discover which funnel to pick (TOFU, MOFU, BOFU) based on your offer and traffic source — no more guesswork.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Discover which funnel to pick (TOFU, MOFU, BOFU) based on your
+                  offer and traffic source — no more guesswork.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Steal what's already working with ethical funnel hacking so you can shortcut your success.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Steal what's already working with ethical funnel hacking so
+                  you can shortcut your success.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Get frameworks for landing pages, thank you pages, upsell pages and more — write copy that converts.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Get frameworks for landing pages, thank you pages, upsell
+                  pages and more — write copy that converts.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Set up your funnels to capture leads, trigger automations, and follow up without leaks.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Set up your funnels to capture leads, trigger automations, and
+                  follow up without leaks.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Make sure your funnel is built to handle paid traffic — check loading speed, mobile, CTAs and tracking.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Make sure your funnel is built to handle paid traffic — check
+                  loading speed, mobile, CTAs and tracking.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Learn how to test your pages, offers and steps so you always know what's working.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Learn how to test your pages, offers and steps so you always
+                  know what's working.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Launch with confidence, track key metrics (opt-in rates, EPC, CPA) and spot leaks fast.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Launch with confidence, track key metrics (opt-in rates, EPC,
+                  CPA) and spot leaks fast.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Turn one funnel into an evergreen asset — keep improving it with real data so your ROAS climbs month after month.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Turn one funnel into an evergreen asset — keep improving it
+                  with real data so your ROAS climbs month after month.
+                </p>
               </div>
             </div>
           </div>
@@ -127,7 +179,7 @@ const GlobalMagnetCheckout = () => {
           <div className="right-section">
             <div className="form-container">
               <h3 className="form-title">YOUR DETAILS</h3>
-              
+
               <form onSubmit={handleSubmit} className="checkout-form">
                 <div className="form-row">
                   <div className="form-group">
@@ -179,92 +231,47 @@ const GlobalMagnetCheckout = () => {
                 </div>
 
                 <div className="bonus-offers">
-                  <div className="bonus-item">
-                    <div className="bonus-checkbox">
-                      <input 
-                        type="checkbox" 
-                        id="winningFunnelSwipe"
-                        checked={addons.winningFunnelSwipe.selected}
-                        onChange={() => handleAddonChange('winningFunnelSwipe')}
-                      />
-                      <label htmlFor="winningFunnelSwipe">
-                        <span className="bonus-title">
-                          Yes! Add the Winning Funnel Swipe File- 997/-
-                        </span>
-                        <span className="bonus-description">
-                          Stop guessing what high-converting funnels look like. Inside the Swipe Vault, you'll get real examples of funnel pages, headlines, CTAs, upsell structures and entire flow maps from million-dollar funnels — giving you plug-and-play inspiration so you can build faster and smarter.
-                        </span>
-                      </label>
+                  {addonList.map((addon, idx) => (
+                    <div className="bonus-item" key={idx}>
+                      <div className="bonus-checkbox">
+                        <input
+                          type="checkbox"
+                          id={`addon-${idx}`}
+                          checked={selectedAddons.includes(idx)}
+                          onChange={() => handleAddonChange(idx)}
+                        />
+                        <label htmlFor={`addon-${idx}`}>
+                          <span className="bonus-title">
+                            Yes! Add the {addon.split("-")[0]} -{" "}
+                            {addon.match(/([0-9]+)[^0-9]*$/)[0]}/-
+                          </span>
+                          <span className="bonus-description">
+                            {addon.split("-").slice(1).join("-")}
+                          </span>
+                        </label>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="bonus-item">
-                    <div className="bonus-checkbox">
-                      <input 
-                        type="checkbox" 
-                        id="preLaunchAudit"
-                        checked={addons.preLaunchAudit.selected}
-                        onChange={() => handleAddonChange('preLaunchAudit')}
-                      />
-                      <label htmlFor="preLaunchAudit">
-                        <span className="bonus-title">
-                          Yes! Add the Pre-Launch Funnel Audit Checklist- 497/-
-                        </span>
-                        <span className="bonus-description">
-                          Never launch a funnel with broken links, missing tracking or overlooked steps again. You'll get a step-by-step checklist to audit every page, form, pixel, upsell and automation — so you hit publish with 100% confidence and zero funnel leaks.
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-
-                  <div className="bonus-item">
-                    <div className="bonus-checkbox">
-                      <input 
-                        type="checkbox" 
-                        id="funnelLaunchCalendar"
-                        checked={addons.funnelLaunchCalendar.selected}
-                        onChange={() => handleAddonChange('funnelLaunchCalendar')}
-                      />
-                      <label htmlFor="funnelLaunchCalendar">
-                        <span className="bonus-title">
-                          Yes! Add the 7-Figure Funnel Launch Calendar- 1497/-
-                        </span>
-                        <span className="bonus-description">
-                          Inside, you'll get:
-                          <br />✓ Day-by-Day Roadmap: Know exactly what tasks to complete each week — from funnel building to ad testing to email sequences.
-                          <br />✓ Key Metrics Checkpoints: Spot funnel leaks early by tracking the right numbers at the right stages.
-                          <br />✓ Pro-Level Promotion Plan: Map out your warm-up, launch, and post-launch follow-ups to maximise sales.
-                        </span>
-                      </label>
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
                 <div className="price-breakdown">
                   <div className="price-row">
                     <span className="price-label">Base Course:</span>
-                    <span className="price-amount">${basePrice}</span>
+                    <span className="price-amount">${price}</span>
                   </div>
-                  
-                  {addons.winningFunnelSwipe.selected && (
-                    <div className="price-row addon-row">
-                      <span className="price-label">Winning Funnel Swipe File:</span>
-                      <span className="price-amount">+${addons.winningFunnelSwipe.price}</span>
-                    </div>
-                  )}
-                  
-                  {addons.preLaunchAudit.selected && (
-                    <div className="price-row addon-row">
-                      <span className="price-label">Pre-Launch Funnel Audit Checklist:</span>
-                      <span className="price-amount">+${addons.preLaunchAudit.price}</span>
-                    </div>
-                  )}
-                  
-                  {addons.funnelLaunchCalendar.selected && (
-                    <div className="price-row addon-row">
-                      <span className="price-label">7-Figure Funnel Launch Calendar:</span>
-                      <span className="price-amount">+${addons.funnelLaunchCalendar.price}</span>
-                    </div>
+
+                  {addonList.map(
+                    (addon, idx) =>
+                      selectedAddons.includes(idx) && (
+                        <div className="price-row addon-row" key={idx}>
+                          <span className="price-label">
+                            {addon.split("-")[0]}:
+                          </span>
+                          <span className="price-amount">
+                            +${addon.match(/([0-9]+)[^0-9]*$/)[0]}
+                          </span>
+                        </div>
+                      )
                   )}
                 </div>
 

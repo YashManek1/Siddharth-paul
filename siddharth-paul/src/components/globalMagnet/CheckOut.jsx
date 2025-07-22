@@ -1,45 +1,45 @@
-import React, { useState } from 'react';
-import '../Component_Styles/GlobalMagnetCheckout.css';
+import React, { useState, useMemo } from "react";
+import "../Component_Styles/GlobalMagnetCheckout.css";
 
-const GlobalMagnetCheckout = () => {
+const parseAddons = (addons) => {
+  if (!addons) return [];
+  return addons
+    .split(/\d+\.\s|\\n|\n/)
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0);
+};
+
+const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    contactInfo: '',
-    address: ''
+    fullName: "",
+    email: "",
+    contactInfo: "",
+    address: "",
   });
 
-  const [addons, setAddons] = useState({
-    globalAuthority: { selected: false, price: 977 },
-    innerCircle: { selected: false, price: 497 },
-    doneForYou: { selected: false, price: 1497 }
-  });
-
-  const basePrice = 3999;
+  const addonList = useMemo(() => parseAddons(addons), [addons]);
+  const [selectedAddons, setSelectedAddons] = useState([]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleAddonChange = (addonKey) => {
-    setAddons(prev => ({
-      ...prev,
-      [addonKey]: {
-        ...prev[addonKey],
-        selected: !prev[addonKey].selected
-      }
-    }));
+  const handleAddonChange = (idx) => {
+    setSelectedAddons((prev) =>
+      prev.includes(idx) ? prev.filter((i) => i !== idx) : [...prev, idx]
+    );
   };
 
   const calculateTotal = () => {
-    let total = basePrice;
-    Object.values(addons).forEach(addon => {
-      if (addon.selected) {
-        total += addon.price;
+    let total = Number(finalPrice || price || 0);
+    addonList.forEach((addon, idx) => {
+      if (selectedAddons.includes(idx)) {
+        const match = addon.match(/([0-9]+)[^0-9]*$/);
+        if (match) total += Number(match[1]);
       }
     });
     return total;
@@ -49,10 +49,10 @@ const GlobalMagnetCheckout = () => {
     e.preventDefault();
     const orderData = {
       ...formData,
-      addons: addons,
-      total: calculateTotal()
+      addons: selectedAddons.map((idx) => addonList[idx]),
+      total: calculateTotal(),
     };
-    console.log('Order submitted:', orderData);
+    console.log("Order submitted:", orderData);
   };
 
   return (
@@ -68,58 +68,110 @@ const GlobalMagnetCheckout = () => {
         <div className="checkout-content">
           <div className="left-section">
             <div className="offer-header">
-              <h2 className="offer-title">GET YOUR FIRST INTERNATIONAL CLIENT - $3999</h2>
+              <h2 className="offer-title">
+                GET YOUR FIRST INTERNATIONAL CLIENT - ${price}
+              </h2>
             </div>
 
             <div className="benefits-list">
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to attract high-ticket international clients ($1,000-$5,000+) without cheap platforms or endless cold DMs.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  How to attract high-ticket international clients
+                  ($1,000-$5,000+) without cheap platforms or endless cold DMs.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to position yourself as a global authority so premium clients see you as the obvious choice.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  How to position yourself as a global authority so premium
+                  clients see you as the obvious choice.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to build a systemized pipeline that brings in qualified leads daily — no more guessing or praying for referrals.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  How to build a systemized pipeline that brings in qualified
+                  leads daily — no more guessing or praying for referrals.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>The exact offer structure and path to close clients consistently on the first call.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  The exact offer structure and path to close clients
+                  consistently on the first call.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to create content and messaging that literally builds trust and demand for your services worldwide.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  How to create content and messaging that literally builds
+                  trust and demand for your services worldwide.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>The mindset shifts needed to move from low-ticket local gigs to consistent $5,000+ retainers with global companies.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  The mindset shifts needed to move from low-ticket local gigs
+                  to consistent $5,000+ retainers with global companies.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to handle objections and turn "maybes" into sales in the process — in one conversation.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  How to handle objections and turn "maybes" into sales in the
+                  process — in one conversation.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Proven methods that position you to maximize your revenue and minimize client headaches.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Proven methods that position you to maximize your revenue and
+                  minimize client headaches.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>How to design a desirable offer so you don't reinvent the wheel for every new client.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  How to design a desirable offer so you don't reinvent the
+                  wheel for every new client.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Systems to deliver premium results without working 24/7 or showing uncertainty.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Systems to deliver premium results without working 24/7 or
+                  showing uncertainty.
+                </p>
               </div>
             </div>
           </div>
@@ -127,7 +179,7 @@ const GlobalMagnetCheckout = () => {
           <div className="right-section">
             <div className="form-container">
               <h3 className="form-title">YOUR DETAILS</h3>
-              
+
               <form onSubmit={handleSubmit} className="checkout-form">
                 <div className="form-row">
                   <div className="form-group">
@@ -179,99 +231,54 @@ const GlobalMagnetCheckout = () => {
                 </div>
 
                 <div className="bonus-offers">
-                  <div className="bonus-item">
-                    <div className="bonus-checkbox">
-                      <input 
-                        type="checkbox" 
-                        id="globalAuthority"
-                        checked={addons.globalAuthority.selected}
-                        onChange={() => handleAddonChange('globalAuthority')}
-                      />
-                      <label htmlFor="globalAuthority">
-                        <span className="bonus-title">
-                          Yes! Add the Global Authority Content Bundle - $977
-                        </span>
-                        <span className="bonus-description">
-                          Steal my proven content templates and frameworks to instantly position yourself as a premium global expert.
-                          <br />✓ Build trust with international clients before they even hop on a call
-                          <br />✓ Ready-to-use content scripts, viral post formulas, and DM frameworks
-                          <br />✓ Perfect for LinkedIn, LinkedIn, and YouTube.
-                        </span>
-                      </label>
-                    </div>
-                  </div>
+                  {addonList.map((addon, idx) => {
+                    const isSelected = selectedAddons.includes(idx);
+                    const priceMatch = addon.match(/([0-9]+)[^0-9]*$/);
+                    const addonPrice = priceMatch ? Number(priceMatch[1]) : 0;
 
-                  <div className="bonus-item">
-                    <div className="bonus-checkbox">
-                      <input 
-                        type="checkbox" 
-                        id="innerCircle"
-                        checked={addons.innerCircle.selected}
-                        onChange={() => handleAddonChange('innerCircle')}
-                      />
-                      <label htmlFor="innerCircle">
-                        <span className="bonus-title">
-                          Yes! Add the Inner Circle Global Client Mindset Guide - $497
-                        </span>
-                        <span className="bonus-description">
-                          Success starts with mindset.
-                          <br />✓ Discover how top entrepreneurs think when attracting premium international clients
-                          <br />✓ Learn the mental frameworks to change what you're worth and get it
-                          <br />✓ Simple, powerful mental shifts to operate like a true global authority.
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-
-                  <div className="bonus-item">
-                    <div className="bonus-checkbox">
-                      <input 
-                        type="checkbox" 
-                        id="doneForYou"
-                        checked={addons.doneForYou.selected}
-                        onChange={() => handleAddonChange('doneForYou')}
-                      />
-                      <label htmlFor="doneForYou">
-                        <span className="bonus-title">
-                          Yes! Add the Done-For-You Offer Positioning Toolkit - $1497
-                        </span>
-                        <span className="bonus-description">
-                          Turn your service into an irresistible offer that clients can't ignore.
-                          <br />✓ Step-by-step guide to craft your premium, "must-have" global offer.
-                          <br />✓ Includes high-ticket proposal templates, value stack formulas, and pricing breakdown sheets.
-                          <br />✓ Position yourself so you never have to "compete on price" again.
-                        </span>
-                      </label>
-                    </div>
-                  </div>
+                    return (
+                      <div className="bonus-item" key={idx}>
+                        <div className="bonus-checkbox">
+                          <input
+                            type="checkbox"
+                            id={`addon-${idx}`}
+                            checked={isSelected}
+                            onChange={() => handleAddonChange(idx)}
+                          />
+                          <label htmlFor={`addon-${idx}`}>
+                            <span className="bonus-title">
+                              {isSelected ? "✓ " : ""}Add {addon}
+                            </span>
+                            <span className="bonus-description">
+                              {/* Description can be added here if needed */}
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
 
                 <div className="price-breakdown">
                   <div className="price-row">
                     <span className="price-label">Base Course:</span>
-                    <span className="price-amount">${basePrice}</span>
+                    <span className="price-amount">${price}</span>
                   </div>
-                  
-                  {addons.globalAuthority.selected && (
-                    <div className="price-row addon-row">
-                      <span className="price-label">Global Authority Content Bundle:</span>
-                      <span className="price-amount">+${addons.globalAuthority.price}</span>
-                    </div>
-                  )}
-                  
-                  {addons.innerCircle.selected && (
-                    <div className="price-row addon-row">
-                      <span className="price-label">Inner Circle Mindset Guide:</span>
-                      <span className="price-amount">+${addons.innerCircle.price}</span>
-                    </div>
-                  )}
-                  
-                  {addons.doneForYou.selected && (
-                    <div className="price-row addon-row">
-                      <span className="price-label">Done-For-You Positioning Toolkit:</span>
-                      <span className="price-amount">+${addons.doneForYou.price}</span>
-                    </div>
-                  )}
+
+                  {addonList.map((addon, idx) => {
+                    const isSelected = selectedAddons.includes(idx);
+                    const priceMatch = addon.match(/([0-9]+)[^0-9]*$/);
+                    const addonPrice = priceMatch ? Number(priceMatch[1]) : 0;
+
+                    return (
+                      isSelected && (
+                        <div className="price-row addon-row" key={idx}>
+                          <span className="price-label">{addon}:</span>
+                          <span className="price-amount">+${addonPrice}</span>
+                        </div>
+                      )
+                    );
+                  })}
                 </div>
 
                 <div className="total-section">
