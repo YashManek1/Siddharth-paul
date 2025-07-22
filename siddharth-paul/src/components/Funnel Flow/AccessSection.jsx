@@ -40,15 +40,7 @@ const AccessSection = ({ price, finalPrice, addons }) => {
     );
   };
 
-  const calculateTotal = () => {
-    let total = Number(finalPrice || price || 0);
-    addonList.forEach((addon, idx) => {
-      if (selectedAddons.includes(idx)) {
-        total += Number(addon.price || 0);
-      }
-    });
-    return total;
-  };
+  // calculateTotal removed (was unused)
 
   return (
     <section className="access-main-section">

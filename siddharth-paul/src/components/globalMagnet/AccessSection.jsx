@@ -4,12 +4,22 @@ import img1 from "../../assets/accessimg1.svg";
 import img2 from "../../assets/accessimg2.svg";
 import img3 from "../../assets/accessimg3.svg";
 
+// Parse addOns string into array of objects: { number, title, price, description }
 const parseAddons = (addons) => {
   if (!addons) return [];
-  return addons
-    .split(/\d+\.\s|\\n|\n/)
-    .map((item) => item.trim())
-    .filter((item) => item.length > 0);
+  const items = addons.split(/(?=\d+\.\s)/g).filter(Boolean);
+  return items.map((item) => {
+    const match = item.match(/(\d+)\.\s*([^\d$\n]+)(?:\s*\$?(\d+))?(.*)/s);
+    if (match) {
+      return {
+        number: match[1],
+        title: match[2].trim(),
+        price: match[3] ? Number(match[3]) : null,
+        description: match[4] ? match[4].replace(/\n/g, " ").trim() : "",
+      };
+    }
+    return { number: "", title: item.trim(), price: null, description: "" };
+  });
 };
 
 const AccessSection = ({ price, finalPrice, addons }) => {
@@ -25,7 +35,6 @@ const AccessSection = ({ price, finalPrice, addons }) => {
     <section className="access-main-section">
       <div className="access-main-container">
         <h2 className="access-main-title">WHAT YOU WILL GET ACCESS TO:</h2>
-
         <div className="access-grid-container">
           <div className="access-card access-card-video">
             <h3 className="access-card-title">PROVEN VIDEO MODULES</h3>
@@ -127,9 +136,37 @@ const AccessSection = ({ price, finalPrice, addons }) => {
             </div>
           </div>
         </div>
+        {addonList.length > 0 && (
+          <div className="access-addons-section">
+            <h3 className="access-addons-title">BONUS ADD-ONS</h3>
+            <div className="access-addons-list">
+              {addonList.map((addon, idx) => (
+                <div className="access-addon-box" key={idx}>
+                  <div className="access-addon-header">
+                    <span className="access-addon-number">
+                      {addon.number && `${addon.number}.`}
+                    </span>
+                    <span className="access-addon-title">{addon.title}</span>
+                    {addon.price && (
+                      <span className="access-addon-price">
+                        +{addon.price}/-
+                      </span>
+                    )}
+                  </div>
+                  {addon.description && (
+                    <div className="access-addon-description">
+                      {addon.description}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
-};
+}
 
 export default AccessSection;
+
