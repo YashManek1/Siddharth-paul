@@ -1,34 +1,53 @@
-import React from 'react';
-import '../Component_Styles/AccessSection.css';
-import img1 from '../../assets/accessimg1.svg';
-import img2 from '../../assets/accessimg2.svg';
-import img3 from '../../assets/accessimg3.svg';
+import React from "react";
+import "../Component_Styles/AccessSection.css";
+import img1 from "../../assets/accessimg1.svg";
+import img2 from "../../assets/accessimg2.svg";
+import img3 from "../../assets/accessimg3.svg";
 
-const AccessSection = () => {
+const parseAddons = (addons) => {
+  if (!addons) return [];
+  return addons
+    .split(/\d+\.\s|\\n|\n/)
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0);
+};
+
+const AccessSection = ({ price, finalPrice, addons }) => {
+  const scrollToCheckout = (e) => {
+    e.preventDefault();
+    const checkoutSection = document.querySelector(".global-magnet-checkout");
+    if (checkoutSection) {
+      checkoutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const addonList = parseAddons(addons);
   return (
     <section className="access-main-section">
       <div className="access-main-container">
         <h2 className="access-main-title">WHAT YOU WILL GET ACCESS TO:</h2>
-        
+
         <div className="access-grid-container">
           <div className="access-card access-card-video">
             <h3 className="access-card-title">PROVEN VIDEO MODULES</h3>
             <p className="access-card-description">
-              You'll have a personalized dashboard with access to all materials, step-by-step instructions, and progress tracking—keeping your journey organized and seamless.
+              You'll have a personalized dashboard with access to all materials,
+              step-by-step instructions, and progress tracking—keeping your
+              journey organized and seamless.
             </p>
             <div className="access-card-image">
               <img src={img1} alt="Video modules dashboard" />
             </div>
             <div className="access-card-price">
               <span className="access-price-label">PRICE:</span>
-              <span className="access-price-value">4999/-</span>
+              <span className="access-price-value">{price}/-</span>
             </div>
           </div>
 
           <div className="access-card access-card-pdf">
             <h3 className="access-card-title">PDF PLAYBOOK</h3>
             <p className="access-card-description">
-              PDF Guide: Step-by-Step Blueprint to Acquire and Retain High-Paying Clients
+              PDF Guide: Step-by-Step Blueprint to Acquire and Retain
+              High-Paying Clients
             </p>
             <div className="access-card-image">
               <img src={img2} alt="PDF playbook guide" />
@@ -42,13 +61,26 @@ const AccessSection = () => {
           <div className="access-card access-card-checklist">
             <h3 className="access-card-title">CHECKLISTS</h3>
             <p className="access-card-description">
-              Ensure every box is checked before launching a campaign or onboarding a client.
+              Ensure every box is checked before launching a campaign or
+              onboarding a client.
             </p>
             <div className="access-card-image checklist-icon">
               <div className="purple-tick-icon">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="40" cy="40" r="40" fill="#9d00ff"/>
-                  <path d="M26 40l12 12 16-20" stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg
+                  width="80"
+                  height="80"
+                  viewBox="0 0 80 80"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="40" cy="40" r="40" fill="#9d00ff" />
+                  <path
+                    d="M26 40l12 12 16-20"
+                    stroke="white"
+                    strokeWidth="5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
             </div>
@@ -61,7 +93,9 @@ const AccessSection = () => {
           <div className="access-card access-card-community">
             <h3 className="access-card-title">EXCLUSIVE COMMUNITY</h3>
             <p className="access-card-description">
-              Join an exclusive community of driven entrepreneurs through live mastermind calls. Get real-time insights, powerful connections, and the accountability you need to scale fast
+              Join an exclusive community of driven entrepreneurs through live
+              mastermind calls. Get real-time insights, powerful connections,
+              and the accountability you need to scale fast
             </p>
             <div className="access-card-image">
               <img src={img3} alt="Community members" />
@@ -84,7 +118,12 @@ const AccessSection = () => {
                   <span className="access-final-green">3999/-</span>
                 </div>
               </div>
-              <button className="access-final-button">ACCESS NOW!</button>
+              <button
+                className="access-final-button "
+                onClick={scrollToCheckout}
+              >
+                ACCESS NOW!
+              </button>
             </div>
           </div>
         </div>

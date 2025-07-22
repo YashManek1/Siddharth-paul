@@ -26,15 +26,13 @@ const Header = () => {
   return (
     <header className="app-header">
       <div className="header-content">
-        <div className="logo-container">
-          <Link to="/">
-            <img src={logoIcon} alt="Siddharth Paul Logo Icon" className="logo-icon" />
-          </Link>
+        <Link to="/" className="logo-container">
+          <img src={logoIcon} alt="Siddharth Paul Logo Icon" className="logo-icon" />
           <div className="logo-text">
             <span>SIDDHARTH</span>
             <span>PAUL</span>
           </div>
-        </div>
+        </Link>
         <nav className="navbar">
           {currentPage ? (
             <span className="main-title">{currentPage}</span>

@@ -12,27 +12,27 @@ const boxData = [
   {
     title: <>LANDING<br />PAGE<br />SECRETS</>,
     img: landingPageSecrets,
-    link: '#global-magnet',
+    link: '/global-magnet',
   },
   {
     title: <>GET<br />INTERNATIONAL<br />CLIENTS</>,
     img: getInternationalClients,
-    link: '#funnel-flow',
+    link: '/funnel-flow',
   },
   {
     title: <>PITCH<br />MASTERY</>,
     img: pitchMastery,
-    link: '#pitch-mastery',
+    link: '/pitch-mastery',
   },
   {
     title: <>CREATE<br />IRRESISTIBLE<br />OFFERS</>,
     img: createIrresistibleOffers,
-    link: '#offer-vault',
+    link: '/offer-vault',
   },
   {
     title: <>GET<br />10X ROAS<br />CONSISTENTLY</>,
     img: get10xRoasConsistently,
-    link: '#roas-rocket',
+    link: '/roas-rocket',
   },
 ];
 

@@ -13,6 +13,14 @@ const Hero = () => {
   const videoId = "dQw4w9WgXcQ";
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
+  const scrollToPrograms = (e) => {
+    e.preventDefault();
+    const programsSection = document.querySelector('.programs-section');
+    if (programsSection) {
+      programsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <main className="hero-section">
       <div className="hero-content">
@@ -62,7 +70,7 @@ const Hero = () => {
           </span>
         </div>
 
-        <a href="#access" className="access-now-btn">
+        <a href="#access" className="access-now-btn" onClick={scrollToPrograms}>
           ACCESS NOW!
         </a>
       </div>

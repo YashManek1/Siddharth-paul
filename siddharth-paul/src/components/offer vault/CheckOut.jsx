@@ -1,45 +1,45 @@
-import React, { useState } from 'react';
-import '../Component_Styles/GlobalMagnetCheckout.css';
+import React, { useState, useMemo } from "react";
+import "../Component_Styles/GlobalMagnetCheckout.css";
 
-const GlobalMagnetCheckout = () => {
+const parseAddons = (addons) => {
+  if (!addons) return [];
+  return addons
+    .split(/\d+\.\s|\\n|\n/)
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0);
+};
+
+const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    contactInfo: '',
-    address: ''
+    fullName: "",
+    email: "",
+    contactInfo: "",
+    address: "",
   });
 
-  const [addons, setAddons] = useState({
-    premiumCaseStudy: { selected: false, price: 999 },
-    recessionProofPricing: { selected: false, price: 497 },
-    profitPitchHooks: { selected: false, price: 297 }
-  });
-
-  const basePrice = 1499;
+  const addonList = useMemo(() => parseAddons(addons), [addons]);
+  const [selectedAddons, setSelectedAddons] = useState([]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleAddonChange = (addonKey) => {
-    setAddons(prev => ({
-      ...prev,
-      [addonKey]: {
-        ...prev[addonKey],
-        selected: !prev[addonKey].selected
-      }
-    }));
+  const handleAddonChange = (idx) => {
+    setSelectedAddons((prev) =>
+      prev.includes(idx) ? prev.filter((i) => i !== idx) : [...prev, idx]
+    );
   };
 
   const calculateTotal = () => {
-    let total = basePrice;
-    Object.values(addons).forEach(addon => {
-      if (addon.selected) {
-        total += addon.price;
+    let total = Number(finalPrice || price || 0);
+    addonList.forEach((addon, idx) => {
+      if (selectedAddons.includes(idx)) {
+        const match = addon.match(/([0-9]+)[^0-9]*$/);
+        if (match) total += Number(match[1]);
       }
     });
     return total;
@@ -49,10 +49,10 @@ const GlobalMagnetCheckout = () => {
     e.preventDefault();
     const orderData = {
       ...formData,
-      addons: addons,
-      total: calculateTotal()
+      addons: selectedAddons.map((idx) => addonList[idx]),
+      total: calculateTotal(),
     };
-    console.log('Order submitted:', orderData);
+    console.log("Order submitted:", orderData);
   };
 
   return (
@@ -68,58 +68,114 @@ const GlobalMagnetCheckout = () => {
         <div className="checkout-content">
           <div className="left-section">
             <div className="offer-header">
-              <h2 className="offer-title">GET YOUR IRRESISTIBLE OFFER MASTERED -1499/-</h2>
+              <h2 className="offer-title">
+                GET YOUR IRRESISTIBLE OFFER MASTERED -1499/-
+              </h2>
             </div>
 
             <div className="benefits-list">
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Craft offers that make clients say "YES" instantly — learn to design high-ticket, irresistible pitches that stand out in any market.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Craft offers that make clients say "YES" instantly — learn to
+                  design high-ticket, irresistible pitches that stand out in any
+                  market.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Master value stacking, urgency, and risk reversal — get the psychology-backed frameworks to make your offer a no-brainer.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Master value stacking, urgency, and risk reversal — get the
+                  psychology-backed frameworks to make your offer a no-brainer.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Become the obvious, only choice — build messaging so strong that premium clients choose you even before seeing alternatives.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Become the obvious, only choice — build messaging so strong
+                  that premium clients choose you even before seeing
+                  alternatives.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Fill-in-the-blank templates & checklists — never stare at a blank page again; just follow the proven steps.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Fill-in-the-blank templates & checklists — never stare at a
+                  blank page again; just follow the proven steps.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>AI-enhanced offer prompts & examples — shortcut creation time and make your offers sharper and more persuasive.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  AI-enhanced offer prompts & examples — shortcut creation time
+                  and make your offers sharper and more persuasive.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Headlines & messaging formulas — grab attention fast and move clients from "interested" to "sold."</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Headlines & messaging formulas — grab attention fast and move
+                  clients from "interested" to "sold."
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Build trust at every stage — learn how to present proof, bonuses, and guarantees that kill objections before they even exist.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Build trust at every stage — learn how to present proof,
+                  bonuses, and guarantees that kill objections before they even
+                  exist.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Step-by-step offer testing process — refine and improve your pitch consistently before going live.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Step-by-step offer testing process — refine and improve your
+                  pitch consistently before going live.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Complete video breakdowns — see real-world techniques and learn exactly what works in the best offers.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Complete video breakdowns — see real-world techniques and
+                  learn exactly what works in the best offers.
+                </p>
               </div>
 
               <div className="benefit-item">
-                <div className="benefit-icon" style={{color: '#00C800'}}>✓</div>
-                <p>Psychological triggers for premium sales — move beyond features and benefits into deep emotional connection that commands higher prices.</p>
+                <div className="benefit-icon" style={{ color: "#00C800" }}>
+                  ✓
+                </div>
+                <p>
+                  Psychological triggers for premium sales — move beyond
+                  features and benefits into deep emotional connection that
+                  commands higher prices.
+                </p>
               </div>
             </div>
           </div>
@@ -127,7 +183,7 @@ const GlobalMagnetCheckout = () => {
           <div className="right-section">
             <div className="form-container">
               <h3 className="form-title">YOUR DETAILS</h3>
-              
+
               <form onSubmit={handleSubmit} className="checkout-form">
                 <div className="form-row">
                   <div className="form-group">
@@ -179,96 +235,56 @@ const GlobalMagnetCheckout = () => {
                 </div>
 
                 <div className="bonus-offers">
-                  <div className="bonus-item">
-                    <div className="bonus-checkbox">
-                      <input 
-                        type="checkbox" 
-                        id="premiumCaseStudy"
-                        checked={addons.premiumCaseStudy.selected}
-                        onChange={() => handleAddonChange('premiumCaseStudy')}
-                      />
-                      <label htmlFor="premiumCaseStudy">
-                        <span className="bonus-title">
-                          The Premium Case Study Vault - 999/-
-                        </span>
-                        <span className="bonus-description">
-                          ✓ Get exclusive access to a vault of real-life, high-converting offers and proposals that closed ₹1L–₹5L+ deals.
-                          <br />✓ Breakdown videos explaining exactly why they worked.
-                          <br />✓ Reverse-engineer proven strategies and instantly model them in your own pitches.
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-
-                  <div className="bonus-item">
-                    <div className="bonus-checkbox">
-                      <input 
-                        type="checkbox" 
-                        id="recessionProofPricing"
-                        checked={addons.recessionProofPricing.selected}
-                        onChange={() => handleAddonChange('recessionProofPricing')}
-                      />
-                      <label htmlFor="recessionProofPricing">
-                        <span className="bonus-title">
-                          Yes! Add the "Recession-Proof" Pricing Strategy Mini-Course. - 497/-
-                        </span>
-                        <span className="bonus-description">
-                          ✓ Learn how to confidently set and hold premium prices even during slow markets.
-                          <br />✓ Discover psychology-backed pricing levers that make your offers irresistible.
-                          <br />✓ Never undercharge or feel uncertain about your pricing again.
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-
-                  <div className="bonus-item">
-                    <div className="bonus-checkbox">
-                      <input 
-                        type="checkbox" 
-                        id="profitPitchHooks"
-                        checked={addons.profitPitchHooks.selected}
-                        onChange={() => handleAddonChange('profitPitchHooks')}
-                      />
-                      <label htmlFor="profitPitchHooks">
-                        <span className="bonus-title">
-                          Yes! Add 10 Plug & Play "Profit Pitch" Hooks & Templates - 297/-
-                        </span>
-                        <span className="bonus-description">
-                          ✓ Copy-paste pitch openers and angles for different types of services.
-                          <br />✓ Designed to instantly capture attention and trigger curiosity.
-                          <br />✓ Tested with both service-based and consulting offers.
-                        </span>
-                      </label>
-                    </div>
-                  </div>
+                  {addonList.map((addon, idx) => {
+                    const isSelected = selectedAddons.includes(idx);
+                    const priceMatch = addon.match(/([0-9]+)[^0-9]*$/);
+                    const addonPrice = priceMatch ? Number(priceMatch[1]) : 0;
+                    return (
+                      <div className="bonus-item" key={idx}>
+                        <div className="bonus-checkbox">
+                          <input
+                            type="checkbox"
+                            id={`addon-${idx}`}
+                            checked={isSelected}
+                            onChange={() => handleAddonChange(idx)}
+                          />
+                          <label htmlFor={`addon-${idx}`}>
+                            <span className="bonus-title">{addon}</span>
+                            <span className="bonus-description">
+                              ✓ Get exclusive access to a vault of real-life,
+                              high-converting offers and proposals that closed
+                              ₹1L–₹5L+ deals.
+                              <br />✓ Breakdown videos explaining exactly why
+                              they worked.
+                              <br />✓ Reverse-engineer proven strategies and
+                              instantly model them in your own pitches.
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
 
                 <div className="price-breakdown">
                   <div className="price-row">
                     <span className="price-label">Base Course:</span>
-                    <span className="price-amount">₹{basePrice}</span>
+                    <span className="price-amount">₹{price}</span>
                   </div>
-                  
-                  {addons.premiumCaseStudy.selected && (
-                    <div className="price-row addon-row">
-                      <span className="price-label">Premium Case Study Vault:</span>
-                      <span className="price-amount">+₹{addons.premiumCaseStudy.price}</span>
-                    </div>
-                  )}
-                  
-                  {addons.recessionProofPricing.selected && (
-                    <div className="price-row addon-row">
-                      <span className="price-label">Recession-Proof Pricing Strategy:</span>
-                      <span className="price-amount">+₹{addons.recessionProofPricing.price}</span>
-                    </div>
-                  )}
-                  
-                  {addons.profitPitchHooks.selected && (
-                    <div className="price-row addon-row">
-                      <span className="price-label">Profit Pitch Hooks & Templates:</span>
-                      <span className="price-amount">+₹{addons.profitPitchHooks.price}</span>
-                    </div>
-                  )}
+
+                  {addonList.map((addon, idx) => {
+                    const isSelected = selectedAddons.includes(idx);
+                    const priceMatch = addon.match(/([0-9]+)[^0-9]*$/);
+                    const addonPrice = priceMatch ? Number(priceMatch[1]) : 0;
+                    return (
+                      isSelected && (
+                        <div className="price-row addon-row" key={idx}>
+                          <span className="price-label">{addon}:</span>
+                          <span className="price-amount">+₹{addonPrice}</span>
+                        </div>
+                      )
+                    );
+                  })}
                 </div>
 
                 <div className="total-section">
