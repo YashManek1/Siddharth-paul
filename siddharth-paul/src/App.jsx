@@ -7,6 +7,8 @@ import RoasRocket from "./pages/RoasRocket";
 import OfferVault from "./pages/OfferVault";
 import FunnelFlow from "./pages/FunnelFlow";
 import Header from "./components/Header";
+import Congrats from "./components/afterpayment/gm/congrats.jsx";
+
 
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
           <Route path="/roas-rocket" element={<RoasRocket/>} />
           <Route path="/offer-vault" element={<OfferVault/>} />
           <Route path="/funnel-flow" element={<FunnelFlow/>} />
+          <Route path="/congrats" element={<Congrats/>} />
         </Routes>
       </Router>
     </div>
