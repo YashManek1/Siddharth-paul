@@ -10,7 +10,7 @@
     rgba(157, 0, 255, 0.15) 60%,
     rgba(157, 0, 255, 0.22) 80%,
     rgba(157, 0, 255, 0.25) 100%
-  );
+  ), var(--color-bg);
   min-height: calc(100vh - 79px);
   display: flex;
   flex-direction: column;
@@ -66,7 +66,7 @@
 }
 
 .gm-hero-subtitle {
-  color: #9d00ff;
+  color: var(--color-accent);
   font-size: 1rem;
   font-family: "Inter", sans-serif;
   font-weight: 600;
@@ -76,7 +76,7 @@
 }
 
 .gm-hero-main-title {
-  color: #000;
+  color: var(--color-text);
   font-size: 2rem;
   font-family: "Anton", sans-serif;
   font-weight: 700;
@@ -87,7 +87,7 @@
 }
 
 .gm-sub-title {
-  color: #000;
+  color: var(--color-text);
   font-size: 2rem;
   font-family: "Anton", sans-serif;
   font-weight: 700;

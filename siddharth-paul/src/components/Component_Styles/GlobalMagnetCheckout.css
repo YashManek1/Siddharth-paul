@@ -1,6 +1,6 @@
 .global-magnet-checkout {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0e6ff 0%, #e8d4ff 100%);
+  background: var(--color-bg-secondary);
   font-family: 'Inter', sans-serif;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .brand-name {
-  color: #9d00ff;
+  color: var(--color-accent);
   font-size: 1.5rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
@@ -42,10 +42,10 @@
 }
 
 .left-section {
-  background: linear-gradient(135deg, #9d00ff 0%, #7b00cc 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #7b00cc 100%);
   border-radius: 20px;
   padding: 30px;
-  color: white;
+  color: #fff;
   box-shadow: 0 10px 30px rgba(157, 0, 255, 0.3);
 }
 
@@ -72,12 +72,23 @@
 
 .benefit-item {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
-  gap: 15px;
+  gap: 10px;
   padding: 15px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  height: 120px;
+  min-height: 120px;
+  max-height: 120px;
+  width: 100%;
+  max-width: 650px;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .benefit-icon {
@@ -91,18 +102,24 @@
   font-size: 0.9rem;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.95);
+  overflow: auto;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .right-section {
-  background: #fff;
+  background: var(--color-card-bg);
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  color: var(--color-card-text);
 }
 
 .form-title {
-  background: linear-gradient(135deg, #9d00ff 0%, #7b00cc 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--color-accent) 0%, #7b00cc 100%);
+  color: #fff;
   font-size: 1.3rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
@@ -134,26 +151,27 @@
 
 .form-group label {
   font-weight: 600;
-  color: #333;
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
 }
 
 .form-group input,
 .form-group textarea {
   padding: 12px 15px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--color-border);
   border-radius: 8px;
   font-size: 0.9rem;
   transition: all 0.3s ease;
-  background: #f8f9fa;
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #9d00ff;
+  border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(157, 0, 255, 0.1);
-  background: #fff;
+  background: var(--color-card-bg);
 }
 
 .bonus-offers {
@@ -234,13 +252,13 @@
 
 .price-label {
   font-weight: 600;
-  color: #333;
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
 }
 
 .price-amount {
   font-weight: 700;
-  color: #9d00ff;
+  color: var(--color-accent);
   font-size: 1rem;
 }
 
@@ -250,6 +268,7 @@
   padding: 15px 20px;
   margin: 20px 0;
   animation: pulse 2s infinite;
+  color: #fff;
 }
 
 @keyframes pulse {
@@ -285,7 +304,7 @@
 
 .submit-button {
   background: linear-gradient(135deg, #4a148c 0%, #1a0033 100%);
-  color: white;
+  color: #fff;
   border: none;
   padding: 18px 40px;
   border-radius: 12px;
@@ -335,11 +354,16 @@
   }
   
   .benefit-item {
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
+    max-width: 100%;
     padding: 12px;
   }
   
   .benefit-item p {
     font-size: 0.8rem;
+    -webkit-line-clamp: 4;
   }
 }
 
@@ -357,7 +381,12 @@
   }
   
   .bonus-item {
-    padding: 15px;
+    height: 90px;
+    min-height: 90px;
+    max-height: 90px;
+    max-width: 100%;
+    padding: 10px;
+    gap: 8px;
   }
   
   .submit-button {
@@ -418,6 +447,7 @@
   
   .benefit-item p {
     font-size: 0.75rem;
+    -webkit-line-clamp: 5;
   }
   
   .form-title {

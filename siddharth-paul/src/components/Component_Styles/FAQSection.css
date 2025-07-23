@@ -1,6 +1,6 @@
 .faq-main-section {
   width: 100%;
-  background-color: #f5f5f5;
+  background: var(--color-bg-secondary);
   padding: 60px 0;
   display: flex;
   justify-content: center;
@@ -22,7 +22,7 @@
 }
 
 .faq-subtitle {
-  color: #9d00ff;
+  color: var(--color-accent);
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
@@ -32,7 +32,7 @@
 }
 
 .faq-title {
-  color: #000;
+  color: var(--color-text);
   font-size: 2.2rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
@@ -43,7 +43,7 @@
 
 .faq-list {
   width: 100%;
-  background-color: #fff;
+  background: var(--color-card-bg);
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -64,16 +64,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  background: var(--color-card-bg);
+  color: var(--color-card-text);
   transition: background-color 0.3s ease;
 }
 
 .faq-question:hover {
-  background-color: #f8f8f8;
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
 }
 
 .faq-question-text {
-  color: #000;
+  color: var(--color-text);
   font-size: 1.1rem;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
@@ -83,7 +85,7 @@
 }
 
 .faq-toggle {
-  color: #000;
+  color: var(--color-text);
   font-size: 1.8rem;
   font-weight: 300;
   transition: all 0.3s ease;
@@ -95,12 +97,12 @@
 
 .faq-answer {
   padding: 0 25px 20px 25px;
-  background-color: #fff;
+  background: var(--color-card-bg);
   animation: fadeIn 0.3s ease;
 }
 
 .faq-answer-text {
-  color: #333;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
@@ -109,7 +111,7 @@
 
 .faq-support-button {
   background: linear-gradient(135deg, #4a148c 0%, #1a0033 100%);
-  color: white;
+  color: #fff;
   border: none;
   padding: 15px 30px;
   border-radius: 25px;

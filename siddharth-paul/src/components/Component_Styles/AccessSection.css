@@ -1,6 +1,6 @@
 .access-main-section {
   width: 100%;
-  background-color: #f8f8f8;
+  background: var(--color-bg-secondary);
   padding: 80px 0;
   text-align: center;
 }
@@ -12,7 +12,7 @@
 }
 
 .access-main-title {
-  color: #000;
+  color: var(--color-text);
   font-size: 2.8rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
@@ -31,10 +31,10 @@
 }
 
 .access-card {
-  background: linear-gradient(135deg, #2d1b69 0%, #1a0d3a 100%);
+  background: linear-gradient(135deg, #2d1b69 0%, #1a0d3a 100%), var(--color-card-bg);
   border-radius: 25px;
   padding: 30px;
-  color: white;
+  color: var(--color-card-text);
   text-align: left;
   position: relative;
   min-height: 350px;
@@ -50,7 +50,7 @@
 }
 
 .access-card-title {
-  color: #9d00ff;
+  color: var(--color-accent);
   font-size: 1.9rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
@@ -60,14 +60,25 @@
   line-height: 1.2;
 }
 
+/* Light mode title - bright white for visibility */
+[data-theme="light"] .access-card-title {
+  color: #ffffff;
+}
+
 .access-card-description {
-  color: #fff;
+  color: var(--color-card-text);
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   margin-bottom: 25px;
   flex-grow: 1;
   opacity: 0.95;
+}
+
+/* Light mode description - bright white for visibility */
+[data-theme="light"] .access-card-description {
+  color: #ffffff;
+  opacity: 1;
 }
 
 .access-card-image {
@@ -112,18 +123,29 @@
 }
 
 .access-price-label {
-  color: #fff;
+  color: var(--color-card-text);
   font-size: 1.3rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
   opacity: 0.9;
 }
 
+/* Light mode price label - bright white */
+[data-theme="light"] .access-price-label {
+  color: #ffffff;
+  opacity: 1;
+}
+
 .access-price-value {
-  color: #fff;
+  color: var(--color-card-text);
   font-size: 2.2rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
+}
+
+/* Light mode price value - bright white */
+[data-theme="light"] .access-price-value {
+  color: #ffffff;
 }
 
 .access-card-community {
@@ -172,21 +194,32 @@
 }
 
 .access-final-label {
-  color: #fff;
+  color: var(--color-card-text);
   font-size: 1.3rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
   opacity: 0.9;
 }
 
+/* Light mode final label - bright white */
+[data-theme="light"] .access-final-label {
+  color: #ffffff;
+  opacity: 1;
+}
+
 .access-final-crossed {
-  color: #fff;
+  color: var(--color-card-text);
   font-size: 2rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
   text-decoration: line-through;
   text-decoration-color: #ff0000;
   text-decoration-thickness: 3px;
+}
+
+/* Light mode crossed price - bright white */
+[data-theme="light"] .access-final-crossed {
+  color: #ffffff;
 }
 
 .access-final-offer {
@@ -197,10 +230,15 @@
 }
 
 .access-final-label-big {
-  color: #fff;
+  color: var(--color-card-text);
   font-size: 2rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
+}
+
+/* Light mode big label - bright white */
+[data-theme="light"] .access-final-label-big {
+  color: #ffffff;
 }
 
 .access-final-green {
@@ -211,9 +249,15 @@
   text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
 }
 
+/* Light mode green price - keep the bright green for visibility */
+[data-theme="light"] .access-final-green {
+  color: #00ff00;
+  text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
 .access-final-button {
   background: linear-gradient(135deg, #4a148c 0%, #1a0033 100%);
-  color: white;
+  color: #fff;
   border: none;
   padding: 18px 35px;
   border-radius: 30px;

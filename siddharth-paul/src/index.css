@@ -2,13 +2,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-/* The rest of your file */
+/* Theme variables */
+:root {
+  --color-bg: #fff;
+  --color-bg-secondary: #f8f8f8;
+  --color-text: #111;
+  --color-text-secondary: #333;
+  --color-accent: #9d00ff;
+  --color-header-bg: #fff;
+  --color-header-text: #000;
+  --color-navbar-link: #333;
+  --color-navbar-link-hover: #8a2be2;
+  --color-card-bg: #fff;
+  --color-card-text: #111;
+  --color-popup-bg: #fff;
+  --color-popup-text: #111;
+  --color-border: #e2e8f0;
+}
+
+[data-theme="dark"] {
+  --color-bg: #181824;
+  --color-bg-secondary: #232336;
+  --color-text: #f3f3f3;
+  --color-text-secondary: #bdbdbd;
+  --color-accent: #bb86fc;
+  --color-header-bg: #232336;
+  --color-header-text: #fff;
+  --color-navbar-link: #e0e0e0;
+  --color-navbar-link-hover: #bb86fc;
+  --color-card-bg: #232336;
+  --color-card-text: #f3f3f3;
+  --color-popup-bg: #232336;
+  --color-popup-text: #f3f3f3;
+  --color-border: #33364a;
+}
+
 body {
+  background: var(--color-bg);
+  color: var(--color-text);
   margin: 0;
-  /* Use Inter as the default font for the app */
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s, color 0.3s;
 }
 
 /* Responsive Design for base styles */

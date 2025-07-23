@@ -1,6 +1,6 @@
 .personal-calls-main-section {
   width: 100%;
-  background-color: #f8f8f8;
+  background: var(--color-bg-secondary);
   padding: 80px 0;
   text-align: center;
 }
@@ -12,7 +12,7 @@
 }
 
 .personal-calls-main-title {
-  color: #000;
+  color: var(--color-text);
   font-size: 2.8rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
@@ -31,10 +31,10 @@
 }
 
 .personal-calls-card {
-  background: linear-gradient(135deg, #2d1b69 0%, #1a0d3a 100%);
+  background: linear-gradient(135deg, #2d1b69 0%, #1a0d3a 100%), var(--color-card-bg);
   border-radius: 25px;
   padding: 30px;
-  color: white;
+  color: var(--color-card-text);
   text-align: left;
   position: relative;
   min-height: 350px;
@@ -50,7 +50,7 @@
 }
 
 .personal-calls-card-title {
-  color: #9d00ff;
+  color: var(--color-accent);
   font-size: 1.9rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
@@ -61,7 +61,7 @@
 }
 
 .personal-calls-card-description {
-  color: #fff;
+  color: var(--color-card-text);
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
   line-height: 1.6;

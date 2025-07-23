@@ -14,6 +14,13 @@ import backgroundWave2 from "../../assets/background-wave-2-new.svg";
 const HeroSection = () => {
   const videoId = "dQw4w9WgXcQ";
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+   const scrollToCheckout = (e) => {
+    e.preventDefault();
+    const checkoutSection = document.querySelector('.global-magnet-checkout');
+    if (checkoutSection) {
+      checkoutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <main className="gm-hero-section">
@@ -63,7 +70,7 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <a href="#access" className="gm-access-now-btn">
+        <a href="#access" className="gm-access-now-btn" onClick={scrollToCheckout}>
           ACCESS NOW!
         </a>
       </div>

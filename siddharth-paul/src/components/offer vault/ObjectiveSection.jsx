@@ -2,6 +2,13 @@ import React from 'react';
 import '../Component_Styles/ObjectiveSection.css';
 
 const ObjectiveSection = () => {
+   const scrollToCheckout = (e) => {
+    e.preventDefault();
+    const checkoutSection = document.querySelector('.global-magnet-checkout');
+    if (checkoutSection) {
+      checkoutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section className="objective-main-section">
       <div className="objective-main-container">
@@ -40,7 +47,7 @@ const ObjectiveSection = () => {
           </div>
         </div>
 
-        <button className="objective-access-button">
+        <button className="objective-access-button" onClick={scrollToCheckout}>
           ACCESS NOW!
         </button>
       </div>

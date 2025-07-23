@@ -2,6 +2,13 @@ import React from 'react';
 import '../Component_Styles/WhoThisIsForSection.css';
 
 const WhoThisIsForSection = () => {
+   const scrollToCheckout = (e) => {
+    e.preventDefault();
+    const checkoutSection = document.querySelector('.global-magnet-checkout');
+    if (checkoutSection) {
+      checkoutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section className="who-this-is-for-main-section">
       <div className="who-this-is-for-container">
@@ -127,7 +134,7 @@ const WhoThisIsForSection = () => {
           </div>
         </div>
         
-        <button className="who-this-is-for-access-button">
+        <button className="who-this-is-for-access-button" onClick={scrollToCheckout}>
           ACCESS NOW!
         </button>
       </div>

@@ -1,6 +1,6 @@
 .objective-main-section {
   width: 100%;
-  background-color: #f8f8f8;
+  background: var(--color-bg-secondary);
   padding: 60px 0;
   text-align: center;
 }
@@ -15,7 +15,7 @@
 }
 
 .objective-purple-subtitle {
-  color: #9d00ff;
+  color: var(--color-accent);
   font-size: 1.2rem;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
@@ -25,7 +25,7 @@
 }
 
 .objective-main-heading {
-  color: #000;
+  color: var(--color-text);
   font-size: 2.2rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
@@ -36,7 +36,7 @@
 
 .objective-underlined-text {
   text-decoration: underline;
-  text-decoration-color: #000;
+  text-decoration-color: var(--color-text);
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
 }
@@ -48,7 +48,7 @@
 .objective-intro-text {
   font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
-  color: #333;
+  color: var(--color-text-secondary);
   line-height: 1.6;
   margin: 0;
 }
@@ -76,7 +76,7 @@
 
 .objective-benefit-row::before {
   content: "•";
-  color: #000;
+  color: var(--color-text);
   font-size: 1.5rem;
   font-weight: bold;
   margin-right: 15px;
@@ -87,19 +87,19 @@
 .objective-benefit-text {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
-  color: #333;
+  color: var(--color-text-secondary);
   line-height: 1.6;
   flex: 1;
 }
 
 .objective-benefit-heading {
   font-weight: 700;
-  color: #000;
+  color: var(--color-text);
 }
 
 .objective-access-button {
   background: linear-gradient(135deg, #4a148c 0%, #1a0033 100%);
-  color: white;
+  color: #fff;
   border: none;
   padding: 15px 40px;
   border-radius: 25px;

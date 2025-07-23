@@ -1,6 +1,6 @@
 .details-section {
   width: 100%;
-  background: linear-gradient(180deg, #c49cff 0%, #e8d5ff 100%);
+  background: var(--color-bg-secondary);
   padding: 60px 0;
   position: relative;
 }
@@ -16,14 +16,14 @@
   font-family: 'Anton', sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #000;
+  color: var(--color-text);
   margin-bottom: 50px;
   letter-spacing: 1px;
   line-height: 1.2;
 }
 
 .details-title .highlight {
-  color: #9d00ff;
+  color: var(--color-accent);
   font-weight: 800;
 }
 
@@ -42,7 +42,7 @@
   font-family: 'Anton', sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #000;
+  color: var(--color-text);
   margin-bottom: 15px;
   letter-spacing: 0.5px;
   line-height: 1.1;
@@ -51,7 +51,7 @@
 }
 
 .arrow {
-  color: #000;
+  color: var(--color-text);
   font-weight: 900;
   margin-right: 10px;
   flex-shrink: 0;
@@ -61,7 +61,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  color: #333;
+  color: var(--color-text-secondary);
   line-height: 1.5;
   margin: 0;
   margin-left: 40px;
