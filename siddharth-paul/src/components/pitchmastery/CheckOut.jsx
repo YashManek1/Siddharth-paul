@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
+import { useNavigate } from "react-router-dom";
 
 function parseAddons(addons) {
   if (!addons) return [];
@@ -47,7 +48,7 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
     contactInfo: "",
     address: "",
   });
-
+  const navigate = useNavigate();
   const addonList = useMemo(() => parseAddons(addons), [addons]);
   const [selectedAddons, setSelectedAddons] = useState([]);
 
@@ -123,7 +124,7 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
             razorpay_signature: response.razorpay_signature,
           }),
         });
-        alert("Payment successful!");
+        navigate("/after-payment/pm/congrats");
       },
       prefill: {
         name: formData.fullName,

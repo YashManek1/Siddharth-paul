@@ -1,25 +1,26 @@
-import React from 'react';
-import './Discount.css';
+import React, { useEffect, useState } from "react";
+import "./Discount.css";
 
-const Discount= () => {
+const Discount = () => {
+  const [discount, setDiscount] = useState(null);
+
+  useEffect(() => {
+    fetch("https://siddharth-paul.onrender.com/courses/globalmagnet")
+      .then((res) => res.json())
+      .then((data) => setDiscount(data.afterPaymentDiscount))
+      .catch(() => setDiscount(null));
+  }, []);
+
   return (
     <section className="stats-section">
       <div className="stats-container">
-        <div className="stat-item">
-          <span className="stat-text">40% OFF</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-text">40% OFF</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-text">40% OFF</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-text">40% OFF</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-text">40% OFF</span>
-        </div>
+        {[...Array(5)].map((_, i) => (
+          <div className="stat-item" key={i}>
+            <span className="stat-text">
+              {discount ? `${discount} OFF` : "..."}
+            </span>
+          </div>
+        ))}
       </div>
     </section>
   );

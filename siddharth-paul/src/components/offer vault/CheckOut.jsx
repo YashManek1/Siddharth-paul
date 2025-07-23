@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
+import { useNavigate } from "react-router-dom";
 
 // Improved parseAddons to split each numbered addon into its own box, and parse price correctly
 function parseAddons(addons) {
@@ -57,7 +58,7 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
 
   const addonList = useMemo(() => parseAddons(addons), [addons]);
   const [selectedAddons, setSelectedAddons] = useState([]);
-
+  const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -121,7 +122,7 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
             razorpay_signature: response.razorpay_signature,
           }),
         });
-        alert("Payment successful!");
+        navigate("/after-payment/ov/congrats");
       },
       prefill: {
         name: formData.fullName,

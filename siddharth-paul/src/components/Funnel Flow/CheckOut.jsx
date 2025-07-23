@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Component_Styles/GlobalMagnetCheckout.css";
 
 // Robust parseAddons for all edge cases
@@ -57,6 +58,7 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
 
   const addonList = useMemo(() => parseAddons(addons), [addons]);
   const [selectedAddons, setSelectedAddons] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!window.Razorpay) {
@@ -133,7 +135,8 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
             razorpay_signature: response.razorpay_signature,
           }),
         });
-        alert("Payment successful!");
+        // Redirect to congrats page
+        navigate("/afterpayment/ff/congrats"); // Change path as needed for each product
       },
       prefill: {
         name: formData.fullName,

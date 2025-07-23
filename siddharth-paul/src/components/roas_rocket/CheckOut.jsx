@@ -1,6 +1,7 @@
 // (Removed stray code: handleAddonChange, calculateTotal)
 import React, { useState, useMemo, useEffect } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
+import { useNavigate } from "react-router-dom";
 
 // Robust parseAddons for all edge cases (same as Global Magnet)
 function parseAddons(addons) {
@@ -43,7 +44,7 @@ const RoasRocketCheckout = ({ price, finalPrice, addons }) => {
     contactInfo: "",
     address: "",
   });
-
+  const navigate = useNavigate();
   const addonList = useMemo(() => parseAddons(addons), [addons]);
   const [selectedAddons, setSelectedAddons] = useState([]);
 
@@ -119,7 +120,7 @@ const RoasRocketCheckout = ({ price, finalPrice, addons }) => {
             razorpay_signature: response.razorpay_signature,
           }),
         });
-        alert("Payment successful!");
+        navigate("/after-payment/roas-rocket/congrats");
       },
       prefill: {
         name: formData.fullName,

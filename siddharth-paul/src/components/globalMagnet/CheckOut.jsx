@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
+import { useNavigate } from "react-router-dom";
 
 // Robust parseAddons for all edge cases
 function parseAddons(addons) {
@@ -55,6 +56,7 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
 
   const addonList = useMemo(() => parseAddons(addons), [addons]);
   const [selectedAddons, setSelectedAddons] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!window.Razorpay) {
@@ -129,7 +131,7 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
             razorpay_signature: response.razorpay_signature,
           }),
         });
-        alert("Payment successful!");
+        navigate("/after-payment/gm/congrats");
       },
       prefill: {
         name: formData.fullName,
