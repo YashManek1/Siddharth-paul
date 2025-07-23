@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
 
 // Improved parseAddons to split each numbered addon into its own box, and parse price correctly
@@ -134,6 +134,15 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
     const rzp = new window.Razorpay(options);
     rzp.open();
   };
+
+  useEffect(() => {
+    if (!window.Razorpay) {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
 
   return (
     <div className="global-magnet-checkout">

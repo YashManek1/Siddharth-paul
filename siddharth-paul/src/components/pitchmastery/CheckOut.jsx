@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import "../Component_Styles/GlobalMagnetCheckout.css";
 
 function parseAddons(addons) {
@@ -50,6 +50,15 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
 
   const addonList = useMemo(() => parseAddons(addons), [addons]);
   const [selectedAddons, setSelectedAddons] = useState([]);
+
+  useEffect(() => {
+    if (!window.Razorpay) {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
