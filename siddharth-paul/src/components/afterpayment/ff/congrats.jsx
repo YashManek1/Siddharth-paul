@@ -20,13 +20,13 @@ const Congrats = () => {
         <p className="gm-hero-subtitle">CONGRATS ON YOUR RECENT PURCHASE...</p>
         
         <h1 className="gm-hero-main-title">
-          <span className="gm-text-black">UPGRADE YOURSELF TO GUARANTEE</span>
+          <span className="gm-text-black">UPGRADE YOURSELF TO GUARANTEE YOUR</span>
         </h1>
         <h2 className="gm-sub-title">
-          <span className="gm-text-black">YOUR FIRST INTERNATIONAL CLIENT WITHIN 30 DAYS</span>
+          <span className="gm-text-black">FUNNEL ACTUALLY CONVERTS — GET REAL-TIME</span>
         </h2>
         <h3 className="gm-additional-title">
-          <span className="gm-text-black">WITH 4 PERSONAL CALLS WITH ME [1-1 CALLS]</span>
+          <span className="gm-text-black">HELP FIXING EVERY WEAK SPOT LIVE WITH ME.</span>
         </h3>
 
         <div className="gm-video-container">
@@ -41,13 +41,13 @@ const Congrats = () => {
 
         <div className="gm-benefits-list">
           <span className="gm-benefit-item-expert">
-            <img src={expertIcon} alt="expert icon" /> 4 CALLS WITH SIDDHARTH
+            <img src={expertIcon} alt="expert icon" /> 1-1 CALL WITH SIDDHARTH
           </span>
           <span>
-            <img src={lifetimeIcon} alt="infinity icon" /> CLOSE YOUR FIRST CLIENT WITH ME
+            <img src={lifetimeIcon} alt="infinity icon" /> MAKE THE HIGHEST CONVERTING FUNNEL EVER
           </span>
           <span>
-            <img src={refundIcon} alt="growth icon" /> GROW 1000% FASTER THAN OTHERS
+            <img src={refundIcon} alt="growth icon" /> REALTIME FEEDBACK [LIVE WITH ME]
           </span>
         </div>
 

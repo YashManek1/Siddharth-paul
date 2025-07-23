@@ -20,13 +20,13 @@ const Congrats = () => {
         <p className="gm-hero-subtitle">CONGRATS ON YOUR RECENT PURCHASE...</p>
         
         <h1 className="gm-hero-main-title">
-          <span className="gm-text-black">UPGRADE YOURSELF TO GUARANTEE</span>
+          <span className="gm-text-black">UPGRADE NOW TO GUARANTEE YOUR FIRST</span>
         </h1>
         <h2 className="gm-sub-title">
-          <span className="gm-text-black">YOUR FIRST INTERNATIONAL CLIENT WITHIN 30 DAYS</span>
+          <span className="gm-text-black">10X ROAS AD IN 30 DAYS</span>
         </h2>
         <h3 className="gm-additional-title">
-          <span className="gm-text-black">WITH 4 PERSONAL CALLS WITH ME [1-1 CALLS]</span>
+          <span className="gm-text-black">WITH PERSONAL 1-1 CALL + DONE-FOR-YOU AD SCRIPTS</span>
         </h3>
 
         <div className="gm-video-container">
@@ -41,13 +41,13 @@ const Congrats = () => {
 
         <div className="gm-benefits-list">
           <span className="gm-benefit-item-expert">
-            <img src={expertIcon} alt="expert icon" /> 4 CALLS WITH SIDDHARTH
+            <img src={expertIcon} alt="expert icon" /> 1-1 CALL WITH SIDDHARTH
           </span>
           <span>
-            <img src={lifetimeIcon} alt="infinity icon" /> CLOSE YOUR FIRST CLIENT WITH ME
+            <img src={lifetimeIcon} alt="infinity icon" /> DONE-FOR-YOU WINNING AD SCRIPTS
           </span>
           <span>
-            <img src={refundIcon} alt="growth icon" /> GROW 1000% FASTER THAN OTHERS
+            <img src={refundIcon} alt="growth icon" /> PERSONAL AD REVIEWS
           </span>
         </div>
 

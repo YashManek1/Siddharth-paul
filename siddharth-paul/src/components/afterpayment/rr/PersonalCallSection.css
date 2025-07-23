@@ -1,0 +1,461 @@
+.personal-calls-main-section {
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.personal-calls-main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.personal-calls-main-title {
+  color: #000;
+  font-size: 2.8rem;
+  font-family: 'Anton', sans-serif;
+  font-weight: 700;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.personal-calls-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.personal-calls-card {
+  background: linear-gradient(135deg, #2d1b69 0%, #1a0d3a 100%);
+  border-radius: 25px;
+  padding: 30px;
+  color: white;
+  text-align: left;
+  position: relative;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.personal-calls-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.personal-calls-card-title {
+  color: #9d00ff;
+  font-size: 1.9rem;
+  font-family: 'Anton', sans-serif;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.personal-calls-card-description {
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
+  opacity: 0.95;
+}
+
+.personal-calls-card-image {
+  width: 100%;
+  height: 140px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  border-radius: 15px;
+  position: relative;
+}
+
+/* Larger size specifically for img1 (personal calls) */
+.personal-calls-card-image-large {
+  height: 180px !important;
+}
+
+.personal-calls-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* Special styling for growth card with overlay */
+.personal-calls-card-growth .personal-calls-card-image {
+  position: relative;
+}
+
+.growth-overlay {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  z-index: 2;
+}
+
+.growth-percentage {
+  color: #9d00ff;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Anton', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 2px solid #9d00ff;
+}
+
+/* Grid Layout - Matching Reference Image */
+.personal-calls-card-calls {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.personal-calls-card-growth {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.personal-calls-card-close {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.personal-calls-final-price {
+  grid-row: 2;
+  grid-column: 2;
+  background: transparent;
+  border: none;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: none;
+  min-height: auto;
+}
+
+.personal-calls-final-price:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.personal-calls-final-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.personal-calls-final-pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.personal-calls-price-label {
+  color: #000;
+  font-size: 2.5rem;
+  font-family: 'Anton', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.personal-calls-final-green {
+  color: #00ff00;
+  font-size: 4rem;
+  font-family: 'Anton', sans-serif;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.personal-calls-final-button {
+  background: linear-gradient(135deg, #4a148c 0%, #1a0033 100%);
+  color: white;
+  border: none;
+  padding: 18px 35px;
+  border-radius: 30px;
+  font-size: 1.3rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(74, 20, 140, 0.4);
+  max-width: 250px;
+}
+
+.personal-calls-final-button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #6a1b9a 0%, #2d0054 100%);
+  box-shadow: 0 8px 25px rgba(74, 20, 140, 0.6);
+}
+
+.personal-calls-disclaimer {
+  color: #666;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+/* Add this to your existing CSS file */
+
+.personal-calls-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.personal-calls-crossed-price {
+  color: #ff0000;
+  font-size: 2rem;
+  font-family: 'Anton', sans-serif;
+  font-weight: 700;
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.personal-calls-final-green {
+  color: #00ff00;
+  font-size: 4rem;
+  font-family: 'Anton', sans-serif;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+/* Responsive updates */
+@media (max-width: 480px) {
+  .personal-calls-crossed-price {
+    font-size: 1.5rem;
+  }
+  
+  .personal-calls-final-green {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .personal-calls-crossed-price {
+    font-size: 1.2rem;
+  }
+  
+  .personal-calls-final-green {
+    font-size: 2.5rem;
+  }
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .personal-calls-main-container {
+    padding: 0 25px;
+  }
+  
+  .personal-calls-card {
+    padding: 25px;
+    min-height: 320px;
+  }
+  
+  .personal-calls-card-title {
+    font-size: 1.7rem;
+  }
+  
+  .personal-calls-card-description {
+    font-size: 0.95rem;
+  }
+  
+  .personal-calls-card-image {
+    height: 120px;
+  }
+  
+  .personal-calls-card-image-large {
+    height: 150px !important;
+  }
+  
+  .growth-percentage {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .personal-calls-grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 20px;
+  }
+  
+  .personal-calls-card-calls {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  
+  .personal-calls-card-growth {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  
+  .personal-calls-card-close {
+    grid-row: 3;
+    grid-column: 1;
+  }
+  
+  .personal-calls-final-price {
+    grid-row: 4;
+    grid-column: 1;
+  }
+  
+  .personal-calls-main-title {
+    font-size: 2.2rem;
+  }
+  
+  .personal-calls-card-title {
+    font-size: 1.6rem;
+  }
+  
+  .personal-calls-card-description {
+    font-size: 0.9rem;
+  }
+  
+  .personal-calls-card {
+    min-height: 300px;
+  }
+  
+  .personal-calls-card-image {
+    height: 110px;
+  }
+  
+  .personal-calls-card-image-large {
+    height: 140px !important;
+  }
+  
+  .growth-percentage {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .personal-calls-main-container {
+    padding: 0 20px;
+  }
+  
+  .personal-calls-main-title {
+    font-size: 1.9rem;
+  }
+  
+  .personal-calls-card {
+    padding: 22px;
+    min-height: 280px;
+  }
+  
+  .personal-calls-card-title {
+    font-size: 1.4rem;
+  }
+  
+  .personal-calls-card-description {
+    font-size: 0.85rem;
+  }
+  
+  .personal-calls-card-image {
+    height: 100px;
+  }
+  
+  .personal-calls-card-image-large {
+    height: 130px !important;
+  }
+  
+  .growth-percentage {
+    font-size: 1.4rem;
+    padding: 3px 8px;
+  }
+  
+  .personal-calls-price-label {
+    font-size: 2rem;
+  }
+  
+  .personal-calls-final-green {
+    font-size: 3rem;
+  }
+  
+  .personal-calls-final-button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .personal-calls-main-section {
+    padding: 50px 0;
+  }
+
+  .personal-calls-main-container {
+    padding: 0 15px;
+  }
+  
+  .personal-calls-main-title {
+    font-size: 1.6rem;
+    margin-bottom: 35px;
+  }
+  
+  .personal-calls-card {
+    padding: 18px;
+    min-height: 250px;
+  }
+  
+  .personal-calls-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .personal-calls-card-description {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .personal-calls-card-image {
+    height: 90px;
+    margin-bottom: 15px;
+  }
+  
+  .personal-calls-card-image-large {
+    height: 120px !important;
+  }
+  
+  .growth-percentage {
+    font-size: 1.2rem;
+    padding: 2px 6px;
+  }
+  
+  .personal-calls-price-label {
+    font-size: 1.8rem;
+  }
+  
+  .personal-calls-final-green {
+    font-size: 2.5rem;
+  }
+  
+  .personal-calls-final-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+  
+  .personal-calls-disclaimer {
+    font-size: 0.8rem;
+  }
+}

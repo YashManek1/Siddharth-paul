@@ -1,0 +1,219 @@
+.thankyou-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.thankyou-container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.thankyou-image-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.thankyou-image {
+  width: 100%;
+  height: auto;
+  max-width: 450px;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+}
+
+.thankyou-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.thankyou-confirmation-text {
+  color: #000;
+  font-size: 1.4rem;
+  font-family: 'Anton', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 800px;
+}
+
+.thankyou-welcome-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.thankyou-welcome-text {
+  color: #9d00ff;
+  font-size: 2.5rem;
+  font-family: 'Anton', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(157, 0, 255, 0.2);
+}
+
+.thankyou-graduation-cap {
+  font-size: 2.5rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .thankyou-container {
+    gap: 35px;
+  }
+  
+  .thankyou-image {
+    max-width: 400px;
+  }
+  
+  .thankyou-confirmation-text {
+    font-size: 1.3rem;
+  }
+  
+  .thankyou-welcome-text {
+    font-size: 2.2rem;
+  }
+  
+  .thankyou-graduation-cap {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .thankyou-section {
+    padding: 30px 15px;
+  }
+  
+  .thankyou-container {
+    gap: 30px;
+  }
+  
+  .thankyou-image {
+    max-width: 350px;
+  }
+  
+  .thankyou-confirmation-text {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .thankyou-welcome-text {
+    font-size: 1.9rem;
+    letter-spacing: 1.5px;
+  }
+  
+  .thankyou-graduation-cap {
+    font-size: 1.9rem;
+  }
+  
+  .thankyou-welcome-container {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .thankyou-section {
+    padding: 20px 10px;
+    min-height: 90vh;
+  }
+  
+  .thankyou-container {
+    gap: 25px;
+  }
+  
+  .thankyou-image {
+    max-width: 280px;
+  }
+  
+  .thankyou-confirmation-text {
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+  }
+  
+  .thankyou-welcome-text {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+  
+  .thankyou-graduation-cap {
+    font-size: 1.6rem;
+  }
+  
+  .thankyou-welcome-container {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .thankyou-section {
+    padding: 15px 8px;
+  }
+  
+  .thankyou-container {
+    gap: 20px;
+  }
+  
+  .thankyou-image {
+    max-width: 240px;
+  }
+  
+  .thankyou-confirmation-text {
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+  }
+  
+  .thankyou-welcome-text {
+    font-size: 1.4rem;
+    letter-spacing: 0.8px;
+  }
+  
+  .thankyou-graduation-cap {
+    font-size: 1.4rem;
+  }
+}
+
+/* Animation for a nice entrance effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.thankyou-container {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.thankyou-image {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.thankyou-content {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
