@@ -5,7 +5,7 @@ const Discount = () => {
   const [discount, setDiscount] = useState(null);
 
   useEffect(() => {
-    fetch("https://siddharth-paul.onrender.com/courses/pitchmastery")
+    fetch("https://siddharth-paul.onrender.com/courses/Pitch Mastery")
       .then((res) => res.json())
       .then((data) => setDiscount(data.afterPaymentDiscount))
       .catch(() => setDiscount(null));

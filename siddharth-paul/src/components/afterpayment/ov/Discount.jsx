@@ -5,7 +5,7 @@ const Discount = () => {
   const [discount, setDiscount] = useState(null);
 
   useEffect(() => {
-    fetch("https://siddharth-paul.onrender.com/courses/offervault")
+    fetch("https://siddharth-paul.onrender.com/courses/Offer Vault")
       .then((res) => res.json())
       .then((data) => setDiscount(data.afterPaymentDiscount))
       .catch(() => setDiscount(null));

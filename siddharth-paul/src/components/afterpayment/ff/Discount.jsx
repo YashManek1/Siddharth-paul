@@ -5,7 +5,7 @@ const Discount = () => {
   const [discount, setDiscount] = useState(null);
 
   useEffect(() => {
-    fetch("https://siddharth-paul.onrender.com/courses/funnelflow")
+    fetch("https://siddharth-paul.onrender.com/courses/Funnel Flow")
       .then((res) => res.json())
       .then((data) => setDiscount(data.afterPaymentDiscount))
       .catch(() => setDiscount(null));
