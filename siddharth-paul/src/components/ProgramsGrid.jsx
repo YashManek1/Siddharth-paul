@@ -44,7 +44,7 @@ const ProgramsGrid = () => (
           <div className="programs-box" key={idx}>
             <div className="programs-box-image">
               <img src={box.img} alt="" />
-              <div className="programs-box-title">{box.title}</div>
+              {/* <div className="programs-box-title">{box.title}</div> */}
             </div>
             <a className="get-started-btn" href={box.link}>GET STARTED!</a>
           </div>
@@ -55,7 +55,7 @@ const ProgramsGrid = () => (
           <div className="programs-box" key={idx+3}>
             <div className="programs-box-image">
               <img src={box.img} alt="" />
-              <div className="programs-box-title">{box.title}</div>
+              {/* <div className="programs-box-title">{box.title}</div> */}
             </div>
             <a className="get-started-btn" href={box.link}>GET STARTED!</a>
           </div>

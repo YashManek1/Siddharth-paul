@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchCourseData } from "../api/courses";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import HeroSection from "../components/Funnel Flow/HeroSection";
 import Stats from "../components/Funnel Flow/Stats";
 import Details from "../components/Funnel Flow/Details";
@@ -38,6 +39,7 @@ const FunnelFlow = () => {
         finalPrice={course.finalPrice}
         addons={course.addons}
       />
+      <Footer />
     </div>
   );
 };

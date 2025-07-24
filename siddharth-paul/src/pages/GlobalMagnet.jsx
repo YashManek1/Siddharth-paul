@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchCourseData } from "../api/courses";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import HeroSection from "../components/globalMagnet/HeroSection";
 import Stats from "../components/globalMagnet/Stats";
 import Details from "../components/globalMagnet/Details";
@@ -38,6 +39,7 @@ const GlobalMagnet = () => {
         finalPrice={course.finalPrice}
         addons={course.addons}
       />
+      <Footer />
     </div>
   );
 };

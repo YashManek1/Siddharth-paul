@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchCourseData } from "../api/courses";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import HeroSection from "../components/offer vault/HeroSection";
 import Stats from "../components/offer vault/Stats";
 import Details from "../components/offer vault/Details";
@@ -38,6 +39,7 @@ const OfferVault = () => {
         finalPrice={course.finalPrice}
         addons={course.addons}
       />
+      <Footer />
     </div>
   );
 };

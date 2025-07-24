@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchCourseData } from "../api/courses";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import HeroSection from "../components/roas_rocket/HeroSection";
 import Stats from "../components/roas_rocket/Stats";
 import Details from "../components/roas_rocket/Details";
@@ -38,6 +39,7 @@ const RoasRocket = () => {
         finalPrice={course.finalPrice}
         addons={course.addons}
       />
+      <Footer />
     </div>
   );
 };

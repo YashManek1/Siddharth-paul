@@ -3,6 +3,9 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import LetterSection from "../components/LetterSection";
 import ProgramsGrid from "../components/ProgramsGrid";
+import Footer from "../components/Footer";
+import YouTubeSection from "../components/YouTubeSection";
+import HomeFAQSection from "../components/HomeFAQSection";
 import "../components/Hero.css";
 import "../components/LetterSection.css";
 import "../components/accomplishments";
@@ -18,6 +21,9 @@ const Home = () => {
       <ProgramsGrid />
       <LetterSection />
       <AccomplishmentSection />
+      <YouTubeSection />
+      <HomeFAQSection />
+      <Footer />
     </div>
   );
 };

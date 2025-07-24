@@ -6,7 +6,12 @@ import PitchMastery from "./pages/PitchMastery";
 import RoasRocket from "./pages/RoasRocket";
 import OfferVault from "./pages/OfferVault";
 import FunnelFlow from "./pages/FunnelFlow";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
+import ContactUs from "./pages/ContactUs";
+import RefundPolicy from "./pages/RefundPolicy";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Maingm from "./components/afterpayment/gm/Maingm";
 import Mainov from "./components/afterpayment/ov/Maingov";
 import Mainrr from "./components/afterpayment/rr/Mainrr";
@@ -154,6 +159,10 @@ function App() {
             <Route path="/roas-rocket" element={<RoasRocket/>} />
             <Route path="/offer-vault" element={<OfferVault/>} />
             <Route path="/funnel-flow" element={<FunnelFlow/>} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+            <Route path="/terms-of-use" element={<TermsOfUse/>} />
+            <Route path="/contact-us" element={<ContactUs/>} />
+            <Route path="/refund-policy" element={<RefundPolicy/>} />
             <Route path="/afterpaymentgm" element={<Maingm />} />
             <Route path="/afterpaymentov" element={<Mainov />} />
             <Route path="/afterpaymentrr" element={<Mainrr />} />

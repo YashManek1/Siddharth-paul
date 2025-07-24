@@ -12,6 +12,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px 0;
+  position: relative;
+  min-height: 60px;
 }
 
 .logo-container {
@@ -77,11 +79,11 @@
   font-weight: 400;
   letter-spacing: 1.5px;
   margin: 0;
-  padding-top: 20px;
   word-spacing: 4px;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 
@@ -173,8 +175,8 @@
 
   .main-title {
     font-size: 1.5rem;
-    padding-top: 15px;
     letter-spacing: 1px;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -207,9 +209,9 @@
 
   .main-title {
     font-size: 1.2rem;
-    padding-top: 10px;
     letter-spacing: 0.5px;
     word-spacing: 2px;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -237,6 +239,6 @@
 
   .main-title {
     font-size: 1rem;
-    padding-top: 8px;
+    transform: translate(-50%, -50%);
   }
 }
