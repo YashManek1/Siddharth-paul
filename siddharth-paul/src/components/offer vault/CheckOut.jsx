@@ -8,13 +8,10 @@ function parseAddons(addons) {
     .replace(/\\n/g, "\n")
     .replace(/\\?\/-\s*/g, "/-")
     .replace(/\r\n|\r/g, "\n");
-  // Split by numbered pattern (handles "1.", "2.", "3." etc. even with quotes or numbers after the dot)
-  // This regex splits at: number, dot, then any non-dash (so it won't split inside a price or description)
   const items = clean
     .split(/(?=\d+\.(?:(?=[^–—-])|(?=["\d])))/g)
     .filter(Boolean);
   return items.map((item, idx) => {
-    // Match: 1. Title (possibly multiline) — 999/-\n✔️desc\n✔️desc
     const match = item.match(
       /^(\d+)\.\s*([\s\S]+?)[-–—]\s*([₹$]?\d+)\s*\/?-?\s*\n?([\s\S]*)/m
     );
@@ -26,7 +23,6 @@ function parseAddons(addons) {
         description: match[4].trim(),
       };
     }
-    // Fallback: try to match title and price, then description
     const altMatch = item.match(
       /^(\d+)\.\s*([\s\S]+?)[-–—]\s*([₹$]?\d+)\s*([\s\S]*)/m
     );
@@ -57,6 +53,10 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
   const navigate = useNavigate();
   const addonList = useMemo(() => parseAddons(addons), [addons]);
   const [selectedAddons, setSelectedAddons] = useState([]);
+  const [coupon, setCoupon] = useState("");
+  const [couponApplied, setCouponApplied] = useState(false);
+  const [couponError, setCouponError] = useState("");
+  const [discountPercent, setDiscountPercent] = useState(0);
 
   useEffect(() => {
     if (!window.Razorpay) {
@@ -81,6 +81,42 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
     );
   };
 
+  // Coupon apply handler
+  const handleApplyCoupon = async () => {
+    setCouponError("");
+    setCouponApplied(false);
+    setDiscountPercent(0);
+    if (!formData.email) {
+      setCouponError("Enter your email before applying coupon.");
+      return;
+    }
+    try {
+      const res = await fetch(
+        "https://siddharth-paul.onrender.com/coupon/apply",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ coupon, email: formData.email }),
+        }
+      );
+      const data = await res.json();
+      if (data.success) {
+        setDiscountPercent(data.discountPercent);
+        setCouponApplied(true);
+        setCouponError("");
+      } else {
+        setCouponError(data.message || "Invalid coupon.");
+        setCouponApplied(false);
+        setDiscountPercent(0);
+      }
+    } catch (err) {
+      setCouponError("Server error. Try again.");
+      setCouponApplied(false);
+      setDiscountPercent(0);
+    }
+  };
+
+  // Calculate total with discount and GST
   const calculateTotalBreakdown = () => {
     let base = Number(finalPrice || 0);
     addonList.forEach((addon, idx) => {
@@ -88,9 +124,14 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
         base += Number(addon.price || 0);
       }
     });
+    let discount = 0;
+    if (discountPercent > 0) {
+      discount = Math.round(base * (discountPercent / 100));
+      base = base - discount;
+    }
     const gst = Math.round(base * 0.18);
     const total = base + gst;
-    return { base, gst, total };
+    return { base, gst, total, discount };
   };
 
   const handleSubmit = async (e) => {
@@ -146,7 +187,7 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
     rzp.open();
   };
 
-  const { base, gst, total } = calculateTotalBreakdown();
+  const { base, gst, total, discount } = calculateTotalBreakdown();
 
   return (
     <div className="global-magnet-checkout">
@@ -315,6 +356,37 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                     required
                   />
                 </div>
+                {/* Coupon Section */}
+                <div className="form-group">
+                  <label htmlFor="coupon">Coupon Code</label>
+                  <div style={{ display: "flex", gap: "8px" }}>
+                    <input
+                      type="text"
+                      id="coupon"
+                      name="coupon"
+                      value={coupon}
+                      onChange={(e) => setCoupon(e.target.value)}
+                      disabled={couponApplied}
+                    />
+                    <button
+                      type="button"
+                      onClick={handleApplyCoupon}
+                      disabled={couponApplied}
+                    >
+                      {couponApplied ? "Applied" : "Apply"}
+                    </button>
+                  </div>
+                  {couponError && (
+                    <div style={{ color: "red", fontSize: "12px" }}>
+                      {couponError}
+                    </div>
+                  )}
+                  {couponApplied && (
+                    <div style={{ color: "green", fontSize: "12px" }}>
+                      Coupon applied! {discountPercent}% off.
+                    </div>
+                  )}
+                </div>
                 <div className="bonus-offers">
                   {addonList.length > 0 && (
                     <>
@@ -373,6 +445,12 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                 )}
 
                 <div className="total-section">
+                  {discount > 0 && (
+                    <div className="total-row">
+                      <span className="total-label">Discount:</span>
+                      <span className="total-amount">- {discount}/-</span>
+                    </div>
+                  )}
                   <div className="total-row">
                     <span className="total-label">Base Price:</span>
                     <span className="total-amount">{base}/-</span>
