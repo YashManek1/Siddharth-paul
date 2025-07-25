@@ -6,12 +6,17 @@ function parseAddons(addons) {
   if (!addons) return [];
   const clean = addons
     .replace(/\\n/g, "\n")
-    .replace(/\\?\/-\s*/g, "")
+    .replace(/\\?\/-\s*/g, "/-")
     .replace(/\r\n|\r/g, "\n");
-  const items = clean.split(/(?=\d+\.\s)/g).filter(Boolean);
+  // Split by numbered pattern (handles "1.", "2.", "3." etc. even with quotes or numbers after the dot)
+  // This regex splits at: number, dot, then any non-dash (so it won't split inside a price or description)
+  const items = clean
+    .split(/(?=\d+\.(?:(?=[^–—-])|(?=["\d])))/g)
+    .filter(Boolean);
   return items.map((item, idx) => {
+    // Match: 1. Title (possibly multiline) — 999/-\n✔️desc\n✔️desc
     const match = item.match(
-      /^(\d+)\.\s*([\s\S]+?)-\s*([₹$]?\d+)\s*\n([\s\S]*)/m
+      /^(\d+)\.\s*([\s\S]+?)[-–—]\s*([₹$]?\d+)\s*\/?-?\s*\n?([\s\S]*)/m
     );
     if (match) {
       return {
@@ -21,8 +26,9 @@ function parseAddons(addons) {
         description: match[4].trim(),
       };
     }
+    // Fallback: try to match title and price, then description
     const altMatch = item.match(
-      /^(\d+)\.\s*([\s\S]+?)-\s*([₹$]?\d+)\s*([\s\S]*)/m
+      /^(\d+)\.\s*([\s\S]+?)[-–—]\s*([₹$]?\d+)\s*([\s\S]*)/m
     );
     if (altMatch) {
       return {
@@ -327,6 +333,11 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
                     </>
                   )}
                 </div>
+
+                {/* Add-ons section with label - ONLY ADDITION */}
+                {selectedAddons.length > 0 && (
+                  <div className="addons-section">
+                    <div className="addons-label">Add-ons</div>
                 <div className="price-breakdown">
                   {addonList.map(
                     (addon, idx) =>
@@ -338,6 +349,9 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
                       )
                   )}
                 </div>
+                  </div>
+                )}
+
                 <div className="total-section">
                   <div className="total-row">
                     <span className="total-label">Base Price:</span>
@@ -364,7 +378,7 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
           </div>
         </div>
         <div className="gst-breakdown">
-          <div>Base Price: {base}/-</div>
+          <div>Price: {base}/-</div>
           <div>GST (18%): {gst}/-</div>
           <div>
             <b>Total Paid: {total}/-</b>

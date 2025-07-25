@@ -372,7 +372,11 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
                     </>
                   )}
                 </div>
-                {/* Only show final price and selected add-ons */}
+
+                {/* Add-ons section with label */}
+                {selectedAddons.length > 0 && (
+                  <div className="addons-section">
+                    <div className="addons-label">Add-ons</div>
                 <div className="price-breakdown">
                   {addonList.map(
                     (addon, idx) =>
@@ -384,6 +388,9 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
                       )
                   )}
                 </div>
+                  </div>
+                )}
+
                 <div className="total-section">
                   <div className="total-row">
                     <span className="total-label">Base Price:</span>
@@ -410,7 +417,7 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
           </div>
         </div>
         <div className="gst-breakdown">
-          <div>Base Price: {base}/-</div>
+          <div>Price: {base}/-</div>
           <div>GST (18%): {gst}/-</div>
           <div>
             <b>Total Paid: {total}/-</b>

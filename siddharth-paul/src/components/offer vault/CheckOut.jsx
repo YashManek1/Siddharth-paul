@@ -174,7 +174,7 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                   ✓
                 </div>
                 <p>
-                  Craft offers that make clients say “YES” instantly — learn to
+                  Craft offers that make clients say "YES" instantly — learn to
                   design high-ticket, irresistible pitches that stand out in any
                   market.
                 </p>
@@ -221,7 +221,7 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                 </div>
                 <p>
                   Headline & messaging formulas — grab attention fast and move
-                  clients from “interested” to “sold.”
+                  clients from "interested" to "sold."
                 </p>
               </div>
               {/* --- NEW BENEFITS --- */}
@@ -353,6 +353,11 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                     </>
                   )}
                 </div>
+
+                {/* Add-ons section with label */}
+                {selectedAddons.length > 0 && (
+                  <div className="addons-section">
+                    <div className="addons-label">Add-ons</div>
                 <div className="price-breakdown">
                   {addonList.map(
                     (addon, idx) =>
@@ -364,6 +369,9 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                       )
                   )}
                 </div>
+                  </div>
+                )}
+
                 <div className="total-section">
                   <div className="total-row">
                     <span className="total-label">Base Price:</span>
@@ -390,7 +398,7 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
           </div>
         </div>
         <div className="gst-breakdown">
-          <div>Base Price: {base}/-</div>
+          <div>Price: {base}/-</div>
           <div>GST (18%): {gst}/-</div>
           <div>
             <b>Total Paid: {total}/-</b>
