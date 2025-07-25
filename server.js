@@ -16,5 +16,9 @@ app.use("/courses", courseRoutes);
 app.use("/payment", paymentRoutes);
 app.use("/api/client-info", clientInfoRoutes);
 
+app.get("/ping", (req, res) => {
+  res.json({ message: "pong", time: new Date().toISOString() });
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
