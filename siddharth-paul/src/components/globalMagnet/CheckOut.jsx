@@ -377,17 +377,17 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
                 {selectedAddons.length > 0 && (
                   <div className="addons-section">
                     <div className="addons-label">Add-ons</div>
-                <div className="price-breakdown">
-                  {addonList.map(
-                    (addon, idx) =>
-                      selectedAddons.includes(idx) && (
-                        <div className="price-row addon-row" key={idx}>
-                          <span className="price-label">{addon.title}:</span>
-                          <span className="price-amount">+{addon.price}/-</span>
-                        </div>
-                      )
-                  )}
-                </div>
+                    <div className="price-breakdown">
+                      {addonList.map(
+                        (addon, idx) =>
+                          selectedAddons.includes(idx) && (
+                            <div className="price-row addon-row" key={idx}>
+                              <span className="price-label">{addon.title}:</span>
+                              <span className="price-amount">+{addon.price}/-</span>
+                            </div>
+                          )
+                      )}
+                    </div>
                   </div>
                 )}
 

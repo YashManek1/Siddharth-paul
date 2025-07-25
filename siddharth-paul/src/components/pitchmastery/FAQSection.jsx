@@ -10,24 +10,24 @@ const FAQSection = () => {
 
   const faqData = [
     {
-      question: "How soon can I start the course after registering?",
-      answer: "You'll receive your login credentials in your email within 12 hours of registration. Remember to check your promotions folder and spam inbox if you don't see it in your main inbox."
+      question: "How long will it take to get access to the course?",
+      answer: "Your credentials to access the course will be delivered to your inbox within 24 hours of your purchase. Please check your promotions/updates tab and spam folder as well."
     },
     {
-      question: "Will I receive any certification after completing the course?",
-      answer: "Absolutely! Upon successful completion, you'll receive a verified digital certificate that you can add to your portfolio and professional profiles."
+      question: "Does the course come with a certificate of completion?",
+      answer: "Yes, a signed digital certificate is available to the students after successful completion of the course."
     },
     {
-      question: "What kind of support is available during the course?",
-      answer: "We offer a dedicated community forum where you can interact with instructors and fellow students to get your questions answered and share your learning experience."
+      question: "How can I clear my doubts during the course, if I have any?",
+      answer: "You can use the virtual course community available inside the course platform to ask questions and learn with other students."
     },
     {
-      question: "What is your refund policy if I'm not satisfied?",
-      answer: "We offer a 30-day money-back guarantee. If you're not completely satisfied with the course, you can request a full refund within 30 days of purchase with no questions asked."
+      question: "Can I cancel my course purchase and get a refund if I don't like it?",
+      answer: "Yes, you can cancel your course anytime within 14 days of purchase and get full refund, no questions asked. Your money will be refunded within few hours of cancellation."
     },
     {
-      question: "How can I get help if I have technical issues?",
-      answer: "Our support team is available via WhatsApp and email. We typically respond within 2 hours during business hours to help resolve any technical difficulties you may encounter."
+      question: "Whom do I contact in case of any issues or concerns?",
+      answer: "If you need any assistance, please reach out to us via WhatsApp and your concerns will be addressed instantly."
     }
   ];
 
@@ -41,21 +41,19 @@ const FAQSection = () => {
 
         <div className="faq-list">
           {faqData.map((faq, index) => (
-            <div key={index} className="faq-item">
+            <div key={index} className={`faq-item ${openFAQ === index ? 'active' : ''}`}>
               <div 
                 className="faq-question" 
                 onClick={() => toggleFAQ(index)}
               >
                 <h3 className="faq-question-text">{faq.question}</h3>
-                <span className={`faq-toggle ${openFAQ === index ? 'open' : ''}`}>
+                <span className="faq-toggle">
                   {openFAQ === index ? '−' : '+'}
                 </span>
               </div>
-              {openFAQ === index && (
-                <div className="faq-answer">
-                  <p className="faq-answer-text">{faq.answer}</p>
-                </div>
-              )}
+              <div className="faq-answer">
+                <p className="faq-answer-text">{faq.answer}</p>
+              </div>
             </div>
           ))}
         </div>

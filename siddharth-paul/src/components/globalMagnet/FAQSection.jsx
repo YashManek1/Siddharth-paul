@@ -41,21 +41,19 @@ const FAQSection = () => {
 
         <div className="faq-list">
           {faqData.map((faq, index) => (
-            <div key={index} className="faq-item">
+            <div key={index} className={`faq-item ${openFAQ === index ? 'active' : ''}`}>
               <div 
                 className="faq-question" 
                 onClick={() => toggleFAQ(index)}
               >
                 <h3 className="faq-question-text">{faq.question}</h3>
-                <span className={`faq-toggle ${openFAQ === index ? 'open' : ''}`}>
+                <span className="faq-toggle">
                   {openFAQ === index ? '−' : '+'}
                 </span>
               </div>
-              {openFAQ === index && (
-                <div className="faq-answer">
-                  <p className="faq-answer-text">{faq.answer}</p>
-                </div>
-              )}
+              <div className="faq-answer">
+                <p className="faq-answer-text">{faq.answer}</p>
+              </div>
             </div>
           ))}
         </div>

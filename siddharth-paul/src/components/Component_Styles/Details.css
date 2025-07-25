@@ -1,8 +1,17 @@
 .details-section {
   width: 100%;
-  background: var(--color-bg-secondary);
-  padding: 60px 0;
+  background: linear-gradient(
+    180deg,
+    rgba(157, 0, 255, 0.25) 0%,
+    rgba(157, 0, 255, 0.22) 30%,
+    rgba(157, 0, 255, 0.15) 55%,
+    rgba(157, 0, 255, 0.08) 80%,
+    rgba(157, 0, 255, 0.03) 95%,
+    rgba(157, 0, 255, 0) 100%
+  );
+  padding: 80px 0;
   position: relative;
+  margin-top: 0;
 }
 
 .details-container {
@@ -14,12 +23,13 @@
 .details-title {
   text-align: center;
   font-family: 'Anton', sans-serif;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 50px;
-  letter-spacing: 1px;
-  line-height: 1.2;
+  color: #000000;
+  margin-bottom: 60px;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .details-title .highlight {
@@ -30,8 +40,8 @@
 .problems-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px 60px;
-  margin-top: 40px;
+  gap: 50px 80px;
+  margin-top: 0;
 }
 
 .problem-item {
@@ -40,65 +50,111 @@
 
 .problem-title {
   font-family: 'Anton', sans-serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 15px;
-  letter-spacing: 0.5px;
+  color: #000000;
+  margin-bottom: 12px;
+  letter-spacing: 0.8px;
   line-height: 1.1;
   display: flex;
   align-items: flex-start;
+  text-transform: uppercase;
 }
 
 .arrow {
-  color: var(--color-text);
+  color: #000000;
   font-weight: 900;
-  margin-right: 10px;
+  margin-right: 15px;
   flex-shrink: 0;
+  font-size: 1.8rem;
 }
 
 .problem-description {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 500;
-  color: var(--color-text-secondary);
-  line-height: 1.5;
+  color: #333333;
+  line-height: 1.4;
   margin: 0;
-  margin-left: 40px;
+  margin-left: 50px;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .details-section {
+    padding: 60px 0;
+  }
+  
   .details-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
   }
   
   .problems-grid {
-    gap: 30px 40px;
+    gap: 40px 60px;
   }
   
   .problem-title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+  }
+  
+  .problem-description {
+    font-size: 1rem;
+    margin-left: 45px;
   }
 }
 
 @media (max-width: 768px) {
   .details-section {
-    padding: 40px 0;
+    padding: 50px 0;
   }
   
   .details-title {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
   }
   
   .problems-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 35px;
   }
   
   .problem-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+  }
+  
+  .problem-description {
+    font-size: 0.95rem;
+    margin-left: 40px;
+  }
+  
+  .arrow {
+    margin-right: 12px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-section {
+    padding: 40px 0;
+  }
+  
+  .details-container {
+    padding: 0 15px;
+  }
+  
+  .details-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  .problems-grid {
+    gap: 25px;
+  }
+  
+  .problem-title {
+    font-size: 1.3rem;
   }
   
   .problem-description {
@@ -107,30 +163,8 @@
   }
   
   .arrow {
-    margin-right: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .details-container {
-    padding: 0 15px;
-  }
-  
-  .details-title {
-    font-size: 1.5rem;
-  }
-  
-  .problem-title {
-    font-size: 1.2rem;
-  }
-  
-  .problem-description {
-    font-size: 0.85rem;
-    margin-left: 30px;
-  }
-  
-  .arrow {
-    margin-right: 6px;
+    margin-right: 10px;
+    font-size: 1.3rem;
   }
 }
 
@@ -144,8 +178,8 @@
   }
   
   .details-title {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
   }
   
   .problems-grid {
@@ -157,11 +191,12 @@
   }
   
   .problem-description {
-    font-size: 0.8rem;
-    margin-left: 25px;
+    font-size: 0.85rem;
+    margin-left: 30px;
   }
   
   .arrow {
-    margin-right: 5px;
+    margin-right: 8px;
+    font-size: 1.1rem;
   }
 }

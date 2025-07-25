@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './HomeFAQSection.css';
+import '../../src/components/Component_Styles/FAQSection.css';
 
-const HomeFAQSection = () => {
+const FAQSection = () => {
   const [openFAQ, setOpenFAQ] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -10,32 +10,20 @@ const HomeFAQSection = () => {
 
   const faqData = [
     {
-      question: "What is the refund policy?",
-      answer: "We offer risk-free purchases across all courses. You can avail a full refund in 7 days of purchase, no questions asked. This is applicable across all courses and all plans."
+      question: "How long will it take to get access to the course?",
+      answer: "Your credentials to access the course will be delivered to your inbox within 24 hours of your purchase. Please check your promotions/updates tab and spam folder as well."
     },
     {
-      question: "Are the courses conducted live?",
-      answer: "No, all the courses are self-paced and come with lifetime access. You can go through the course at your own pace."
+      question: "Does the course come with a certificate of completion?",
+      answer: "Yes, a signed digital certificate is available to the students after successful completion of the course."
     },
     {
-      question: "Are there any criteria for joining the courses?",
-      answer: "Not at all! The courses are designed for anyone and everyone who want to learn."
+      question: "How can I clear my doubts during the course, if I have any?",
+      answer: "You can use the virtual course community available inside the course platform to ask questions and learn with other students."
     },
     {
-      question: "Can I enroll in multiple courses?",
-      answer: "Yes, go for it! There are no limits on the number of courses that you can take up. We encourage you to join any and all courses that you might find useful."
-    },
-    {
-      question: "Is there a community that I can join?",
-      answer: "The plan for all courses includes access to a virtual chat based community space where you can interact with other students, ask questions, and network."
-    },
-    {
-      question: "Will I get a certificate, as proof of my learning?",
-      answer: "Yes! You will receive a digital 'Certificate of Completion.' We can't wait for you to proudly share your achievements with your friends and family."
-    },
-    {
-      question: "In which language will the course be taught?",
-      answer: "A mix of hindi and english"
+      question: "Can I cancel my course purchase and get a refund if I don't like it?",
+      answer: "Yes, you can cancel your course anytime within 14 days of purchase and get full refund, no questions asked. Your money will be refunded within few hours of cancellation."
     },
     {
       question: "Whom do I contact in case of any issues or concerns?",
@@ -44,35 +32,33 @@ const HomeFAQSection = () => {
   ];
 
   return (
-    <section className="home-faq-main-section">
-      <div className="home-faq-container">
-        <div className="home-faq-header">
-          <p className="home-faq-subtitle">FREQUENTLY ASKED QUESTIONS</p>
-          <h2 className="home-faq-title">GET YOUR QUESTIONS ANSWERED</h2>
+    <section className="faq-main-section">
+      <div className="faq-container">
+        <div className="faq-header">
+          <p className="faq-subtitle">FREQUENTLY ASKED QUESTIONS</p>
+          <h2 className="faq-title">GET YOUR QUESTIONS ANSWERED</h2>
         </div>
 
-        <div className="home-faq-list">
+        <div className="faq-list">
           {faqData.map((faq, index) => (
-            <div key={index} className="home-faq-item">
+            <div key={index} className={`faq-item ${openFAQ === index ? 'active' : ''}`}>
               <div 
-                className="home-faq-question" 
+                className="faq-question" 
                 onClick={() => toggleFAQ(index)}
               >
-                <h3 className="home-faq-question-text">{faq.question}</h3>
-                <span className={`home-faq-toggle ${openFAQ === index ? 'open' : ''}`}>
+                <h3 className="faq-question-text">{faq.question}</h3>
+                <span className="faq-toggle">
                   {openFAQ === index ? '−' : '+'}
                 </span>
               </div>
-              {openFAQ === index && (
-                <div className="home-faq-answer">
-                  <p className="home-faq-answer-text">{faq.answer}</p>
-                </div>
-              )}
+              <div className="faq-answer">
+                <p className="faq-answer-text">{faq.answer}</p>
+              </div>
             </div>
           ))}
         </div>
 
-        <button className="home-faq-support-button">
+        <button className="faq-support-button">
           Need Support? WhatsApp Us
         </button>
       </div>
@@ -80,4 +66,4 @@ const HomeFAQSection = () => {
   );
 };
 
-export default HomeFAQSection;
+export default FAQSection;

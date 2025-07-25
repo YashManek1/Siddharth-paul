@@ -50,7 +50,7 @@
 }
 
 .offer-header {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .offer-title {
@@ -67,46 +67,47 @@
 .benefits-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 }
 
 .benefit-item {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  gap: 10px;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  height: 120px;
-  min-height: 120px;
-  max-height: 120px;
+  gap: 18px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  height: auto;
+  min-height: auto;
+  max-height: none;
   width: 100%;
-  max-width: 650px;
+  max-width: none;
   box-sizing: border-box;
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
+  overflow: visible;
+  margin: 0;
 }
 
 .benefit-icon {
-  font-size: 1.5rem;
+  font-size: 2rem;
   flex-shrink: 0;
   margin-top: 2px;
+  color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
 }
 
 .benefit-item p {
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.95);
-  overflow: auto;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffffff;
+  overflow: visible;
+  text-overflow: none;
+  display: block;
+  -webkit-line-clamp: none;
+  -webkit-box-orient: none;
+  flex: 1;
+  font-weight: 400;
 }
 
 .right-section {
@@ -222,15 +223,33 @@
 
 .bonus-description {
   font-size: 0.85rem;
-  color:black;
+  color: black;
   line-height: 1.4;
+}
+
+/* Add-ons section label */
+.addons-section {
+  margin-top: 25px;
+}
+
+.addons-label {
+  font-weight: 700;
+  color: var(--color-text);
+  font-size: 1.1rem;
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-accent);
+  display: inline-block;
 }
 
 .price-breakdown {
   background: #f8f9fa;
   border-radius: 10px;
   padding: 20px;
-  margin: 20px 0;
+  margin: 0;
   border: 1px solid #e0e0e0;
 }
 
@@ -337,6 +356,18 @@
   .form-row {
     grid-template-columns: 1fr;
   }
+  
+  .benefits-list {
+    gap: 25px;
+  }
+  
+  .benefit-item {
+    gap: 15px;
+  }
+  
+  .benefit-item p {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -353,17 +384,29 @@
     font-size: 1.5rem;
   }
   
+  .offer-header {
+    margin-bottom: 30px;
+  }
+  
+  .benefits-list {
+    gap: 22px;
+  }
+  
   .benefit-item {
-    height: 100px;
-    min-height: 100px;
-    max-height: 100px;
-    max-width: 100%;
-    padding: 12px;
+    gap: 15px;
+  }
+  
+  .benefit-icon {
+    font-size: 1.8rem;
   }
   
   .benefit-item p {
-    font-size: 0.8rem;
-    -webkit-line-clamp: 4;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .addons-label {
+    font-size: 1rem;
   }
 }
 
@@ -380,13 +423,29 @@
     font-size: 1.1rem;
   }
   
-  .bonus-item {
-    height: 90px;
-    min-height: 90px;
-    max-height: 90px;
-    max-width: 100%;
-    padding: 10px;
-    gap: 8px;
+  .offer-header {
+    margin-bottom: 25px;
+  }
+  
+  .benefits-list {
+    gap: 20px;
+  }
+  
+  .benefit-item {
+    gap: 12px;
+  }
+  
+  .benefit-icon {
+    font-size: 1.6rem;
+  }
+  
+  .benefit-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .addons-label {
+    font-size: 0.95rem;
   }
   
   .submit-button {
@@ -433,21 +492,20 @@
   }
   
   .benefits-list {
-    gap: 15px;
+    gap: 18px;
   }
   
   .benefit-item {
-    padding: 10px;
     gap: 10px;
   }
   
   .benefit-icon {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   
   .benefit-item p {
-    font-size: 0.75rem;
-    -webkit-line-clamp: 5;
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
   
   .form-title {
@@ -475,6 +533,15 @@
   
   .bonus-description {
     font-size: 0.8rem;
+  }
+  
+  .addons-section {
+    margin-top: 20px;
+  }
+  
+  .addons-label {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
   }
   
   .price-breakdown {
