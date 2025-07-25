@@ -75,19 +75,21 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
     );
   };
 
-  const calculateTotal = () => {
-    let total = Number(finalPrice || 0);
+  const calculateTotalBreakdown = () => {
+    let base = Number(finalPrice || 0);
     addonList.forEach((addon, idx) => {
       if (selectedAddons.includes(idx)) {
-        total += Number(addon.price || 0);
+        base += Number(addon.price || 0);
       }
     });
-    return total;
+    const gst = Math.round(base * 0.18);
+    const total = base + gst;
+    return { base, gst, total };
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const total = calculateTotal();
+    const { total } = calculateTotalBreakdown();
 
     const res = await fetch(
       "https://siddharth-paul.onrender.com/payment/create",
@@ -124,19 +126,21 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
             razorpay_signature: response.razorpay_signature,
           }),
         });
-        navigate("/after-payment/pm/congrats");
+        navigate("/afterpaymentpm");
       },
       prefill: {
         name: formData.fullName,
         email: formData.email,
         contact: formData.contactInfo,
       },
-      theme: { color: "#0077ff" }, // Blue for Pitch Mastery
+      theme: { color: "#0077ff" },
     };
 
     const rzp = new window.Razorpay(options);
     rzp.open();
   };
+
+  const { base, gst, total } = calculateTotalBreakdown();
 
   return (
     <div className="global-magnet-checkout">
@@ -336,8 +340,20 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
                 </div>
                 <div className="total-section">
                   <div className="total-row">
-                    <span className="total-label">TOTAL:</span>
-                    <span className="total-amount">{calculateTotal()}/-</span>
+                    <span className="total-label">Base Price:</span>
+                    <span className="total-amount">{base}/-</span>
+                  </div>
+                  <div className="total-row">
+                    <span className="total-label">GST (18%):</span>
+                    <span className="total-amount">{gst}/-</span>
+                  </div>
+                  <div className="total-row">
+                    <span className="total-label">
+                      <b>TOTAL:</b>
+                    </span>
+                    <span className="total-amount">
+                      <b>{total}/-</b>
+                    </span>
                   </div>
                 </div>
                 <button type="submit" className="submit-button">
@@ -345,6 +361,13 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
                 </button>
               </form>
             </div>
+          </div>
+        </div>
+        <div className="gst-breakdown">
+          <div>Base Price: {base}/-</div>
+          <div>GST (18%): {gst}/-</div>
+          <div>
+            <b>Total Paid: {total}/-</b>
           </div>
         </div>
       </div>
