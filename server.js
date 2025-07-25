@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import courseRoutes from "./routes/courseRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
 import clientInfoRoutes from "./routes/clientInfoRoutes.js";
+import couponRoutes from "./routes/coupon.js";
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use("/courses", courseRoutes);
 app.use("/payment", paymentRoutes);
 app.use("/api/client-info", clientInfoRoutes);
+app.use("/coupon", couponRoutes);
 
 app.get("/ping", (req, res) => {
   res.json({ message: "pong", time: new Date().toISOString() });
