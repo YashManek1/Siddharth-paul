@@ -1,8 +1,17 @@
 .objective-main-section {
   width: 100%;
-  background: var(--color-bg-secondary);
+  background: transparent;
   padding: 60px 0;
   text-align: center;
+}
+
+/* Dark mode background to match end of Details gradient */
+[data-theme="dark"] .objective-main-section {
+  background: linear-gradient(
+    180deg,
+    rgba(187, 134, 252, 0) 0%,
+    var(--color-bg) 20%
+  );
 }
 
 .objective-main-container {

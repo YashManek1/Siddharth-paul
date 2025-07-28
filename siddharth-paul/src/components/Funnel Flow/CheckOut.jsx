@@ -385,6 +385,7 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
                     />
                     <button
                       type="button"
+                      className="apply-button"
                       onClick={handleApplyCoupon}
                       disabled={couponApplied}
                     >

@@ -58,9 +58,6 @@
   height: 5px;
   background-color: #00ff00;
   border-radius: 3px;
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.6),
-              0 0 20px rgba(0, 255, 0, 0.4),
-              0 0 30px rgba(0, 255, 0, 0.2);
 }
 
 .who-this-is-for-underline-orange {
@@ -71,9 +68,6 @@
   height: 5px;
   background-color: #ffa500;
   border-radius: 3px;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.6),
-              0 0 20px rgba(255, 165, 0, 0.4),
-              0 0 30px rgba(255, 165, 0, 0.2);
 }
 
 .who-this-is-for-divider {
@@ -85,9 +79,6 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 0 15px rgba(157, 0, 255, 0.7),
-              0 0 25px rgba(157, 0, 255, 0.5),
-              0 0 35px rgba(157, 0, 255, 0.3);
 }
 
 .who-this-is-for-list {
@@ -108,9 +99,6 @@
   font-weight: 900;
   margin-top: 3px;
   flex-shrink: 0;
-  text-shadow: 0 0 8px rgba(0, 255, 0, 0.8),
-               0 0 15px rgba(0, 255, 0, 0.6),
-               0 0 25px rgba(0, 255, 0, 0.4);
 }
 
 .who-this-is-for-icon-cross {
@@ -119,9 +107,6 @@
   font-weight: 900;
   margin-top: 3px;
   flex-shrink: 0;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8),
-               0 0 15px rgba(0, 0, 0, 0.6),
-               0 0 25px rgba(0, 0, 0, 0.4);
 }
 
 .who-this-is-for-text {
@@ -149,30 +134,38 @@
 }
 
 .who-this-is-for-access-button {
-  background: linear-gradient(135deg, var(--color-accent) 0%, #4b0082 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #6a1b9a 100%);
   color: white;
   border: none;
-  padding: 18px 45px;
-  border-radius: 30px;
-  font-size: 1.3rem;
+  padding: 18px 40px;
+  border-radius: 12px;
+  font-size: 1.2rem;
   font-family: 'Anton', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+  box-shadow: 0 6px 20px rgba(157, 0, 255, 0.4);
 }
 
 .who-this-is-for-access-button:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(135deg, #6a1b9a 0%, #2d0054 100%);
-  box-shadow: 0 12px 35px rgba(138, 43, 226, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(157, 0, 255, 0.6);
 }
 
 .who-this-is-for-access-button:active {
   transform: translateY(0);
-  background: linear-gradient(135deg, #3a0f6b 0%, #0f0022 100%);
+}
+
+/* Dark mode button consistency */
+[data-theme="dark"] .who-this-is-for-access-button {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #8a2be2 100%);
+  box-shadow: 0 6px 20px rgba(187, 134, 252, 0.4);
+}
+
+[data-theme="dark"] .who-this-is-for-access-button:hover {
+  box-shadow: 0 8px 25px rgba(187, 134, 252, 0.6);
 }
 
 /* Responsive Design */

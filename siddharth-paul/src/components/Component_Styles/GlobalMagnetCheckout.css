@@ -322,7 +322,7 @@
 }
 
 .submit-button {
-  background: linear-gradient(135deg, #4a148c 0%, #1a0033 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #6a1b9a 100%);
   color: #fff;
   border: none;
   padding: 18px 40px;
@@ -334,16 +334,59 @@
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(74, 20, 140, 0.4);
+  box-shadow: 0 6px 20px rgba(157, 0, 255, 0.4);
 }
 
 .submit-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(74, 20, 140, 0.6);
+  box-shadow: 0 8px 25px rgba(157, 0, 255, 0.6);
 }
 
 .submit-button:active {
   transform: translateY(0);
+}
+
+/* Apply button styling - same as submit button */
+.apply-button,
+.btn-apply {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #6a1b9a 100%);
+  color: #fff;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-family: 'Anton', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(157, 0, 255, 0.4);
+}
+
+.apply-button:hover,
+.btn-apply:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(157, 0, 255, 0.6);
+}
+
+.apply-button:active,
+.btn-apply:active {
+  transform: translateY(0);
+}
+
+/* Dark mode button consistency */
+[data-theme="dark"] .submit-button,
+[data-theme="dark"] .apply-button,
+[data-theme="dark"] .btn-apply {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #8a2be2 100%);
+  box-shadow: 0 6px 20px rgba(187, 134, 252, 0.4);
+}
+
+[data-theme="dark"] .submit-button:hover,
+[data-theme="dark"] .apply-button:hover,
+[data-theme="dark"] .btn-apply:hover {
+  box-shadow: 0 8px 25px rgba(187, 134, 252, 0.6);
 }
 
 /* Responsive Design */
