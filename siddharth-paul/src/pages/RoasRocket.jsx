@@ -8,8 +8,9 @@ import Details from "../components/roas_rocket/Details";
 import ObjectiveSection from "../components/roas_rocket/ObjectiveSection";
 import AccessSection from "../components/roas_rocket/AccessSection";
 import WhoThisIsForSection from "../components/roas_rocket/WhoIsThisFor";
-import FAQSection from "../components/roas_rocket/FAQSection";
+
 import GlobalMagnetCheckout from "../components/roas_rocket/CheckOut";
+import FAQSection from "../components/Funnel Flow/FAQSection";
 
 const RoasRocket = () => {
   const [course, setCourse] = useState(null);
@@ -33,7 +34,7 @@ const RoasRocket = () => {
         addons={course.addons}
       />
       <WhoThisIsForSection />
-      <FAQSection />
+     <FAQSection/>
       <GlobalMagnetCheckout
         price={course.price}
         finalPrice={course.finalPrice}

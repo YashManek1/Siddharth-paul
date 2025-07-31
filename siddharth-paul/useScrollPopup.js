@@ -16,7 +16,7 @@ const useScrollPopup = (userIdentifier) => {
 
     let lastScrollY = window.scrollY;
     let scrollThreshold = 100; // Minimum scroll distance to count as a "scroll"
-    const targetScrolls = 3; // Number of scrolls before showing popup
+    let scrollsSinceLastPopup = 0; // Track scrolls since last popup
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -24,18 +24,17 @@ const useScrollPopup = (userIdentifier) => {
       
       // Only count significant scrolls (more than threshold pixels)
       if (scrollDifference > scrollThreshold) {
-        setScrollCount(prevCount => {
-          const newCount = prevCount + 1;
-          console.log(`Scroll count: ${newCount}/${targetScrolls}`);
+        scrollsSinceLastPopup++;
+        console.log(`Scrolls since last popup: ${scrollsSinceLastPopup}`);
+        
+        // Show popup every 2-3 scrolls (randomly between 2 and 3)
+        const randomTarget = Math.floor(Math.random() * 2) + 2; // Random between 2-3
+        if (scrollsSinceLastPopup >= randomTarget && !isPopupOpen) {
+          setIsPopupOpen(true);
+          scrollsSinceLastPopup = 0; // Reset counter for next popup
           
-          // Show popup after target number of scrolls
-          if (newCount >= targetScrolls) {
-            setIsPopupOpen(true);
-            return newCount;
-          }
-          
-          return newCount;
-        });
+          setScrollCount(prevCount => prevCount + 1);
+        }
         
         lastScrollY = currentScrollY;
       }
@@ -48,7 +47,7 @@ const useScrollPopup = (userIdentifier) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isPopupOpen]);
 
   const closePopup = () => {
     setIsPopupOpen(false);
@@ -56,7 +55,8 @@ const useScrollPopup = (userIdentifier) => {
 
   return {
     isPopupOpen,
-    closePopup
+    closePopup,
+    scrollCount
   };
 };
 

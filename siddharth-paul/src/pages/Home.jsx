@@ -5,11 +5,12 @@ import LetterSection from "../components/LetterSection";
 import ProgramsGrid from "../components/ProgramsGrid";
 import Footer from "../components/Footer";
 import YouTubeSection from "../components/YouTubeSection";
-import HomeFAQSection from "../components/HomeFAQSection";
+
 import "../components/Hero.css";
 import "../components/LetterSection.css";
 import "../components/accomplishments";
 import AccomplishmentSection from "../components/accomplishments";
+import FAQSection from "../components/Funnel Flow/FAQSection";
 
 const Home = () => {
   return (
@@ -22,7 +23,7 @@ const Home = () => {
       <LetterSection />
       <AccomplishmentSection />
       <YouTubeSection />
-      <HomeFAQSection />
+      <FAQSection/>
       <Footer />
     </div>
   );

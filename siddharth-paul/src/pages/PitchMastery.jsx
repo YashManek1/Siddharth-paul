@@ -7,9 +7,10 @@ import Details from "../components/pitchmastery/Details";
 import ObjectiveSection from "../components/pitchmastery/ObjectiveSection";
 import AccessSection from "../components/pitchmastery/AccessSection";
 import WhoThisIsForSection from "../components/pitchmastery/WhoIsThisFor";
-import FAQSection from "../components/pitchmastery/FAQSection";
+
 import GlobalMagnetCheckout from "../components/pitchmastery/CheckOut";
 import Stats from "../components/pitchmastery/Stats";
+import FAQSection from "../components/Funnel Flow/FAQSection";
 
 const PitchMastery = () => {
   const [course, setCourse] = useState(null);
@@ -33,7 +34,7 @@ const PitchMastery = () => {
         addons={course.addons}
       />
       <WhoThisIsForSection />
-      <FAQSection />
+      <FAQSection/>
       <GlobalMagnetCheckout
         price={course.price}
         finalPrice={course.finalPrice}

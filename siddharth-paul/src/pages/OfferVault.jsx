@@ -8,8 +8,9 @@ import Details from "../components/offer vault/Details";
 import ObjectiveSection from "../components/offer vault/ObjectiveSection";
 import AccessSection from "../components/offer vault/AccessSection";
 import WhoThisIsForSection from "../components/offer vault/WhoIsThisFor";
-import FAQSection from "../components/offer vault/FAQSection";
+
 import GlobalMagnetCheckout from "../components/offer vault/CheckOut";
+import FAQSection from "../components/Funnel Flow/FAQSection";
 
 const OfferVault = () => {
   const [course, setCourse] = useState(null);
@@ -33,7 +34,7 @@ const OfferVault = () => {
         addons={course.addons}
       />
       <WhoThisIsForSection />
-      <FAQSection />
+      <FAQSection/>
       <GlobalMagnetCheckout
         price={course.price}
         finalPrice={course.finalPrice}
