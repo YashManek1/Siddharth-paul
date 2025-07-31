@@ -116,7 +116,7 @@ function App() {
 
     let lastScrollY = window.scrollY;
     let scrollThreshold = 150; // Minimum scroll distance to count as a "scroll"
-    const targetScrolls = 3; // Number of scrolls before showing popup
+    const targetScrolls = Math.floor(Math.random() * 2) + 5; // Random between 5-6 scrolls
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -128,7 +128,7 @@ function App() {
           const newCount = prevCount + 1;
           console.log(`Scroll count: ${newCount}/${targetScrolls}`);
           
-          // Show popup after target number of scrolls
+          // Show popup after 5-6 scrolls (only once)
           if (newCount >= targetScrolls && !showPopup) {
             setShowPopup(true);
             document.body.classList.add('sp-popup-open');
