@@ -272,6 +272,31 @@
 }
 
 /* Responsive */
+@media (max-width: 1440px) {
+  .accomplishment-section {
+    padding-bottom: 40px;
+  }
+  
+  .accomplishment-title {
+    font-size: 3rem;
+    margin-top: 35px;
+  }
+  
+  .accomplishment-grid {
+    width: 92%;
+    max-width: 1500px;
+  }
+  
+  .accomplishment-video-box {
+    max-width: 1000px;
+    height: 360px;
+  }
+  
+  .accomplishment-img-proof {
+    max-width: 380px;
+  }
+}
+
 @media (max-width: 1200px) {
   .accomplishment-grid {
     width: 95%;

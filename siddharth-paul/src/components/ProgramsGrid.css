@@ -151,6 +151,28 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 1440px) {
+  .programs-container {
+    max-width: 1300px;
+    padding: 0 30px;
+  }
+  
+  .programs-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+  }
+  
+  .program-card {
+    max-width: 400px;
+  }
+  
+  .programs-section::before {
+    left: 2vw;
+    width: 36vw;
+    height: 260px;
+  }
+}
+
 @media (max-width: 1200px) {
   .programs-section::before {
     left: -6vw;

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
-import logoIcon from '../assets/logo.svg'; // Or .png
+import logoIcon from '../assets/logo.svg'; // Default logo
+import logoIconWhite from '../assets/logo-w.svg'; // White logo for dark mode
 import { useTheme } from '../contexts/ThemeContext';
 
 const navLinks = [
@@ -38,7 +39,11 @@ const Header = () => {
     <header className="app-header">
       <div className="header-content">
         <Link to="/" className="logo-container" onClick={closeMenu}>
-          <img src={logoIcon} alt="Siddharth Paul Logo Icon" className="logo-icon" />
+          <img 
+            src={theme === 'dark' ? logoIconWhite : logoIcon} 
+            alt="Siddharth Paul Logo Icon" 
+            className="logo-icon" 
+          />
           <div className="logo-text">
             <span>SIDDHARTH</span>
             <span>PAUL</span>

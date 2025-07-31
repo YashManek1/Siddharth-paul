@@ -1,11 +1,17 @@
 .home-faq-main-section {
   width: 100%;
-  padding: 60px 0;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   margin-bottom: 60px;
+  background: rgba(157, 0, 255, 0.25);
+}
+
+/* Dark mode support for FAQ section */
+[data-theme="dark"] .home-faq-main-section {
+  background: rgba(157, 0, 255, 0.15);
 }
 
 .home-faq-container {
@@ -133,6 +139,8 @@
   box-shadow: 0 4px 15px rgba(157, 0, 255, 0.4);
   text-transform: none;
   box-sizing: border-box;
+  position: relative;
+  z-index: 150;
 }
 
 .home-faq-support-button:hover {
@@ -160,7 +168,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .home-faq-main-section {
-    padding: 40px 0;
+    padding: 15px 0;
     margin-bottom: 40px;
   }
   
@@ -197,7 +205,7 @@
 
 @media (max-width: 480px) {
   .home-faq-main-section {
-    padding: 30px 0;
+    padding: 10px 0;
     margin-bottom: 30px;
   }
   
@@ -238,6 +246,7 @@
   .home-faq-support-button {
     padding: 10px 20px;
     font-size: 0.9rem;
+    z-index: 150;
   }
 }
 
@@ -253,6 +262,7 @@
 [data-theme="dark"] .home-faq-support-button {
   background: linear-gradient(135deg, #9D00FF 0%, #6A00B8 100%);
   box-shadow: 0 4px 15px rgba(157, 0, 255, 0.4);
+  z-index: 150;
 }
 
 [data-theme="dark"] .home-faq-support-button:hover {
