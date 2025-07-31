@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Component_Styles/HeroSection.css';
+import "../Hero.css"
 
 import checkmarkIcon from "../../assets/checkmark-icon.svg";
 import expertIcon from "../../assets/expert-icon.svg";

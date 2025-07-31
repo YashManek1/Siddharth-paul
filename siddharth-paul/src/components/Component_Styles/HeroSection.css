@@ -256,8 +256,15 @@
 
 @media (max-width: 768px) {
   .gm-hero-section {
-    padding: 40px 15px 60px 15px;
-    min-height: calc(100vh - 70px);
+    padding: 20px 15px; /* Reduced top/bottom padding */
+    min-height: auto; /* Remove fixed height constraint */
+    justify-content: flex-start; /* Align content to top instead of center */
+    padding-top: 40px; /* Add specific top padding */
+    padding-bottom: 40px; /* Add specific bottom padding */
+  }
+
+  .gm-hero-content {
+    margin-top: 0; /* Remove any top margin */
   }
 
   .gm-hero-main-title {
@@ -269,32 +276,32 @@
   .gm-sub-title {
     font-size: 1.8rem;
     word-spacing: 4px;
-    margin: 6px 0 0 0;
+    margin: 4px 0 0 0; /* Reduced from 6px */
   }
 
   .gm-features-list {
     flex-direction: column;
-    gap: 12px;
+    gap: 8px; /* Reduced from 12px */
     font-size: 0.8rem;
-    margin: 20px 0 0 0;
+    margin: 12px 0 0 0; /* Reduced from 20px */
   }
 
   .gm-video-container {
     max-width: 95%;
-    margin: 25px auto 0 auto;
+    margin: 15px auto 0 auto; /* Reduced from 25px */
   }
 
   .gm-benefits-list {
     flex-direction: column;
-    gap: 12px;
+    gap: 8px; /* Reduced from 12px */
     font-size: 0.75rem;
-    margin-top: 18px;
+    margin-top: 12px; /* Reduced from 18px */
   }
 
   .gm-access-now-btn {
     padding: 14px 36px;
     font-size: 1.1rem;
-    margin-top: 20px;
+    margin-top: 15px; /* Reduced from 20px */
   }
 
   .gm-background-wave-left,
@@ -309,7 +316,9 @@
 
 @media (max-width: 650px) {
   .gm-hero-section {
-    padding: 30px 10px 50px 10px;
+    padding: 30px 10px; /* Further reduced padding */
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .gm-hero-main-title {
@@ -318,23 +327,38 @@
 
   .gm-sub-title {
     font-size: 1.6rem;
+    margin: 3px 0 0 0; /* Further reduced */
+  }
+
+  .gm-features-list {
+    margin: 10px 0 0 0; /* Further reduced */
+  }
+
+  .gm-video-container {
+    margin: 12px auto 0 auto; /* Further reduced */
   }
 
   .gm-benefits-list {
     font-size: 0.7rem;
-    gap: 10px;
+    gap: 6px; /* Reduced from 10px */
+    margin-top: 10px; /* Further reduced */
   }
 
   .gm-benefits-list img {
     height: 14px;
     width: 14px;
   }
+
+  .gm-access-now-btn {
+    margin-top: 12px; /* Further reduced */
+  }
 }
 
 @media (max-width: 480px) {
   .gm-hero-section {
-    padding: 25px 10px 40px 10px;
-    min-height: calc(100vh - 60px);
+    padding: 20px 10px; /* Significantly reduced padding */
+    padding-top: 25px;
+    padding-bottom: 25px;
   }
 
   .gm-hero-main-title {
@@ -346,35 +370,39 @@
   .gm-sub-title {
     font-size: 1.3rem;
     word-spacing: 2px;
+    margin: 2px 0 0 0; /* Further reduced */
   }
 
   .gm-features-list {
     font-size: 0.75rem;
-    gap: 10px;
-    margin: 15px 0 0 0;
+    gap: 6px; /* Reduced from 10px */
+    margin: 8px 0 0 0; /* Reduced from 15px */
   }
 
   .gm-video-container {
     max-width: 100%;
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto; /* Reduced from 20px */
   }
 
   .gm-benefits-list {
     font-size: 0.7rem;
-    gap: 8px;
-    margin-top: 15px;
+    gap: 6px; /* Reduced from 8px */
+    margin-top: 8px; /* Reduced from 15px */
   }
 
   .gm-access-now-btn {
     padding: 12px 30px;
     font-size: 1rem;
     letter-spacing: 1px;
+    margin-top: 10px; /* Further reduced */
   }
 }
 
 @media (max-width: 320px) {
   .gm-hero-section {
-    padding: 20px 8px 35px 8px;
+    padding: 15px 8px; /* Minimal padding for very small screens */
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .gm-hero-main-title {
@@ -383,18 +411,26 @@
 
   .gm-sub-title {
     font-size: 1.1rem;
+    margin: 2px 0 0 0; /* Minimal margin */
   }
 
   .gm-features-list {
     font-size: 0.7rem;
+    margin: 6px 0 0 0; /* Minimal margin */
+  }
+
+  .gm-video-container {
+    margin: 8px auto 0 auto; /* Minimal margin */
   }
 
   .gm-benefits-list {
     font-size: 0.65rem;
+    margin-top: 6px; /* Minimal margin */
   }
 
   .gm-access-now-btn {
     padding: 10px 24px;
     font-size: 0.9rem;
+    margin-top: 8px; /* Minimal margin */
   }
 }

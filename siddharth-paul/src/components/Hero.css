@@ -145,7 +145,7 @@
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  flex-wrap: nowrap;
+  
 }
 
 .benefits-list span {
@@ -238,14 +238,22 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 0 15px;
-    min-height: calc(100vh - 70px);
+    padding: 20px 15px; /* Reduced top/bottom padding */
+    min-height: auto; /* Remove fixed height constraint */
+    justify-content: flex-start; /* Align content to top instead of center */
+    padding-top: 40px; /* Add specific top padding */
+    padding-bottom: 40px; /* Add specific bottom padding */
+  }
+
+  .hero-content {
+    margin-top: 0; /* Remove any top margin */
   }
 
   .hero-main-title {
     font-size: 1.6rem;
     letter-spacing: 1px;
     word-spacing: 2px;
+    padding-top: 10px; /* Reduced from 20px */
   }
 
   .sub-title {
@@ -255,23 +263,24 @@
 
   .features-list {
     flex-direction: column;
-    gap: 8px;
+    gap: 6px; /* Reduced from 8px */
     font-size: 0.75rem;
-    margin: 12px 0 0 0;
+    margin: 8px 0 0 0; /* Reduced from 12px */
   }
 
   .video-container {
     max-width: 95%;
-    margin: 15px auto 0 auto;
+    margin: 12px auto 0 auto; /* Reduced from 15px */
   }
 
   .benefits-list {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px; /* Reduced from 10px */
     font-size: 0.7rem;
-    margin-top: 12px;
+    margin-top: 10px; /* Reduced from 12px */
     max-width: 100%;
   }
+  
   .benefits-list img {
     height: 14px;
     width: 14px;
@@ -280,7 +289,7 @@
   .access-now-btn {
     padding: 10px 28px;
     font-size: 1rem;
-    margin-top: 16px;
+    margin-top: 12px; /* Reduced from 16px */
   }
 
   .background-wave-left,
@@ -295,28 +304,14 @@
 
 @media (max-width: 650px) {
   .hero-section {
-    padding: 0 10px 0 10px;
-  }
-
-  .background-wave-left {
-    left: calc(50% - 220px - 10vw);
-    width: 30vw;
-    min-width: 200px;
-  }
-
-  .background-wave-right {
-    right: calc(50% - 220px - 8vw);
-    width: 28vw;
-    min-width: 180px;
-  }
-
-  .rocket-icon {
-    right: calc(50% - 200px - 2vw);
-    width: 130px;
+    padding: 30px 10px; /* Further reduced padding */
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .hero-main-title {
     font-size: 1.8rem;
+    padding-top: 5px; /* Further reduced */
   }
 
   .sub-title {
@@ -325,25 +320,35 @@
 
   .benefits-list {
     font-size: 0.6rem;
-    gap: 12px;
+    gap: 8px; /* Reduced from 12px */
   }
 
   .benefits-list img {
     height: 10px;
     width: 10px;
   }
+
+  .features-list {
+    margin: 6px 0 0 0; /* Further reduced */
+  }
+
+  .video-container {
+    margin: 10px auto 0 auto; /* Further reduced */
+  }
 }
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 0 10px;
-    min-height: calc(100vh - 60px);
+    padding: 20px 10px; /* Significantly reduced padding */
+    padding-top: 25px;
+    padding-bottom: 25px;
   }
 
   .hero-main-title {
     font-size: 1.4rem;
     letter-spacing: 0.5px;
     word-spacing: 1px;
+    padding-top: 0; /* Remove top padding */
   }
 
   .sub-title {
@@ -353,29 +358,34 @@
 
   .features-list {
     font-size: 0.7rem;
-    gap: 6px;
+    gap: 4px; /* Reduced from 6px */
+    margin: 6px 0 0 0; /* Further reduced */
   }
 
   .video-container {
     max-width: 100%;
-    margin: 12px auto 0 auto;
+    margin: 8px auto 0 auto; /* Further reduced */
   }
 
   .benefits-list {
     font-size: 0.65rem;
     gap: 6px;
+    margin-top: 8px; /* Further reduced */
   }
 
   .access-now-btn {
     padding: 8px 24px;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
+    margin-top: 10px; /* Further reduced */
   }
 }
 
 @media (max-width: 320px) {
   .hero-section {
-    padding: 0 8px;
+    padding: 15px 8px; /* Minimal padding for very small screens */
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .hero-main-title {
@@ -388,14 +398,21 @@
 
   .features-list {
     font-size: 0.65rem;
+    margin: 4px 0 0 0; /* Minimal margin */
   }
 
   .benefits-list {
     font-size: 0.6rem;
+    margin-top: 6px; /* Minimal margin */
   }
 
   .access-now-btn {
     padding: 6px 20px;
     font-size: 0.8rem;
+    margin-top: 8px; /* Minimal margin */
+  }
+
+  .video-container {
+    margin: 6px auto 0 auto; /* Minimal margin */
   }
 }
