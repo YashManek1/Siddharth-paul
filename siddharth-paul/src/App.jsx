@@ -25,6 +25,7 @@ function App() {
   const [hasCompletedForm, setHasCompletedForm] = useState(false);
   const [isCheckingStatus, setIsCheckingStatus] = useState(true);
   const [userIdentifier, setUserIdentifier] = useState('');
+  const [scrollCount, setScrollCount] = useState(0);
 
   // Generate or get user identifier
   const generateUserIdentifier = () => {
@@ -34,7 +35,7 @@ function App() {
       const timestamp = Date.now();
       const random = Math.random().toString(36).substring(2);
       const browserInfo = navigator.userAgent.substring(0, 50);
-      identifier = `user_{timestamp}_{random}_{btoa(browserInfo).substring(0, 10)}`;
+      identifier = `user_${timestamp}_${random}_${btoa(browserInfo).substring(0, 10)}`;
       localStorage.setItem('userIdentifier', identifier);
     }
     return identifier;
@@ -43,7 +44,7 @@ function App() {
   // Check if user has already submitted the form
   const checkFormStatus = async (identifier) => {
     try {
-      const response = await fetch(`https://siddharth-paul.onrender.com/api/client-info/check/{identifier}`, {
+      const response = await fetch(`https://siddharth-paul.onrender.com/api/client-info/check/${identifier}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -75,9 +76,10 @@ function App() {
 
       // Check if user has cancelled the popup before
       const popupCancelled = localStorage.getItem('popupCancelled');
+      const popupSubmitted = localStorage.getItem('popupSubmitted');
       
-      if (popupCancelled === 'true') {
-        // User has cancelled before, don't show popup again
+      if (popupCancelled === 'true' || popupSubmitted === 'true') {
+        // User has cancelled or submitted before, don't show popup again
         setHasCompletedForm(true);
         setShowPopup(false);
         setIsCheckingStatus(false);
@@ -90,21 +92,67 @@ function App() {
       if (hasSubmitted) {
         setHasCompletedForm(true);
         setShowPopup(false);
+        setIsCheckingStatus(false);
+        localStorage.setItem('popupSubmitted', 'true');
       } else {
-        setHasCompletedForm(false);
-        setShowPopup(true);
-        document.body.classList.add('sp-popup-open');
+        setHasCompletedForm(true); // Allow access to site
+        setIsCheckingStatus(false);
+        // Popup will be triggered by scroll logic
       }
-      
-      setIsCheckingStatus(false);
     };
 
     initializeApp();
   }, []);
 
+  // Scroll-based popup logic
+  useEffect(() => {
+    // Don't set up scroll listener if form is already completed or popup should not show
+    const popupCancelled = localStorage.getItem('popupCancelled');
+    const popupSubmitted = localStorage.getItem('popupSubmitted');
+    
+    if (popupCancelled === 'true' || popupSubmitted === 'true' || isCheckingStatus) {
+      return;
+    }
+
+    let lastScrollY = window.scrollY;
+    let scrollThreshold = 150; // Minimum scroll distance to count as a "scroll"
+    const targetScrolls = 3; // Number of scrolls before showing popup
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDifference = Math.abs(currentScrollY - lastScrollY);
+      
+      // Only count significant scrolls (more than threshold pixels)
+      if (scrollDifference > scrollThreshold) {
+        setScrollCount(prevCount => {
+          const newCount = prevCount + 1;
+          console.log(`Scroll count: ${newCount}/${targetScrolls}`);
+          
+          // Show popup after target number of scrolls
+          if (newCount >= targetScrolls && !showPopup) {
+            setShowPopup(true);
+            document.body.classList.add('sp-popup-open');
+            return newCount;
+          }
+          
+          return newCount;
+        });
+        
+        lastScrollY = currentScrollY;
+      }
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isCheckingStatus, showPopup]);
+
   const handleClosePopup = () => {
     setShowPopup(false);
-    setHasCompletedForm(true);
     // Allow body scrolling again
     document.body.classList.remove('sp-popup-open');
   };
@@ -149,31 +197,29 @@ function App() {
 
   return (
     <div className="App" style={{ position: "relative" }}>
-      {/* Only render the main app content if form is completed */}
-      {hasCompletedForm && (
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/global-magnet" element={<GlobalMagnet/>} />
-            <Route path="/pitch-mastery" element={<PitchMastery/>} />
-            <Route path="/roas-rocket" element={<RoasRocket/>} />
-            <Route path="/offer-vault" element={<OfferVault/>} />
-            <Route path="/funnel-flow" element={<FunnelFlow/>} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
-            <Route path="/terms-of-use" element={<TermsOfUse/>} />
-            <Route path="/contact-us" element={<ContactUs/>} />
-            <Route path="/refund-policy" element={<RefundPolicy/>} />
-            <Route path="/afterpaymentgm" element={<Maingm />} />
-            <Route path="/afterpaymentov" element={<Mainov />} />
-            <Route path="/afterpaymentrr" element={<Mainrr />} />
-            <Route path="/afterpaymentpm" element={<Mainpm />} />
-            <Route path="/afterpaymentff" element={<Mainff />} />
-            <Route path="/congrats" element={<Congrats/>} />
-          </Routes>
-        </Router>
-      )}
+      {/* Render the main app content */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/global-magnet" element={<GlobalMagnet/>} />
+          <Route path="/pitch-mastery" element={<PitchMastery/>} />
+          <Route path="/roas-rocket" element={<RoasRocket/>} />
+          <Route path="/offer-vault" element={<OfferVault/>} />
+          <Route path="/funnel-flow" element={<FunnelFlow/>} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+          <Route path="/terms-of-use" element={<TermsOfUse/>} />
+          <Route path="/contact-us" element={<ContactUs/>} />
+          <Route path="/refund-policy" element={<RefundPolicy/>} />
+          <Route path="/afterpaymentgm" element={<Maingm />} />
+          <Route path="/afterpaymentov" element={<Mainov />} />
+          <Route path="/afterpaymentrr" element={<Mainrr />} />
+          <Route path="/afterpaymentpm" element={<Mainpm />} />
+          <Route path="/afterpaymentff" element={<Mainff />} />
+          <Route path="/congrats" element={<Congrats/>} />
+        </Routes>
+      </Router>
       
-      {/* Always render popup if it should be shown */}
+      {/* Render popup based on scroll trigger */}
       <Popup 
         isOpen={showPopup} 
         onClose={handleClosePopup} 

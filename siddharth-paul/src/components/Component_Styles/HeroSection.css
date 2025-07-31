@@ -434,3 +434,6 @@
     margin-top: 8px; /* Minimal margin */
   }
 }
+*{
+  font-weight: 500;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Popup.css';
 
 const Popup = ({ isOpen, onClose, userIdentifier }) => {
@@ -63,13 +63,14 @@ const Popup = ({ isOpen, onClose, userIdentifier }) => {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || `Server error: {response.status}`);
+        throw new Error(errorData.message || `Server error: ${response.status}`);
       }
 
       const result = await response.json();
       console.log('Form submitted successfully:', result);
       
       // Success - close popup and allow access to site
+      localStorage.setItem('popupSubmitted', 'true');
       onClose();
       
     } catch (error) {
