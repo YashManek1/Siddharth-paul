@@ -20,18 +20,18 @@ const HeroSection = () => {
     }
   };
   return (
-    <main className="gm-hero-section">
-      <div className="gm-hero-content">
-        <h1 className="gm-hero-main-title">
-          <span className="gm-text-black">BUILD</span>{" "}FUNNELS{" "}
-          <span className="gm-text-black">THAT FLOW</span>
+    <main className="hero-section">
+      <div className="hero-content">
+        <h1 className="hero-main-title">
+          <span className="text-black">BUILD</span>{" "}FUNNELS{" "}
+          <span className="text-black">THAT FLOW</span>
         </h1>
-        <h2 className="gm-sub-title">
-          <span className="gm-text-purple">1000-5000+</span>{" "}TO YOU ON{" "}
-          <span className="gm-text-purple">AUTOPILOT</span>{" "}EVERY SINGLE MONTH
+        <h2 className="sub-title">
+          <span className="text-purple">1000-5000+</span>{" "}TO YOU ON{" "}
+          <span className="text-purple">AUTOPILOT</span>{" "}EVERY SINGLE MONTH
         </h2>
 
-        <div className="gm-features-list">
+        <div className="features-list">
           <span>
             <img src={checkmarkIcon} alt="checkmark" /> PROVEN FRAMEWORKS
           </span>
@@ -43,7 +43,7 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <div className="gm-video-container">
+        <div className="video-container">
           <iframe
             src={embedUrl}
             frameBorder="0"
@@ -53,8 +53,8 @@ const HeroSection = () => {
           />
         </div>
 
-        <div className="gm-benefits-list">
-          <span className="gm-benefit-item-expert">
+        <div className="benefits-list">
+          <span className="benefit-item-expert">
             <img src={expertIcon} alt="expert icon" /> LEARN BY EXPERT
           </span>
           <span>
@@ -67,14 +67,14 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <a href="#access" onClick={scrollToCheckout} className="gm-access-now-btn">
+        <a href="#access" onClick={scrollToCheckout} className="access-now-btn">
           ACCESS NOW!
         </a>
       </div>
 
-      <img src={backgroundWave} alt="" className="gm-background-wave-left" />
-      <img src={backgroundWave2} alt="background-wave-2-debug" className="gm-background-wave-right" />
-      <img src={rocketIcon} alt="rocket icon" className="gm-rocket-icon" />
+      <img src={backgroundWave} alt="" className="background-wave-left" />
+      <img src={backgroundWave2} alt="background-wave-2-debug" className="background-wave-right" />
+      <img src={rocketIcon} alt="rocket icon" className="rocket-icon" />
     </main>
   );
 };

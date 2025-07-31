@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../src/components/Component_Styles/FAQSection.css';
+import './HomeFAQSection.css';
 
 const FAQSection = () => {
   const [openFAQ, setOpenFAQ] = useState(null);
