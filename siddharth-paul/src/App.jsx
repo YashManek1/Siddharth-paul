@@ -34,7 +34,7 @@ function App() {
       const timestamp = Date.now();
       const random = Math.random().toString(36).substring(2);
       const browserInfo = navigator.userAgent.substring(0, 50);
-      identifier = `user_${timestamp}_${random}_${btoa(browserInfo).substring(0, 10)}`;
+      identifier = `user_{timestamp}_{random}_{btoa(browserInfo).substring(0, 10)}`;
       localStorage.setItem('userIdentifier', identifier);
     }
     return identifier;
@@ -43,7 +43,7 @@ function App() {
   // Check if user has already submitted the form
   const checkFormStatus = async (identifier) => {
     try {
-      const response = await fetch(`https://siddharth-paul.onrender.com/api/client-info/check/${identifier}`, {
+      const response = await fetch(`https://siddharth-paul.onrender.com/api/client-info/check/{identifier}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

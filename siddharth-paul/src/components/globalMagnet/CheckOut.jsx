@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useEffect } from "react";
-import "../Component_Styles/GlobalMagnetCheckout.css";
 import { useNavigate } from "react-router-dom";
 
 // Robust parseAddons for all edge cases
@@ -206,7 +205,7 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
           <div className="left-section">
             <div className="offer-header">
               <h2 className="offer-title">
-                GET YOUR FIRST INTERNATIONAL CLIENT - ${price}
+                GET YOUR FIRST INTERNATIONAL CLIENT - ₹{price}
               </h2>
             </div>
 

@@ -172,6 +172,7 @@
   align-self: flex-start;
   margin-bottom: 0;
   box-sizing: border-box;
+  margin-bottom: 15px;
 }
 
 .accomplishment-continuation-grid {
@@ -305,6 +306,7 @@
   .accomplishment-proof-text {
     width: 95%;
     padding-left: 32px;
+    
   }
   .accomplishment-img-top,
   .accomplishment-img-bottom-left,

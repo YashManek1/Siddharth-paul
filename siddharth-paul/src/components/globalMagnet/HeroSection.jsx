@@ -11,7 +11,7 @@ import backgroundWave2 from "../../assets/background-wave-2-new.svg";
 
 const HeroSection = () => {
   const videoId = "dQw4w9WgXcQ";
-  const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+  const embedUrl = `https://www.youtube.com/embed/{videoId}`;
 
   const scrollToCheckout = (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ const HeroSection = () => {
         </h1>
         <h2 className="gm-sub-title">
           YOU{" "}
-          <span className="gm-text-purple">$1000-$1500+</span>{" "}EVERY MONTH
+          <span className="gm-text-purple">1000-1500+</span>{" "}EVERY MONTH
         </h2>
 
         <div className="gm-features-list">

@@ -210,7 +210,7 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
           <div className="left-section">
             <div className="offer-header">
               <h2 className="offer-title">
-                MASTER FUNNELS THAT PRINT CASH ON DEMAND - 1999/-
+                MASTER FUNNELS THAT PRINT CASH ON DEMAND - ₹1999/-
               </h2>
             </div>
 

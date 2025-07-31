@@ -41,7 +41,7 @@ const FAQSection = () => {
 
         <div className="faq-list">
           {faqData.map((faq, index) => (
-            <div key={index} className={`faq-item ${openFAQ === index ? 'active' : ''}`}>
+            <div key={index} className={`faq-item {openFAQ === index ? 'active' : ''}`}>
               <div 
                 className="faq-question" 
                 onClick={() => toggleFAQ(index)}

@@ -87,7 +87,7 @@ const Header = () => {
           {/* Mobile Menu Toggle */}
           <div className="mobile-menu-container">
             <button
-              className={`hamburger-btn ${isMenuOpen ? 'active' : ''}`}
+              className={`hamburger-btn {isMenuOpen ? 'active' : ''}`}
               onClick={toggleMenu}
               aria-label="Toggle navigation menu"
             >
@@ -100,7 +100,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Navigation Menu */}
-      <nav className={`mobile-navbar ${isMenuOpen ? 'open' : ''}`}>
+      <nav className={`mobile-navbar {isMenuOpen ? 'open' : ''}`}>
         {currentPage ? (
           <div className="mobile-current-page">
             <span className="mobile-main-title">{currentPage}</span>

@@ -11,7 +11,7 @@ import backgroundWave2 from "../../assets/background-wave-2-new.svg";
 
 const HeroSection = () => {
   const videoId = "dQw4w9WgXcQ";
-  const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+  const embedUrl = `https://www.youtube.com/embed/{videoId}`;
    const scrollToCheckout = (e) => {
     e.preventDefault();
     const checkoutSection = document.querySelector('.global-magnet-checkout');
@@ -30,7 +30,7 @@ const HeroSection = () => {
           <span className="gm-text-black">TO</span>
         </h1>
         <h2 className="gm-sub-title">
-          <span className="gm-text-purple">$1000-$5000+</span>{" "}
+          <span className="gm-text-purple">1000-5000+</span>{" "}
           <span className="gm-text-black">OFFERS -</span>{" "}
           <span className="gm-text-purple">EVERYTIME</span>
         </h2>

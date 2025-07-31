@@ -18,7 +18,7 @@ const ObjectiveSection = () => {
           HELPING YOU LAND <span className="objective-underlined-text">HIGH-PAYING INTERNATIONAL CLIENTS</span><br />
           BY DOING THE HEAVY LIFTING FOR YOU...<br />
           PLUS GIVING YOU THE <span className="objective-underlined-text">EXACT ROADMAP AND GUIDANCE</span> TO<br />
-          SECURE YOUR <span className="objective-underlined-text">FIRST $1,000+ CLIENT</span> IN <span className="objective-underlined-text">RECORD TIME</span>.
+          SECURE YOUR <span className="objective-underlined-text">FIRST 1,000+ CLIENT</span> IN <span className="objective-underlined-text">RECORD TIME</span>.
         </h2>
 
         <div className="objective-intro-section">
@@ -43,7 +43,7 @@ const ObjectiveSection = () => {
           
           <div className="objective-benefit-row">
             <div className="objective-benefit-text">
-              <span className="objective-benefit-heading">Sell high ticket confidently-</span> Master the art of handling objections and get clients to pay you $1,000–$5,000 right on the first call.
+              <span className="objective-benefit-heading">Sell high ticket confidently-</span> Master the art of handling objections and get clients to pay you 1,000–5,000 right on the first call.
             </div>
           </div>
         </div>

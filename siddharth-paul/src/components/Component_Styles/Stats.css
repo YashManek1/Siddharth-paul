@@ -1,7 +1,7 @@
 .stats-section {
   width: 100%;
   background: linear-gradient(90deg, var(--color-accent) 0%, #9d00ff 100%);
-  padding: 20px 0;
+  padding: 70px 0; /* Increased from 40px */
   margin-top: 0;
 }
 
@@ -21,10 +21,10 @@
 
 .stat-text {
   color: #ffffff;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   font-family: 'Inter', sans-serif;
-  letter-spacing: 0.8px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   margin: 0;
   padding: 0;
@@ -33,7 +33,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .stats-section {
-    padding: 16px 0;
+    padding: 55px 0; /* Increased from 30px */
   }
   
   .stats-container {
@@ -42,39 +42,39 @@
   }
   
   .stat-text {
-    font-size: 14px;
-    letter-spacing: 0.6px;
+    font-size: 18px;
+    letter-spacing: 0.8px;
   }
 }
 
 @media (max-width: 480px) {
   .stats-section {
-    padding: 14px 0;
+    padding: 55px 0; /* Increased from 25px */
   }
   
   .stats-container {
     flex-direction: column;
-    gap: 8px;
+    gap: 17px; /* Increased from 12px */
   }
   
   .stat-text {
-    font-size: 12px;
-    letter-spacing: 0.5px;
+    font-size: 16px;
+    letter-spacing: 0.7px;
   }
 }
 
 @media (max-width: 320px) {
   .stats-section {
-    padding: 12px 0;
+    padding: 40px 0; /* Increased from 20px */
   }
 
   .stats-container {
     padding: 0 10px;
-    gap: 6px;
+    gap: 20px; /* Increased from 10px */
   }
   
   .stat-text {
-    font-size: 10px;
-    letter-spacing: 0.4px;
+    font-size: 14px;
+    letter-spacing: 0.6px;
   }
 }

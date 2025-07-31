@@ -213,7 +213,7 @@ const RoasRocketCheckout = ({ price, finalPrice, addons }) => {
                 }}
               >
                 GET YOUR 10X ROAS ROCKET SYSTEM -{" "}
-                <span style={{ color: "#00FF00" }}>{finalPrice}/-</span>
+                <span style={{ color: "white" }}>₹{finalPrice}/-</span>
               </h2>
             </div>
             <div className="benefits-list">

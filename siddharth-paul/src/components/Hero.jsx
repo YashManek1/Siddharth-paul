@@ -11,7 +11,7 @@ import backgroundWave2 from "../assets/background-wave-2-new.svg";
 
 const Hero = () => {
   const videoId = "dQw4w9WgXcQ";
-  const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+  const embedUrl = `https://www.youtube.com/embed/{videoId}`;
 
   const scrollToPrograms = (e) => {
     e.preventDefault();
