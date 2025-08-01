@@ -65,7 +65,7 @@ const WhoThisIsForSection = () => {
                 <div className="who-this-is-for-text">
                   <h3 className="who-this-is-for-item-title">Global Players</h3>
                   <p className="who-this-is-for-item-desc">
-                    Eager to attract $1,000-$5,000+ clients across the world.
+                    Eager to attract 1,000-5,000+ clients across the world.
                   </p>
                 </div>
               </div>

@@ -17,14 +17,14 @@
 /* Dark mode gradient override */
 [data-theme="dark"] .details-section {
   background: linear-gradient(
-    180deg,
-    rgba(187, 134, 252, 0.25) 0%,
-    rgba(187, 134, 252, 0.22) 30%,
-    rgba(187, 134, 252, 0.15) 55%,
-    rgba(187, 134, 252, 0.08) 80%,
-    rgba(187, 134, 252, 0.03) 95%,
-    rgba(187, 134, 252, 0) 100%
-  );
+    360deg,
+    rgba(157, 0, 255, 0) 0%,
+    rgba(157, 0, 255, 0.03) 30%,
+    rgba(157, 0, 255, 0.08) 45%,
+    rgba(157, 0, 255, 0.15) 60%,
+    rgba(157, 0, 255, 0.22) 80%,
+    rgba(157, 0, 255, 0.25) 100%
+  ), var(--color-bg);
 }
 
 .details-container {

@@ -122,7 +122,9 @@
 
 @media screen and (max-width: 480px) {
   .site-footer {
-    padding: 12px 8px;
+    padding: 12px 5px;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .footer-links {
@@ -136,6 +138,12 @@
 }
 
 @media screen and (max-width: 320px) {
+  .site-footer {
+    padding: 10px 3px;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
   .footer-links {
     gap: 8px;
     font-size: 10px;

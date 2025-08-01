@@ -230,7 +230,7 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
                 style={{ color: "#fff", background: "transparent" }}
               >
                 GET YOUR IRRESISTIBLE OFFER MASTERED
-                <span style={{ color: "#00FF00" }}>- {finalPrice}/-</span>
+                <span style={{ color: "white" }}>- ₹{finalPrice}/-</span>
               </h2>
             </div>
             <div className="benefits-list">

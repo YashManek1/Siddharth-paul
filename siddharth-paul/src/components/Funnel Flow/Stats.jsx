@@ -14,6 +14,7 @@ const Stats = () => {
         <div className="stat-item">
           <span className="stat-text">5+ YRS EXPERIENCE</span>
         </div>
+        
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Component_Styles/HeroSection.css';
+import "../Component_Styles/HeroSection.css"
 
 import checkmarkIcon from "../../assets/checkmark-icon.svg";
 import expertIcon from "../../assets/expert-icon.svg";
@@ -11,7 +11,7 @@ import backgroundWave2 from "../../assets/background-wave-2-new.svg";
 
 const HeroSection = () => {
   const videoId = "dQw4w9WgXcQ";
-  const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+  const embedUrl = `https://www.youtube.com/embed/{videoId}`;
 
   const scrollToCheckout = (e) => {
     e.preventDefault();
@@ -22,18 +22,18 @@ const HeroSection = () => {
   };
 
   return (
-    <main className="gm-hero-section">
-      <div className="gm-hero-content">
-        <h1 className="gm-hero-main-title">
-          <span className="gm-text-black">GET</span>{" "}CLIENTS WORLDWIDE{" "}
-          <span className="gm-text-black">WHO BEG TO PAY</span>
+    <main className="hero-section">
+      <div className="hero-content">
+        <h1 className="hero-main-title">
+          <span className="text-black">GET</span>{" "}CLIENTS WORLDWIDE{" "}
+          <span className="text-black">WHO BEG TO PAY</span>
         </h1>
-        <h2 className="gm-sub-title">
+        <h2 className="sub-title">
           YOU{" "}
-          <span className="gm-text-purple">$1000-$1500+</span>{" "}EVERY MONTH
+          <span className="text-purple">1000-1500+</span>{" "}EVERY MONTH
         </h2>
 
-        <div className="gm-features-list">
+        <div className="features-list">
           <span>
             <img src={checkmarkIcon} alt="checkmark" /> GET CLIENTS WORLDWIDE
           </span>
@@ -46,7 +46,7 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <div className="gm-video-container">
+        <div className="video-container">
           <iframe
             src={embedUrl}
             frameBorder="0"
@@ -56,8 +56,8 @@ const HeroSection = () => {
           />
         </div>
 
-        <div className="gm-benefits-list">
-          <span className="gm-benefit-item-expert">
+        <div className="benefits-list">
+          <span className="benefit-item-expert">
             <img src={expertIcon} alt="expert icon" /> LEARN BY EXPERT
           </span>
           <span>
@@ -70,14 +70,14 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <a href="#checkout" className="gm-access-now-btn" onClick={scrollToCheckout}>
+        <a href="#checkout" className="access-now-btn" onClick={scrollToCheckout}>
           ACCESS NOW!
         </a>
       </div>
 
-      <img src={backgroundWave} alt="" className="gm-background-wave-left" />
-      <img src={backgroundWave2} alt="background-wave-2-debug" className="gm-background-wave-right" />
-      <img src={rocketIcon} alt="rocket icon" className="gm-rocket-icon" />
+      <img src={backgroundWave} alt="" className="background-wave-left" />
+      <img src={backgroundWave2} alt="background-wave-2-debug" className="background-wave-right" />
+      <img src={rocketIcon} alt="rocket icon" className="rocket-icon" />
     </main>
   );
 };

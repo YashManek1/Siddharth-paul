@@ -1,7 +1,7 @@
 .who-this-is-for-main-section {
   width: 100%;
   background: linear-gradient(
-    180deg,
+    360deg,
     rgba(157, 0, 255, 0.25) 0%,
     rgba(157, 0, 255, 0.22) 30%,
     rgba(157, 0, 255, 0.15) 55%,
@@ -51,23 +51,65 @@
 }
 
 .who-this-is-for-underline-green {
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background-color: #00ff00;
-  border-radius: 3px;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: #32cd32;
+    border-radius: 3px;
+    box-shadow: 
+        0 0 10px #32cd32,
+        0 0 20px #32cd32,
+        0 0 30px #32cd32;
+    animation: glow-green 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow-green {
+    from {
+        box-shadow: 
+            0 0 10px #32cd32,
+            0 0 20px #32cd32,
+            0 0 30px #32cd32;
+    }
+    to {
+        box-shadow: 
+            0 0 15px #32cd32,
+            0 0 25px #32cd32,
+            0 0 35px #32cd32,
+            0 0 45px #32cd32;
+    }
 }
 
 .who-this-is-for-underline-orange {
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background-color: #ffa500;
-  border-radius: 3px;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: #ffa500;
+    border-radius: 3px;
+    box-shadow: 
+        0 0 10px #ffa500,
+        0 0 20px #ffa500,
+        0 0 30px #ffa500;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 
+            0 0 10px #ffa500,
+            0 0 20px #ffa500,
+            0 0 30px #ffa500;
+    }
+    to {
+        box-shadow: 
+            0 0 15px #ffa500,
+            0 0 25px #ffa500,
+            0 0 35px #ffa500,
+            0 0 45px #ffa500;
+    }
 }
 
 .who-this-is-for-divider {
@@ -102,7 +144,7 @@
 }
 
 .who-this-is-for-icon-cross {
-  color: var(--color-text);
+  color: red;
   font-size: 1.8rem;
   font-weight: 900;
   margin-top: 3px;
@@ -337,4 +379,7 @@
     padding: 10px 25px;
     font-size: 1rem;
   }
+}
+*{
+  font-weight: 500;
 }

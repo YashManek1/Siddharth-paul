@@ -8,8 +8,9 @@ import Details from "../components/globalMagnet/Details";
 import ObjectiveSection from "../components/globalMagnet/ObjectiveSection";
 import AccessSection from "../components/globalMagnet/AccessSection";
 import WhoThisIsForSection from "../components/globalMagnet/WhoIsThisFor";
-import FAQSection from "../components/globalMagnet/FAQSection";
+
 import GlobalMagnetCheckout from "../components/globalMagnet/CheckOut";
+import FAQSection from "../components/Funnel Flow/FAQSection";
 
 const GlobalMagnet = () => {
   const [course, setCourse] = useState(null);
@@ -33,7 +34,7 @@ const GlobalMagnet = () => {
         addons={course.addons}
       />
       <WhoThisIsForSection />
-      <FAQSection />
+      <FAQSection/>
       <GlobalMagnetCheckout
         price={course.price}
         finalPrice={course.finalPrice}

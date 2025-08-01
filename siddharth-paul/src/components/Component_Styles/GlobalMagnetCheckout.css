@@ -4,6 +4,11 @@
   font-family: "Inter", sans-serif;
 }
 
+/* Dark mode support for global magnet checkout */
+[data-theme="dark"] .global-magnet-checkout {
+  background: rgba(157, 0, 255, 0);
+}
+
 .checkout-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -27,7 +32,7 @@
 }
 
 .brand-name {
-  color: var(--color-accent);
+  color: #9d00ff;
   font-size: 1.5rem;
   font-family: "Anton", sans-serif;
   font-weight: 700;
@@ -170,7 +175,7 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--color-accent);
+  border-color:#9d00ff ;
   box-shadow: 0 0 0 3px rgba(157, 0, 255, 0.1);
   background: var(--color-card-bg);
 }
@@ -241,7 +246,7 @@
   letter-spacing: 1px;
   margin-bottom: 15px;
   padding-bottom: 8px;
-  border-bottom: 2px solid var(--color-accent);
+  border-bottom: 2px solid #9d00ff;
   display: inline-block;
 }
 
@@ -277,7 +282,7 @@
 
 .price-amount {
   font-weight: 700;
-  color: var(--color-accent);
+  color: #9d00ff;
   font-size: 1rem;
 }
 
@@ -631,4 +636,8 @@
 
 #upsell-checkout .skip-text:hover {
   color: var(--color-accent);
+}
+
+*{
+  font-weight: 500;
 }

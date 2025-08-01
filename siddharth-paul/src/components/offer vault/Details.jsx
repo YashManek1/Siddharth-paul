@@ -13,7 +13,7 @@ const Details = () => {
     },
     {
       title: "No Clear Value Stack",
-      description: "YOU don't show exactly why your offer is worth $1,000–$5,000+, so clients see it as a cost — not an investment."
+      description: "YOU don't show exactly why your offer is worth 1,000–5,000+, so clients see it as a cost — not an investment."
     },
     {
       title: "Poor Bonus Strategy",

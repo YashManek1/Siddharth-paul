@@ -71,11 +71,11 @@ const LetterSection = () => (
       <p>
         After countless hours of sending proposals and applying for freelance
         work, I finally got my first editing work. I vividly remember, it was
-        for $5 and I edited the video on my uncle’s 2004 computer and it took me
+        for 5 and I edited the video on my uncle’s 2004 computer and it took me
         over 10 hours to finish but hey, I made 300 rupees.
       </p>
       <p>
-        Back then $1 = 70 so after fees, I made my first 300 online and although
+        Back then 1 = 70 so after fees, I made my first 300 online and although
         it was very less, I was thrilled and ecstatic and already saw myself as
         a millionaire hahah...
       </p>
@@ -98,7 +98,7 @@ const LetterSection = () => (
         <br />
         Uploaded over<strong>9,000 faceless videos</strong> on YouTube,
         <br />
-        And helped our clients generate over <strong>$5 million+</strong> in
+        And helped our clients generate over <strong>5 million+</strong> in
         revenue.
       </p>
       <p>
@@ -151,7 +151,7 @@ const LetterSection = () => (
       </p>
       <p>
         I’ll show you exactly how to land high-ticket international clients and
-        make your first <u>$1,000</u> — or even <u>$5,000+</u> — within weeks,
+        make your first <u>1,000</u> — or even <u>5,000+</u> — within weeks,
         not months.
       </p>
       <p>

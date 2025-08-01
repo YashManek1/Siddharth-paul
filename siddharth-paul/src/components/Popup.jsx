@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./Popup.css";
+import React, { useState, useEffect } from 'react';
+import './Popup.css';
 
 const Popup = ({ isOpen, onClose, userIdentifier }) => {
   const [formData, setFormData] = useState({
@@ -83,6 +83,7 @@ const Popup = ({ isOpen, onClose, userIdentifier }) => {
       console.log("Form submitted successfully:", result);
 
       // Success - close popup and allow access to site
+      localStorage.setItem('popupSubmitted', 'true');
       onClose();
     } catch (error) {
       console.error("Error submitting form:", error);
