@@ -17,6 +17,9 @@
   justify-content: flex-start;
   align-items: center;
   overflow: visible;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .background-wave-left {
@@ -400,9 +403,11 @@
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 3px 10px 0 10px;
+    padding: 3px 5px 0 5px;
     padding-top: 3px;
     padding-bottom: 25px;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .hero-main-title {
@@ -445,9 +450,11 @@
 
 @media (max-width: 320px) {
   .hero-section {
-    padding: 2px 8px 0 8px;
+    padding: 2px 3px 0 3px;
     padding-top: 2px;
     padding-bottom: 20px;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .hero-main-title {

@@ -422,6 +422,8 @@
 @media (max-width: 480px) {
   .accomplishment-section {
     padding-bottom: 20px;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .accomplishment-title {
@@ -431,7 +433,8 @@
   }
 
   .accomplishment-grid {
-    width: 95%;
+    width: calc(100% - 10px);
+    margin: 0 5px;
   }
 
   .accomplishment-img-top {
@@ -467,9 +470,19 @@
 }
 
 @media (max-width: 320px) {
+  .accomplishment-section {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
   .accomplishment-title {
     font-size: 1.5rem;
     letter-spacing: 1px;
+  }
+
+  .accomplishment-grid {
+    width: calc(100% - 6px);
+    margin: 0 3px;
   }
 
   .accomplishment-proof-text {

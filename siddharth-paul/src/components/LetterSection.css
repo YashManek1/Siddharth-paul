@@ -53,10 +53,12 @@
 @media (max-width: 480px) {
   .letter-section {
     padding: 24px 0;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .letter-container {
-    padding: 0 15px;
+    padding: 0 10px;
     font-size: 1rem;
     line-height: 1.5;
   }
@@ -73,10 +75,12 @@
 @media (max-width: 320px) {
   .letter-section {
     padding: 20px 0;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .letter-container {
-    padding: 0 10px;
+    padding: 0 5px;
     font-size: 0.95rem;
     line-height: 1.4;
   }
