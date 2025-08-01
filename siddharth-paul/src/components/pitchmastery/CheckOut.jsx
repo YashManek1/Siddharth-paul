@@ -137,9 +137,31 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
     return { base, gst, total, discount };
   };
 
+  // Submit form data before payment
+  const submitFormData = async () => {
+    try {
+      await fetch("https://siddharth-paul.onrender.com/api/client-info", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "checkout", // Differentiate from popup
+          product: "Pitch Mastery",
+          amount: calculateTotalBreakdown().total,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+    } catch (error) {
+      console.error("Error submitting form data:", error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { total } = calculateTotalBreakdown();
+
+    // Submit form data first (before payment)
+    await submitFormData();
 
     const res = await fetch(
       "https://siddharth-paul.onrender.com/payment/create",
@@ -169,6 +191,8 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             ...formData,
+            source: "checkout",
+            product: "Pitch Mastery",
             addons: selectedAddons.map((idx) => addonList[idx]),
             total,
             razorpay_order_id: response.razorpay_order_id,
@@ -419,8 +443,12 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
                         (addon, idx) =>
                           selectedAddons.includes(idx) && (
                             <div className="price-row addon-row" key={idx}>
-                              <span className="price-label">{addon.title}:</span>
-                              <span className="price-amount">+{addon.price}/-</span>
+                              <span className="price-label">
+                                {addon.title}:
+                              </span>
+                              <span className="price-amount">
+                                +{addon.price}/-
+                              </span>
                             </div>
                           )
                       )}

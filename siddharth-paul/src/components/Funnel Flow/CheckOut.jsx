@@ -138,9 +138,31 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
     return { base, gst, total, discount };
   };
 
+  // Submit form data before payment
+  const submitFormData = async () => {
+    try {
+      await fetch("https://siddharth-paul.onrender.com/api/client-info", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "checkout", // Differentiate from popup
+          product: "Funnel Flow",
+          amount: calculateTotalBreakdown().total,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+    } catch (error) {
+      console.error("Error submitting form data:", error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { total } = calculateTotalBreakdown();
+
+    // Submit form data first (before payment)
+    await submitFormData();
 
     // 1. Create Razorpay order via backend
     const res = await fetch(
@@ -452,8 +474,12 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
                         (addon, idx) =>
                           selectedAddons.includes(idx) && (
                             <div className="price-row addon-row" key={idx}>
-                              <span className="price-label">{addon.title}:</span>
-                              <span className="price-amount">+{addon.price}/-</span>
+                              <span className="price-label">
+                                {addon.title}:
+                              </span>
+                              <span className="price-amount">
+                                +{addon.price}/-
+                              </span>
                             </div>
                           )
                       )}

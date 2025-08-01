@@ -1,0 +1,349 @@
+/* Upsell checkout specific styles - single form layout */
+.global-magnet-checkout {
+  min-height: 100vh;
+  background: var(--color-bg-secondary);
+  font-family: "Inter", sans-serif;
+}
+
+.checkout-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.checkout-header {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(157, 0, 255, 0.2);
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  font-size: 1.5rem;
+}
+
+.brand-name {
+  color: var(--color-accent);
+  font-size: 1.5rem;
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.secure-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.secure-icon {
+  color: #00c800;
+}
+
+.checkout-content {
+  display: flex;
+  justify-content: center;
+}
+
+.right-section {
+  background: var(--color-card-bg);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  color: var(--color-card-text);
+  width: 100%;
+  max-width: 600px;
+}
+
+.form-title {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #7b00cc 100%);
+  color: #fff;
+  font-size: 1.3rem;
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 0 0 25px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 15px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(157, 0, 255, 0.1);
+  background: var(--color-card-bg);
+}
+
+.price-breakdown {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #e0e0e0;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.price-row:last-child {
+  margin-bottom: 0;
+}
+
+.price-label {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.price-amount {
+  font-weight: 700;
+  color: var(--color-accent);
+  font-size: 1rem;
+}
+
+.total-section {
+  background: linear-gradient(135deg, #666 0%, #555 100%);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 20px 0;
+  animation: pulse 2s infinite;
+  color: #fff;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-label {
+  color: #fff;
+  font-family: "Anton", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.total-amount {
+  color: #fff;
+  font-family: "Anton", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  animation: flash 1s ease-in-out infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.submit-button {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #6a1b9a 100%);
+  color: #fff;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(157, 0, 255, 0.4);
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(157, 0, 255, 0.6);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.apply-button {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #6a1b9a 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(157, 0, 255, 0.4);
+}
+
+.apply-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(157, 0, 255, 0.6);
+}
+
+.apply-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.skip-text {
+  text-align: center;
+  margin-top: 15px;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.skip-text:hover {
+  color: var(--color-accent);
+}
+
+/* Dark mode compatibility */
+[data-theme="dark"] .price-breakdown {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+[data-theme="dark"] .price-label {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .submit-button,
+[data-theme="dark"] .apply-button {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #8a2be2 100%);
+  box-shadow: 0 6px 20px rgba(187, 134, 252, 0.4);
+}
+
+[data-theme="dark"] .submit-button:hover,
+[data-theme="dark"] .apply-button:hover {
+  box-shadow: 0 8px 25px rgba(187, 134, 252, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .checkout-container {
+    padding: 0 15px;
+    max-width: 100%;
+  }
+
+  .checkout-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .right-section {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-name {
+    font-size: 1.2rem;
+  }
+
+  .form-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-container {
+    padding: 0 10px;
+  }
+
+  .right-section {
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .form-title {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .submit-button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}

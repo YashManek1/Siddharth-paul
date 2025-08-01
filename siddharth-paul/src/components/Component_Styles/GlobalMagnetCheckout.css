@@ -1,7 +1,7 @@
 .global-magnet-checkout {
   min-height: 100vh;
   background: var(--color-bg-secondary);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .checkout-container {
@@ -29,7 +29,7 @@
 .brand-name {
   color: var(--color-accent);
   font-size: 1.5rem;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
 }
@@ -55,7 +55,7 @@
 
 .offer-title {
   font-size: 1.8rem;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
@@ -122,7 +122,7 @@
   background: linear-gradient(135deg, var(--color-accent) 0%, #7b00cc 100%);
   color: #fff;
   font-size: 1.3rem;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-weight: 700;
   text-align: center;
   padding: 15px;
@@ -186,7 +186,7 @@
   border: 2px dashed black;
   border-radius: 12px;
   padding: 20px;
-  background: #F6FAB0;
+  background: #f6fab0;
   transition: all 0.3s ease;
 }
 
@@ -217,7 +217,7 @@
 
 .bonus-title {
   font-weight: 700;
-  color: #00C800;
+  color: #00c800;
   font-size: 1rem;
 }
 
@@ -236,7 +236,7 @@
   font-weight: 700;
   color: var(--color-text);
   font-size: 1.1rem;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 15px;
@@ -291,8 +291,13 @@
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
 }
 
 .total-row {
@@ -303,22 +308,26 @@
 
 .total-label {
   color: #fff;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
 }
 
 .total-amount {
   color: #fff;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   animation: flash 1s ease-in-out infinite alternate;
 }
 
 @keyframes flash {
-  0% { opacity: 0.8; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .submit-button {
@@ -328,7 +337,7 @@
   padding: 18px 40px;
   border-radius: 12px;
   font-size: 1.2rem;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -355,7 +364,7 @@
   padding: 18px 40px;
   border-radius: 12px;
   font-size: 1.2rem;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -395,19 +404,19 @@
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  
+
   .form-row {
     grid-template-columns: 1fr;
   }
-  
+
   .benefits-list {
     gap: 25px;
   }
-  
+
   .benefit-item {
     gap: 15px;
   }
-  
+
   .benefit-item p {
     font-size: 1rem;
   }
@@ -417,37 +426,37 @@
   .checkout-container {
     padding: 0 15px;
   }
-  
+
   .left-section,
   .right-section {
     padding: 20px;
   }
-  
+
   .offer-title {
     font-size: 1.5rem;
   }
-  
+
   .offer-header {
     margin-bottom: 30px;
   }
-  
+
   .benefits-list {
     gap: 22px;
   }
-  
+
   .benefit-item {
     gap: 15px;
   }
-  
+
   .benefit-icon {
     font-size: 1.8rem;
   }
-  
+
   .benefit-item p {
     font-size: 0.95rem;
     line-height: 1.5;
   }
-  
+
   .addons-label {
     font-size: 1rem;
   }
@@ -457,40 +466,40 @@
   .brand-name {
     font-size: 1.2rem;
   }
-  
+
   .offer-title {
     font-size: 1.3rem;
   }
-  
+
   .form-title {
     font-size: 1.1rem;
   }
-  
+
   .offer-header {
     margin-bottom: 25px;
   }
-  
+
   .benefits-list {
     gap: 20px;
   }
-  
+
   .benefit-item {
     gap: 12px;
   }
-  
+
   .benefit-icon {
     font-size: 1.6rem;
   }
-  
+
   .benefit-item p {
     font-size: 0.9rem;
     line-height: 1.5;
   }
-  
+
   .addons-label {
     font-size: 0.95rem;
   }
-  
+
   .submit-button {
     padding: 15px 30px;
     font-size: 1.1rem;
@@ -505,106 +514,121 @@
   .checkout-container {
     padding: 0 10px;
   }
-  
+
   .checkout-header {
     padding: 15px 0;
     margin-bottom: 20px;
   }
-  
+
   .brand-name {
     font-size: 1rem;
     letter-spacing: 1px;
   }
-  
+
   .checkout-content {
     gap: 20px;
   }
-  
+
   .left-section,
   .right-section {
     padding: 15px;
     border-radius: 15px;
   }
-  
+
   .offer-header {
     margin-bottom: 20px;
   }
-  
+
   .offer-title {
     font-size: 1.1rem;
   }
-  
+
   .benefits-list {
     gap: 18px;
   }
-  
+
   .benefit-item {
     gap: 10px;
   }
-  
+
   .benefit-icon {
     font-size: 1.4rem;
   }
-  
+
   .benefit-item p {
     font-size: 0.85rem;
     line-height: 1.4;
   }
-  
+
   .form-title {
     font-size: 1rem;
     padding: 12px;
   }
-  
+
   .checkout-form {
     gap: 15px;
   }
-  
+
   .form-group input,
   .form-group textarea {
     padding: 10px 12px;
     font-size: 0.85rem;
   }
-  
+
   .bonus-item {
     padding: 12px;
   }
-  
+
   .bonus-title {
     font-size: 0.9rem;
   }
-  
+
   .bonus-description {
     font-size: 0.8rem;
   }
-  
+
   .addons-section {
     margin-top: 20px;
   }
-  
+
   .addons-label {
     font-size: 0.9rem;
     margin-bottom: 12px;
   }
-  
+
   .price-breakdown {
     padding: 15px;
   }
-  
+
   .total-section {
     padding: 12px 15px;
   }
-  
+
   .total-label {
     font-size: 1rem;
   }
-  
+
   .total-amount {
     font-size: 1.3rem;
   }
-  
+
   .submit-button {
     padding: 12px 25px;
     font-size: 1rem;
   }
+}
+
+/* Upsell checkout specific styles */
+#upsell-checkout .skip-text {
+  text-align: center;
+  margin-top: 15px;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+#upsell-checkout .skip-text:hover {
+  color: var(--color-accent);
 }

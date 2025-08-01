@@ -39,9 +39,9 @@ const Header = () => {
       <div className="header-content">
         <Link to="/" className="logo-container" onClick={closeMenu}>
           <img src={logoIcon} alt="Siddharth Paul Logo Icon" className="logo-icon" />
-          <div className="logo-text">
-            <span>SIDDHARTH</span>
-            <span>PAUL</span>
+          <div className="logo-text" style={{ letterSpacing: '-1px' }}>
+            <span style={{ fontWeight: 'bolder' }}>SIDDHARTH</span>
+            <span style={{ fontWeight: 'bolder' }}>PAUL</span>
           </div>
         </Link>
         
