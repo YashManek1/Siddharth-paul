@@ -6,7 +6,17 @@
 
 /* Dark mode support for global magnet checkout */
 [data-theme="dark"] .global-magnet-checkout {
-  background: rgba(157, 0, 255, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(157, 0, 255, 0.25) 0%,
+    rgba(157, 0, 255, 0.22) 20%,
+    rgba(157, 0, 255, 0.15) 40%,
+    rgba(157, 0, 255, 0.08) 55%,
+    rgba(157, 0, 255, 0.03) 70%,
+    rgba(157, 0, 255, 0) 100%
+  ), var(--color-bg) !important;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
 
 .checkout-container {

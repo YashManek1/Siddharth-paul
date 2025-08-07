@@ -162,50 +162,33 @@ const PitchMasteryUpsellCheckout = () => {
   };
 
   if (loading) {
-    return <div className="global-magnet-checkout">Loading...</div>;
+    return <div className="pitch-mastery-checkout">Loading...</div>;
   }
 
   if (!courseData) {
     return (
-      <div className="global-magnet-checkout">Failed to load course data</div>
+      <div className="pitch-mastery-checkout">Failed to load course data</div>
     );
   }
 
   const { base, gst, total, discount } = calculateTotalBreakdown();
 
   return (
-    <div className="global-magnet-checkout" id="upsell-checkout">
-      <div className="checkout-container">
-        <header className="checkout-header">
-          <div className="brand-logo">
-            <span className="logo-icon">🎯</span>
-            <div className="brand-name" style={{ letterSpacing: "-1px" }}>
-              <span style={{ fontWeight: "bolder" }}>SIDDHARTH</span>
-              <span style={{ fontWeight: "bolder" }}>PAUL</span>
-            </div>
-          </div>
-          <div className="secure-badge">
-            <span className="secure-icon">🔒</span>
-            <span>Secure Checkout</span>
-          </div>
+    <div className="pitch-mastery-checkout" id="pitch-mastery-checkout">
+      <div className="pitch-mastery-container">
+        <header className="pitch-mastery-header">
         </header>
 
-        <div
-          className="checkout-content"
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <div
-            className="right-section"
-            style={{ width: "100%", maxWidth: 480 }}
-          >
-            <div className="form-container">
-              <h3 className="form-title">
+        <div className="upsell-checkout-content">
+          <div className="upsell-right-section">
+            <div className="upsell-form-container">
+              <h3 className="upsell-form-title">
                 COMPLETE YOUR UPSELL - ₹{courseData?.afterPaymentPrice || "999"}
                 /-
               </h3>
-              <form onSubmit={handleSubmit} className="checkout-form">
-                <div className="form-row">
-                  <div className="form-group">
+              <form onSubmit={handleSubmit} className="upsell-checkout-form">
+                <div className="upsell-form-row">
+                  <div className="upsell-form-group">
                     <label htmlFor="fullName">Full name</label>
                     <input
                       type="text"
@@ -216,7 +199,7 @@ const PitchMasteryUpsellCheckout = () => {
                       required
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="upsell-form-group">
                     <label htmlFor="email">Email address</label>
                     <input
                       type="email"
@@ -228,7 +211,7 @@ const PitchMasteryUpsellCheckout = () => {
                     />
                   </div>
                 </div>
-                <div className="form-group">
+                <div className="upsell-form-group">
                   <label htmlFor="contactInfo">Contact info</label>
                   <input
                     type="text"
@@ -239,7 +222,7 @@ const PitchMasteryUpsellCheckout = () => {
                     required
                   />
                 </div>
-                <div className="form-group">
+                <div className="upsell-form-group">
                   <label htmlFor="address">Address</label>
                   <textarea
                     id="address"
@@ -250,9 +233,9 @@ const PitchMasteryUpsellCheckout = () => {
                     required
                   />
                 </div>
-                <div className="form-group">
+                <div className="upsell-form-group">
                   <label htmlFor="coupon">Coupon Code</label>
-                  <div style={{ display: "flex", gap: "8px" }}>
+                  <div className="upsell-coupon-input-group">
                     <input
                       type="text"
                       id="coupon"
@@ -263,7 +246,7 @@ const PitchMasteryUpsellCheckout = () => {
                     />
                     <button
                       type="button"
-                      className="apply-button"
+                      className="upsell-apply-button"
                       onClick={handleApplyCoupon}
                       disabled={couponApplied}
                     >
@@ -271,52 +254,48 @@ const PitchMasteryUpsellCheckout = () => {
                     </button>
                   </div>
                   {couponError && (
-                    <div style={{ color: "red", fontSize: "12px" }}>
+                    <div className="upsell-coupon-error">
                       {couponError}
                     </div>
                   )}
                   {couponApplied && (
-                    <div style={{ color: "green", fontSize: "12px" }}>
+                    <div className="upsell-coupon-success">
                       Coupon applied! {discountPercent}% off.
                     </div>
                   )}
                 </div>
-                <div className="total-section">
+                <div className="upsell-total-section">
                   {discount > 0 && (
-                    <div className="total-row">
-                      <span className="total-label">
+                    <div className="upsell-total-row">
+                      <span className="upsell-total-label">
                         <b>Discount ({discountPercent}%):</b>
                       </span>
-                      <span className="total-amount">
+                      <span className="upsell-total-amount">
                         <b>-₹{discount}/-</b>
                       </span>
                     </div>
                   )}
-                  <div className="total-row">
-                    <span className="total-label">Base Price:</span>
-                    <span className="total-amount">₹{base}/-</span>
+                  <div className="upsell-total-row">
+                    <span className="upsell-total-label">Base Price:</span>
+                    <span className="upsell-total-amount">₹{base}/-</span>
                   </div>
-                  <div className="total-row">
-                    <span className="total-label">GST (18%):</span>
-                    <span className="total-amount">₹{gst}/-</span>
+                  <div className="upsell-total-row">
+                    <span className="upsell-total-label">GST (18%):</span>
+                    <span className="upsell-total-amount">₹{gst}/-</span>
                   </div>
-                  <div className="total-row">
-                    <span className="total-label">
+                  <div className="upsell-total-row">
+                    <span className="upsell-total-label">
                       <b>TOTAL:</b>
                     </span>
-                    <span className="total-amount">
+                    <span className="upsell-total-amount">
                       <b>₹{total}/-</b>
                     </span>
                   </div>
                 </div>
-                <button type="submit" className="submit-button">
+                <button type="submit" className="upsell-submit-button">
                   SUBMIT!
                 </button>
-                <p
-                  className="skip-text"
-                  onClick={handleSkip}
-                  style={{ cursor: "pointer" }}
-                >
+                <p className="upsell-skip-text" onClick={handleSkip}>
                   I AM FINE WITH LOSING MONEY AND TIME
                 </p>
               </form>

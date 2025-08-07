@@ -193,33 +193,22 @@ const GlobalMagnetUpsellCheckout = () => {
   const { base, gst, total, discount } = calculateTotalBreakdown();
 
   return (
-    <div className="global-magnet-checkout" id="upsell-checkout">
-      <div className="checkout-container">
-        <header className="checkout-header">
-          <div className="brand-logo">
-            <span className="logo-icon">🌟</span>
-            <div className="brand-name" style={{ letterSpacing: "-1px" }}>
-              <span style={{ fontWeight: "bolder" }}>SIDDHARTH</span>
-              <span style={{ fontWeight: "bolder" }}>PAUL</span>
-            </div>
-          </div>
-          <div className="secure-badge">
-            <span className="secure-icon">🔒</span>
-            <span>Secure Checkout</span>
-          </div>
+    <div className="global-magnet-checkout" id="global-magnet-checkout">
+      <div className="global-magnet-container">
+        <header className="global-magnet-header">
         </header>
 
-        <div className="checkout-content">
-          <div className="right-section">
-            <div className="form-container">
-              <h3 className="form-title">
+        <div className="upsell-checkout-content">
+          <div className="upsell-right-section">
+            <div className="upsell-form-container">
+              <h3 className="upsell-form-title">
                 COMPLETE YOUR UPSELL - ₹
                 {courseData?.afterPaymentPrice || "4999"}/-
               </h3>
 
-              <form onSubmit={handleSubmit} className="checkout-form">
-                <div className="form-row">
-                  <div className="form-group">
+              <form onSubmit={handleSubmit} className="upsell-checkout-form">
+                <div className="upsell-form-row">
+                  <div className="upsell-form-group">
                     <label htmlFor="fullName">Full name</label>
                     <input
                       type="text"
@@ -230,7 +219,7 @@ const GlobalMagnetUpsellCheckout = () => {
                       required
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="upsell-form-group">
                     <label htmlFor="email">Email address</label>
                     <input
                       type="email"
@@ -243,7 +232,7 @@ const GlobalMagnetUpsellCheckout = () => {
                   </div>
                 </div>
 
-                <div className="form-group">
+                <div className="upsell-form-group">
                   <label htmlFor="contactInfo">Contact info</label>
                   <input
                     type="text"
@@ -255,7 +244,7 @@ const GlobalMagnetUpsellCheckout = () => {
                   />
                 </div>
 
-                <div className="form-group">
+                <div className="upsell-form-group">
                   <label htmlFor="address">Address</label>
                   <textarea
                     id="address"
@@ -268,9 +257,9 @@ const GlobalMagnetUpsellCheckout = () => {
                 </div>
 
                 {/* Coupon Section */}
-                <div className="form-group">
+                <div className="upsell-form-group">
                   <label htmlFor="coupon">Coupon Code</label>
-                  <div style={{ display: "flex", gap: "8px" }}>
+                  <div className="upsell-coupon-input-group">
                     <input
                       type="text"
                       id="coupon"
@@ -281,7 +270,7 @@ const GlobalMagnetUpsellCheckout = () => {
                     />
                     <button
                       type="button"
-                      className="apply-button"
+                      className="upsell-apply-button"
                       onClick={handleApplyCoupon}
                       disabled={couponApplied}
                     >
@@ -289,47 +278,47 @@ const GlobalMagnetUpsellCheckout = () => {
                     </button>
                   </div>
                   {couponError && (
-                    <div style={{ color: "red", fontSize: "12px" }}>
+                    <div className="upsell-coupon-error">
                       {couponError}
                     </div>
                   )}
                   {couponApplied && (
-                    <div style={{ color: "green", fontSize: "12px" }}>
+                    <div className="upsell-coupon-success">
                       Coupon applied! {discountPercent}% off.
                     </div>
                   )}
                 </div>
 
-                <div className="price-breakdown">
-                  <div className="price-row">
-                    <span className="price-label">Subtotal:</span>
-                    <span className="price-amount">₹{base + discount}/-</span>
+                <div className="upsell-price-breakdown">
+                  <div className="upsell-price-row">
+                    <span className="upsell-price-label">Subtotal:</span>
+                    <span className="upsell-price-amount">₹{base + discount}/-</span>
                   </div>
                   {discount > 0 && (
-                    <div className="price-row">
-                      <span className="price-label">
+                    <div className="upsell-price-row">
+                      <span className="upsell-price-label">
                         Discount ({discountPercent}%):
                       </span>
-                      <span className="price-amount">-₹{discount}/-</span>
+                      <span className="upsell-price-amount">-₹{discount}/-</span>
                     </div>
                   )}
-                  <div className="price-row">
-                    <span className="price-label">GST (18%):</span>
-                    <span className="price-amount">₹{gst}/-</span>
+                  <div className="upsell-price-row">
+                    <span className="upsell-price-label">GST (18%):</span>
+                    <span className="upsell-price-amount">₹{gst}/-</span>
                   </div>
                 </div>
 
-                <div className="total-section">
-                  <div className="total-row">
-                    <span className="total-label">TOTAL:</span>
-                    <span className="total-amount">₹{total}/-</span>
+                <div className="upsell-total-section">
+                  <div className="upsell-total-row">
+                    <span className="upsell-total-label">TOTAL:</span>
+                    <span className="upsell-total-amount">₹{total}/-</span>
                   </div>
                 </div>
-                <button type="submit" className="submit-button">
+                <button type="submit" className="upsell-submit-button">
                   SUBMIT!
                 </button>
 
-                <p className="skip-text" onClick={handleSkip}>
+                <p className="upsell-skip-text" onClick={handleSkip}>
                   I AM FINE WITH LOSING MONEY AND TIME
                 </p>
               </form>

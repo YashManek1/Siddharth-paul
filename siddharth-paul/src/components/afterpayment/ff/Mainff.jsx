@@ -6,7 +6,6 @@ import PersonalCallsSection from "./PersonalCallSection";
 import Discount from "./Discount";
 import PersonalCallsSection2 from "./PersonalCallsSection2";
 import FunnelFlowUpsellCheckout from "../FunnelFlowUpsellCheckout";
-import "../AfterPayment.css";
 
 const Mainff = () => {
   // Function to handle skip - go to ThankYou directly

@@ -6,7 +6,6 @@ import PersonalCallsSection from "./PersonalCallSection";
 import Discount from "./Discount";
 import PersonalCallsSection2 from "./PersonalCallsSection2";
 import RoasRocketUpsellCheckout from "../RoasRocketUpsellCheckout";
-import "../AfterPayment.css";
 
 const Mainrr = () => {
   // Function to handle skip - go to ThankYou directly

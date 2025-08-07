@@ -1,17 +1,40 @@
 /* Upsell checkout specific styles - single form layout */
-.global-magnet-checkout {
+.upsell-global-magnet-checkout,
+.unified-upsell-checkout,
+.global-magnet-checkout,
+.funnel-flow-checkout,
+.offer-vault-checkout,
+.pitch-mastery-checkout,
+.roas-rocket-checkout {
   min-height: 100vh;
   background: var(--color-bg-secondary);
   font-family: "Inter", sans-serif;
 }
 
-.checkout-container {
-  max-width: 800px;
+.upsell-checkout-container,
+.unified-upsell-container,
+.global-magnet-container,
+.funnel-flow-container,
+.offer-vault-container,
+.pitch-mastery-container,
+.roas-rocket-container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-.checkout-header {
+.upsell-checkout-header,
+.unified-upsell-header,
+.global-magnet-header,
+.funnel-flow-header,
+.offer-vault-header,
+.pitch-mastery-header,
+.roas-rocket-header {
   padding: 20px 0;
   border-bottom: 1px solid rgba(157, 0, 255, 0.2);
   margin-bottom: 30px;
@@ -20,17 +43,17 @@
   align-items: center;
 }
 
-.brand-logo {
+.upsell-brand-logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.logo-icon {
+.upsell-logo-icon {
   font-size: 1.5rem;
 }
 
-.brand-name {
+.upsell-brand-name {
   color: var(--color-accent);
   font-size: 1.5rem;
   font-family: "Anton", sans-serif;
@@ -41,7 +64,7 @@
   line-height: 1;
 }
 
-.secure-badge {
+.upsell-secure-badge {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -49,26 +72,43 @@
   font-size: 0.9rem;
 }
 
-.secure-icon {
+.upsell-secure-icon {
   color: #00c800;
 }
 
-.checkout-content {
+.upsell-checkout-content {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 0;
 }
 
-.right-section {
+.upsell-right-section {
   background: var(--color-card-bg);
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   color: var(--color-card-text);
   width: 100%;
-  max-width: 600px;
+  max-width: 900px;
+  box-sizing: border-box;
 }
 
-.form-title {
+.upsell-form-container {
+  background: var(--color-card-bg);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  color: var(--color-card-text);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.upsell-form-title {
   background: linear-gradient(135deg, var(--color-accent) 0%, #7b00cc 100%);
   color: #fff;
   font-size: 1.3rem;
@@ -82,50 +122,53 @@
   letter-spacing: 1px;
 }
 
-.checkout-form {
+.upsell-checkout-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.form-row {
+.upsell-form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 20px;
 }
 
-.form-group {
+.upsell-form-group {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
+  position: relative;
 }
 
-.form-group label {
+.upsell-form-group label {
   font-weight: 600;
   color: var(--color-text-secondary);
   font-size: 0.9rem;
 }
 
-.form-group input,
-.form-group textarea {
-  padding: 12px 15px;
+.upsell-form-group input,
+.upsell-form-group textarea {
+  padding: 15px 18px;
   border: 2px solid var(--color-border);
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
   background: var(--color-bg-secondary);
   color: var(--color-text);
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.upsell-form-group input:focus,
+.upsell-form-group textarea:focus {
   outline: none;
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(157, 0, 255, 0.1);
   background: var(--color-card-bg);
 }
 
-.price-breakdown {
+.upsell-price-breakdown {
   background: #f8f9fa;
   border-radius: 10px;
   padding: 20px;
@@ -133,39 +176,39 @@
   border: 1px solid #e0e0e0;
 }
 
-.price-row {
+.upsell-price-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.price-row:last-child {
+.upsell-price-row:last-child {
   margin-bottom: 0;
 }
 
-.price-label {
+.upsell-price-label {
   font-weight: 600;
   color: var(--color-text-secondary);
   font-size: 0.9rem;
 }
 
-.price-amount {
+.upsell-price-amount {
   font-weight: 700;
   color: var(--color-accent);
   font-size: 1rem;
 }
 
-.total-section {
+.upsell-total-section {
   background: linear-gradient(135deg, #666 0%, #555 100%);
   border-radius: 10px;
   padding: 15px 20px;
   margin: 20px 0;
-  animation: pulse 2s infinite;
+  animation: upsell-pulse 2s infinite;
   color: #fff;
 }
 
-@keyframes pulse {
+@keyframes upsell-pulse {
   0%,
   100% {
     transform: scale(1);
@@ -175,28 +218,28 @@
   }
 }
 
-.total-row {
+.upsell-total-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.total-label {
+.upsell-total-label {
   color: #fff;
   font-family: "Anton", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
 }
 
-.total-amount {
+.upsell-total-amount {
   color: #fff;
   font-family: "Anton", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  animation: flash 1s ease-in-out infinite alternate;
+  animation: upsell-flash 1s ease-in-out infinite alternate;
 }
 
-@keyframes flash {
+@keyframes upsell-flash {
   0% {
     opacity: 0.8;
   }
@@ -205,7 +248,7 @@
   }
 }
 
-.submit-button {
+.upsell-submit-button {
   background: linear-gradient(135deg, var(--color-accent) 0%, #6a1b9a 100%);
   color: #fff;
   border: none;
@@ -221,16 +264,16 @@
   box-shadow: 0 6px 20px rgba(157, 0, 255, 0.4);
 }
 
-.submit-button:hover {
+.upsell-submit-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(157, 0, 255, 0.6);
 }
 
-.submit-button:active {
+.upsell-submit-button:active {
   transform: translateY(0);
 }
 
-.apply-button {
+.upsell-apply-button {
   background: linear-gradient(135deg, var(--color-accent) 0%, #6a1b9a 100%);
   color: #fff;
   border: none;
@@ -246,19 +289,19 @@
   box-shadow: 0 4px 15px rgba(157, 0, 255, 0.4);
 }
 
-.apply-button:hover {
+.upsell-apply-button:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(157, 0, 255, 0.6);
 }
 
-.apply-button:disabled {
+.upsell-apply-button:disabled {
   background: #ccc;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
 }
 
-.skip-text {
+.upsell-skip-text {
   text-align: center;
   margin-top: 15px;
   color: #666;
@@ -268,82 +311,666 @@
   transition: color 0.3s ease;
 }
 
-.skip-text:hover {
+.upsell-skip-text:hover {
   color: var(--color-accent);
 }
 
+.upsell-coupon-input-group {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.upsell-coupon-input-group input {
+  flex: 1;
+  margin: 0;
+}
+
+.upsell-coupon-input-group .upsell-apply-button {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.upsell-coupon-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.upsell-coupon-success {
+  color: green;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.upsell-final-total {
+  background: #222;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.3em;
+  border-radius: 8px;
+  margin: 16px 0 0 0;
+  padding: 12px;
+}
+
 /* Dark mode compatibility */
-[data-theme="dark"] .price-breakdown {
+[data-theme="dark"] .upsell-global-magnet-checkout,
+[data-theme="dark"] .unified-upsell-checkout,
+[data-theme="dark"] .global-magnet-checkout,
+[data-theme="dark"] .funnel-flow-checkout,
+[data-theme="dark"] .offer-vault-checkout,
+[data-theme="dark"] .pitch-mastery-checkout,
+[data-theme="dark"] .roas-rocket-checkout {
+  background: linear-gradient(
+    360deg,
+    rgba(157, 0, 255, 0) 0%,
+    rgba(157, 0, 255, 0.03) 30%,
+    rgba(157, 0, 255, 0.08) 45%,
+    rgba(157, 0, 255, 0.15) 60%,
+    rgba(157, 0, 255, 0.22) 80%,
+    rgba(157, 0, 255, 0.25) 100%
+  ), var(--color-bg);
+}
+
+[data-theme="dark"] .upsell-price-breakdown {
   background: #2a2a2a;
   border-color: #444;
 }
 
-[data-theme="dark"] .price-label {
+[data-theme="dark"] .upsell-price-label {
   color: var(--color-text);
 }
 
-[data-theme="dark"] .submit-button,
-[data-theme="dark"] .apply-button {
+[data-theme="dark"] .upsell-submit-button,
+[data-theme="dark"] .upsell-apply-button {
   background: linear-gradient(135deg, var(--color-accent) 0%, #8a2be2 100%);
   box-shadow: 0 6px 20px rgba(187, 134, 252, 0.4);
 }
 
-[data-theme="dark"] .submit-button:hover,
-[data-theme="dark"] .apply-button:hover {
+[data-theme="dark"] .upsell-submit-button:hover,
+[data-theme="dark"] .upsell-apply-button:hover {
   box-shadow: 0 8px 25px rgba(187, 134, 252, 0.6);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .checkout-container {
-    padding: 0 15px;
-    max-width: 100%;
-  }
 
-  .checkout-header {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
+/* Extra Large screens (1400px and up) */
+@media (min-width: 1400px) {
+  .upsell-checkout-container,
+  .unified-upsell-container,
+  .global-magnet-container,
+  .funnel-flow-container,
+  .offer-vault-container,
+  .pitch-mastery-container,
+  .roas-rocket-container {
+    max-width: 1200px;
+    padding: 0 40px;
   }
-
-  .right-section {
-    padding: 20px;
+  
+  .upsell-form-container {
+    max-width: 1000px;
+    padding: 60px;
   }
-
-  .form-row {
-    grid-template-columns: 1fr;
+  
+  .upsell-form-title {
+    font-size: 1.6rem;
+    padding: 25px;
   }
-
-  .brand-name {
-    font-size: 1.2rem;
-  }
-
-  .form-title {
+  
+  .upsell-form-group input,
+  .upsell-form-group textarea {
+    padding: 18px 20px;
     font-size: 1.1rem;
+  }
+  
+  .upsell-submit-button {
+    padding: 22px 60px;
+    font-size: 1.4rem;
+  }
+  
+  .upsell-brand-name {
+    font-size: 1.8rem;
   }
 }
 
-@media (max-width: 480px) {
-  .checkout-container {
-    padding: 0 10px;
+/* Large screens (1200px to 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .upsell-checkout-container,
+  .unified-upsell-container,
+  .global-magnet-container,
+  .funnel-flow-container,
+  .offer-vault-container,
+  .pitch-mastery-container,
+  .roas-rocket-container {
+    max-width: 1100px;
+    padding: 0 30px;
+  }
+  
+  .upsell-form-container {
+    max-width: 900px;
+    padding: 50px;
+  }
+  
+  .upsell-form-title {
+    font-size: 1.5rem;
+    padding: 20px;
+  }
+  
+  .upsell-form-group input,
+  .upsell-form-group textarea {
+    padding: 15px 18px;
+    font-size: 1rem;
+  }
+  
+  .upsell-submit-button {
+    padding: 20px 50px;
+    font-size: 1.3rem;
+  }
+  
+  .upsell-brand-name {
+    font-size: 1.6rem;
+  }
+}
+
+/* Medium to Large screens (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .upsell-checkout-container,
+  .unified-upsell-container,
+  .global-magnet-container,
+  .funnel-flow-container,
+  .offer-vault-container,
+  .pitch-mastery-container,
+  .roas-rocket-container {
+    max-width: 960px;
+    padding: 0 25px;
+  }
+  
+  .upsell-form-container {
+    max-width: 800px;
+    padding: 40px;
+  }
+  
+  .upsell-form-title {
+    font-size: 1.4rem;
+    padding: 18px;
+  }
+  
+  .upsell-form-group input,
+  .upsell-form-group textarea {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+  
+  .upsell-submit-button {
+    padding: 18px 45px;
+    font-size: 1.2rem;
+  }
+  
+  .upsell-brand-name {
+    font-size: 1.4rem;
+  }
+}
+
+/* Tablet screens (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .upsell-checkout-container,
+  .unified-upsell-container,
+  .global-magnet-container,
+  .funnel-flow-container,
+  .offer-vault-container,
+  .pitch-mastery-container,
+  .roas-rocket-container {
+    max-width: 100%;
+    padding: 0 20px;
+    min-height: auto;
+    align-items: flex-start;
+    padding-top: 20px;
   }
 
-  .right-section {
+  .upsell-checkout-content {
+    padding: 20px 0;
+  }
+
+  .upsell-checkout-header,
+  .unified-upsell-header,
+  .global-magnet-header,
+  .funnel-flow-header,
+  .offer-vault-header,
+  .pitch-mastery-header,
+  .roas-rocket-header {
+    flex-direction: row;
+    gap: 10px;
+    text-align: left;
+    padding: 15px 0;
+  }
+
+  .upsell-right-section,
+  .upsell-form-container {
+    padding: 30px;
+    max-width: 100%;
+  }
+
+  .upsell-form-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .upsell-brand-name {
+    font-size: 1.3rem;
+  }
+
+  .upsell-form-title {
+    font-size: 1.2rem;
+    padding: 15px;
+  }
+  
+  .upsell-form-group input,
+  .upsell-form-group textarea {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .upsell-submit-button {
+    padding: 16px 35px;
+    font-size: 1.1rem;
+  }
+  
+  .upsell-price-breakdown {
+    padding: 18px;
+    margin: 18px 0;
+  }
+  
+  .upsell-total-section {
+    padding: 12px 18px;
+    margin: 18px 0;
+  }
+}
+
+/* Mobile Large screens (481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .upsell-checkout-container,
+  .unified-upsell-container,
+  .global-magnet-container,
+  .funnel-flow-container,
+  .offer-vault-container,
+  .pitch-mastery-container,
+  .roas-rocket-container {
+    padding: 0 15px;
+    max-width: 100%;
+    min-height: auto;
+    align-items: flex-start;
+    padding-top: 15px;
+  }
+
+  .upsell-checkout-content {
+    padding: 15px 0;
+  }
+
+  .upsell-checkout-header,
+  .unified-upsell-header,
+  .global-magnet-header,
+  .funnel-flow-header,
+  .offer-vault-header,
+  .pitch-mastery-header,
+  .roas-rocket-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 15px 0;
+  }
+
+  .upsell-right-section,
+  .upsell-form-container {
+    padding: 20px;
+    border-radius: 18px;
+    max-width: 100%;
+  }
+
+  .upsell-form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .upsell-coupon-input-group {
+    gap: 10px;
+  }
+
+  .upsell-brand-name {
+    font-size: 1.2rem;
+  }
+
+  .upsell-form-title {
+    font-size: 1.1rem;
+    padding: 14px;
+  }
+  
+  .upsell-form-group input,
+  .upsell-form-group textarea {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .upsell-submit-button {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+  }
+  
+  .upsell-price-breakdown {
+    padding: 16px;
+    margin: 16px 0;
+  }
+  
+  .upsell-total-section {
+    padding: 12px 16px;
+    margin: 16px 0;
+  }
+  
+  .upsell-secure-badge {
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile Small screens (320px to 480px) */
+@media (max-width: 480px) {
+  .upsell-checkout-container,
+  .unified-upsell-container,
+  .global-magnet-container,
+  .funnel-flow-container,
+  .offer-vault-container,
+  .pitch-mastery-container,
+  .roas-rocket-container {
+    padding: 0 10px;
+    min-height: auto;
+    align-items: flex-start;
+    padding-top: 10px;
+  }
+
+  .upsell-checkout-content {
+    padding: 10px 0;
+  }
+
+  .upsell-checkout-header,
+  .unified-upsell-header,
+  .global-magnet-header,
+  .funnel-flow-header,
+  .offer-vault-header,
+  .pitch-mastery-header,
+  .roas-rocket-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+  }
+
+  .upsell-right-section,
+  .upsell-form-container {
     padding: 15px;
     border-radius: 15px;
+    max-width: 100%;
   }
 
-  .brand-name {
+  .upsell-form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .upsell-coupon-input-group {
+    gap: 8px;
+    flex-direction: column;
+  }
+  
+  .upsell-coupon-input-group .upsell-apply-button {
+    width: 100%;
+  }
+
+  .upsell-brand-name {
     font-size: 1rem;
   }
 
-  .form-title {
+  .upsell-form-title {
     font-size: 1rem;
     padding: 12px;
   }
+  
+  .upsell-form-group {
+    gap: 3px;
+  }
+  
+  .upsell-form-group label {
+    font-size: 0.85rem;
+  }
+  
+  .upsell-form-group input,
+  .upsell-form-group textarea {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
 
-  .submit-button {
+  .upsell-submit-button {
     padding: 15px 30px;
     font-size: 1.1rem;
+    border-radius: 10px;
+  }
+  
+  .upsell-apply-button {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .upsell-price-breakdown {
+    padding: 14px;
+    margin: 14px 0;
+    border-radius: 8px;
+  }
+  
+  .upsell-price-row {
+    margin-bottom: 8px;
+  }
+  
+  .upsell-price-label {
+    font-size: 0.8rem;
+  }
+  
+  .upsell-price-amount {
+    font-size: 0.9rem;
+  }
+  
+  .upsell-total-section {
+    padding: 10px 14px;
+    margin: 14px 0;
+    border-radius: 8px;
+  }
+  
+  .upsell-total-label {
+    font-size: 1rem;
+  }
+  
+  .upsell-total-amount {
+    font-size: 1.3rem;
+  }
+  
+  .upsell-secure-badge {
+    font-size: 0.8rem;
+  }
+  
+  .upsell-skip-text {
+    font-size: 0.8rem;
+    margin-top: 12px;
+  }
+}
+
+/* Extra Small screens (below 320px) */
+@media (max-width: 319px) {
+  .upsell-checkout-container,
+  .unified-upsell-container,
+  .global-magnet-container,
+  .funnel-flow-container,
+  .offer-vault-container,
+  .pitch-mastery-container,
+  .roas-rocket-container {
+    padding: 0 8px;
+    min-height: auto;
+    align-items: flex-start;
+    padding-top: 8px;
+  }
+
+  .upsell-checkout-content {
+    padding: 8px 0;
+  }
+
+  .upsell-checkout-header,
+  .unified-upsell-header,
+  .global-magnet-header,
+  .funnel-flow-header,
+  .offer-vault-header,
+  .pitch-mastery-header,
+  .roas-rocket-header {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 8px 0;
+    margin-bottom: 15px;
+  }
+
+  .upsell-right-section,
+  .upsell-form-container {
+    padding: 12px;
+    border-radius: 12px;
+    max-width: 100%;
+  }
+
+  .upsell-form-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .upsell-coupon-input-group {
+    gap: 6px;
+    flex-direction: column;
+  }
+  
+  .upsell-coupon-input-group .upsell-apply-button {
+    width: 100%;
+  }
+
+  .upsell-brand-name {
+    font-size: 0.9rem;
+  }
+
+  .upsell-form-title {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  
+  .upsell-form-group {
+    gap: 2px;
+  }
+  
+  .upsell-form-group label {
+    font-size: 0.8rem;
+  }
+  
+  .upsell-form-group input,
+  .upsell-form-group textarea {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+  }
+
+  .upsell-submit-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+  
+  .upsell-apply-button {
+    padding: 8px 14px;
+    font-size: 0.75rem;
+  }
+  
+  .upsell-price-breakdown {
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 6px;
+  }
+  
+  .upsell-price-row {
+    margin-bottom: 6px;
+  }
+  
+  .upsell-price-label {
+    font-size: 0.75rem;
+  }
+  
+  .upsell-price-amount {
+    font-size: 0.85rem;
+  }
+  
+  .upsell-total-section {
+    padding: 8px 12px;
+    margin: 12px 0;
+    border-radius: 6px;
+  }
+  
+  .upsell-total-label {
+    font-size: 0.9rem;
+  }
+  
+  .upsell-total-amount {
+    font-size: 1.2rem;
+  }
+  
+  .upsell-secure-badge {
+    font-size: 0.75rem;
+  }
+  
+  .upsell-skip-text {
+    font-size: 0.75rem;
+    margin-top: 10px;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .upsell-checkout-container,
+  .unified-upsell-container,
+  .global-magnet-container,
+  .funnel-flow-container,
+  .offer-vault-container,
+  .pitch-mastery-container,
+  .roas-rocket-container {
+    min-height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .upsell-checkout-header,
+  .unified-upsell-header,
+  .global-magnet-header,
+  .funnel-flow-header,
+  .offer-vault-header,
+  .pitch-mastery-header,
+  .roas-rocket-header {
+    padding: 5px 0;
+    margin-bottom: 15px;
+  }
+  
+  .upsell-checkout-content {
+    padding: 10px 0;
+  }
+  
+  .upsell-form-container {
+    padding: 20px;
+  }
+  
+  .upsell-form-title {
+    padding: 10px;
+  }
+  
+  .upsell-price-breakdown,
+  .upsell-total-section {
+    margin: 10px 0;
   }
 }

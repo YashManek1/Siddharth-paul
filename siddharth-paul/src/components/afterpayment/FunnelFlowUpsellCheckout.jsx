@@ -162,45 +162,31 @@ const FunnelFlowUpsellCheckout = () => {
   };
 
   if (loading) {
-    return <div className="global-magnet-checkout">Loading...</div>;
+    return <div className="funnel-flow-checkout">Loading...</div>;
   }
 
   if (!courseData) {
     return (
-      <div className="global-magnet-checkout">Failed to load course data</div>
+      <div className="funnel-flow-checkout">Failed to load course data</div>
     );
   }
 
   const { base, gst, total, discount } = calculateTotalBreakdown();
 
   return (
-    <div className="global-magnet-checkout" id="upsell-checkout">
-      <div className="checkout-container">
-        <header className="checkout-header">
-          <div className="brand-logo">
-            <span className="logo-icon">🌀</span>
-            <span className="brand-name">FUNNEL FLOW UPSELL</span>
-          </div>
-          <div className="secure-badge">
-            <span className="secure-icon">🔒</span>
-            <span>Secure Checkout</span>
-          </div>
+    <div className="funnel-flow-checkout" id="funnel-flow-checkout">
+      <div className="funnel-flow-container">
+        <header className="funnel-flow-header">
         </header>
-        <div
-          className="checkout-content"
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <div
-            className="right-section"
-            style={{ width: "100%", maxWidth: 480 }}
-          >
-            <div className="checkout-form">
-              <h2 className="form-title">
+        <div className="upsell-checkout-content">
+          <div className="upsell-right-section">
+            <div className="upsell-checkout-form">
+              <h2 className="upsell-form-title">
                 Complete Your Order - ₹{courseData?.afterPaymentPrice || "999"}
                 /-
               </h2>
               <form onSubmit={handleSubmit}>
-                <div className="form-group">
+                <div className="upsell-form-group">
                   <input
                     type="text"
                     name="fullName"
@@ -210,7 +196,7 @@ const FunnelFlowUpsellCheckout = () => {
                     required
                   />
                 </div>
-                <div className="form-group">
+                <div className="upsell-form-group">
                   <input
                     type="email"
                     name="email"
@@ -220,7 +206,7 @@ const FunnelFlowUpsellCheckout = () => {
                     required
                   />
                 </div>
-                <div className="form-group">
+                <div className="upsell-form-group">
                   <input
                     type="tel"
                     name="contactInfo"
@@ -230,7 +216,7 @@ const FunnelFlowUpsellCheckout = () => {
                     required
                   />
                 </div>
-                <div className="form-group">
+                <div className="upsell-form-group">
                   <textarea
                     name="address"
                     placeholder="Address"
@@ -239,9 +225,9 @@ const FunnelFlowUpsellCheckout = () => {
                     required
                   />
                 </div>
-                <div className="form-group">
+                <div className="upsell-form-group">
                   <label htmlFor="coupon">Coupon Code</label>
-                  <div style={{ display: "flex", gap: "8px" }}>
+                  <div className="upsell-coupon-input-group">
                     <input
                       type="text"
                       id="coupon"
@@ -252,7 +238,7 @@ const FunnelFlowUpsellCheckout = () => {
                     />
                     <button
                       type="button"
-                      className="apply-coupon-btn"
+                      className="upsell-apply-button"
                       onClick={handleApplyCoupon}
                       disabled={couponApplied}
                     >
@@ -260,46 +246,42 @@ const FunnelFlowUpsellCheckout = () => {
                     </button>
                   </div>
                   {couponError && (
-                    <div className="coupon-error">{couponError}</div>
+                    <div className="upsell-coupon-error">{couponError}</div>
                   )}
                   {couponApplied && (
-                    <div className="coupon-success">
+                    <div className="upsell-coupon-success">
                       ✓ Coupon applied! {discountPercent}% discount
                     </div>
                   )}
                 </div>
-                <div className="price-breakdown">
+                <div className="upsell-price-breakdown">
                   {discount > 0 && (
-                    <div className="price-row discount">
+                    <div className="upsell-price-row funnel-flow-discount">
                       <span>Discount ({discountPercent}%):</span>
                       <span>-₹{discount}/-</span>
                     </div>
                   )}
-                  <div className="price-row">
+                  <div className="upsell-price-row">
                     <span>Base Price:</span>
                     <span>₹{base}/-</span>
                   </div>
-                  <div className="total-row">
-                    <span className="total-label">GST (18%):</span>
-                    <span className="total-amount">{gst}/-</span>
+                  <div className="upsell-total-row">
+                    <span className="upsell-total-label">GST (18%):</span>
+                    <span className="upsell-total-amount">{gst}/-</span>
                   </div>
-                  <div className="total-row">
-                    <span className="total-label">
+                  <div className="upsell-total-row">
+                    <span className="upsell-total-label">
                       <b>TOTAL:</b>
                     </span>
-                    <span className="total-amount">
+                    <span className="upsell-total-amount">
                       <b>{total}/-</b>
                     </span>
                   </div>
                 </div>
-                <button type="submit" className="submit-button">
+                <button type="submit" className="upsell-submit-button">
                   COMPLETE PURCHASE!
                 </button>
-                <p
-                  className="skip-text"
-                  onClick={handleSkip}
-                  style={{ cursor: "pointer" }}
-                >
+                <p className="upsell-skip-text" onClick={handleSkip}>
                   I AM FINE WITH LOSING MONEY AND TIME
                 </p>
               </form>

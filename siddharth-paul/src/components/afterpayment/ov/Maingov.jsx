@@ -6,7 +6,6 @@ import PersonalCallsSection from "./PersonalCallSection";
 import Discount from "./Discount";
 import PersonalCallsSection2 from "./PersonalCallsSection2";
 import OfferVaultUpsellCheckout from "../OfferVaultUpsellCheckout";
-import "../AfterPayment.css";
 
 const Mainov = () => {
   // Function to handle skip - go to ThankYou directly

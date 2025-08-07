@@ -438,3 +438,11 @@
     font-size: 0.8rem;
   }
 }
+
+/* Dark mode styles */
+[data-theme="dark"] .gm-hero-subtitle,
+[data-theme="dark"] .gm-hero-main-title,
+[data-theme="dark"] .gm-sub-title,
+[data-theme="dark"] .gm-additional-title {
+  color: #ffffff;
+}

@@ -466,8 +466,28 @@
 
   .hero-section .benefits-list {
     flex-direction: row !important;
-    font-size: 0.6rem;
+    font-size: 0.55rem;
+    gap: 4px;
     margin-top: 6px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: space-between;
+    padding: 0 2px;
+  }
+  
+  .hero-section .benefits-list span {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    white-space: nowrap;
+    font-size: 0.55rem;
+    flex-shrink: 0;
+  }
+  
+  .hero-section .benefits-list img {
+    height: 8px;
+    width: 8px;
+    flex-shrink: 0;
   }
 
   .access-now-btn {

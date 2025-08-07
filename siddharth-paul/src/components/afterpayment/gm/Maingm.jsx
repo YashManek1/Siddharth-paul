@@ -6,7 +6,6 @@ import PersonalCallsSection from "./PersonalCallSection";
 import Discount from "./Discount";
 import PersonalCallsSection2 from "./PersonalCallsSection2";
 import GlobalMagnetUpsellCheckout from "../GlobalMagnetUpsellCheckout";
-import "../AfterPayment.css";
 
 const Maingm = () => {
   // Function to handle skip - go to ThankYou directly
