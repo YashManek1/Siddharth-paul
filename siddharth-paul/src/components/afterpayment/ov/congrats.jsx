@@ -1,5 +1,5 @@
-import React from 'react';
-import './congrats.css';
+import React from "react";
+import "./congrats.css";
 
 import checkmarkIcon from "../../../assets/checkmark-icon.svg";
 import expertIcon from "../../../assets/expert-icon.svg";
@@ -8,22 +8,25 @@ import refundIcon from "../../../assets/refund-icon.svg";
 import rocketIcon from "../../../assets/rocket-icon.svg";
 import backgroundWave from "../../../assets/background-wave.svg";
 import backgroundWave2 from "../../../assets/background-wave-2-new.svg";
-import PersonalCallsSection from './PersonalCallSection';
+import PersonalCallsSection from "./PersonalCallSection";
 
 const Congrats = () => {
-  const videoId = "dQw4w9WgXcQ";
-  const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+  // Google Drive preview link for embedding
+  const embedUrl =
+    "https://drive.google.com/file/d/1hf9y2sZGj6UZaER6lu54Rnf1Syy9u_cl/preview";
 
   return (
     <main className="gm-hero-section">
       <div className="gm-hero-content">
         <p className="gm-hero-subtitle">CONGRATS ON YOUR RECENT PURCHASE...</p>
-        
+
         <h1 className="gm-hero-main-title">
           <span className="gm-text-black">UPGRADE YOURSELF TO GUARANTEE</span>
         </h1>
         <h2 className="gm-sub-title">
-          <span className="gm-text-black">GUARANTEE Your Perfect Pitch with a</span>
+          <span className="gm-text-black">
+            GUARANTEE Your Perfect Pitch with a
+          </span>
         </h2>
         <h3 className="gm-additional-title">
           <span className="gm-text-black">Live 1-1 Breakdown</span>
@@ -33,9 +36,9 @@ const Congrats = () => {
           <iframe
             src={embedUrl}
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="autoplay; encrypted-media"
             allowFullScreen
-            title="Embedded youtube"
+            title="Embedded Google Drive Video"
           />
         </div>
 
@@ -44,10 +47,12 @@ const Congrats = () => {
             <img src={expertIcon} alt="expert icon" /> LIVE PITCH BREAKDOWN
           </span>
           <span>
-            <img src={lifetimeIcon} alt="infinity icon" /> FIX WEAK SPOTS INSTANTLY
+            <img src={lifetimeIcon} alt="infinity icon" /> FIX WEAK SPOTS
+            INSTANTLY
           </span>
           <span>
-            <img src={refundIcon} alt="growth icon" /> WALK AWAY WITH A PROVEN OFFER
+            <img src={refundIcon} alt="growth icon" /> WALK AWAY WITH A PROVEN
+            OFFER
           </span>
         </div>
 
@@ -57,7 +62,11 @@ const Congrats = () => {
       </div>
 
       <img src={backgroundWave} alt="" className="gm-background-wave-left" />
-      <img src={backgroundWave2} alt="background-wave-2-debug" className="gm-background-wave-right" />
+      <img
+        src={backgroundWave2}
+        alt="background-wave-2-debug"
+        className="gm-background-wave-right"
+      />
       <img src={rocketIcon} alt="rocket icon" className="gm-rocket-icon" />
     </main>
   );

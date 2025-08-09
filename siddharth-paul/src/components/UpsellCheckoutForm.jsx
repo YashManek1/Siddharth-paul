@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import "./Component_Styles/UpsellCheckout.css";
 
-const UpsellCheckoutForm = ({ courseData, productName, icon, themeColor, onPaymentSuccess }) => {
+const UpsellCheckoutForm = ({
+  courseData,
+  productName,
+  icon,
+  themeColor,
+  onPaymentSuccess,
+}) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -137,13 +143,13 @@ const UpsellCheckoutForm = ({ courseData, productName, icon, themeColor, onPayme
   const { base, gst, total, discount } = calculateTotalBreakdown();
 
   return (
-    <div className="upsell-form-container">
-      <h3 className="upsell-form-title">
+    <div className="upsell-unique-form-container">
+      <h3 className="upsell-unique-form-title">
         COMPLETE YOUR ORDER - ₹{courseData?.afterPaymentFinalPrice || "-"}/-
       </h3>
-      <form onSubmit={handleSubmit} className="upsell-checkout-form">
-        <div className="upsell-form-row">
-          <div className="upsell-form-group">
+      <form onSubmit={handleSubmit} className="upsell-unique-checkout-form">
+        <div className="upsell-unique-form-row">
+          <div className="upsell-unique-form-group">
             <label htmlFor="fullName">Full name</label>
             <input
               type="text"
@@ -154,7 +160,7 @@ const UpsellCheckoutForm = ({ courseData, productName, icon, themeColor, onPayme
               required
             />
           </div>
-          <div className="upsell-form-group">
+          <div className="upsell-unique-form-group">
             <label htmlFor="email">Email address</label>
             <input
               type="email"
@@ -166,7 +172,7 @@ const UpsellCheckoutForm = ({ courseData, productName, icon, themeColor, onPayme
             />
           </div>
         </div>
-        <div className="upsell-form-group">
+        <div className="upsell-unique-form-group">
           <label htmlFor="contactInfo">Contact info</label>
           <input
             type="text"
@@ -177,7 +183,7 @@ const UpsellCheckoutForm = ({ courseData, productName, icon, themeColor, onPayme
             required
           />
         </div>
-        <div className="upsell-form-group">
+        <div className="upsell-unique-form-group">
           <label htmlFor="address">Address</label>
           <textarea
             id="address"
@@ -188,9 +194,9 @@ const UpsellCheckoutForm = ({ courseData, productName, icon, themeColor, onPayme
             required
           />
         </div>
-        <div className="upsell-form-group">
+        <div className="upsell-unique-form-group">
           <label htmlFor="coupon">Coupon Code</label>
-          <div style={{ display: "flex", gap: "8px" }}>
+          <div className="upsell-unique-coupon-input-group">
             <input
               type="text"
               id="coupon"
@@ -201,7 +207,7 @@ const UpsellCheckoutForm = ({ courseData, productName, icon, themeColor, onPayme
             />
             <button
               type="button"
-              className="upsell-apply-button"
+              className="upsell-unique-apply-button"
               onClick={handleApplyCoupon}
               disabled={couponApplied}
             >
@@ -209,42 +215,46 @@ const UpsellCheckoutForm = ({ courseData, productName, icon, themeColor, onPayme
             </button>
           </div>
           {couponError && (
-            <div style={{ color: "red", fontSize: "12px" }}>{couponError}</div>
+            <div className="upsell-unique-coupon-error">{couponError}</div>
           )}
           {couponApplied && (
-            <div style={{ color: "green", fontSize: "12px" }}>
+            <div className="upsell-unique-coupon-success">
               Coupon applied! {discountPercent}% off.
             </div>
           )}
         </div>
-        <div className="upsell-total-section">
+        <div className="upsell-unique-total-section">
           {discount > 0 && (
-            <div className="upsell-total-row">
-              <span className="upsell-total-label">
+            <div className="upsell-unique-total-row">
+              <span className="upsell-unique-total-label">
                 <b>Discount ({discountPercent}%):</b>
               </span>
-              <span className="upsell-total-amount">
+              <span className="upsell-unique-total-amount">
                 <b>-₹{discount}/-</b>
               </span>
             </div>
           )}
-          <div className="upsell-total-row">
-            <span className="upsell-total-label">Subtotal:</span>
-            <span className="upsell-total-amount">₹{base}/-</span>
+          <div className="upsell-unique-total-row">
+            <span className="upsell-unique-total-label">Subtotal:</span>
+            <span className="upsell-unique-total-amount">₹{base}/-</span>
           </div>
-          <div className="upsell-total-row">
-            <span className="upsell-total-label">GST (18%):</span>
-            <span className="upsell-total-amount">₹{gst}/-</span>
+          <div className="upsell-unique-total-row">
+            <span className="upsell-unique-total-label">GST (18%):</span>
+            <span className="upsell-unique-total-amount">₹{gst}/-</span>
           </div>
-          <div className="upsell-total-row" style={{ background: "#222", color: "#fff", fontWeight: "bold", fontSize: "1.3em", borderRadius: "8px", margin: "16px 0 0 0", padding: "12px" }}>
-            <span className="upsell-total-label">TOTAL:</span>
-            <span className="upsell-total-amount">₹{total}/-</span>
+          <div className="upsell-unique-total-row upsell-unique-final-total">
+            <span className="upsell-unique-total-label">TOTAL:</span>
+            <span className="upsell-unique-total-amount">₹{total}/-</span>
           </div>
         </div>
-        <button type="submit" className="upsell-submit-button">
+        <button type="submit" className="upsell-unique-submit-button">
           COMPLETE PURCHASE!
         </button>
-        <p className="upsell-skip-text" onClick={handleSkip} style={{ cursor: "pointer" }}>
+        <p
+          className="upsell-unique-skip-text"
+          onClick={handleSkip}
+          style={{ cursor: "pointer" }}
+        >
           I AM FINE WITH LOSING MONEY AND TIME
         </p>
       </form>

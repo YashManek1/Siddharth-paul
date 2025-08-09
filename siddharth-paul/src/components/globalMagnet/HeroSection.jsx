@@ -1,5 +1,5 @@
-import React from 'react';
-import "../Component_Styles/HeroSection.css"
+import React from "react";
+import "../Component_Styles/HeroSection.css";
 
 import checkmarkIcon from "../../assets/checkmark-icon.svg";
 import expertIcon from "../../assets/expert-icon.svg";
@@ -10,14 +10,15 @@ import backgroundWave from "../../assets/background-wave.svg";
 import backgroundWave2 from "../../assets/background-wave-2-new.svg";
 
 const HeroSection = () => {
-  const videoId = "dQw4w9WgXcQ";
-  const embedUrl = `https://www.youtube.com/embed/{videoId}`;
+  // Google Drive preview link for embedding
+  const embedUrl =
+    "https://drive.google.com/file/d/1LJWBFHLcW6rL-63nC7HYMFKOPS9Hk3S0/preview";
 
   const scrollToCheckout = (e) => {
     e.preventDefault();
-    const checkoutSection = document.querySelector('.global-magnet-checkout');
+    const checkoutSection = document.querySelector(".global-magnet-checkout");
     if (checkoutSection) {
-      checkoutSection.scrollIntoView({ behavior: 'smooth' });
+      checkoutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -25,12 +26,11 @@ const HeroSection = () => {
     <main className="hero-section">
       <div className="hero-content">
         <h1 className="hero-main-title">
-          <span className="text-black">GET</span>{" "}CLIENTS WORLDWIDE{" "}
+          <span className="text-black">GET</span> CLIENTS WORLDWIDE{" "}
           <span className="text-black">WHO BEG TO PAY</span>
         </h1>
         <h2 className="sub-title">
-          YOU{" "}
-          <span className="text-purple">1000-1500+</span>{" "}EVERY MONTH
+          YOU <span className="text-purple">1000-1500+</span> EVERY MONTH
         </h2>
 
         <div className="features-list">
@@ -50,9 +50,11 @@ const HeroSection = () => {
           <iframe
             src={embedUrl}
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="autoplay; encrypted-media"
             allowFullScreen
-            title="Embedded youtube"
+            title="Embedded Google Drive Video"
+            width="100%"
+            height="315"
           />
         </div>
 
@@ -70,13 +72,21 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <a href="#checkout" className="access-now-btn" onClick={scrollToCheckout}>
+        <a
+          href="#checkout"
+          className="access-now-btn"
+          onClick={scrollToCheckout}
+        >
           ACCESS NOW!
         </a>
       </div>
 
       <img src={backgroundWave} alt="" className="background-wave-left" />
-      <img src={backgroundWave2} alt="background-wave-2-debug" className="background-wave-right" />
+      <img
+        src={backgroundWave2}
+        alt="background-wave-2-debug"
+        className="background-wave-right"
+      />
       <img src={rocketIcon} alt="rocket icon" className="rocket-icon" />
     </main>
   );

@@ -1,23 +1,18 @@
 /* Upsell checkout specific styles - single form layout */
-.upsell-global-magnet-checkout,
-.unified-upsell-checkout,
-.global-magnet-checkout,
-.funnel-flow-checkout,
-.offer-vault-checkout,
-.pitch-mastery-checkout,
-.roas-rocket-checkout {
+.upsell-unique-global-magnet-checkout,
+.upsell-unique-unified-upsell-checkout,
+.upsell-unique-global-magnet-container,
+.upsell-unique-funnel-flow-container,
+.upsell-unique-offer-vault-container,
+.upsell-unique-pitch-mastery-container,
+.upsell-unique-roas-rocket-container {
   min-height: 100vh;
   background: var(--color-bg-secondary);
   font-family: "Inter", sans-serif;
 }
 
-.upsell-checkout-container,
-.unified-upsell-container,
-.global-magnet-container,
-.funnel-flow-container,
-.offer-vault-container,
-.pitch-mastery-container,
-.roas-rocket-container {
+.upsell-unique-checkout-container,
+.upsell-unique-form-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -362,14 +357,15 @@
 [data-theme="dark"] .pitch-mastery-checkout,
 [data-theme="dark"] .roas-rocket-checkout {
   background: linear-gradient(
-    360deg,
-    rgba(157, 0, 255, 0) 0%,
-    rgba(157, 0, 255, 0.03) 30%,
-    rgba(157, 0, 255, 0.08) 45%,
-    rgba(157, 0, 255, 0.15) 60%,
-    rgba(157, 0, 255, 0.22) 80%,
-    rgba(157, 0, 255, 0.25) 100%
-  ), var(--color-bg);
+      360deg,
+      rgba(157, 0, 255, 0) 0%,
+      rgba(157, 0, 255, 0.03) 30%,
+      rgba(157, 0, 255, 0.08) 45%,
+      rgba(157, 0, 255, 0.15) 60%,
+      rgba(157, 0, 255, 0.22) 80%,
+      rgba(157, 0, 255, 0.25) 100%
+    ),
+    var(--color-bg);
 }
 
 [data-theme="dark"] .upsell-price-breakdown {
@@ -406,28 +402,28 @@
     max-width: 1200px;
     padding: 0 40px;
   }
-  
+
   .upsell-form-container {
     max-width: 1000px;
     padding: 60px;
   }
-  
+
   .upsell-form-title {
     font-size: 1.6rem;
     padding: 25px;
   }
-  
+
   .upsell-form-group input,
   .upsell-form-group textarea {
     padding: 18px 20px;
     font-size: 1.1rem;
   }
-  
+
   .upsell-submit-button {
     padding: 22px 60px;
     font-size: 1.4rem;
   }
-  
+
   .upsell-brand-name {
     font-size: 1.8rem;
   }
@@ -445,28 +441,28 @@
     max-width: 1100px;
     padding: 0 30px;
   }
-  
+
   .upsell-form-container {
     max-width: 900px;
     padding: 50px;
   }
-  
+
   .upsell-form-title {
     font-size: 1.5rem;
     padding: 20px;
   }
-  
+
   .upsell-form-group input,
   .upsell-form-group textarea {
     padding: 15px 18px;
     font-size: 1rem;
   }
-  
+
   .upsell-submit-button {
     padding: 20px 50px;
     font-size: 1.3rem;
   }
-  
+
   .upsell-brand-name {
     font-size: 1.6rem;
   }
@@ -484,28 +480,28 @@
     max-width: 960px;
     padding: 0 25px;
   }
-  
+
   .upsell-form-container {
     max-width: 800px;
     padding: 40px;
   }
-  
+
   .upsell-form-title {
     font-size: 1.4rem;
     padding: 18px;
   }
-  
+
   .upsell-form-group input,
   .upsell-form-group textarea {
     padding: 14px 16px;
     font-size: 0.95rem;
   }
-  
+
   .upsell-submit-button {
     padding: 18px 45px;
     font-size: 1.2rem;
   }
-  
+
   .upsell-brand-name {
     font-size: 1.4rem;
   }
@@ -563,23 +559,23 @@
     font-size: 1.2rem;
     padding: 15px;
   }
-  
+
   .upsell-form-group input,
   .upsell-form-group textarea {
     padding: 12px 14px;
     font-size: 0.9rem;
   }
-  
+
   .upsell-submit-button {
     padding: 16px 35px;
     font-size: 1.1rem;
   }
-  
+
   .upsell-price-breakdown {
     padding: 18px;
     margin: 18px 0;
   }
-  
+
   .upsell-total-section {
     padding: 12px 18px;
     margin: 18px 0;
@@ -630,7 +626,7 @@
     grid-template-columns: 1fr;
     gap: 15px;
   }
-  
+
   .upsell-coupon-input-group {
     gap: 10px;
   }
@@ -643,28 +639,28 @@
     font-size: 1.1rem;
     padding: 14px;
   }
-  
+
   .upsell-form-group input,
   .upsell-form-group textarea {
     padding: 12px 15px;
     font-size: 0.9rem;
   }
-  
+
   .upsell-submit-button {
     padding: 16px 32px;
     font-size: 1.1rem;
   }
-  
+
   .upsell-price-breakdown {
     padding: 16px;
     margin: 16px 0;
   }
-  
+
   .upsell-total-section {
     padding: 12px 16px;
     margin: 16px 0;
   }
-  
+
   .upsell-secure-badge {
     font-size: 0.85rem;
   }
@@ -714,12 +710,12 @@
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  
+
   .upsell-coupon-input-group {
     gap: 8px;
     flex-direction: column;
   }
-  
+
   .upsell-coupon-input-group .upsell-apply-button {
     width: 100%;
   }
@@ -732,15 +728,15 @@
     font-size: 1rem;
     padding: 12px;
   }
-  
+
   .upsell-form-group {
     gap: 3px;
   }
-  
+
   .upsell-form-group label {
     font-size: 0.85rem;
   }
-  
+
   .upsell-form-group input,
   .upsell-form-group textarea {
     padding: 10px 12px;
@@ -753,48 +749,48 @@
     font-size: 1.1rem;
     border-radius: 10px;
   }
-  
+
   .upsell-apply-button {
     padding: 10px 16px;
     font-size: 0.8rem;
   }
-  
+
   .upsell-price-breakdown {
     padding: 14px;
     margin: 14px 0;
     border-radius: 8px;
   }
-  
+
   .upsell-price-row {
     margin-bottom: 8px;
   }
-  
+
   .upsell-price-label {
     font-size: 0.8rem;
   }
-  
+
   .upsell-price-amount {
     font-size: 0.9rem;
   }
-  
+
   .upsell-total-section {
     padding: 10px 14px;
     margin: 14px 0;
     border-radius: 8px;
   }
-  
+
   .upsell-total-label {
     font-size: 1rem;
   }
-  
+
   .upsell-total-amount {
     font-size: 1.3rem;
   }
-  
+
   .upsell-secure-badge {
     font-size: 0.8rem;
   }
-  
+
   .upsell-skip-text {
     font-size: 0.8rem;
     margin-top: 12px;
@@ -845,12 +841,12 @@
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  
+
   .upsell-coupon-input-group {
     gap: 6px;
     flex-direction: column;
   }
-  
+
   .upsell-coupon-input-group .upsell-apply-button {
     width: 100%;
   }
@@ -863,15 +859,15 @@
     font-size: 0.9rem;
     padding: 10px;
   }
-  
+
   .upsell-form-group {
     gap: 2px;
   }
-  
+
   .upsell-form-group label {
     font-size: 0.8rem;
   }
-  
+
   .upsell-form-group input,
   .upsell-form-group textarea {
     padding: 8px 10px;
@@ -884,48 +880,48 @@
     font-size: 1rem;
     border-radius: 8px;
   }
-  
+
   .upsell-apply-button {
     padding: 8px 14px;
     font-size: 0.75rem;
   }
-  
+
   .upsell-price-breakdown {
     padding: 12px;
     margin: 12px 0;
     border-radius: 6px;
   }
-  
+
   .upsell-price-row {
     margin-bottom: 6px;
   }
-  
+
   .upsell-price-label {
     font-size: 0.75rem;
   }
-  
+
   .upsell-price-amount {
     font-size: 0.85rem;
   }
-  
+
   .upsell-total-section {
     padding: 8px 12px;
     margin: 12px 0;
     border-radius: 6px;
   }
-  
+
   .upsell-total-label {
     font-size: 0.9rem;
   }
-  
+
   .upsell-total-amount {
     font-size: 1.2rem;
   }
-  
+
   .upsell-secure-badge {
     font-size: 0.75rem;
   }
-  
+
   .upsell-skip-text {
     font-size: 0.75rem;
     margin-top: 10px;
@@ -945,7 +941,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  
+
   .upsell-checkout-header,
   .unified-upsell-header,
   .global-magnet-header,
@@ -956,19 +952,19 @@
     padding: 5px 0;
     margin-bottom: 15px;
   }
-  
+
   .upsell-checkout-content {
     padding: 10px 0;
   }
-  
+
   .upsell-form-container {
     padding: 20px;
   }
-  
+
   .upsell-form-title {
     padding: 10px;
   }
-  
+
   .upsell-price-breakdown,
   .upsell-total-section {
     margin: 10px 0;

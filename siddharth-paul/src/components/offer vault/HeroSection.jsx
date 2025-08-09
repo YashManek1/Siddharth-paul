@@ -1,5 +1,5 @@
-import React from 'react';
-import '../Component_Styles/HeroSection.css';
+import React from "react";
+import "../Component_Styles/HeroSection.css";
 
 import checkmarkIcon from "../../assets/checkmark-icon.svg";
 import expertIcon from "../../assets/expert-icon.svg";
@@ -10,20 +10,20 @@ import backgroundWave from "../../assets/background-wave.svg";
 import backgroundWave2 from "../../assets/background-wave-2-new.svg";
 
 const HeroSection = () => {
-  const videoId = "dQw4w9WgXcQ";
-  const embedUrl = `https://www.youtube.com/embed/{videoId}`;
-   const scrollToCheckout = (e) => {
+  // Google Drive preview link for embedding
+  const embedUrl =
+    "https://drive.google.com/file/d/1I5bEC1fZjAG8Wbqt0VhdQHuGNzm-HDru/preview";
+  const scrollToCheckout = (e) => {
     e.preventDefault();
-    const checkoutSection = document.querySelector('.global-magnet-checkout');
+    const checkoutSection = document.querySelector(".global-magnet-checkout");
     if (checkoutSection) {
-      checkoutSection.scrollIntoView({ behavior: 'smooth' });
+      checkoutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <main className="hero-section">
       <div className="hero-content">
-
         <h1 className="hero-main-title">
           <span className="text-black">MAKE CLIENTS SAY</span>{" "}
           <span className="text-purple">"YES"</span>{" "}
@@ -40,7 +40,8 @@ const HeroSection = () => {
             <img src={checkmarkIcon} alt="checkmark" /> MASTER PITCH PSYCHOLOGY
           </span>
           <span>
-            <img src={checkmarkIcon} alt="checkmark" /> BUILD HIGH-VALUE, HIGH-CONVERSION OFFERS
+            <img src={checkmarkIcon} alt="checkmark" /> BUILD HIGH-VALUE,
+            HIGH-CONVERSION OFFERS
           </span>
           <span>
             <img src={checkmarkIcon} alt="checkmark" /> CLOSE DEALS FASTER
@@ -51,9 +52,11 @@ const HeroSection = () => {
           <iframe
             src={embedUrl}
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="autoplay; encrypted-media"
             allowFullScreen
-            title="Embedded youtube"
+            title="Embedded Google Drive Video"
+            width="100%"
+            height="315"
           />
         </div>
 
@@ -62,20 +65,26 @@ const HeroSection = () => {
             <img src={expertIcon} alt="expert icon" /> LEARN BY EXPERT
           </span>
           <span>
-            <img src={lifetimeIcon} alt="lifetime access icon" /> LIFETIME ACCESS
+            <img src={lifetimeIcon} alt="lifetime access icon" /> LIFETIME
+            ACCESS
           </span>
           <span>
-            <img src={refundIcon} alt="refund policy icon" /> 7- DAY REFUND POLICY
+            <img src={refundIcon} alt="refund policy icon" /> 7- DAY REFUND
+            POLICY
           </span>
         </div>
 
-        <a href="#access"  onClick={scrollToCheckout} className="access-now-btn">
+        <a href="#access" onClick={scrollToCheckout} className="access-now-btn">
           ACCESS NOW!
         </a>
       </div>
 
       <img src={backgroundWave} alt="" className="background-wave-left" />
-      <img src={backgroundWave2} alt="background-wave-2-debug" className="background-wave-right" />
+      <img
+        src={backgroundWave2}
+        alt="background-wave-2-debug"
+        className="background-wave-right"
+      />
       <img src={rocketIcon} alt="rocket icon" className="rocket-icon" />
     </main>
   );

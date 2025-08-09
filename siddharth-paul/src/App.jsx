@@ -25,6 +25,7 @@ import GlobalMagnetUpsellCheckout from "./components/afterpayment/GlobalMagnetUp
 import RoasRocketUpsellCheckout from "./components/afterpayment/RoasRocketUpsellCheckout";
 import OfferVaultUpsellCheckout from "./components/afterpayment/OfferVaultUpsellCheckout";
 import PitchMasteryUpsellCheckout from "./components/afterpayment/PitchMasteryUpsellCheckout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
@@ -88,9 +89,9 @@ function App() {
 
       // Check if user has cancelled the popup before
       const popupCancelled = localStorage.getItem("popupCancelled");
-      const popupSubmitted = localStorage.getItem('popupSubmitted');
+      const popupSubmitted = localStorage.getItem("popupSubmitted");
 
-      if (popupCancelled === 'true' || popupSubmitted === "true") {
+      if (popupCancelled === "true" || popupSubmitted === "true") {
         // User has cancelled or submitted before, don't show popup again
         setHasCompletedForm(true);
         setShowPopup(false);
@@ -105,7 +106,7 @@ function App() {
         setHasCompletedForm(true);
         setShowPopup(false);
         setIsCheckingStatus(false);
-        localStorage.setItem('popupSubmitted', 'true');
+        localStorage.setItem("popupSubmitted", "true");
       } else {
         setHasCompletedForm(true); // Allow access to site
         setIsCheckingStatus(false);
@@ -119,10 +120,14 @@ function App() {
   // Scroll-based popup logic
   useEffect(() => {
     // Don't set up scroll listener if form is already completed or popup should not show
-    const popupCancelled = localStorage.getItem('popupCancelled');
-    const popupSubmitted = localStorage.getItem('popupSubmitted');
-    
-    if (popupCancelled === 'true' || popupSubmitted === 'true' || isCheckingStatus) {
+    const popupCancelled = localStorage.getItem("popupCancelled");
+    const popupSubmitted = localStorage.getItem("popupSubmitted");
+
+    if (
+      popupCancelled === "true" ||
+      popupSubmitted === "true" ||
+      isCheckingStatus
+    ) {
       return;
     }
 
@@ -133,33 +138,33 @@ function App() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const scrollDifference = Math.abs(currentScrollY - lastScrollY);
-      
+
       // Only count significant scrolls (more than threshold pixels)
       if (scrollDifference > scrollThreshold) {
-        setScrollCount(prevCount => {
+        setScrollCount((prevCount) => {
           const newCount = prevCount + 1;
           console.log(`Scroll count: ${newCount}/${targetScrolls}`);
-          
+
           // Show popup after 5-6 scrolls (only once)
           if (newCount >= targetScrolls && !showPopup) {
             setShowPopup(true);
-            document.body.classList.add('sp-popup-open');
+            document.body.classList.add("sp-popup-open");
             return newCount;
           }
-          
+
           return newCount;
         });
-        
+
         lastScrollY = currentScrollY;
       }
     };
 
     // Add scroll event listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // Cleanup
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [isCheckingStatus, showPopup]);
 
@@ -218,28 +223,61 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/global-magnet" element={<GlobalMagnet/>} />
-          <Route path="/pitch-mastery" element={<PitchMastery/>} />
-          <Route path="/roas-rocket" element={<RoasRocket/>} />
-          <Route path="/offer-vault" element={<OfferVault/>} />
-          <Route path="/funnel-flow" element={<FunnelFlow/>} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
-          <Route path="/terms-of-use" element={<TermsOfUse/>} />
-          <Route path="/contact-us" element={<ContactUs/>} />
-          <Route path="/refund-policy" element={<RefundPolicy/>} />
-          <Route path="/afterpaymentgm" element={<Maingm />} />
-          <Route path="/afterpaymentov" element={<Mainov />} />
-          <Route path="/afterpaymentrr" element={<Mainrr />} />
-          <Route path="/afterpaymentpm" element={<Mainpm />} />
-          <Route path="/afterpaymentff" element={<Mainff />} />
-          <Route path="/congrats" element={<Congrats/>} />
+          <Route path="/global-magnet" element={<GlobalMagnet />} />
+          <Route path="/pitch-mastery" element={<PitchMastery />} />
+          <Route path="/roas-rocket" element={<RoasRocket />} />
+          <Route path="/offer-vault" element={<OfferVault />} />
+          <Route path="/funnel-flow" element={<FunnelFlow />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-use" element={<TermsOfUse />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route
+            path="/afterpaymentgm"
+            element={
+              <ProtectedRoute>
+                <Maingm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/afterpaymentov"
+            element={
+              <ProtectedRoute>
+                <Mainov />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/afterpaymentrr"
+            element={
+              <ProtectedRoute>
+                <Mainrr />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/afterpaymentpm"
+            element={
+              <ProtectedRoute>
+                <Mainpm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/afterpaymentff"
+            element={
+              <Mainff />
+            }
+          />
+          <Route path="/congrats" element={<Congrats />} />
         </Routes>
       </Router>
-      
+
       {/* Render popup based on scroll trigger */}
-      <Popup 
-        isOpen={showPopup} 
-        onClose={handleClosePopup} 
+      <Popup
+        isOpen={showPopup}
+        onClose={handleClosePopup}
         userIdentifier={userIdentifier}
       />
     </div>

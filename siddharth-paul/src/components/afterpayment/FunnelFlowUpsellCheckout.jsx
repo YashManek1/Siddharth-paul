@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../Component_Styles/UpsellCheckout.css";
+import "../Component_Styles/GlobalMagnetCheckout.css";
 
 const FunnelFlowUpsellCheckout = () => {
   const [formData, setFormData] = useState({
