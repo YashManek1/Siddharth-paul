@@ -267,10 +267,14 @@ function App() {
           <Route
             path="/afterpaymentff"
             element={
-              <Mainff />
+              <ProtectedRoute>
+                <Mainff />
+              </ProtectedRoute>
             }
           />
           <Route path="/congrats" element={<Congrats />} />
+          <Route path="/final-thankyou" element={<FinalThankYou />} />{" "}
+          {/* <-- Add this line */}
         </Routes>
       </Router>
 

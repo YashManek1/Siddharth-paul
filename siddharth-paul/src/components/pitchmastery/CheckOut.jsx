@@ -200,6 +200,7 @@ const PitchMasteryCheckout = ({ price, finalPrice, addons }) => {
             razorpay_signature: response.razorpay_signature,
           }),
         });
+        localStorage.setItem("hasPaid_pm", "true");
         navigate("/afterpaymentpm");
       },
       prefill: {

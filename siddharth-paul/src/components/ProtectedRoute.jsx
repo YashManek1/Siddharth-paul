@@ -1,8 +1,19 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
+
+const paymentKeys = {
+  "/afterpaymentgm": "hasPaid_gm",
+  "/afterpaymentff": "hasPaid_ff",
+  "/afterpaymentpm": "hasPaid_pm",
+  "/afterpaymentov": "hasPaid_ov",
+  "/afterpaymentrr": "hasPaid_rr",
+};
 
 const ProtectedRoute = ({ children }) => {
-  const hasPaid = localStorage.getItem("hasPaid") === "true";
+  const location = useLocation();
+  const key = paymentKeys[location.pathname];
+  const hasPaid = key ? localStorage.getItem(key) === "true" : false;
+
   if (!hasPaid) {
     return <Navigate to="/" replace />;
   }

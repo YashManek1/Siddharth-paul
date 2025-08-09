@@ -200,6 +200,7 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
             razorpay_signature: response.razorpay_signature,
           }),
         });
+        localStorage.setItem("hasPaid_gm", "true");
         navigate("/afterpaymentgm");
       },
       prefill: {

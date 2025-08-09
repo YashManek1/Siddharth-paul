@@ -79,6 +79,12 @@
   padding: 40px 0;
 }
 
+.funnel-flow-checkout{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .upsell-right-section {
   background: var(--color-card-bg);
   border-radius: 20px;
@@ -86,7 +92,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   color: var(--color-card-text);
   width: 100%;
-  max-width: 900px;
+  width: 800px;
   box-sizing: border-box;
 }
 
@@ -220,14 +226,14 @@
 }
 
 .upsell-total-label {
-  color: #fff;
+  color: black;
   font-family: "Anton", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
 }
 
 .upsell-total-amount {
-  color: #fff;
+  color: black;
   font-family: "Anton", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;

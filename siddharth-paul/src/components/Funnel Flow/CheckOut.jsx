@@ -202,8 +202,8 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
             razorpay_signature: response.razorpay_signature,
           }),
         });
-        // Redirect to congrats page
-        navigate("/afterpaymentff"); // Change path as needed for each product
+        localStorage.setItem("hasPaid_ff", "true");
+        navigate("/afterpaymentff");
       },
       prefill: {
         name: formData.fullName,

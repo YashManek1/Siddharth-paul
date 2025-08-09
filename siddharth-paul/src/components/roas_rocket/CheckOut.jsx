@@ -201,6 +201,7 @@ const RoasRocketCheckout = ({ price, finalPrice, addons }) => {
             razorpay_signature: response.razorpay_signature,
           }),
         });
+        localStorage.setItem("hasPaid_rr", "true");
         navigate("/afterpaymentrr");
       },
       prefill: {

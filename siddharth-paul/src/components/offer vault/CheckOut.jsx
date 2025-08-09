@@ -197,6 +197,7 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
             razorpay_signature: response.razorpay_signature,
           }),
         });
+        localStorage.setItem("hasPaid_ov", "true");
         navigate("/afterpaymentov");
       },
       prefill: {
