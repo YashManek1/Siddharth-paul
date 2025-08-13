@@ -273,6 +273,47 @@
 }
 
 /* Responsive */
+@media (min-width: 1441px) {
+  .accomplishment-section {
+    padding: 120px 0 80px 0;
+  }
+
+  .accomplishment-container {
+    max-width: 1600px;
+    padding: 0 60px;
+  }
+
+  .accomplishment-title {
+    font-size: 3.8rem;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+  }
+
+  .accomplishment-grid {
+    gap: 40px;
+  }
+
+  .accomplishment-card {
+    padding: 50px;
+    border-radius: 25px;
+  }
+
+  .accomplishment-img {
+    height: 100px;
+    margin-bottom: 30px;
+  }
+
+  .accomplishment-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+  }
+
+  .accomplishment-img-proof {
+    max-width: 400px;
+    border-radius: 20px;
+  }
+}
+
 @media (max-width: 1440px) {
   .accomplishment-section {
     padding-bottom: 40px;

@@ -396,15 +396,85 @@
 
 /* Responsive Design */
 
-/* Extra Large screens (1400px and up) */
-@media (min-width: 1400px) {
-  .upsell-checkout-container,
-  .unified-upsell-container,
-  .global-magnet-container,
-  .funnel-flow-container,
-  .offer-vault-container,
-  .pitch-mastery-container,
-  .roas-rocket-container {
+/* Extra Large screens (1440px and up) */
+@media (min-width: 1440px) {
+  .upsell-sp-checkout-container,
+  .upsell-sp-unified-upsell-container,
+  .upsell-sp-global-magnet-container,
+  .upsell-sp-funnel-flow-container,
+  .upsell-sp-offer-vault-container,
+  .upsell-sp-pitch-mastery-container,
+  .upsell-sp-roas-rocket-container {
+    max-width: 1400px;
+    padding: 0 60px;
+  }
+
+  .upsell-form-container {
+    max-width: 1200px;
+    padding: 80px;
+  }
+
+  .upsell-form-title {
+    font-size: 1.8rem;
+    padding: 30px;
+  }
+
+  .upsell-form-group input,
+  .upsell-form-group textarea {
+    padding: 22px 25px;
+    font-size: 1.2rem;
+  }
+
+  .upsell-submit-button {
+    padding: 25px 70px;
+    font-size: 1.5rem;
+  }
+
+  .upsell-brand-name {
+    font-size: 2rem;
+  }
+
+  .upsell-sp-checkout-header,
+  .upsell-sp-unified-upsell-header,
+  .upsell-sp-global-magnet-header,
+  .upsell-sp-funnel-flow-header,
+  .upsell-sp-offer-vault-header,
+  .upsell-sp-pitch-mastery-header,
+  .upsell-sp-roas-rocket-header {
+    padding: 30px 0;
+  }
+
+  .upsell-price-breakdown {
+    padding: 30px;
+    margin: 30px 0;
+  }
+
+  .upsell-price-label {
+    font-size: 1.1rem;
+  }
+
+  .upsell-price-amount {
+    font-size: 1.2rem;
+  }
+
+  .upsell-total-label {
+    font-size: 1.4rem;
+  }
+
+  .upsell-total-amount {
+    font-size: 1.8rem;
+  }
+}
+
+/* Large screens (1400px to 1439px) */
+@media (min-width: 1400px) and (max-width: 1439px) {
+  .upsell-sp-checkout-container,
+  .upsell-sp-unified-upsell-container,
+  .upsell-sp-global-magnet-container,
+  .upsell-sp-funnel-flow-container,
+  .upsell-sp-offer-vault-container,
+  .upsell-sp-pitch-mastery-container,
+  .upsell-sp-roas-rocket-container {
     max-width: 1200px;
     padding: 0 40px;
   }

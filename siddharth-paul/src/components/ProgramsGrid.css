@@ -151,6 +151,60 @@
 }
 
 /* Responsive adjustments */
+@media (min-width: 1441px) {
+  .programs-section {
+    padding: 80px 0 100px 0;
+  }
+
+  .programs-container {
+    max-width: 1600px;
+    padding: 0 60px;
+  }
+
+  .programs-grid {
+    gap: 40px;
+  }
+
+  .program-card {
+    padding: 50px;
+    border-radius: 25px;
+  }
+
+  .program-title {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+
+  .program-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+  }
+
+  .program-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  .get-started-btn {
+    padding: 18px 40px;
+    font-size: 1.3rem;
+    border-radius: 15px;
+  }
+
+  .programs-section::before {
+    top: 500px;
+    width: 40vw;
+    height: 300px;
+  }
+
+  .programs-section::after {
+    top: 600px;
+    width: 40vw;
+    height: 300px;
+  }
+}
+
 @media (max-width: 1440px) {
   .programs-container {
     max-width: 1300px;

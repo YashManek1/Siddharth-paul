@@ -31,6 +31,22 @@
 }
 
 /* Responsive Design */
+@media (min-width: 1440px) {
+  .stats-section {
+    padding: 100px 0;
+  }
+
+  .stats-container {
+    max-width: 1400px;
+    padding: 0 50px;
+  }
+
+  .stat-text {
+    font-size: 42px;
+    letter-spacing: 1.5px;
+  }
+}
+
 @media (max-width: 768px) {
   .stats-section {
     padding: 55px 0; /* Increased from 30px */

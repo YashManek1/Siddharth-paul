@@ -93,6 +93,50 @@
 }
 
 /* Responsive Design */
+@media (min-width: 1440px) {
+  .details-section {
+    padding: 120px 0;
+  }
+
+  .details-container {
+    max-width: 1400px;
+    padding: 0 50px;
+  }
+
+  .details-title {
+    font-size: 3.8rem;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+  }
+
+  .problems-grid {
+    gap: 40px;
+  }
+
+  .problem-item {
+    padding: 40px;
+    border-radius: 25px;
+  }
+
+  .problem-icon {
+    width: 80px;
+    height: 80px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
+  .problem-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .problem-description {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-left: 60px;
+  }
+}
+
 @media (max-width: 1024px) {
   .details-section {
     padding: 60px 0;

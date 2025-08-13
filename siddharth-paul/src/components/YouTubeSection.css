@@ -189,6 +189,39 @@
 }
 
 /* Responsive Design */
+@media (min-width: 1441px) {
+  .youtube-section {
+    padding: 120px 60px 140px;
+  }
+
+  .youtube-container {
+    max-width: 1400px;
+  }
+
+  .youtube-title {
+    font-size: 3.8rem;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+  }
+
+  .youtube-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 50px;
+    line-height: 1.8;
+  }
+
+  .youtube-video-container {
+    max-width: 1000px;
+    margin-bottom: 50px;
+  }
+
+  .youtube-access-btn {
+    padding: 18px 45px;
+    font-size: 1.3rem;
+    border-radius: 15px;
+  }
+}
+
 @media (max-width: 1440px) {
   .youtube-section {
     padding: 70px 25px 90px;
