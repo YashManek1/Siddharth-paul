@@ -1,16 +1,30 @@
+@media (min-width: 1440px) {
+  .video-container {
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+  }
+}
 .hero-section {
   position: relative;
   text-align: center;
   padding: 10px 20px 0 20px;
   background: linear-gradient(
-    180deg,
-    rgba(157, 0, 255, 0) 0%,
-    rgba(157, 0, 255, 0.03) 30%,
-    rgba(157, 0, 255, 0.08) 45%,
-    rgba(157, 0, 255, 0.15) 60%,
-    rgba(157, 0, 255, 0.22) 80%,
-    rgba(157, 0, 255, 0.25) 100%
-  ), var(--color-bg);
+      180deg,
+      rgba(157, 0, 255, 0) 0%,
+      rgba(157, 0, 255, 0.03) 30%,
+      rgba(157, 0, 255, 0.08) 45%,
+      rgba(157, 0, 255, 0.15) 60%,
+      rgba(157, 0, 255, 0.22) 80%,
+      rgba(157, 0, 255, 0.25) 100%
+    ),
+    var(--color-bg);
   min-height: calc(100vh - 79px);
   display: flex;
   flex-direction: column;
@@ -185,20 +199,20 @@
   .hero-section {
     padding: 8px 15px 0 15px;
   }
-  
+
   .hero-main-title {
     font-size: 2.3rem;
     padding-top: 3px;
   }
-  
+
   .sub-title {
     font-size: 2.3rem;
   }
-  
+
   .hero-content {
     max-width: 1000px;
   }
-  
+
   .background-wave-left {
     left: calc(50% - 400px - 18vw);
     width: 32vw;
@@ -224,11 +238,11 @@
   .hero-section {
     padding: 5px 15px 0 15px;
   }
-  
+
   .hero-main-title {
     padding-top: 2px;
   }
-  
+
   .background-wave-left {
     left: calc(50% - 350px - 13vw);
     width: 27vw;
@@ -252,11 +266,11 @@
   .hero-section {
     padding: 5px 10px 0 10px;
   }
-  
+
   .hero-main-title {
     padding-top: 2px;
   }
-  
+
   .background-wave-left {
     left: calc(50% - 300px - 10vw);
     width: 25vw;
@@ -340,7 +354,7 @@
     margin-top: 10px;
     max-width: 100%;
   }
-  
+
   .hero-section .benefits-list img {
     height: 14px;
     width: 14px;
@@ -474,7 +488,7 @@
     justify-content: space-between;
     padding: 0 2px;
   }
-  
+
   .hero-section .benefits-list span {
     display: flex;
     align-items: center;
@@ -483,7 +497,7 @@
     font-size: 0.55rem;
     flex-shrink: 0;
   }
-  
+
   .hero-section .benefits-list img {
     height: 8px;
     width: 8px;

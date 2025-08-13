@@ -94,9 +94,9 @@ const LetterSection = () => (
         <br />
         I now have an in-house team of 50+ full-time employees,
         <br />
-        We’ve served <strong>155+ clients</strong>across the world,
+        We’ve served <strong>155+ clients</strong> across the world,
         <br />
-        Uploaded over<strong>9,000 faceless videos</strong> on YouTube,
+        Uploaded over<strong> 9,000 faceless videos</strong> on YouTube,
         <br />
         And helped our clients generate over <strong>5 million+</strong> in
         revenue.

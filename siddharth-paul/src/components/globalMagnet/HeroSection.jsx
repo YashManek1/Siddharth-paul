@@ -10,9 +10,8 @@ import backgroundWave from "../../assets/background-wave.svg";
 import backgroundWave2 from "../../assets/background-wave-2-new.svg";
 
 const HeroSection = () => {
-  // Google Drive preview link for embedding
-  const embedUrl =
-    "https://drive.google.com/file/d/1LJWBFHLcW6rL-63nC7HYMFKOPS9Hk3S0/preview";
+  // YouTube embed URL
+  const embedUrl = "https://www.youtube.com/embed/";
 
   const scrollToCheckout = (e) => {
     e.preventDefault();
@@ -30,6 +29,7 @@ const HeroSection = () => {
           <span className="text-black">WHO BEG TO PAY</span>
         </h1>
         <h2 className="sub-title">
+          {" "}
           YOU <span className="text-purple">1000-1500+</span> EVERY MONTH
         </h2>
 
@@ -52,7 +52,7 @@ const HeroSection = () => {
             frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen
-            title="Embedded Google Drive Video"
+            title="Embedded YouTube Video"
             width="100%"
             height="315"
           />
