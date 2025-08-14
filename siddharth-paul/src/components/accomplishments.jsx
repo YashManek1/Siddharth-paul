@@ -5,13 +5,14 @@ import accomplishment2 from "../assets/accomplishment2.svg";
 import accomplishment3 from "../assets/accomplishment3.svg";
 import accomplishment4 from "../assets/accomplishment4.svg";
 import accomplishment6 from "../assets/accomplishment6.svg";
+import media1 from "../assets/Media1.mp4"; // added import
 
 const AccomplishmentSection = () => {
   const scrollToPrograms = (e) => {
     e.preventDefault();
-    const programsSection = document.querySelector('.programs-section');
+    const programsSection = document.querySelector(".programs-section");
     if (programsSection) {
-      programsSection.scrollIntoView({ behavior: 'smooth' });
+      programsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -66,12 +67,16 @@ const AccomplishmentSection = () => {
           <div className="accomplishment-continuation-left">
             <div className="accomplishment-video-box">
               <video
-                src="your-bank-proof-video.mp4"
+                src={media1}
                 controls
                 className="accomplishment-proof-video"
                 poster=""
               />
-              <a href="#" className="accomplishment-access-btn" onClick={scrollToPrograms}>
+              <a
+                href="#"
+                className="accomplishment-access-btn"
+                onClick={scrollToPrograms}
+              >
                 ACCESS NOW!
               </a>
             </div>
