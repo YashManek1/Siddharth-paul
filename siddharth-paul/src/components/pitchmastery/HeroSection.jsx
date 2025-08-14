@@ -2,14 +2,20 @@ import React from "react";
 import "../Component_Styles/HeroSection.css";
 
 import checkmarkIcon from "../../assets/checkmark-icon.svg";
+import checkmarkIconDark from "../../assets/checkmark-icon-darkmode.svg";
 import expertIcon from "../../assets/expert-icon.svg";
+import expertIconDark from "../../assets/expert-icon-darkmode.svg";
 import lifetimeIcon from "../../assets/lifetime-icon.svg";
+import lifetimeIconDark from "../../assets/lifetime-icon-darkmode.svg";
 import refundIcon from "../../assets/refund-icon.svg";
+import refundIconDark from "../../assets/refund-icon-darkmode.svg";
 import rocketIcon from "../../assets/rocket-icon.svg";
 import backgroundWave from "../../assets/background-wave.svg";
 import backgroundWave2 from "../../assets/background-wave-2-new.svg";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const HeroSection = () => {
+  const { theme } = useTheme();
   // YouTube embed link for embedding
   const embedUrl = "https://www.youtube.com/embed/IZKUf2QtCV4";
   const scrollToCheckout = (e) => {
@@ -35,13 +41,25 @@ const HeroSection = () => {
 
         <div className="features-list">
           <span>
-            <img src={checkmarkIcon} alt="checkmark" /> CONSISTENT CLOSINGS
+            <img
+              src={theme === "dark" ? checkmarkIconDark : checkmarkIcon}
+              alt="checkmark"
+            />{" "}
+            CONSISTENT CLOSINGS
           </span>
           <span>
-            <img src={checkmarkIcon} alt="checkmark" /> HANDLING LIKE A PRO
+            <img
+              src={theme === "dark" ? checkmarkIconDark : checkmarkIcon}
+              alt="checkmark"
+            />{" "}
+            HANDLING LIKE A PRO
           </span>
           <span>
-            <img src={checkmarkIcon} alt="checkmark" /> NO AWKWARD SALES TALKS
+            <img
+              src={theme === "dark" ? checkmarkIconDark : checkmarkIcon}
+              alt="checkmark"
+            />{" "}
+            NO AWKWARD SALES TALKS
           </span>
         </div>
 
@@ -59,15 +77,25 @@ const HeroSection = () => {
 
         <div className="benefits-list">
           <span className="benefit-item-expert">
-            <img src={expertIcon} alt="expert icon" /> LEARN BY EXPERT
+            <img
+              src={theme === "dark" ? expertIconDark : expertIcon}
+              alt="expert icon"
+            />{" "}
+            LEARN BY EXPERT
           </span>
           <span>
-            <img src={lifetimeIcon} alt="lifetime access icon" /> LIFETIME
-            ACCESS
+            <img
+              src={theme === "dark" ? lifetimeIconDark : lifetimeIcon}
+              alt="lifetime access icon"
+            />{" "}
+            LIFETIME ACCESS
           </span>
           <span>
-            <img src={refundIcon} alt="refund policy icon" /> 7- DAY REFUND
-            POLICY
+            <img
+              src={theme === "dark" ? refundIconDark : refundIcon}
+              alt="refund policy icon"
+            />{" "}
+            7- DAY REFUND POLICY
           </span>
         </div>
 

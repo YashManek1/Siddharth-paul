@@ -3,14 +3,18 @@ import "./congrats.css";
 
 import checkmarkIcon from "../../../assets/checkmark-icon.svg";
 import expertIcon from "../../../assets/expert-icon.svg";
+import expertIconDark from "../../../assets/expert-icon-darkmode.svg";
 import lifetimeIcon from "../../../assets/lifetime-icon.svg";
+import lifetimeIconDark from "../../../assets/lifetime-icon-darkmode.svg";
 import refundIcon from "../../../assets/refund-icon.svg";
+import refundIconDark from "../../../assets/refund-icon-darkmode.svg";
 import rocketIcon from "../../../assets/rocket-icon.svg";
 import backgroundWave from "../../../assets/background-wave.svg";
 import backgroundWave2 from "../../../assets/background-wave-2-new.svg";
-import PersonalCallsSection from "./PersonalCallSection";
+import { useTheme } from "../../../contexts/ThemeContext";
 
 const Congrats = () => {
+  const { theme } = useTheme();
   // YouTube embed link for embedding
   const embedUrl = "https://www.youtube.com/embed/wQzh6ZUkbQs";
 
@@ -45,14 +49,25 @@ const Congrats = () => {
 
         <div className="gm-benefits-list">
           <span className="gm-benefit-item-expert">
-            <img src={expertIcon} alt="expert icon" /> 1-1 CALL WITH SIDDHARTH
+            <img
+              src={theme === "dark" ? expertIconDark : expertIcon}
+              alt="expert icon"
+            />{" "}
+            1-1 CALL WITH SIDDHARTH
           </span>
           <span>
-            <img src={lifetimeIcon} alt="infinity icon" /> DONE-FOR-YOU WINNING
-            AD SCRIPTS
+            <img
+              src={theme === "dark" ? lifetimeIconDark : lifetimeIcon}
+              alt="infinity icon"
+            />{" "}
+            DONE-FOR-YOU WINNING AD SCRIPTS
           </span>
           <span>
-            <img src={refundIcon} alt="growth icon" /> PERSONAL AD REVIEWS
+            <img
+              src={theme === "dark" ? refundIconDark : refundIcon}
+              alt="growth icon"
+            />{" "}
+            PERSONAL AD REVIEWS
           </span>
         </div>
 

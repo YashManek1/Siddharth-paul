@@ -3,14 +3,18 @@ import "./congrats.css";
 
 import checkmarkIcon from "../../../assets/checkmark-icon.svg";
 import expertIcon from "../../../assets/expert-icon.svg";
+import expertIconDark from "../../../assets/expert-icon-darkmode.svg";
 import lifetimeIcon from "../../../assets/lifetime-icon.svg";
+import lifetimeIconDark from "../../../assets/lifetime-icon-darkmode.svg";
 import refundIcon from "../../../assets/refund-icon.svg";
+import refundIconDark from "../../../assets/refund-icon-darkmode.svg";
 import rocketIcon from "../../../assets/rocket-icon.svg";
 import backgroundWave from "../../../assets/background-wave.svg";
 import backgroundWave2 from "../../../assets/background-wave-2-new.svg";
-import PersonalCallsSection from "./PersonalCallSection";
+import { useTheme } from "../../../contexts/ThemeContext";
 
 const Congrats = () => {
+  const { theme } = useTheme();
   // YouTube embed link for embedding
   const embedUrl = "https://www.youtube.com/embed/knOzMQUvKWQ";
 
@@ -45,15 +49,25 @@ const Congrats = () => {
 
         <div className="gm-benefits-list">
           <span className="gm-benefit-item-expert">
-            <img src={expertIcon} alt="expert icon" /> 4 CALLS WITH SIDDHARTH
+            <img
+              src={theme === "dark" ? expertIconDark : expertIcon}
+              alt="expert icon"
+            />{" "}
+            4 CALLS WITH SIDDHARTH
           </span>
           <span>
-            <img src={lifetimeIcon} alt="infinity icon" /> CLOSE YOUR FIRST
-            CLIENT WITH ME
+            <img
+              src={theme === "dark" ? lifetimeIconDark : lifetimeIcon}
+              alt="infinity icon"
+            />{" "}
+            CLOSE YOUR FIRST CLIENT WITH ME
           </span>
           <span>
-            <img src={refundIcon} alt="growth icon" /> GROW 1000% FASTER THAN
-            OTHERS
+            <img
+              src={theme === "dark" ? refundIconDark : refundIcon}
+              alt="growth icon"
+            />{" "}
+            GROW 1000% FASTER THAN OTHERS
           </span>
         </div>
 

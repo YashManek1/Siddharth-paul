@@ -2,22 +2,28 @@ import React from "react";
 import "./Hero.css";
 
 import checkmarkIcon from "../assets/checkmark-icon.svg";
+import checkmarkIconDark from "../assets/checkmark-icon-darkmode.svg";
 import expertIcon from "../assets/expert-icon.svg";
+import expertIconDark from "../assets/expert-icon-darkmode.svg";
 import lifetimeIcon from "../assets/lifetime-icon.svg";
+import lifetimeIconDark from "../assets/lifetime-icon-darkmode.svg";
 import refundIcon from "../assets/refund-icon.svg";
+import refundIconDark from "../assets/refund-icon-darkmode.svg";
 import rocketIcon from "../assets/rocket-icon.svg";
 import backgroundWave from "../assets/background-wave.svg";
 import backgroundWave2 from "../assets/background-wave-2-new.svg";
+import { useTheme } from "../contexts/ThemeContext";
 
 const Hero = () => {
+  const { theme } = useTheme();
   const videoId = "dQw4w9WgXcQ";
   const embedUrl = `https://www.youtube.com/embed/{videoId}`;
 
   const scrollToPrograms = (e) => {
     e.preventDefault();
-    const programsSection = document.querySelector('.programs-section');
+    const programsSection = document.querySelector(".programs-section");
     if (programsSection) {
-      programsSection.scrollIntoView({ behavior: 'smooth' });
+      programsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -35,14 +41,25 @@ const Hero = () => {
 
         <div className="features-list">
           <span>
-            <img src={checkmarkIcon} alt="checkmark" /> GET CLIENTS WORLDWIDE
+            <img
+              src={theme === "dark" ? checkmarkIconDark : checkmarkIcon}
+              alt="checkmark"
+            />{" "}
+            GET CLIENTS WORLDWIDE
           </span>
           <span>
-            <img src={checkmarkIcon} alt="checkmark" /> SELL LIKE A PRO
+            <img
+              src={theme === "dark" ? checkmarkIconDark : checkmarkIcon}
+              alt="checkmark"
+            />{" "}
+            SELL LIKE A PRO
           </span>
           <span>
-            <img src={checkmarkIcon} alt="checkmark" /> BUILD SYSTEMS THAT
-            PRINTS MONEY
+            <img
+              src={theme === "dark" ? checkmarkIconDark : checkmarkIcon}
+              alt="checkmark"
+            />{" "}
+            BUILD SYSTEMS THAT PRINTS MONEY
           </span>
         </div>
 
@@ -58,15 +75,25 @@ const Hero = () => {
 
         <div className="benefits-list">
           <span className="benefit-item-expert">
-            <img src={expertIcon} alt="expert icon" /> LEARN BY EXPERT
+            <img
+              src={theme === "dark" ? expertIconDark : expertIcon}
+              alt="expert icon"
+            />{" "}
+            LEARN BY EXPERT
           </span>
           <span>
-            <img src={lifetimeIcon} alt="lifetime access icon" /> LIFETIME
-            ACCESS
+            <img
+              src={theme === "dark" ? lifetimeIconDark : lifetimeIcon}
+              alt="lifetime access icon"
+            />{" "}
+            LIFETIME ACCESS
           </span>
           <span>
-            <img src={refundIcon} alt="refund policy icon" /> 7- DAY REFUND
-            POLICY
+            <img
+              src={theme === "dark" ? refundIconDark : refundIcon}
+              alt="refund policy icon"
+            />{" "}
+            7- DAY REFUND POLICY
           </span>
         </div>
 
@@ -76,7 +103,11 @@ const Hero = () => {
       </div>
 
       <img src={backgroundWave} alt="" className="background-wave-left" />
-      <img src={backgroundWave2} alt="background-wave-2-debug" className="background-wave-right" />
+      <img
+        src={backgroundWave2}
+        alt="background-wave-2-debug"
+        className="background-wave-right"
+      />
       <img src={rocketIcon} alt="rocket icon" className="rocket-icon" />
     </main>
   );
