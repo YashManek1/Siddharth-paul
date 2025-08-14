@@ -11,7 +11,7 @@ import backgroundWave2 from "../../assets/background-wave-2-new.svg";
 
 const HeroSection = () => {
   // YouTube embed URL
-  const embedUrl = "https://www.youtube.com/embed/";
+  const embedUrl = "https://www.youtube.com/embed/XeIvsHPJKiQ";
 
   const scrollToCheckout = (e) => {
     e.preventDefault();

@@ -10,9 +10,8 @@ import backgroundWave from "../../assets/background-wave.svg";
 import backgroundWave2 from "../../assets/background-wave-2-new.svg";
 
 const HeroSection = () => {
-  // Google Drive preview link for embedding
-  const embedUrl =
-    "https://drive.google.com/file/d/1Q9zR0wzfQb9grJFszAEGz4h7HqFgVAut/preview";
+  // YouTube embed link for embedding
+  const embedUrl = "https://www.youtube.com/embed/IZKUf2QtCV4";
   const scrollToCheckout = (e) => {
     e.preventDefault();
     const checkoutSection = document.querySelector(".global-magnet-checkout");
@@ -52,7 +51,7 @@ const HeroSection = () => {
             frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen
-            title="Embedded Google Drive Video"
+            title="Embedded YouTube Video"
             width="100%"
             height="315"
           />

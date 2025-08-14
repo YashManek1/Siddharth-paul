@@ -11,9 +11,8 @@ import backgroundWave2 from "../../../assets/background-wave-2-new.svg";
 import PersonalCallsSection from "./PersonalCallSection";
 
 const Congrats = () => {
-  // Google Drive preview link for embedding
-  const embedUrl =
-    "https://drive.google.com/file/d/1Us3tmm5RK8C3OCNu5PauCuIm7i9CbrWO/preview";
+  // YouTube embed link for embedding
+  const embedUrl = "https://www.youtube.com/embed/m6dwxhOCt2E";
 
   return (
     <main className="gm-hero-section">
@@ -42,7 +41,7 @@ const Congrats = () => {
             frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen
-            title="Embedded Google Drive Video"
+            title="Embedded YouTube Video"
           />
         </div>
 
