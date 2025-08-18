@@ -3,15 +3,16 @@
   background-color: var(--color-header-bg);
   color: var(--color-text);
   padding: 20px 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: static; /* was: fixed */
+  bottom: auto; /* reset */
+  left: auto; /* reset */
+  right: auto; /* reset */
   z-index: 100;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   border-top: 1px solid var(--color-border);
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  margin-top: auto; /* lets flex parent push footer to bottom */
 }
 
 .footer-divider {

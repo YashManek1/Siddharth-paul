@@ -519,13 +519,6 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
             </div>
           </div>
         </div>
-        <div className="gst-breakdown">
-          <div>Price: {base}/-</div>
-          <div>GST (18%): {gst}/-</div>
-          <div>
-            <b>Total Paid: {total}/-</b>
-          </div>
-        </div>
       </div>
     </div>
   );

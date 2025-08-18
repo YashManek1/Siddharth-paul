@@ -150,6 +150,18 @@
   box-shadow: 0 8px 36px rgba(129, 49, 167, 0.18);
 }
 
+/* Dark mode: match HeroSection dark gradient */
+[data-theme="dark"] .programs-section {
+  background: linear-gradient(
+      180deg,
+      rgba(157, 0, 255, 0.2) 0%,
+      rgba(157, 0, 255, 0.12) 30%,
+      rgba(157, 0, 255, 0.05) 60%,
+      rgba(157, 0, 255, 0) 100%
+    ),
+    var(--color-bg);
+}
+
 /* Responsive adjustments */
 @media (min-width: 1441px) {
   .programs-section {
@@ -210,16 +222,16 @@
     max-width: 1300px;
     padding: 0 30px;
   }
-  
+
   .programs-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 35px;
   }
-  
+
   .program-card {
     max-width: 400px;
   }
-  
+
   .programs-section::before {
     left: 2vw;
     width: 36vw;
@@ -430,3 +442,12 @@
     font-size: 1rem;
   }
 }
+
+@media (min-width: 1680px) {
+  /* Proportional top padding for ultra-wide screens */
+  .programs-section {
+    padding-top: 0px; /* scales with viewport height */
+  }
+}
+
+

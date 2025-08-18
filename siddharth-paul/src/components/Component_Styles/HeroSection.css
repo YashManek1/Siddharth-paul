@@ -1,3 +1,16 @@
+/* Cleaned hero styles — duplicates and unused/duplicated blocks removed.
+   Kept base rules and responsive adjustments, including 1440px and the
+   1680px scoped enhancements (only one copy) plus a new 1440–1679.98px
+   block which mirrors the 1680 layout proportionally. */
+
+:root {
+  /* placeholder variables used by the stylesheet; real values expected from site CSS */
+  --color-bg: #fff;
+  --color-accent: #9d00ff;
+  --color-text: #000;
+  --color-border: rgba(0, 0, 0, 0.08);
+}
+
 /* Base styles for hero section */
 .hero-section {
   position: relative;
@@ -183,46 +196,271 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 1440px) {
+
+/* Large desktop fallback (normal) */
+@media (min-width: 1440px) {
   .hero-section {
-    padding: 8px 15px 0 15px;
+    padding: 15px 40px 0 40px;
   }
 
   .hero-main-title {
-    font-size: 2.3rem;
-    padding-top: 3px;
+    font-size: 3.2rem;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    padding-top: 8px;
   }
 
   .sub-title {
-    font-size: 2.3rem;
+    font-size: 3.2rem;
+    word-spacing: 6px;
+  }
+
+  .features-list {
+    font-size: 1.1rem;
+    gap: 35px;
+    margin: 20px 0 0 0;
+  }
+
+  .features-list img {
+    height: 16px;
+  }
+
+  .video-container {
+    max-width: 1000px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    margin: 25px auto 0 auto;
+    border: 4px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+  }
+
+  .hero-section .benefits-list {
+    font-size: 1.1rem;
+    gap: 45px;
+    margin-top: 25px;
+  }
+
+  .hero-section .benefits-list img {
+    height: 22px;
+    width: 22px;
+  }
+
+  .access-now-btn {
+    padding: 16px 45px;
+    font-size: 1.3rem;
+    margin-top: 20px;
+    border-radius: 30px;
   }
 
   .hero-content {
-    max-width: 1000px;
+    max-width: 1200px;
   }
 
   .background-wave-left {
-    left: calc(50% - 400px - 18vw);
-    width: 32vw;
-    max-width: 450px;
-    bottom: 80px;
+    left: calc(50% - 500px - 20vw);
+    width: 35vw;
+    max-width: 500px;
+    bottom: 100px;
   }
 
   .background-wave-right {
-    right: calc(50% - 400px - 15vw);
-    width: 30vw;
-    max-width: 410px;
-    top: calc(50% + 120px);
+    right: calc(50% - 500px - 18vw);
+    width: 33vw;
+    max-width: 460px;
+    top: calc(50% + 140px);
   }
 
   .rocket-icon {
-    right: calc(50% - 350px - 8vw);
-    width: 210px;
-    top: calc(50% - 20px);
+    right: calc(50% - 450px - 10vw);
+    width: 240px;
+    top: calc(50% - 60px);
   }
 }
 
-@media (max-width: 1200px) {
+/* 1440–1679.98px: proportionally scaled variant of the 1680px layout
+   (structure and variables mirror the 1680 block but scaled to 1440). */
+@media (min-width: 1440px) {
+  :root {
+    /* scaled from 1680 range by factor 1440 / 1680 ≈ 0.857 */
+    --hero-pad-x: clamp(9px, 3.4vw, 68px);
+    --hero-pad-top: clamp(7px, 1.3vw, 20px);
+    --title-size: clamp(1.03rem, 1rem + 1.03vw, 2.49rem);
+    --subtitle-size: clamp(0.86rem, 0.77rem + 0.77vw, 1.89rem);
+    --features-font: clamp(0.6rem, 0.52rem + 0.26vw, 0.81rem);
+    --benefits-font: clamp(0.6rem, 0.52rem + 0.26vw, 0.81rem);
+    --features-gap: clamp(10px, 1.37vw, 24px);
+    --benefits-gap: clamp(10px, 1.7vw, 29px);
+    --video-max: clamp(257px, 44vw, 754px);
+    --video-radius: clamp(7px, 0.7vw, 10px);
+    --btn-font: clamp(0.81rem, 0.69rem + 0.34vw, 1.03rem);
+    --btn-pad-y: clamp(9px, 1.03vw, 12px);
+    --btn-pad-x: clamp(24px, 2.7vw, 41px);
+    --btn-radius: clamp(19px, 1.9vw, 24px);
+    --title-shadow: 0 2px 8px rgba(157, 0, 255, 0.12);
+    --subtitle-shadow: 0 2px 8px rgba(157, 0, 255, 0.07);
+  }
+
+  .hero-section {
+    background: linear-gradient(
+        180deg,
+        rgba(157, 0, 255, 0.08) 0%,
+        rgba(157, 0, 255, 0.1) 30%,
+        rgba(157, 0, 255, 0.15) 55%,
+        rgba(157, 0, 255, 0.2) 80%,
+        rgba(157, 0, 255, 0.25) 95%,
+        rgba(157, 0, 255, 0.25) 100%
+      ),
+      var(--color-bg);
+    padding: var(--hero-pad-top) var(--hero-pad-x) 0 var(--hero-pad-x);
+  }
+
+  .hero-content {
+    max-width: 1200px; /* slightly smaller than the 1680 variant */
+  }
+
+  .hero-main-title {
+    font-size: var(--title-size);
+    font-family: "Anton", sans-serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    color: #a000ff;
+    margin-top: 0;
+    margin-bottom: 8px;
+    padding-top: 2px;
+    text-shadow: var(--title-shadow);
+  }
+
+  .sub-title {
+    font-size: var(--title-size);
+    font-family: "Anton", sans-serif;
+    font-weight: 900;
+    word-spacing: 6px;
+    margin-bottom: 8px;
+    color: #17171d;
+    text-shadow: var(--subtitle-shadow);
+  }
+
+  .features-list {
+    font-size: var(--features-font);
+    gap: var(--features-gap);
+    margin: 14px 0 0 0;
+    color: #222;
+  }
+  .features-list img {
+    height: clamp(10px, 1vw, 14px);
+  }
+
+  .video-container {
+    margin: clamp(10px, 1vw, 16px) auto 0 auto;
+    max-width: var(--video-max);
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 4px solid var(--color-border);
+    border-radius: var(--video-radius);
+    background: #fff;
+    box-shadow: 0 10px 34px rgba(157, 0, 255, 0.12);
+  }
+
+  .video-container iframe,
+  .video-container embed,
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--video-radius);
+    background: #fff;
+  }
+
+  .hero-section .benefits-list {
+    font-size: var(--benefits-font);
+    gap: var(--benefits-gap);
+    margin-top: 14px;
+    margin-bottom: 0;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #222;
+  }
+  .hero-section .benefits-list img {
+    height: clamp(10px, 1.2vw, 17px);
+    width: clamp(10px, 1.2vw, 17px);
+  }
+
+  .access-now-btn {
+    padding: var(--btn-pad-y) var(--btn-pad-x);
+    font-size: var(--btn-font);
+    margin-top: clamp(12px, 1vw, 16px);
+    border-radius: var(--btn-radius);
+    background: linear-gradient(to right, #a000ff, #4b0082);
+    box-shadow: 0 10px 28px rgba(157, 0, 255, 0.18);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+  }
+
+  /* Decorative assets aligned to the scaled 1440 layout */
+  .background-wave-left {
+    left: calc(50% - 175px - 24vw);
+    width: 26vw;
+    max-width: 550px;
+    min-width: 260px;
+    bottom: clamp(1rem, 2vh, 1.5rem);
+    transform: scaleX(1.18) scaleY(1.06);
+  }
+
+  .background-wave-right {
+    right: calc(50% - 220px - 21vw);
+    width: 24vw;
+    max-width: 520px;
+    min-width: 240px;
+    top: 35%;
+    transform: scaleX(-1.18) scaleY(1.06);
+  }
+
+  .rocket-icon {
+    right: calc(50% - 270px - 8.6vw);
+    width: clamp(130px, 10.3vw, 188px);
+    top: 28%;
+    z-index: 1;
+  }
+
+  /* Dark mode tweaks for the 1440 range to preserve visual intent */
+  [data-theme="dark"] .hero-section {
+    background: linear-gradient(
+        180deg,
+        rgba(157, 0, 255, 0) 0%,
+        rgba(157, 0, 255, 0.05) 30%,
+        rgba(157, 0, 255, 0.12) 60%,
+        rgba(157, 0, 255, 0.2) 100%
+      ),
+      var(--color-bg);
+  }
+
+  [data-theme="dark"] .hero-main-title,
+  [data-theme="dark"] .sub-title,
+  [data-theme="dark"] .features-list,
+  [data-theme="dark"] .hero-section .benefits-list {
+    color: #ffffff;
+  }
+  [data-theme="dark"] .hero-main-title {
+    color: var(--color-accent) !important;
+  }
+
+  [data-theme="dark"] .video-container {
+    background: #000;
+    border-color: var(--color-border);
+    box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
+  }
+}
+
+@media (max-width: 1280px) {
   .hero-section {
     padding: 5px 15px 0 15px;
   }
@@ -234,19 +472,20 @@
   .background-wave-left {
     left: calc(50% - 350px - 13vw);
     width: 27vw;
-    bottom: 60px;
+    bottom: 100px;
   }
 
   .background-wave-right {
-    right: calc(50% - 350px - 10vw);
+    right: calc(50% - 380px - 10vw);
     width: 25vw;
-    top: calc(50% + 100px);
+    top: calc(30%);
   }
 
   .rocket-icon {
-    right: calc(50% - 300px - 4vw);
+    right: calc(50% - 335px - 4vw);
     width: 170px;
-    top: calc(50% - 10px);
+    top: calc(25% - 10px);
+    z-index: 1;
   }
 }
 
@@ -257,6 +496,11 @@
 
   .hero-main-title {
     padding-top: 2px;
+    font-size: 2.1rem;
+  }
+
+  .sub-title {
+    font-size: 1.6rem;
   }
 
   .background-wave-left {
@@ -279,14 +523,6 @@
     top: calc(50% + 10px);
   }
 
-  .hero-main-title {
-    font-size: 2.1rem;
-  }
-
-  .sub-title {
-    font-size: 1.6rem;
-  }
-
   .hero-section .benefits-list {
     font-size: 0.7rem;
     gap: 15px;
@@ -295,6 +531,18 @@
   .hero-section .benefits-list img {
     height: 12px;
     width: 12px;
+  }
+
+  .features-list {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.75rem;
+    margin: 8px 0 0 0;
+  }
+
+  .video-container {
+    max-width: 95%;
+    margin: 12px auto 0 auto;
   }
 }
 
@@ -503,160 +751,88 @@
   }
 }
 
-/* --- 1440px styles --- */
-@media (min-width: 1440px) {
+/* Scoped 1680px enhancements: tuned to 1680 design, limited range so larger screens fall back to 1440 styles */
+@media (min-width: 1680px) and (max-width: 1799.98px) {
+  :root {
+    /* Sizing scales (min -> fluid -> max) tuned to match 1680 design */
+    --hero-pad-x: clamp(10px, 4vw, 80px);
+    --hero-pad-top: clamp(8px, 1.5vw, 24px);
+    --title-size: clamp(1.2rem, 1rem + 1.2vw, 2.9rem);
+    --subtitle-size: clamp(1rem, 0.9rem + 0.9vw, 2.2rem);
+    --features-font: clamp(0.7rem, 0.6rem + 0.3vw, 0.95rem);
+    --benefits-font: clamp(0.7rem, 0.6rem + 0.3vw, 0.95rem);
+    --features-gap: clamp(12px, 1.6vw, 28px);
+    --benefits-gap: clamp(12px, 2vw, 34px);
+    --video-max: clamp(300px, 52vw, 880px);
+    --video-radius: clamp(8px, 0.8vw, 12px);
+    --btn-font: clamp(0.95rem, 0.8rem + 0.4vw, 1.2rem);
+    --btn-pad-y: clamp(10px, 1.2vw, 14px);
+    --btn-pad-x: clamp(28px, 3.2vw, 48px);
+    --btn-radius: clamp(22px, 2.2vw, 28px);
+    --title-shadow: 0 2px 8px rgba(157, 0, 255, 0.12);
+    --subtitle-shadow: 0 2px 8px rgba(157, 0, 255, 0.07);
+  }
+
   .hero-section {
-    padding: 15px 40px 0 40px;
+    background: linear-gradient(
+        180deg,
+        rgba(157, 0, 255, 0.08) 0%,
+        rgba(157, 0, 255, 0.1) 30%,
+        rgba(157, 0, 255, 0.12) 55%,
+        rgba(157, 0, 255, 0.15) 80%,
+        rgba(157, 0, 255, 0.22) 95%,
+        rgba(157, 0, 255, 0.25) 100%
+      ),
+      var(--color-bg);
+    padding: var(--hero-pad-top) var(--hero-pad-x) 0 var(--hero-pad-x);
+  }
+
+  .hero-content {
+    max-width: 1380px;
   }
 
   .hero-main-title {
-    font-size: 3.2rem;
+    font-size: var(--title-size);
+    font-family: "Anton", sans-serif;
+    font-weight: 900;
     letter-spacing: 2px;
     word-spacing: 6px;
-    padding-top: 8px;
-  }
-
-  .sub-title {
-    font-size: 3.2rem;
-    word-spacing: 6px;
-  }
-
-  .features-list {
-    font-size: 1.1rem;
-    gap: 35px;
-    margin: 20px 0 0 0;
-  }
-
-  .features-list img {
-    height: 16px;
-  }
-
-  .video-container {
-    max-width: 1000px;
-    aspect-ratio: 16 / 9;
-    height: auto;
-    margin: 25px auto 0 auto;
-    border: 4px solid var(--color-border);
-  }
-
-  .video-container iframe {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
-  }
-
-  .hero-section .benefits-list {
-    font-size: 1.1rem;
-    gap: 45px;
-    margin-top: 25px;
-  }
-
-  .hero-section .benefits-list img {
-    height: 22px;
-    width: 22px;
-  }
-
-  .access-now-btn {
-    padding: 16px 45px;
-    font-size: 1.3rem;
-    margin-top: 20px;
-    border-radius: 30px;
-  }
-
-  .hero-content {
-    max-width: 1200px;
-  }
-
-  .background-wave-left {
-    left: calc(50% - 500px - 20vw);
-    width: 35vw;
-    max-width: 500px;
-    bottom: 100px;
-  }
-
-  .background-wave-right {
-    right: calc(50% - 500px - 18vw);
-    width: 33vw;
-    max-width: 460px;
-    top: calc(50% + 140px);
-  }
-
-  .rocket-icon {
-    right: calc(50% - 450px - 10vw);
-    width: 240px;
-    top: calc(50% - 60px);
-  }
-}
-
-/*
-  IMPORTANT:
-  The 1680px enhancements are now limited to a narrow range so they DO NOT
-  apply on 1920px (Acer Nitro 5) or other larger screens.
-  1920px+ will fall back to the 1440px styles ("normal like before").
-*/
-@media (min-width: 1680px) and (max-width: 1799.98px) {
-  .hero-section {
-    padding: 60px 120px 0 120px;
-    background: linear-gradient(180deg, #f9f6ff 0%, #ede1fa 100%);
-    min-height: calc(100vh - 79px);
-  }
-
-  .hero-content {
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  .hero-main-title {
-    font-size: 4rem;
-    font-family: "Anton", sans-serif;
-    font-weight: 900;
-    letter-spacing: 2.5px;
-    word-spacing: 8px;
     color: #a000ff;
     margin-top: 0;
-    margin-bottom: 24px;
-    padding-top: 10px;
-    text-shadow: 0 2px 8px rgba(157, 0, 255, 0.12);
+    margin-bottom: 8px;
+    padding-top: 2px;
+    text-shadow: var(--title-shadow);
   }
 
   .sub-title {
-    font-size: 3rem;
+    font-size: var(--title-size);
     font-family: "Anton", sans-serif;
     font-weight: 900;
-    word-spacing: 8px;
-    margin-bottom: 16px;
+    word-spacing: 6px;
+    margin-bottom: 8px;
     color: #17171d;
-    text-shadow: 0 2px 8px rgba(157, 0, 255, 0.07);
+    text-shadow: var(--subtitle-shadow);
   }
 
   .features-list {
-    font-size: 1.25rem;
-    gap: 44px;
-    margin: 28px 0 0 0;
+    font-size: var(--features-font);
+    gap: var(--features-gap);
+    margin: 14px 0 0 0;
     color: #222;
   }
   .features-list img {
-    height: 22px;
+    height: clamp(12px, 1.2vw, 16px);
   }
 
   .video-container {
-    margin: 38px auto 0 auto;
-    max-width: 1150px;
+    margin: clamp(10px, 1.2vw, 16px) auto 0 auto;
+    max-width: var(--video-max);
     aspect-ratio: 16 / 9;
     height: auto;
-    border: 6px solid #a000ff;
-    border-radius: 18px;
+    border: 4px solid var(--color-border);
+    border-radius: var(--video-radius);
     background: #fff;
-    box-shadow: 0 12px 48px rgba(157, 0, 255, 0.12);
-    position: relative;
-    z-index: 3;
+    box-shadow: 0 10px 34px rgba(157, 0, 255, 0.12);
   }
 
   .video-container iframe,
@@ -664,74 +840,87 @@
   .video-container video {
     width: 100%;
     height: 100%;
-    border-radius: 18px;
+    border-radius: var(--video-radius);
     background: #fff;
   }
 
   .hero-section .benefits-list {
-    font-size: 1.2rem;
-    gap: 54px;
-    margin-top: 28px;
+    font-size: var(--benefits-font);
+    gap: var(--benefits-gap);
+    margin-top: 14px;
     margin-bottom: 0;
-    max-width: 1350px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     color: #222;
   }
   .hero-section .benefits-list img {
-    height: 26px;
-    width: 26px;
+    height: clamp(12px, 1.4vw, 20px);
+    width: clamp(12px, 1.4vw, 20px);
   }
 
   .access-now-btn {
-    padding: 24px 80px;
-    font-size: 2rem;
-    margin-top: 36px;
-    border-radius: 38px;
+    padding: var(--btn-pad-y) var(--btn-pad-x);
+    font-size: var(--btn-font);
+    margin-top: clamp(12px, 1.2vw, 16px);
+    border-radius: var(--btn-radius);
     background: linear-gradient(to right, #a000ff, #4b0082);
-    box-shadow: 0 10px 35px rgba(157, 0, 255, 0.19);
+    box-shadow: 0 10px 28px rgba(157, 0, 255, 0.18);
     text-transform: uppercase;
     font-weight: 900;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
   }
 
+  /* Decorative assets aligned to the 1680 layout; vw-based so they scale */
   .background-wave-left {
-    left: calc(50% - 650px - 28vw);
-    width: 38vw;
-    max-width: 760px;
-    min-width: 500px;
-    bottom: 44px;
-    z-index: 2;
-    pointer-events: none;
-    transform: scaleX(1.28) scaleY(1.12);
+    left: calc(50% - 300px - 28vw);
+    width: 30vw;
+    max-width: 640px;
+    min-width: 300px;
+    bottom: 100px;
+    transform: scaleX(1.2) scaleY(1.08);
   }
 
   .background-wave-right {
-    right: calc(50% - 650px - 26vw);
-    width: 36vw;
-    max-width: 720px;
-    min-width: 420px;
-    top: calc(50% + 210px);
-    z-index: 2;
-    pointer-events: none;
-    transform: scaleX(-1.28) scaleY(1.12);
+    right: calc(50% - 350px - 24vw);
+    width: 28vw;
+    max-width: 600px;
+    min-width: 280px;
+    top: 30%;
+    transform: scaleX(-1.2) scaleY(1.08);
   }
 
   .rocket-icon {
-    right: calc(50% - 650px - 14vw);
-    width: 330px;
-    top: calc(50% + 50px);
-    height: auto;
-    z-index: 3;
+    right: calc(50% - 370px - 10vw);
+    width: clamp(150px, 12vw, 220px);
+    top: 20%;
+    z-index: 1;
+  }
+
+  /* Dark mode tweaks for the 1680 range to preserve visual intent */
+  [data-theme="dark"] .hero-section {
+    background: linear-gradient(
+        180deg,
+        rgba(157, 0, 255, 0) 0%,
+        rgba(157, 0, 255, 0.05) 30%,
+        rgba(157, 0, 255, 0.12) 60%,
+        rgba(157, 0, 255, 0.2) 100%
+      ),
+      var(--color-bg);
+  }
+
+  [data-theme="dark"] .hero-main-title,
+  [data-theme="dark"] .sub-title,
+  [data-theme="dark"] .features-list,
+  [data-theme="dark"] .hero-section .benefits-list {
+    color: #ffffff;
+  }
+  [data-theme="dark"] .hero-main-title {
+    color: var(--color-accent) !important;
+  }
+  [data-theme="dark"] .video-container {
+    background: #000;
+    border-color: var(--color-border);
+    box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
   }
 }
-
-/* Optional: if you want to scale up again only on ultra-wide screens (not laptops) */
-/* Uncomment and tune if needed
-@media (min-width: 2200px) {
-  .hero-content { max-width: 1700px; }
-  .video-container { max-width: 1300px; }
-  .hero-main-title { font-size: 4.6rem; }
-  .sub-title { font-size: 3.4rem; }
-}
-*/
