@@ -133,9 +133,21 @@ body {
   z-index: 1002;
 }
 
+/* ===== Theme-toggle: mobile-friendly pill (REPLACED BASE STYLES) ===== */
+/* Base improvements (apply to all sizes) */
 .theme-toggle-btn {
-  padding: 4px 8px;
-  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* don't let it collapse when space is tight */
+  box-sizing: border-box;
+  height: 36px; /* comfortable pill height on desktop */
+  padding: 6px 10px; /* horizontal padding for the pill shape */
+  border-radius: 999px; /* fully rounded pill */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
   border: 1px solid var(--color-border);
   background: var(--color-card-bg);
   color: var(--color-text);
@@ -144,7 +156,6 @@ body {
   font-size: 11px;
   transition: all 0.2s;
   font-family: "Inter", sans-serif;
-  white-space: nowrap;
   position: relative;
   z-index: 1003;
   min-width: 45px;
@@ -211,7 +222,7 @@ body {
   width: 100%;
   background: var(--color-bg);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+  z-index: 1001; /* raised so it shows correctly below header but above page content */
   transform: translateY(-100%);
   transition: transform 0.3s ease;
   opacity: 0;
@@ -304,6 +315,7 @@ body {
     font-size: 14px;
     min-width: 60px;
     border-radius: 20px;
+    height: 40px;
   }
 
   .right-controls {
@@ -332,6 +344,7 @@ body {
   }
 }
 
+/* Mobile adjustments - common phone widths */
 @media screen and (max-width: 768px) {
   :root {
     --header-h: 56px;
@@ -366,14 +379,19 @@ body {
     position: relative;
     z-index: 1002;
     flex-shrink: 0;
+    align-items: center; /* ensure vertical centering for pill and hamburger */
   }
 
-  .theme-toggle-btn {
-    font-size: 10px;
-    padding: 3px 6px;
-    position: relative;
-    z-index: 1003;
-    min-width: 40px;
+  /* The previous small .theme-toggle-btn overrides removed in favor of the dedicated mobile rules below. */
+
+  /* Show mobile hamburger area on common mobile sizes */
+  .mobile-menu-container {
+    display: block;
+  }
+
+  /* Hide desktop nav on mobile */
+  .desktop-navbar {
+    display: none;
   }
 
   .hamburger-btn {
@@ -382,6 +400,7 @@ body {
     z-index: 1004;
     width: 28px;
     height: 28px;
+    margin-left: 4px;
   }
 
   .hamburger-line {
@@ -392,6 +411,14 @@ body {
   .mobile-navbar {
     top: var(--header-h);
   } /* was: 56px */
+
+  /* mobile-specific theme button sizing */
+  .theme-toggle-btn {
+    height: 30px; /* slightly smaller on mobile */
+    padding: 4px 8px;
+    font-size: 11px;
+    min-width: 44px; /* keep a minimum tappable size */
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -429,11 +456,24 @@ body {
     position: relative;
     z-index: 1002;
     flex-shrink: 0;
+    align-items: center;
   }
 
   .mobile-navbar {
     top: var(--header-h);
   } /* was: 50px */
+
+  /* Extra small phones adjustments for theme button */
+  .theme-toggle-btn {
+    height: 28px;
+    padding: 3px 6px;
+    font-size: 10px;
+    min-width: 40px;
+  }
+
+  .hamburger-btn {
+    margin-left: 6px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -471,11 +511,19 @@ body {
     position: relative;
     z-index: 1002;
     flex-shrink: 0;
+    align-items: center;
   }
 
   .mobile-navbar {
     top: var(--header-h);
   } /* was: 45px */
+
+  .theme-toggle-btn {
+    height: 24px;
+    padding: 2px 6px;
+    font-size: 9px;
+    min-width: 34px;
+  }
 }
 
 @media screen and (max-width: 280px) {
@@ -566,16 +614,6 @@ body {
     z-index: 1003;
   }
 
-  .theme-toggle-btn {
-    font-size: 7px;
-    padding: 1px 2px;
-    min-width: 25px;
-    position: relative;
-    z-index: 1003;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
   .hamburger-btn {
     width: 16px;
     height: 16px;
@@ -591,5 +629,12 @@ body {
 
   .mobile-navbar {
     top: 40px;
+  }
+
+  /* Fallback tiny theme button sizing */
+  .theme-toggle-btn {
+    font-size: 7px;
+    padding: 1px 2px;
+    min-width: 25px;
   }
 }

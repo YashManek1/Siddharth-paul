@@ -300,3 +300,58 @@
   border: 8px solid #9d00ff;
   box-shadow: 0 12px 48px rgba(157, 0, 255, 0.3);
 }
+
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  /* Tighten outer IG box for this tablet / small-desktop range */
+  .youtube-section {
+    --ig-box-width: 700px; /* tuned for 1024–1279 layouts */
+    min-height: auto !important; /* let section size to its content */
+    padding-bottom: 24px !important; /* remove large bottom gap */
+    padding-top: 80px; /* keep reasonable top spacing */
+    overflow: visible;
+  }
+
+  /* Keep the content centered but avoid extra vertical stretching */
+  .youtube-content {
+    align-items: flex-start;
+    padding-bottom: 0;
+  }
+
+  /* Prevent the outer embed container from adding extra bottom space */
+  .youtube-embed-container,
+  .youtube-embed-container.instagram-container {
+    margin-bottom: 0 !important;
+    max-height: none; /* allow inner scrolling to control height */
+  }
+
+  /* Limit visible widget height and ensure inner scrolling — no extra whitespace */
+  .instagram-scroll {
+    max-height: 640px; /* visible area before scrolling */
+    overflow-y: auto;
+    padding-bottom: 0;
+  }
+
+  /* Make sure the inner widget doesn't add bottom margins */
+  .instagram-scroll > * {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  /* Reduce CTA spacing so it doesn't create a large gap below the widget */
+  .youtube-access-btn {
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+
+  /* Tighten placeholder spacing if used */
+  .youtube-placeholder {
+    padding-bottom: 8px;
+    gap: 8px;
+  }
+
+  /* If decorative pseudo-elements exist, reduce their impact */
+  .youtube-section::before,
+  .youtube-section::after {
+    display: none;
+  }
+}

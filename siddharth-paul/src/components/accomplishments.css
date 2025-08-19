@@ -39,7 +39,7 @@
     180deg,
     var(--color-bg) 0%,
     rgba(128, 90, 213, 0.2) 50%,
-    rgba(157, 0, 255, 0.25)  100%
+    rgba(157, 0, 255, 0.25) 100%
   );
 }
 
@@ -634,5 +634,37 @@
   .accomplishment-img-proof {
     max-width: 240px;
     min-width: 180px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .accomplishment-section {
+    min-height: auto !important;
+    padding-bottom: 24px !important;
+    padding-top: 80px !important;
+  }
+
+  .accomplishment-grid {
+    margin-bottom: 0;
+  }
+
+  .accomplishment-row-bottom {
+    margin-top: 18px;
+    gap: 18px;
+  }
+
+  .accomplishment-video-box {
+    margin-bottom: 0;
+  }
+
+  .accomplishment-title {
+    margin-bottom: 12px;
+  }
+
+  .accomplishment-section::before,
+  .accomplishment-section::after {
+    top: auto;
+    bottom: 0;
+    display: block;
   }
 }

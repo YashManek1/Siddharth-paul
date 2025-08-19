@@ -924,3 +924,35 @@
     box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
   }
 }
+
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .background-wave-left {
+    bottom: 2%;
+  }
+  .rocket-icon {
+    top: 170px;
+  }
+  .background-wave-right {
+    top: 40%;
+  }
+  .hero-section {
+    min-height: auto !important;
+    padding-bottom: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .hero-content {
+    height: auto !important;
+    margin-bottom: 0;
+  }
+
+  .access-now-btn {
+    margin-bottom: 0 !important;
+    display: inline-block;
+  }
+  .video-container {
+    margin-bottom: 0;
+  }
+}
