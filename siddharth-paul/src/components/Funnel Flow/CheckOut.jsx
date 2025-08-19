@@ -138,22 +138,23 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
     return { base, gst, total, discount };
   };
 
-  // Submit form data before payment
-  const submitFormData = async () => {
+  // Submit form data to backend (Google Sheets endpoint)
+  const submitFormDataToSheets = async () => {
     try {
       await fetch("https://siddharth-paul.onrender.com/api/client-info", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          source: "checkout", // Differentiate from popup
+          source: "checkout",
           product: "Funnel Flow",
           amount: calculateTotalBreakdown().total,
           timestamp: new Date().toISOString(),
         }),
       });
     } catch (error) {
-      console.error("Error submitting form data:", error);
+      // Optionally log error, but don't block user
+      console.error("Error submitting to Google Sheets:", error);
     }
   };
 
@@ -161,19 +162,25 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
     e.preventDefault();
     const { total } = calculateTotalBreakdown();
 
-    // Submit form data first (before payment)
-    await submitFormData();
+    // Always submit form data to backend (Google Sheets) first
+    await submitFormDataToSheets();
 
     // 1. Create Razorpay order via backend
-    const res = await fetch(
-      "https://siddharth-paul.onrender.com/payment/create",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ totalAmount: total }),
-      }
-    );
-    const order = await res.json();
+    let order;
+    try {
+      const res = await fetch(
+        "https://siddharth-paul.onrender.com/payment/create",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ totalAmount: total }),
+        }
+      );
+      order = await res.json();
+    } catch (err) {
+      alert("Could not initiate payment. Please try again later.");
+      return;
+    }
 
     // 2. Check if Razorpay script is loaded
     if (!window.Razorpay) {
@@ -190,6 +197,7 @@ const FunnelFlowCheckout = ({ price, finalPrice, addons }) => {
       description: "Course Purchase",
       order_id: order.id,
       handler: async function (response) {
+        // On payment success, verify and store payment
         await fetch("https://siddharth-paul.onrender.com/payment/verify", {
           method: "POST",
           headers: { "Content-Type": "application/json" },

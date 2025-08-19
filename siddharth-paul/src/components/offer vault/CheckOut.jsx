@@ -134,15 +134,15 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
     return { base, gst, total, discount };
   };
 
-  // Submit form data before payment
-  const submitFormData = async () => {
+  // Always submit form data to backend (Google Sheets) before payment
+  const submitFormDataToSheets = async () => {
     try {
       await fetch("https://siddharth-paul.onrender.com/api/client-info", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          source: "checkout", // Differentiate from popup
+          source: "checkout",
           product: "Offer Vault",
           amount: calculateTotalBreakdown().total,
           timestamp: new Date().toISOString(),
@@ -158,7 +158,7 @@ const OfferVaultCheckout = ({ price, finalPrice, addons }) => {
     const { total } = calculateTotalBreakdown();
 
     // Submit form data first (before payment)
-    await submitFormData();
+    await submitFormDataToSheets();
 
     const res = await fetch(
       "https://siddharth-paul.onrender.com/payment/create",

@@ -137,22 +137,23 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
     return { base, gst, total, discount };
   };
 
-  // Submit form data before payment
-  const submitFormData = async () => {
+  // Always submit form data to backend (Google Sheets) before payment
+  const submitFormDataToSheets = async () => {
     try {
       await fetch("https://siddharth-paul.onrender.com/api/client-info", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          source: "checkout", // Differentiate from popup
+          source: "checkout",
           product: "Global Magnet",
           amount: calculateTotalBreakdown().total,
           timestamp: new Date().toISOString(),
         }),
       });
     } catch (error) {
-      console.error("Error submitting form data:", error);
+      // Optionally log error, but don't block user
+      console.error("Error submitting to Google Sheets:", error);
     }
   };
 
@@ -160,24 +161,33 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
     e.preventDefault();
     const { total } = calculateTotalBreakdown();
 
-    // Submit form data first (before payment)
-    await submitFormData();
+    // Always submit form data to backend (Google Sheets) first
+    await submitFormDataToSheets();
 
-    const res = await fetch(
-      "https://siddharth-paul.onrender.com/payment/create",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ totalAmount: total }),
-      }
-    );
-    const order = await res.json();
+    // 1. Create Razorpay order via backend
+    let order;
+    try {
+      const res = await fetch(
+        "https://siddharth-paul.onrender.com/payment/create",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ totalAmount: total }),
+        }
+      );
+      order = await res.json();
+    } catch (err) {
+      alert("Could not initiate payment. Please try again later.");
+      return;
+    }
 
+    // 2. Check if Razorpay script is loaded
     if (!window.Razorpay) {
       alert("Razorpay SDK failed to load. Please refresh and try again.");
       return;
     }
 
+    // 3. Open Razorpay modal
     const options = {
       key: "rzp_live_3FWTV5BEFo9CuJ",
       amount: order.amount,
@@ -520,7 +530,6 @@ const GlobalMagnetCheckout = ({ price, finalPrice, addons }) => {
             </div>
           </div>
         </div>
-       
       </div>
     </div>
   );
