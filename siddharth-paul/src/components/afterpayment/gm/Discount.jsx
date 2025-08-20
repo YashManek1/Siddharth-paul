@@ -17,7 +17,7 @@ const Discount = () => {
         {[...Array(5)].map((_, i) => (
           <div className="stat-item" key={i}>
             <span className="stat-text">
-              {discount ? `${discount} OFF` : "..."}
+              {discount ? `${discount}% OFF` : "..."}
             </span>
           </div>
         ))}

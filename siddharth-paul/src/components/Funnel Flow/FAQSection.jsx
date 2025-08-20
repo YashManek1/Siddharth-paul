@@ -37,8 +37,7 @@ const FAQSection = () => {
     },
   ];
 
-  // WhatsApp config for +91 8850614359 (wa.me requires no leading '+')
-  const WHATSAPP_PHONE = "918850614359"; // +91 8850614359
+  const WHATSAPP_PHONE = "918097542858"; 
   const WHATSAPP_DEFAULT_MESSAGE = "Hi, I need support regarding the course.";
   const encodedMessage = encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE);
   const waMeUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMessage}`;

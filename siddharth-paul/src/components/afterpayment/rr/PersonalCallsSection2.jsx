@@ -13,7 +13,7 @@ const PersonalCallsSection2 = () => {
     const fetchCourseData = async () => {
       try {
         const response = await fetch(
-          "https://siddharth-paul.onrender.com/courses/ROAS-Rocket"
+          "https://siddharth-paul.onrender.com/courses/Roas Rocket"
         );
         if (response.ok) {
           const data = await response.json();
@@ -27,8 +27,13 @@ const PersonalCallsSection2 = () => {
     fetchCourseData();
   }, []);
 
-  const price = courseData?.afterPaymentPrice || "2999";
-  const finalPrice = courseData?.afterPaymentPrice || "1499";
+  // Calculate price and finalPrice from API values (afterPaymentPrice & afterPaymentDiscount)
+  const apiPrice = Number(courseData?.afterPaymentPrice ?? 2999);
+  const apiDiscountPercent = Number(courseData?.afterPaymentDiscount ?? 0);
+  const price = apiPrice;
+  const finalPrice = Math.round(
+    apiPrice - Math.round((apiPrice * apiDiscountPercent) / 100)
+  );
 
   const scrollToCheckout = (e) => {
     e.preventDefault();

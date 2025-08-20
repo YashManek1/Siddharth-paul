@@ -5,7 +5,7 @@ import Congrats from "./congrats";
 import PersonalCallsSection from "./PersonalCallSection";
 import Discount from "./Discount";
 import PersonalCallsSection2 from "./PersonalCallsSection2";
-import OfferVaultUpsellCheckout from "../OfferVaultUpsellCheckout";
+import UnifiedUpsellCheckoutForm from "../UnifiedUpsellCheckoutForm";
 
 const Mainov = () => {
   // Function to handle skip - go to ThankYou directly
@@ -24,7 +24,12 @@ const Mainov = () => {
 
       {/* Add checkout component with id for scrollToCheckout to find */}
       <div id="upsell-checkout">
-        <OfferVaultUpsellCheckout />
+        <UnifiedUpsellCheckoutForm
+          courseApiName="Offer Vault"
+          productName="Offer Vault Upsell"
+          themeColor="#0066cc"
+          price={2999}
+        />
       </div>
 
       {/* Add skip option */}

@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../Component_Styles/UpsellCheckout.css";
 
-const UnifiedUpsellCheckoutForm = ({ courseApiName, themeColor = "#9932cc", productName }) => {
+const UnifiedUpsellCheckoutForm = ({
+  courseApiName,
+  themeColor = "#9932cc",
+  productName,
+  price = 2999,
+}) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -12,7 +17,7 @@ const UnifiedUpsellCheckoutForm = ({ courseApiName, themeColor = "#9932cc", prod
   const [coupon, setCoupon] = useState("");
   const [couponApplied, setCouponApplied] = useState(false);
   const [couponError, setCouponError] = useState("");
-  const [discountPercent, setDiscountPercent] = useState(0);
+  const [discountPercent, setDiscountPercent] = useState(0); // coupon %
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -75,20 +80,43 @@ const UnifiedUpsellCheckoutForm = ({ courseApiName, themeColor = "#9932cc", prod
   };
 
   const calculateTotalBreakdown = () => {
-    let base = Number(courseData?.afterPaymentFinalPrice || 0);
-    let discount = 0;
+    // If caller passed explicit `price` prop, use it.
+    // Otherwise calculate final price from API values:
+    // API provides afterPaymentPrice and afterPaymentDiscount (percent).
+    const apiPrice = Number(courseData?.afterPaymentPrice ?? 2999);
+    const apiDiscountPercent = Number(courseData?.afterPaymentDiscount ?? 0);
+
+    const apiFinalPrice = Math.round(
+      apiPrice - Math.round((apiPrice * apiDiscountPercent) / 100)
+    );
+    const finalPrice = apiFinalPrice;
+    // base is the price after API discount (finalPrice) but before coupon
+    let base = Number(finalPrice || 0);
+
+    // apply coupon discountPercent (if any)
+    let couponDiscount = 0;
     if (discountPercent > 0) {
-      discount = Math.round(base * (discountPercent / 100));
-      base = base - discount;
+      couponDiscount = Math.round((base * discountPercent) / 100);
+      base = base - couponDiscount;
     }
+
     const gst = Math.round(base * 0.18);
     const total = base + gst;
-    return { base, gst, total, discount };
+    return {
+      base,
+      gst,
+      total,
+      couponDiscount,
+      apiFinalPrice,
+      finalPrice,
+      apiPrice,
+      apiDiscountPercent,
+    };
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { total } = calculateTotalBreakdown();
+    const { total, finalPrice } = calculateTotalBreakdown();
 
     // Submit form data before payment
     await fetch("https://siddharth-paul.onrender.com/api/client-info", {
@@ -98,11 +126,12 @@ const UnifiedUpsellCheckoutForm = ({ courseApiName, themeColor = "#9932cc", prod
         ...formData,
         source: "upsell-checkout",
         product: productName,
-        originalPrice: courseData?.afterPaymentPrice,
-        finalPrice: courseData?.afterPaymentFinalPrice,
-        discountPercent: discountPercent,
+        originalPrice: courseData?.afterPaymentPrice || null,
+        finalPrice: finalPrice, // final price from API or prop (before coupon)
+        apiDiscountPercent: courseData?.afterPaymentDiscount ?? 0,
+        couponPercent: discountPercent,
         couponCode: couponApplied ? coupon : "",
-        amount: total,
+        amount: total, // final amount charged (after coupon + GST)
         timestamp: new Date().toISOString(),
       }),
     });
@@ -171,7 +200,16 @@ const UnifiedUpsellCheckoutForm = ({ courseApiName, themeColor = "#9932cc", prod
     );
   }
 
-  const { base, gst, total, discount } = calculateTotalBreakdown();
+  const {
+    base,
+    gst,
+    total,
+    couponDiscount,
+    apiFinalPrice,
+    finalPrice,
+    apiPrice,
+    apiDiscountPercent,
+  } = calculateTotalBreakdown();
 
   return (
     <div className="unified-upsell-checkout" id="upsell-checkout">
@@ -194,7 +232,7 @@ const UnifiedUpsellCheckoutForm = ({ courseApiName, themeColor = "#9932cc", prod
           <div className="upsell-right-section">
             <div className="upsell-form-container">
               <h3 className="upsell-form-title">
-                COMPLETE YOUR UPSELL - ₹{courseData?.afterPaymentFinalPrice || "4999"}/-
+                COMPLETE YOUR UPSELL - ₹{finalPrice || apiFinalPrice}/-
               </h3>
               <form onSubmit={handleSubmit} className="upsell-checkout-form">
                 <div className="upsell-form-row">
@@ -263,9 +301,7 @@ const UnifiedUpsellCheckoutForm = ({ courseApiName, themeColor = "#9932cc", prod
                     </button>
                   </div>
                   {couponError && (
-                    <div className="upsell-coupon-error">
-                      {couponError}
-                    </div>
+                    <div className="upsell-coupon-error">{couponError}</div>
                   )}
                   {couponApplied && (
                     <div className="upsell-coupon-success">
@@ -274,19 +310,21 @@ const UnifiedUpsellCheckoutForm = ({ courseApiName, themeColor = "#9932cc", prod
                   )}
                 </div>
                 <div className="upsell-total-section">
-                  {discount > 0 && (
+                  {couponDiscount > 0 && (
                     <div className="upsell-total-row">
                       <span className="upsell-total-label">
-                        <b>Discount ({discountPercent}%):</b>
+                        <b>Coupon Discount ({discountPercent}%):</b>
                       </span>
                       <span className="upsell-total-amount">
-                        <b>-₹{discount}/-</b>
+                        <b>-₹{couponDiscount}/-</b>
                       </span>
                     </div>
                   )}
                   <div className="upsell-total-row">
                     <span className="upsell-total-label">Subtotal:</span>
-                    <span className="upsell-total-amount">₹{base}/-</span>
+                    <span className="upsell-total-amount">
+                      ₹{finalPrice || apiFinalPrice}/-
+                    </span>
                   </div>
                   <div className="upsell-total-row">
                     <span className="upsell-total-label">GST (18%):</span>

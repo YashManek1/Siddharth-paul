@@ -5,7 +5,7 @@ import Congrats from "./congrats";
 import PersonalCallsSection from "./PersonalCallSection";
 import Discount from "./Discount";
 import PersonalCallsSection2 from "./PersonalCallsSection2";
-import GlobalMagnetUpsellCheckout from "../GlobalMagnetUpsellCheckout";
+import UnifiedUpsellCheckoutForm from "../UnifiedUpsellCheckoutForm";
 
 const Maingm = () => {
   // Function to handle skip - go to ThankYou directly
@@ -23,7 +23,12 @@ const Maingm = () => {
 
       {/* Add checkout component with id for scrollToCheckout to find */}
       <div id="upsell-checkout">
-        <GlobalMagnetUpsellCheckout />
+        <UnifiedUpsellCheckoutForm
+          courseApiName="Global-Magnet"
+          productName="Global Magnet Upsell"
+          themeColor="#9d00ff"
+          price={2999}
+        />
       </div>
 
       {/* Add skip option */}

@@ -1,50 +1,65 @@
+/* gm-hero.css
+   Adjusted to remove top spacing, increase video size on large screens,
+   and keep the three titles identical size via --gm-title-size.
+   Breakpoints: 1680, 1400, 1200, 1024, 900, 768, 650, 480, 375, 320
+*/
+
+/* Base / shared */
 .gm-hero-section {
   position: relative;
   text-align: center;
-  padding: 0 20px 0 20px;
-  background: linear-gradient(
-    180deg,
-    rgba(157, 0, 255, 0) 0%,
-    rgba(157, 0, 255, 0.03) 30%,
-    rgba(157, 0, 255, 0.08) 45%,
-    rgba(157, 0, 255, 0.15) 60%,
-    rgba(157, 0, 255, 0.22) 80%,
-    rgba(157, 0, 255, 0.25) 100%
-  ), var(--color-bg);
-  min-height: calc(100vh - 79px);
+  padding: 0 20px; /* remove vertical spacing by default */
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: visible;
+  background: var(--color-bg-secondary);
+  /* unified title size variable (default) */
+  --gm-title-size: 2rem;
+
+  /* video sizing -- overridden at breakpoints */
+  --gm-video-max: 600px;
+  --gm-video-radius: 8px;
+
+  /* small vertical tightening */
+  --gm-title-margin-bottom: 8px;
 }
 
-.gm-background-wave-left {
+/* Background visuals */
+.gm-background-wave-left,
+.gm-background-wave-right,
+.gm-rocket-icon {
   position: absolute;
-  bottom: 20px;
-  left: calc(50% - 350px - 18vw);
+  z-index: 2;
+  pointer-events: none;
+  transform-origin: center;
+}
+
+/* Left wave */
+.gm-background-wave-left {
+  top: 90px;
+  left: calc(50% - 330px - 18vw);
   width: 30vw;
   max-width: 420px;
   min-width: 300px;
-  z-index: 2;
-  pointer-events: none;
   transform: scaleX(1.2) scaleY(1.15);
+  rotate: 35deg;
 }
 
+/* Right wave (mirrored) */
 .gm-background-wave-right {
-  position: absolute;
-  top: calc(50% + 80px);
-  right: calc(50% - 350px - 15vw);
+  top: calc(50% + 40px);
+  right: calc(50% - 300px - 15vw);
   width: 28vw;
   max-width: 380px;
   min-width: 240px;
-  z-index: 2;
-  pointer-events: none;
   transform: scaleX(-1.2) scaleY(1.15);
+  rotate: 30deg;
 }
 
+/* Rocket */
 .gm-rocket-icon {
-  position: absolute;
   top: calc(50% - 60px);
   right: calc(50% - 300px - 8vw);
   width: 190px;
@@ -52,67 +67,80 @@
   z-index: 3;
 }
 
+/* Content container */
 .gm-hero-content {
   position: relative;
   z-index: 3;
   max-width: 900px;
-  margin: 0 auto;
   width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+
+  /* remove extra top padding to eliminate space above */
+  padding-top: 0;
 }
 
+/* Typography - grouped for consistency */
 .gm-hero-subtitle {
   color: var(--color-accent);
-  font-size: 1rem;
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  margin: 0 0 10px 0;
+  font-size: 1.05rem; /* slightly reduced baseline */
+  margin: 0 0 8px 0;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.gm-hero-main-title {
+/* Shared title styles (now unified size via variable) */
+.gm-hero-main-title,
+.gm-sub-title,
+.gm-additional-title {
   color: var(--color-text);
-  font-size: 2rem;
   font-family: "Anton", sans-serif;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  margin: 0;
-  word-spacing: 4px;
   text-transform: uppercase;
+  margin: 0; /* zero margins to remove vertical gaps */
+  padding: 0;
+  line-height: 1.03;
+  word-spacing: 3px;
+
+  /* unified size for all three headings */
+  font-size: var(--gm-title-size);
+}
+
+/* spacing after titles — using a small gap variable */
+.gm-hero-main-title + .gm-sub-title,
+.gm-sub-title + .gm-additional-title {
+  margin-top: 6px;
+}
+
+/* keep letter-spacing & word-spacing specifics for main-title if desired */
+.gm-hero-main-title {
+  letter-spacing: 1.5px;
+  word-spacing: 4px;
 }
 
 .gm-sub-title {
-  color: var(--color-text);
-  font-size: 2rem;
-  font-family: "Anton", sans-serif;
-  font-weight: 700;
   word-spacing: 4px;
-  margin: 5px 0;
-  text-transform: uppercase;
 }
 
 .gm-additional-title {
   color: #000;
-  font-size: 1.5rem;
-  font-family: "Anton", sans-serif;
-  font-weight: 700;
-  word-spacing: 3px;
-  margin: 5px 0 20px 0;
-  text-transform: uppercase;
+  margin-top: 6px;
+  margin-bottom: 12px;
 }
 
+/* Features list */
 .gm-features-list {
   display: flex;
   justify-content: center;
-  gap: 22px;
+  gap: 18px;
   font-weight: 500;
   font-size: 0.85rem;
-  margin: 14px 0 0 0;
+  margin: 10px 0 0;
 }
 
 .gm-features-list span {
@@ -123,27 +151,33 @@
 
 .gm-features-list img {
   height: 12px;
+  display: inline-block;
 }
 
+/* Video container */
 .gm-video-container {
-  margin: 18px auto 0 auto;
+  margin: 12px auto 0;
   width: 100%;
-  max-width: 600px;
+  max-width: var(--gm-video-max);
   aspect-ratio: 16 / 9;
   background-color: #000;
   border: 3px solid #333;
-  border-radius: 8px;
+  border-radius: var(--gm-video-radius);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   position: relative;
   z-index: 3;
+  overflow: hidden;
 }
 
 .gm-video-container iframe {
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: calc(var(--gm-video-radius) - 2px);
+  border: 0;
+  display: block;
 }
 
+/* Benefits list */
 .gm-benefits-list {
   display: flex;
   justify-content: center;
@@ -152,11 +186,11 @@
   font-family: "Inter", sans-serif;
   font-weight: 600;
   margin-top: 8px;
-  margin-bottom: 0;
   align-items: center;
-  max-width: 600px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  color: #a400ff;
 }
 
 .gm-benefits-list span {
@@ -168,8 +202,10 @@
 .gm-benefits-list img {
   height: 14px;
   width: 14px;
+  display: inline-block;
 }
 
+/* CTA button */
 .gm-access-now-btn {
   display: inline-block;
   background: linear-gradient(to right, #8a2be2, #4b0082);
@@ -180,269 +216,304 @@
   font-size: 1.1rem;
   font-weight: 600;
   margin-top: 14px;
-  transition: transform 0.2s ease;
-  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+  transition: transform 0.18s ease;
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.35);
   text-transform: uppercase;
   letter-spacing: 1px;
   align-self: center;
 }
 
 .gm-access-now-btn:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-  .gm-background-wave-left {
-    left: calc(50% - 320px - 15vw);
-    width: 27vw;
-  }
-
-  .gm-background-wave-right {
-    right: calc(50% - 320px - 12vw);
-    width: 25vw;
-  }
-
-  .gm-rocket-icon {
-    right: calc(50% - 280px - 6vw);
-    width: 170px;
-  }
-}
-
-@media (max-width: 900px) {
-  .gm-background-wave-left {
-    left: calc(50% - 280px - 12vw);
-    width: 25vw;
-    min-width: 250px;
-  }
-
-  .gm-background-wave-right {
-    right: calc(50% - 280px - 10vw);
-    width: 22vw;
-    min-width: 200px;
-  }
-
-  .gm-rocket-icon {
-    right: calc(50% - 250px - 4vw);
-    width: 150px;
-  }
-
-  .gm-hero-main-title {
-    font-size: 1.8rem;
-  }
-
-  .gm-sub-title {
-    font-size: 1.8rem;
-  }
-
-  .gm-additional-title {
-    font-size: 1.3rem;
-  }
-
-  .gm-benefits-list {
-    font-size: 0.7rem;
-    gap: 15px;
-  }
-
-  .gm-benefits-list img {
-    height: 12px;
-    width: 12px;
-  }
-}
-
-@media (max-width: 768px) {
-  .gm-hero-section {
-    padding: 0 15px;
-    min-height: calc(100vh - 70px);
-  }
-
-  .gm-hero-subtitle {
-    font-size: 0.9rem;
-  }
-
-  .gm-hero-main-title {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-    word-spacing: 2px;
-  }
-
-  .gm-sub-title {
-    font-size: 1.5rem;
-    word-spacing: 2px;
-  }
-
-  .gm-additional-title {
-    font-size: 1.1rem;
-    word-spacing: 2px;
-  }
-
-  .gm-features-list {
-    flex-direction: column;
-    gap: 8px;
-    font-size: 0.75rem;
-    margin: 12px 0 0 0;
-  }
-
-  .gm-video-container {
-    max-width: 95%;
-    margin: 15px auto 0 auto;
-  }
-
-  .gm-benefits-list {
-    flex-direction: column;
-    gap: 8px;
-    font-size: 0.7rem;
-    margin-top: 12px;
-  }
-
-  .gm-access-now-btn {
-    padding: 10px 28px;
-    font-size: 1rem;
-    margin-top: 16px;
-  }
-
-  .gm-background-wave-left,
-  .gm-background-wave-right {
-    display: none;
-  }
-
-  .gm-rocket-icon {
-    display: none;
-  }
-}
-
-@media (max-width: 650px) {
-  .gm-hero-section {
-    padding: 0 10px 0 10px;
-  }
-
-  .gm-background-wave-left {
-    left: calc(50% - 220px - 10vw);
-    width: 30vw;
-    min-width: 200px;
-  }
-
-  .gm-background-wave-right {
-    right: calc(50% - 220px - 8vw);
-    width: 28vw;
-    min-width: 180px;
-  }
-
-  .gm-rocket-icon {
-    right: calc(50% - 200px - 2vw);
-    width: 130px;
-  }
-
-  .gm-hero-main-title {
-    font-size: 1.6rem;
-  }
-
-  .gm-sub-title {
-    font-size: 1.6rem;
-  }
-
-  .gm-additional-title {
-    font-size: 1.2rem;
-  }
-
-  .gm-benefits-list {
-    font-size: 0.6rem;
-    gap: 12px;
-  }
-
-  .gm-benefits-list img {
-    height: 10px;
-    width: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .gm-hero-section {
-    padding: 0 10px;
-    min-height: calc(100vh - 60px);
-  }
-
-  .gm-hero-subtitle {
-    font-size: 0.8rem;
-  }
-
-  .gm-hero-main-title {
-    font-size: 1.3rem;
-    letter-spacing: 0.5px;
-    word-spacing: 1px;
-  }
-
-  .gm-sub-title {
-    font-size: 1.3rem;
-    word-spacing: 1px;
-  }
-
-  .gm-additional-title {
-    font-size: 1rem;
-    word-spacing: 1px;
-  }
-
-  .gm-features-list {
-    font-size: 0.7rem;
-    gap: 6px;
-  }
-
-  .gm-video-container {
-    max-width: 100%;
-    margin: 12px auto 0 auto;
-  }
-
-  .gm-benefits-list {
-    font-size: 0.65rem;
-    gap: 6px;
-  }
-
-  .gm-access-now-btn {
-    padding: 8px 24px;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-  }
-}
-
-@media (max-width: 320px) {
-  .gm-hero-section {
-    padding: 0 8px;
-  }
-
-  .gm-hero-subtitle {
-    font-size: 0.7rem;
-  }
-
-  .gm-hero-main-title {
-    font-size: 1.1rem;
-  }
-
-  .gm-sub-title {
-    font-size: 1.1rem;
-  }
-
-  .gm-additional-title {
-    font-size: 0.9rem;
-  }
-
-  .gm-features-list {
-    font-size: 0.65rem;
-  }
-
-  .gm-benefits-list {
-    font-size: 0.6rem;
-  }
-
-  .gm-access-now-btn {
-    padding: 6px 20px;
-    font-size: 0.8rem;
-  }
-}
-
-/* Dark mode styles */
+/* Dark mode: consolidated */
 [data-theme="dark"] .gm-hero-subtitle,
 [data-theme="dark"] .gm-hero-main-title,
 [data-theme="dark"] .gm-sub-title,
 [data-theme="dark"] .gm-additional-title {
   color: #ffffff;
+}
+
+/* ------------------------
+   Responsive breakpoints
+   ------------------------ */
+
+/* Very large screens (>=1680px) — remove top space and increase video & title scales */
+@media (min-width: 1680px) {
+  .gm-hero-section {
+    --gm-title-size: 2.4rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    --gm-video-max: clamp(760px, 60vw, 1100px);
+    --gm-video-radius: 12px;
+  }
+
+  .gm-background-wave-left {
+    left: calc(50% - 420px - 18vw);
+    width: 28vw;
+    max-width: 520px;
+    min-width: 360px;
+    bottom: 40px;
+  }
+  .gm-background-wave-right {
+    right: calc(50% - 470px - 15vw);
+    width: 26vw;
+    max-width: 480px;
+    min-width: 320px;
+    top: 55%;
+  }
+  .gm-rocket-icon {
+    right: calc(50% - 450px - 9vw);
+    width: 220px;
+    top: 38%;
+    z-index: 1;
+  }
+
+  /* tighten title spacing on very large screens */
+  .gm-hero-subtitle {
+    margin-bottom: 6px;
+  }
+  .gm-hero-main-title,
+  .gm-sub-title,
+  .gm-additional-title {
+    line-height: 1.02;
+  }
+  .gm-benefits-list {
+    font-size: 0.9rem;
+    gap: 24px;
+  }
+  .gm-benefits-list img {
+    width: 40px; /* desired pixel size */
+    height: auto; /* preserve aspect ratio */
+    display: inline-block;
+    vertical-align: middle; /* align with text baseline */
+    margin-right: 1px; /* small gap between icon and text */
+  }
+}
+
+/* Large desktops (~1400px) */
+@media (max-width: 1400px) {
+  .gm-hero-section {
+    --gm-title-size: 2rem;
+    --gm-video-max: clamp(560px, 52vw, 900px);
+    --gm-video-radius: 10px;
+  }
+
+  .gm-background-wave-left {
+    left: calc(50% - 360px - 16vw);
+    width: 26vw;
+    max-width: 460px;
+  }
+  .gm-background-wave-right {
+    right: calc(50% - 360px - 14vw);
+    width: 24vw;
+    max-width: 420px;
+  }
+  .gm-rocket-icon {
+    right: calc(50% - 320px - 7vw);
+    width: 190px;
+  }
+}
+
+/* Wide desktops / laptops (~1200px) */
+@media (max-width: 1200px) {
+  .gm-hero-section {
+    --gm-title-size: 2rem;
+    --gm-video-max: 540px;
+  }
+
+  .gm-background-wave-left {
+    left: calc(50% - 320px - 14vw);
+    width: 24vw;
+    min-width: 300px;
+  }
+  .gm-background-wave-right {
+    right: calc(50% - 320px - 12vw);
+    width: 22vw;
+    min-width: 240px;
+  }
+  .gm-rocket-icon {
+    right: calc(50% - 290px - 6vw);
+    width: 170px;
+  }
+  .gm-video-container {
+    max-width: var(--gm-video-max);
+  }
+}
+
+/* Medium screens / tablets landscape (<=1024px) */
+@media (max-width: 1024px) {
+  .gm-hero-section {
+    padding: 0 18px;
+    min-height: calc(100vh - 72px);
+    --gm-title-size: 1.6rem;
+    --gm-video-max: 520px;
+  }
+
+  .gm-background-wave-left,
+  .gm-background-wave-right {
+    width: 25vw;
+    min-width: 240px;
+  }
+  .gm-rocket-icon {
+    width: 150px;
+    right: calc(50% - 260px - 4vw);
+  }
+  .gm-hero-subtitle {
+    font-size: 1rem;
+  }
+  .gm-features-list {
+    gap: 12px;
+    font-size: 0.8rem;
+  }
+  .gm-video-container {
+    max-width: var(--gm-video-max);
+  }
+  .gm-benefits-list {
+    gap: 12px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Narrow laptops / small desktops (~900px) */
+@media (max-width: 900px) {
+  .gm-hero-section {
+    --gm-title-size: 1.5rem;
+    --gm-video-max: 480px;
+  }
+
+  .gm-background-wave-left {
+    left: calc(50% - 280px - 12vw);
+    width: 25vw;
+    min-width: 240px;
+  }
+  .gm-background-wave-right {
+    right: calc(50% - 280px - 10vw);
+    width: 22vw;
+    min-width: 200px;
+  }
+  .gm-rocket-icon {
+    right: calc(50% - 250px - 4vw);
+    width: 140px;
+  }
+  .gm-benefits-list {
+    font-size: 0.7rem;
+  }
+}
+
+/* Tablets (<=768px) */
+@media (max-width: 768px) {
+  .gm-hero-section {
+    padding: 0 15px;
+    min-height: calc(100vh - 70px);
+    --gm-title-size: 1.5rem;
+    --gm-video-max: 460px;
+  }
+
+  .gm-features-list,
+  .gm-benefits-list {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.75rem;
+  }
+  .gm-video-container {
+    max-width: var(--gm-video-max);
+    margin: 12px auto 0;
+  }
+  .gm-access-now-btn {
+    padding: 10px 28px;
+    font-size: 1rem;
+    margin-top: 14px;
+  }
+  /* hide heavy decorations on small tablets to reduce overlap */
+  .gm-background-wave-left,
+  .gm-background-wave-right,
+  .gm-rocket-icon {
+    display: none;
+  }
+}
+
+/* Small tablets / large phones (~650px) */
+@media (max-width: 650px) {
+  .gm-hero-section {
+    padding: 0 12px;
+    --gm-title-size: 1.35rem;
+    --gm-video-max: 420px;
+  }
+
+  .gm-benefits-list {
+    font-size: 0.65rem;
+    gap: 10px;
+  }
+  .gm-access-now-btn {
+    padding: 9px 24px;
+  }
+}
+
+/* Small phones (<=480px) */
+@media (max-width: 480px) {
+  .gm-hero-section {
+    padding: 0 10px;
+    min-height: calc(100vh - 60px);
+    --gm-title-size: 1.15rem;
+    --gm-video-max: 360px;
+  }
+
+  .gm-hero-subtitle {
+    font-size: 0.85rem;
+  }
+  .gm-features-list {
+    gap: 6px;
+    font-size: 0.7rem;
+  }
+  .gm-video-container {
+    max-width: var(--gm-video-max);
+    margin: 10px auto 0;
+  }
+  .gm-access-now-btn {
+    padding: 8px 20px;
+    font-size: 0.92rem;
+    letter-spacing: 0.4px;
+  }
+}
+
+/* Very small phones (<=375px) */
+@media (max-width: 375px) {
+  .gm-hero-section {
+    --gm-title-size: 1.05rem;
+    --gm-video-max: 320px;
+  }
+
+  .gm-hero-subtitle {
+    font-size: 0.78rem;
+  }
+  .gm-features-list,
+  .gm-benefits-list {
+    font-size: 0.65rem;
+  }
+  .gm-access-now-btn {
+    padding: 7px 18px;
+    font-size: 0.88rem;
+  }
+}
+
+/* Extremely small (<=320px) */
+@media (max-width: 320px) {
+  .gm-hero-section {
+    padding: 0 8px;
+    --gm-title-size: 1rem;
+    --gm-video-max: 300px;
+  }
+  .gm-hero-subtitle {
+    font-size: 0.7rem;
+  }
+  .gm-features-list,
+  .gm-benefits-list {
+    font-size: 0.6rem;
+  }
+  .gm-access-now-btn {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+  }
 }

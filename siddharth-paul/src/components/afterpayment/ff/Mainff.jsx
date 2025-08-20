@@ -5,7 +5,7 @@ import Congrats from "./congrats";
 import PersonalCallsSection from "./PersonalCallSection";
 import Discount from "./Discount";
 import PersonalCallsSection2 from "./PersonalCallsSection2";
-import FunnelFlowUpsellCheckout from "../FunnelFlowUpsellCheckout";
+import UnifiedUpsellCheckoutForm from "../UnifiedUpsellCheckoutForm";
 
 const Mainff = () => {
   // Function to handle skip - go to ThankYou directly
@@ -24,7 +24,12 @@ const Mainff = () => {
 
       {/* Add checkout component with id for scrollToCheckout to find */}
       <div id="upsell-checkout">
-        <FunnelFlowUpsellCheckout />
+        <UnifiedUpsellCheckoutForm
+          courseApiName="Funnel Flow"
+          productName="Funnel Flow Upsell"
+          themeColor="#0077b6"
+          price={2999}
+        />
       </div>
 
       {/* Add skip option */}

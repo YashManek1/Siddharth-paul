@@ -10,7 +10,7 @@ import refundIcon from "../../../assets/refund-icon.svg";
 import refundIconDark from "../../../assets/refund-icon-darkmode.svg";
 import rocketIcon from "../../../assets/rocket-icon.svg";
 import backgroundWave from "../../../assets/background-wave.svg";
-import backgroundWave2 from "../../../assets/background-wave-2-new.svg";
+import backgroundWave2 from "../../../assets/bg-wave.svg";
 import { useTheme } from "../../../contexts/ThemeContext";
 
 const Congrats = () => {

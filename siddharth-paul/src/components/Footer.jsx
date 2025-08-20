@@ -25,7 +25,7 @@ const Footer = () => {
         <a href="/refund-policy">Refund Policy</a>
         <span className="footer-separator">•</span>
         <a href="#" onClick={handleSupportClick}>
-          Support
+          Subscribe
         </a>
       </div>
       <Popup isOpen={showPopup} onClose={handleClose} userIdentifier={null} />

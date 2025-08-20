@@ -5,7 +5,7 @@ import Congrats from "./congrats";
 import PersonalCallsSection from "./PersonalCallSection";
 import Discount from "./Discount";
 import PersonalCallsSection2 from "./PersonalCallsSection2";
-import PitchMasteryUpsellCheckout from "../PitchMasteryUpsellCheckout";
+import UnifiedUpsellCheckoutForm from "../UnifiedUpsellCheckoutForm";
 
 const Mainpm = () => {
   // Function to handle skip - go to ThankYou directly
@@ -24,7 +24,12 @@ const Mainpm = () => {
 
       {/* Add checkout component with id for scrollToCheckout to find */}
       <div id="upsell-checkout">
-        <PitchMasteryUpsellCheckout />
+        <UnifiedUpsellCheckoutForm
+          courseApiName="Pitch Mastery"
+          productName="Pitch Mastery Upsell"
+          themeColor="#ff6f00"
+          price={2999}
+        />
       </div>
 
       {/* Add skip option */}

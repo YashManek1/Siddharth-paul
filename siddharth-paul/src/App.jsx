@@ -10,8 +10,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import ContactUs from "./pages/ContactUs";
 import RefundPolicy from "./pages/RefundPolicy";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+// Header/Footer are imported by page components where needed
 import Maingm from "./components/afterpayment/gm/Maingm";
 import Mainov from "./components/afterpayment/ov/Maingov";
 import Mainrr from "./components/afterpayment/rr/Mainrr";
@@ -20,19 +19,12 @@ import Mainff from "./components/afterpayment/ff/Mainff";
 import Congrats from "./components/afterpayment/gm/congrats.jsx";
 import Popup from "./components/Popup";
 import FinalThankYou from "./components/afterpayment/FinalThankYou";
-import FunnelFlowUpsellCheckout from "./components/afterpayment/FunnelFlowUpsellCheckout";
-import GlobalMagnetUpsellCheckout from "./components/afterpayment/GlobalMagnetUpsellCheckout";
-import RoasRocketUpsellCheckout from "./components/afterpayment/RoasRocketUpsellCheckout";
-import OfferVaultUpsellCheckout from "./components/afterpayment/OfferVaultUpsellCheckout";
-import PitchMasteryUpsellCheckout from "./components/afterpayment/PitchMasteryUpsellCheckout";
-import ProtectedRoute from "./components/ProtectedRoute";
+// ProtectedRoute not used here
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
-  const [hasCompletedForm, setHasCompletedForm] = useState(false);
   const [isCheckingStatus, setIsCheckingStatus] = useState(true);
   const [userIdentifier, setUserIdentifier] = useState("");
-  const [scrollCount, setScrollCount] = useState(0);
 
   // Generate or get user identifier
   const generateUserIdentifier = () => {
@@ -93,7 +85,6 @@ function App() {
 
       if (popupCancelled === "true" || popupSubmitted === "true") {
         // User has cancelled or submitted before, don't show popup again
-        setHasCompletedForm(true);
         setShowPopup(false);
         setIsCheckingStatus(false);
         return;
@@ -103,12 +94,10 @@ function App() {
       const hasSubmitted = await checkFormStatus(identifier);
 
       if (hasSubmitted) {
-        setHasCompletedForm(true);
         setShowPopup(false);
         setIsCheckingStatus(false);
         localStorage.setItem("popupSubmitted", "true");
       } else {
-        setHasCompletedForm(true); // Allow access to site
         setIsCheckingStatus(false);
         // Popup will be triggered by scroll logic
       }
@@ -134,6 +123,7 @@ function App() {
     let lastScrollY = window.scrollY;
     let scrollThreshold = 150; // Minimum scroll distance to count as a "scroll"
     const targetScrolls = Math.floor(Math.random() * 2) + 5; // Random between 5-6 scrolls
+    let localScrollCounter = 0;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -141,19 +131,14 @@ function App() {
 
       // Only count significant scrolls (more than threshold pixels)
       if (scrollDifference > scrollThreshold) {
-        setScrollCount((prevCount) => {
-          const newCount = prevCount + 1;
-          console.log(`Scroll count: ${newCount}/${targetScrolls}`);
+        localScrollCounter += 1;
+        console.log(`Scroll count: ${localScrollCounter}/${targetScrolls}`);
 
-          // Show popup after 5-6 scrolls (only once)
-          if (newCount >= targetScrolls && !showPopup) {
-            setShowPopup(true);
-            document.body.classList.add("sp-popup-open");
-            return newCount;
-          }
-
-          return newCount;
-        });
+        // Show popup after 5-6 scrolls (only once)
+        if (localScrollCounter >= targetScrolls && !showPopup) {
+          setShowPopup(true);
+          document.body.classList.add("sp-popup-open");
+        }
 
         lastScrollY = currentScrollY;
       }
@@ -232,46 +217,11 @@ function App() {
           <Route path="/terms-of-use" element={<TermsOfUse />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
-          <Route
-            path="/afterpaymentgm"
-            element={
-              <ProtectedRoute>
-                <Maingm />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/afterpaymentov"
-            element={
-              <ProtectedRoute>
-                <Mainov />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/afterpaymentrr"
-            element={
-              <ProtectedRoute>
-                <Mainrr />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/afterpaymentpm"
-            element={
-              <ProtectedRoute>
-                <Mainpm />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/afterpaymentff"
-            element={
-              <ProtectedRoute>
-                <Mainff />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/afterpaymentgm" element={<Maingm />} />
+          <Route path="/afterpaymentov" element={<Mainov />} />
+          <Route path="/afterpaymentrr" element={<Mainrr />} />
+          <Route path="/afterpaymentpm" element={<Mainpm />} />
+          <Route path="/afterpaymentff" element={<Mainff />} />
           <Route path="/congrats" element={<Congrats />} />
           <Route path="/final-thankyou" element={<FinalThankYou />} />{" "}
           {/* <-- Add this line */}

@@ -201,7 +201,7 @@
 }
 
 .upsell-total-section {
-  background: linear-gradient(135deg, #666 0%, #555 100%);
+  background: linear-gradient(135deg, #f1f0f0 );
   border-radius: 10px;
   padding: 15px 20px;
   margin: 20px 0;
@@ -345,7 +345,7 @@
 }
 
 .upsell-final-total {
-  background: #222;
+  background: #adadad;
   color: #fff;
   font-weight: bold;
   font-size: 1.3em;

@@ -5,7 +5,7 @@ import Congrats from "./congrats";
 import PersonalCallsSection from "./PersonalCallSection";
 import Discount from "./Discount";
 import PersonalCallsSection2 from "./PersonalCallsSection2";
-import RoasRocketUpsellCheckout from "../RoasRocketUpsellCheckout";
+import UnifiedUpsellCheckoutForm from "../UnifiedUpsellCheckoutForm";
 
 const Mainrr = () => {
   // Function to handle skip - go to ThankYou directly
@@ -24,7 +24,12 @@ const Mainrr = () => {
 
       {/* Add checkout component with id for scrollToCheckout to find */}
       <div id="upsell-checkout">
-        <RoasRocketUpsellCheckout />
+        <UnifiedUpsellCheckoutForm
+          courseApiName="Roas Rocket"
+          productName="Roas Rocket Upsell"
+          themeColor="#00a86b"
+          price={2999}
+        />
       </div>
 
       {/* Add skip option */}

@@ -29,8 +29,13 @@ const PersonalCallsSection2 = () => {
     window.location.href = "/final-thankyou";
   };
 
-  const price = courseData?.afterPaymentPrice || "4999";
-  const finalPrice = courseData?.afterPaymentFinalPrice || "4999";
+  // Calculate price and finalPrice from API values (afterPaymentPrice & afterPaymentDiscount)
+  const apiPrice = Number(courseData?.afterPaymentPrice ?? 4999);
+  const apiDiscountPercent = Number(courseData?.afterPaymentDiscount ?? 0);
+  const price = apiPrice;
+  const finalPrice = Math.round(
+    apiPrice - Math.round((apiPrice * apiDiscountPercent) / 100)
+  );
 
   return (
     <section className="personal-calls-main-section">
