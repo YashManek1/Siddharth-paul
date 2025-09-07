@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link
 import "./Footer.css";
 import Popup from "./Popup"; // Import the actual popup
 
@@ -16,13 +17,15 @@ const Footer = () => {
     <footer className="site-footer">
       <div className="footer-divider" />
       <div className="footer-links">
-        <a href="/privacy-policy">Privacy Policy</a>
+        <Link to="/privacy-policy">Privacy Policy</Link>
         <span className="footer-separator">•</span>
-        <a href="/terms-of-use">Terms of Use</a>
+        <Link to="/terms-of-use">Terms of Use</Link>
         <span className="footer-separator">•</span>
-        <a href="/contact-us">Contact Us</a>
+        <Link to="/contact-us">Contact Us</Link>
         <span className="footer-separator">•</span>
-        <a href="/refund-policy">Refund Policy</a>
+        <Link to="/refund-policy">Refund Policy</Link>
+        <span className="footer-separator">•</span>
+        <Link to="/about-us">About Us</Link>
         <span className="footer-separator">•</span>
         <a href="#" onClick={handleSupportClick}>
           Subscribe
